@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpqlnitmsn5u"]
+
+[ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_oik7h"]
+[ext_resource type="Texture2D" uid="uid://ds0qs6j0gcrjg" path="res://assets/Castle/castle_fire_light.png" id="2_csa8o"]
+[ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="3_5smn5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b45l"]
+size = Vector2(32, 12)
+
+[sub_resource type="Animation" id="Animation_45d54"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.25]
+}
+
+[sub_resource type="Animation" id="Animation_nj58q"]
+resource_name = "firelight"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.2, 1.3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygcho"]
+_data = {
+"RESET": SubResource("Animation_45d54"),
+"firelight": SubResource("Animation_nj58q")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_naxs1"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_cjvvh"]
+offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
+colors = PackedColorArray(0, 0.862745, 0, 0, 0.917647, 0.862745, 0, 1, 1, 0.0784314, 0.0235294, 1, 1, 0.0784314, 0.0235294, 0)
+
+[node name="Chimeny" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_5b45l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oik7h")
+offset = Vector2(0, -28.5)
+region_enabled = true
+region_rect = Rect2(144, 203, 32, 57)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.13687e-13, 1.13687e-13)
+scale = Vector2(1.6375, 1.6375)
+shadow_enabled = true
+texture = ExtResource("2_csa8o")
+texture_scale = 1.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ygcho")
+}
+autoplay = "firelight"
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_naxs1")
+position = Vector2(0, -14)
+amount = 5
+explosiveness = 0.12
+texture = ExtResource("3_5smn5")
+direction = Vector2(0, -1)
+spread = 33.61
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = -35.49
+angular_velocity_max = 35.49
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.06
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_cjvvh")

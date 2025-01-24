@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://t12ra1btsaan"]
+
+[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_jc2oy"]
+[ext_resource type="Texture2D" uid="uid://ceefxrpwtdv8k" path="res://assets/Dungeon/items and drops/emerald.png" id="2_epm7c"]
+
+[resource]
+script = ExtResource("1_jc2oy")
+name = "Emerald"
+sprite = ExtResource("2_epm7c")
+value = 200
+price = 0
+rarity = 2
+stackable = true
+amount = 0

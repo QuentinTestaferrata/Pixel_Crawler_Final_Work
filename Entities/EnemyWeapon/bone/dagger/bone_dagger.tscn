@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://kvc153begfaq"]
+
+[ext_resource type="Texture2D" uid="uid://cjqf1esb1gmx6" path="res://Entities/EnemyWeapon/bone/dagger/bone_dagger.png" id="1_n6vel"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_n6vel")
+offset = Vector2(0, -8.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(2, -5, -2, -5, -2, -22, 0, -21)

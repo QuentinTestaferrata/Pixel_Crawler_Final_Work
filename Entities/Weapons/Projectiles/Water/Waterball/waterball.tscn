@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://c16kgaufr7x48"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/Water/Waterball/waterball.gd" id="1_p3hwd"]
+[ext_resource type="Texture2D" uid="uid://gprwlcpb5lpt" path="res://assets/projectiles.png" id="1_sh0r1"]
+[ext_resource type="Resource" uid="uid://cpm6jn4cwti5u" path="res://Entities/Weapons/Projectiles/Water/Waterball/Waterball.tres" id="2_qua1c"]
+[ext_resource type="Texture2D" uid="uid://dqv3uhx17nvfo" path="res://assets/water_particles.png" id="4_ev13x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6yhm"]
+radius = 4.0
+
+[node name="Waterball" type="Area2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_p3hwd")
+projectile = ExtResource("2_qua1c")
+time_to_charge = 1.5
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+scale = Vector2(2.2, 2.2)
+shape = SubResource("CircleShape2D_p6yhm")
+
+[node name="Stage1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_sh0r1")
+region_enabled = true
+region_rect = Rect2(17, 0, 15, 16)
+
+[node name="Stage2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_sh0r1")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Stage3" type="Sprite2D" parent="."]
+texture = ExtResource("1_sh0r1")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Despawner" type="Timer" parent="."]
+
+[node name="ChargeAttack" type="Timer" parent="."]
+wait_time = 0.85
+
+[node name="WaterParticles" type="GPUParticles2D" parent="."]
+texture = ExtResource("4_ev13x")
+lifetime = 0.8
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Despawner" to="." method="_on_despawner_timeout"]
+[connection signal="timeout" from="ChargeAttack" to="." method="_on_charge_attack_timeout"]

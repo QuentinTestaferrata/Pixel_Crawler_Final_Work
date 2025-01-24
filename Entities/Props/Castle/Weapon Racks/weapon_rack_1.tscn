@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://do0dom6f7a16f"]
+
+[ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_g1cbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkb7q"]
+size = Vector2(46, 10)
+
+[node name="WeaponRack1" type="StaticBody2D"]
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g1cbg")
+offset = Vector2(0, -19.5)
+region_enabled = true
+region_rect = Rect2(368, 361, 48, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_fkb7q")

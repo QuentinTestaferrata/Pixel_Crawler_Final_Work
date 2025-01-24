@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://1tomi88mrb43"]
+
+[ext_resource type="Texture2D" uid="uid://bbxpxqw7aq7eu" path="res://UI/active_weapons/holder.png" id="1_bia6r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qoyyq"]
+
+[node name="ActiveWeaponHud" type="PanelContainer"]
+offset_left = 194.0
+offset_top = 231.0
+offset_right = 292.0
+offset_bottom = 261.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qoyyq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_bia6r")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_bia6r")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_bia6r")

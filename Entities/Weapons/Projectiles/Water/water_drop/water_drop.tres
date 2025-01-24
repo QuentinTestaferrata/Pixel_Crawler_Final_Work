@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=3 format=3 uid="uid://b1ldf51hd1wfp"]
+
+[ext_resource type="PackedScene" uid="uid://cb1y3xcb8matv" path="res://Entities/Weapons/Projectiles/Water/water_drop/water_drop.tscn" id="1_f3tpr"]
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_pn7pg"]
+
+[resource]
+script = ExtResource("1_pn7pg")
+scene = ExtResource("1_f3tpr")
+NAME = "Water Drop"
+TYPE = 0
+DAMAGE = 10
+MANA_COST = 0
+SPEED = 100
+FIRERATE = 1.0
+LIFETIME = 3.0
+KNOCKBACK_FORCE = 1.0
+CRIT_CHANCE = 5.0

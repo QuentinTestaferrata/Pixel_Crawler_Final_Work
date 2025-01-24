@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c86e6v634k7vi"]
+
+[ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="1_6ea2w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aflyj"]
+radius = 28.0
+
+[node name="BoneDrop" type="Area2D"]
+
+[node name="PickupArea" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aflyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6ea2w")

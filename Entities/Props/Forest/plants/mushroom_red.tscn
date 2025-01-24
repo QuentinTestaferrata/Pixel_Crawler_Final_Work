@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcvaqemdnjtmd"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_uxwvo"]
+
+[node name="MushroomRed" type="Sprite2D"]
+texture = ExtResource("1_uxwvo")
+offset = Vector2(0, -6)
+region_enabled = true
+region_rect = Rect2(19, 17, 11, 14)

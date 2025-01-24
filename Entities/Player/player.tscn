@@ -1,0 +1,289 @@
+[gd_scene load_steps=41 format=3 uid="uid://uqj3ijcufn81"]
+
+[ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_xgmka"]
+[ext_resource type="Script" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
+[ext_resource type="Texture2D" uid="uid://dibytxj0s4gdi" path="res://assets/1_Heroes/Wizzard/Player/Idle-Player.png" id="2_6luqa"]
+[ext_resource type="Texture2D" uid="uid://c1i7sp6oova7f" path="res://assets/1_Heroes/Wizzard/Player/Death-player.png" id="2_sw8de"]
+[ext_resource type="Texture2D" uid="uid://cw0p6tywwx5rv" path="res://assets/1_Heroes/Wizzard/Player/Run-player.png" id="3_gruvd"]
+[ext_resource type="PackedScene" uid="uid://ca80cecald6li" path="res://Entities/Weapons/0_Weapon Manager/weapon_manager.tscn" id="5_tsom6"]
+[ext_resource type="Script" path="res://Common/StateMachine/Player State/player_state_machine.gd" id="8_ef4o5"]
+[ext_resource type="Script" path="res://Entities/Player/text.gd" id="8_ncmvf"]
+[ext_resource type="PackedScene" uid="uid://cstl2k64c4g40" path="res://Common/StateMachine/Player State/State Nodes/Idle.tscn" id="9_5kk5u"]
+[ext_resource type="PackedScene" uid="uid://dnke8nei33p4k" path="res://Common/StateMachine/Player State/State Nodes/Die.tscn" id="10_85js6"]
+[ext_resource type="PackedScene" uid="uid://dwbmfxeomm7j3" path="res://Common/StateMachine/Player State/State Nodes/Dash.tscn" id="11_licbv"]
+[ext_resource type="Script" path="res://Common/StateMachine/Player State/State Nodes/State Scripts/die.gd" id="11_njwia"]
+[ext_resource type="PackedScene" uid="uid://cwuhhknf21qfo" path="res://Common/StateMachine/Player State/State Nodes/Interact.tscn" id="12_0374i"]
+[ext_resource type="PackedScene" uid="uid://invb5wqoqvhd" path="res://Common/StateMachine/Player State/State Nodes/Run.tscn" id="13_uairg"]
+[ext_resource type="Script" path="res://Entities/Player/player_health_component.gd" id="14_gnrcj"]
+[ext_resource type="Script" path="res://Entities/Player/player_hurtbox.gd" id="14_xq40c"]
+
+[sub_resource type="Shader" id="Shader_oyr31"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+void vertex() {
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	VERTEX.xy /= vec2(h_frames, v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}
+	vec2 scale_uv = UV / vec2(h_frames, v_frames);
+	UV = scale_uv + vec2(
+		mod(particle_frame, h_frames) / h_frames,
+		floor((particle_frame + 0.5) / h_frames) / v_frames
+		);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m2ckg"]
+shader = SubResource("Shader_oyr31")
+shader_parameter/particles_anim_h_frames = 6
+shader_parameter/particles_anim_v_frames = 1
+shader_parameter/particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_pusqi"]
+_data = [Vector2(0, 0.236712), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_swys3"]
+curve = SubResource("Curve_pusqi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ickx1"]
+emission_shape_offset = Vector3(-1, -17.5, 0)
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_swys3")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tossq"]
+atlas = ExtResource("2_sw8de")
+region = Rect2(0, 0, 64, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo7sn"]
+atlas = ExtResource("2_sw8de")
+region = Rect2(64, 0, 64, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhpir"]
+atlas = ExtResource("2_sw8de")
+region = Rect2(128, 0, 64, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ngbo"]
+atlas = ExtResource("2_sw8de")
+region = Rect2(192, 0, 64, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1cc8"]
+atlas = ExtResource("2_sw8de")
+region = Rect2(256, 0, 64, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhed8"]
+atlas = ExtResource("2_sw8de")
+region = Rect2(320, 0, 64, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfhc8"]
+atlas = ExtResource("2_6luqa")
+region = Rect2(0, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3im0"]
+atlas = ExtResource("2_6luqa")
+region = Rect2(32, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj3gv"]
+atlas = ExtResource("2_6luqa")
+region = Rect2(64, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duor1"]
+atlas = ExtResource("2_6luqa")
+region = Rect2(96, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ei7m"]
+atlas = ExtResource("3_gruvd")
+region = Rect2(0, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ltoh"]
+atlas = ExtResource("3_gruvd")
+region = Rect2(32, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q26qd"]
+atlas = ExtResource("3_gruvd")
+region = Rect2(64, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ika"]
+atlas = ExtResource("3_gruvd")
+region = Rect2(96, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ke5i"]
+atlas = ExtResource("3_gruvd")
+region = Rect2(128, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twsne"]
+atlas = ExtResource("3_gruvd")
+region = Rect2(160, 0, 32, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yb326"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tossq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo7sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhpir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ngbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1cc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhed8")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfhc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3im0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj3gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duor1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ei7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ltoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q26qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8ika")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ke5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twsne")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ex530"]
+radius = 3.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87sq1"]
+radius = 6.0
+height = 22.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 792
+collision_mask = 549
+script = ExtResource("1_xgmka")
+
+[node name="PlayerDash" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_m2ckg")
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_ickx1")
+texture = ExtResource("3_gruvd")
+lifetime = 0.5
+
+[node name="Camera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 7.0
+script = ExtResource("2_3hfeh")
+
+[node name="Timer" type="Timer" parent="Camera"]
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yb326")
+animation = &"die"
+autoplay = "idle"
+centered = false
+offset = Vector2(-18, -35)
+
+[node name="PlayerMovementHitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ex530")
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="WeaponManager" parent="." instance=ExtResource("5_tsom6")]
+position = Vector2(0, -11)
+
+[node name="HitFlash" type="AnimationPlayer" parent="."]
+
+[node name="TextPosition" type="Node2D" parent="."]
+position = Vector2(0, -41)
+script = ExtResource("8_ncmvf")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("14_gnrcj")
+hittable = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "player")]
+script = ExtResource("8_ef4o5")
+initial_state = NodePath("Idle")
+player = NodePath("..")
+
+[node name="Die" parent="StateMachine" instance=ExtResource("10_85js6")]
+script = ExtResource("11_njwia")
+
+[node name="Idle" parent="StateMachine" node_paths=PackedStringArray("sprite", "player") instance=ExtResource("9_5kk5u")]
+sprite = NodePath("../../CharacterSprite")
+player = NodePath("../..")
+
+[node name="Dash" parent="StateMachine" instance=ExtResource("11_licbv")]
+
+[node name="Interacting" parent="StateMachine" instance=ExtResource("12_0374i")]
+
+[node name="Run" parent="StateMachine" node_paths=PackedStringArray("sprite", "player") instance=ExtResource("13_uairg")]
+sprite = NodePath("../../CharacterSprite")
+player = NodePath("../..")
+
+[node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("player_health")]
+collision_layer = 16
+collision_mask = 32
+script = ExtResource("14_xq40c")
+player_health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_87sq1")
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="StateMachine/Dash" method="_on_dash_timer_timeout"]
+[connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]

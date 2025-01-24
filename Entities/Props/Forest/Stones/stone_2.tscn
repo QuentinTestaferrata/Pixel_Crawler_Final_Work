@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpdt263bjyoca"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_c6xis"]
+
+[node name="Stone" type="Sprite2D"]
+texture = ExtResource("1_c6xis")
+offset = Vector2(0, 5.5)
+region_enabled = true
+region_rect = Rect2(49, 19, 14, 11)

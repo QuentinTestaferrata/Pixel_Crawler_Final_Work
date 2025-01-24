@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://jk52j850f4o0"]
+
+[ext_resource type="Texture2D" uid="uid://8lcqhx3vl6t7" path="res://assets/Forest/Tiles/Trees.png" id="1_ilqkl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26qpg"]
+radius = 12.0
+height = 38.0
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ilqkl")
+offset = Vector2(0, -56)
+region_enabled = true
+region_rect = Rect2(126, -1, 108, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_26qpg")

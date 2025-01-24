@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://bic1dcfq7xcy5"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Staffs/wooden_staff/wooden_staff.gd" id="1_g5585"]
+[ext_resource type="Resource" uid="uid://cignphwpm38gj" path="res://Entities/Weapons/Staffs/wooden_staff/wooden_staff.tres" id="2_jkcnu"]
+[ext_resource type="Resource" uid="uid://bgkgrrankh823" path="res://Entities/Weapons/Projectiles/Water/droplet/droplet.tres" id="3_r3ffb"]
+[ext_resource type="Resource" uid="uid://cpm6jn4cwti5u" path="res://Entities/Weapons/Projectiles/Water/Waterball/Waterball.tres" id="4_vdjra"]
+[ext_resource type="Texture2D" uid="uid://dewb2h0v4y7kb" path="res://assets/Forest/Weapons_Wood.png" id="5_5y43k"]
+[ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="6_c5ij1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5dhjq"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_lk81u"]
+offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0.317647, 0.643137, 0.501961, 0.156863, 0.776471, 0.941176, 0.552941, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_mb1j4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hsuvv"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 0.574349),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(0, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6561"]
+_data = {
+"RESET": SubResource("Animation_mb1j4"),
+"idle": SubResource("Animation_hsuvv")
+}
+
+[node name="WoodenStaff" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_g5585")
+stats = ExtResource("2_jkcnu")
+primary_attack = ExtResource("3_r3ffb")
+firerate_primary = 0.25
+secondary_attack = ExtResource("4_vdjra")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("5_5y43k")
+offset = Vector2(10, 0)
+region_enabled = true
+region_rect = Rect2(81, 3, 29, 10)
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
+material = SubResource("CanvasItemMaterial_5dhjq")
+position = Vector2(23, 0.999966)
+rotation = 1.5708
+amount = 3
+lifetime = 5.0
+local_coords = true
+texture = ExtResource("6_c5ij1")
+direction = Vector2(0, -1)
+spread = 33.61
+gravity = Vector2(0, 0)
+angular_velocity_min = -15.0
+angular_velocity_max = 15.0
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.06
+scale_amount_max = 0.08
+color_ramp = SubResource("Gradient_lk81u")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -22)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f6561")
+}
+
+[node name="Primary_Firerate" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Secondary_Firerate" type="Timer" parent="."]
+
+[connection signal="timeout" from="Primary_Firerate" to="." method="_on_primary_firerate_timeout"]
+[connection signal="timeout" from="Secondary_Firerate" to="." method="_on_secondary_firerate_timeout"]

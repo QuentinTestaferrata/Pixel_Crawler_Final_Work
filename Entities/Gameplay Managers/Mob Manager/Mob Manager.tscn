@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq3vhr8h3fr2e"]
+
+[ext_resource type="Script" path="res://Entities/Gameplay Managers/Mob Manager/mob_manager.gd" id="1_r7fby"]
+
+[node name="MobManager" type="Node"]
+script = ExtResource("1_r7fby")

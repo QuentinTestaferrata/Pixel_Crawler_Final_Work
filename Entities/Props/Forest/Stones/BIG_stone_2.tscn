@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ufen8l2u6tu4"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_i20or"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hucwb"]
+height = 26.0
+
+[node name="Stone" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i20or")
+offset = Vector2(0, -22)
+region_enabled = true
+region_rect = Rect2(82, 34, 28, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hucwb")

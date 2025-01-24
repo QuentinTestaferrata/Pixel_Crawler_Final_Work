@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://bgkgrrankh823"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_a45vx"]
+
+[resource]
+script = ExtResource("1_a45vx")
+NAME = "Droplet"
+TYPE = 0
+DAMAGE = 1060
+MANA_COST = 5
+SPEED = 250
+FIRERATE = 0.05
+LIFETIME = 3.0
+KNOCKBACK_FORCE = 0.5
+CRIT_CHANCE = 15.0

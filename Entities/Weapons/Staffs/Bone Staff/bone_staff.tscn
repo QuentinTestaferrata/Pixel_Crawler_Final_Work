@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://dum6xe8iwt7ls"]
+
+[ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png" id="1_43tmv"]
+[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.gd" id="1_y05u8"]
+[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/bone_shard.tres" id="2_da7tf"]
+[ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_naveh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6hl43"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_be7yc"]
+offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
+colors = PackedColorArray(1, 1, 1, 0, 6.37732e-07, 0.393071, 0.246579, 0.501961, 0.431073, 0.810743, 0.326029, 0.552941, 1, 1, 1, 0)
+
+[node name="BoneStaff" type="Node2D"]
+script = ExtResource("1_y05u8")
+primary_attack = ExtResource("2_da7tf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("1_43tmv")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -23)
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_6hl43")
+position = Vector2(0, -23)
+rotation = 1.5708
+amount = 3
+lifetime = 5.0
+local_coords = true
+texture = ExtResource("2_naveh")
+direction = Vector2(0, -1)
+spread = 33.61
+gravity = Vector2(0, 0)
+angular_velocity_min = -15.0
+angular_velocity_max = 15.0
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.06
+scale_amount_max = 0.08
+color_ramp = SubResource("Gradient_be7yc")
+
+[node name="PrimaryAttackTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="PrimaryAttackTimer" to="." method="_on_primary_attack_timer_timeout"]

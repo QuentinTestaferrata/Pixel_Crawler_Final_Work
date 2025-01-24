@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dimmrcp83j1wa"]
+
+[node name="Enemies" type="Node2D"]
+y_sort_enabled = true

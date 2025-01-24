@@ -1,0 +1,111 @@
+[gd_scene load_steps=29 format=3 uid="uid://bhg7b37erk1wy"]
+
+[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_nkq2n"]
+[ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="1_xe4x4"]
+[ext_resource type="PackedScene" uid="uid://dbssskf1fgkqt" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthBar.tscn" id="2_0pn8r"]
+[ext_resource type="PackedScene" uid="uid://cicvwla72mg1e" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthComponent.tscn" id="3_3rpi4"]
+[ext_resource type="PackedScene" uid="uid://c46kqb4qaj0eo" path="res://Entities/Enemy_Create_Scenes/Scenes/enemy_sprite.tscn" id="4_13gjm"]
+[ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="5_qxysp"]
+[ext_resource type="Texture2D" uid="uid://3ihfl11fqqfk" path="res://assets/Dungeon/Enemies (Skeleton)/Skeleton - Base/base_skeleton_spritesheet.png" id="6_pcd22"]
+[ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="6_xn5uj"]
+[ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="7_i48xy"]
+[ext_resource type="Texture2D" uid="uid://cv0g5gutxysni" path="res://assets/Dungeon/Hands/left.png" id="7_mmj6o"]
+[ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="8_5eews"]
+[ext_resource type="Texture2D" uid="uid://dwvq463nyduol" path="res://assets/Dungeon/Hands/left_empty.png" id="8_hsgdq"]
+[ext_resource type="Texture2D" uid="uid://dkop8kpdb0yeh" path="res://assets/Dungeon/Hands/right_closed.png" id="9_a0slr"]
+[ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="9_nuax5"]
+[ext_resource type="PackedScene" uid="uid://uphodkpv8ase" path="res://Entities/EnemyWeapon/bone/sword/bone_sword.tscn" id="10_bqqdd"]
+[ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="10_bwek2"]
+[ext_resource type="Texture2D" uid="uid://cfvkq2yjcxsas" path="res://assets/Dungeon/Hands/right_empty.png" id="10_qqbca"]
+[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_4ttr6"]
+[ext_resource type="Texture2D" uid="uid://bffvrjjv7pjmh" path="res://Entities/EnemyWeapon/bone/sword/bone_sword.png" id="12_62ffq"]
+[ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="13_nvcni"]
+[ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="14_dkbe6"]
+[ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="19_tee5k"]
+[ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="20_e4lsd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
+radius = 2.0
+height = 16.0
+
+[sub_resource type="Resource" id="Resource_ahqcv"]
+script = ExtResource("11_4ttr6")
+weapon_name = "Bone Sword"
+scene = ExtResource("10_bqqdd")
+sprite = ExtResource("12_62ffq")
+weapon_type = 3
+damage = 5
+knockback_force = 2.0
+defense = 0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syp77"]
+radius = 9.0
+
+[sub_resource type="Resource" id="Resource_o863s"]
+script = ExtResource("13_nvcni")
+item = ExtResource("14_dkbe6")
+probability = 100.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fj3jx"]
+radius = 73.0069
+
+[node name="SkeletonBase" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_nkq2n")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5goyu")
+
+[node name="EXPComponent" parent="." instance=ExtResource("1_xe4x4")]
+exp_amount = 2
+
+[node name="HealthBar" parent="." instance=ExtResource("2_0pn8r")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_3rpi4")]
+max_health = 100
+
+[node name="Sprite" parent="." instance=ExtResource("4_13gjm")]
+left_hand = ExtResource("7_mmj6o")
+left_hand_empty = ExtResource("8_hsgdq")
+right_hand = ExtResource("9_a0slr")
+right_hand_empty = ExtResource("10_qqbca")
+left_hand_weapon = SubResource("Resource_ahqcv")
+body = ExtResource("6_pcd22")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_qxysp")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_syp77")
+
+[node name="LootDrops" parent="." instance=ExtResource("6_xn5uj")]
+drops = Array[ExtResource("13_nvcni")]([SubResource("Resource_o863s")])
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("7_i48xy")]
+initial_state = NodePath("Chase")
+enemy = NodePath("..")
+loot = NodePath("../LootDrops")
+body = NodePath("../Sprite")
+attack_range = NodePath("../AttackRange")
+
+[node name="Chase" parent="StateMachine" instance=ExtResource("8_5eews")]
+
+[node name="Die" parent="StateMachine" instance=ExtResource("9_nuax5")]
+
+[node name="Surround" parent="StateMachine" instance=ExtResource("10_bwek2")]
+
+[node name="Attack" parent="StateMachine" instance=ExtResource("20_e4lsd")]
+
+[node name="DamageNumberPosition" parent="." instance=ExtResource("19_tee5k")]
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_fj3jx")

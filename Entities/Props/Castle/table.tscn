@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://l1mwefglwwfx"]
+
+[ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_qk2mo"]
+[ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="2_lmgd6"]
+[ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="3_4cbxm"]
+[ext_resource type="Texture2D" uid="uid://6itgn8nhwsnf" path="res://assets/Sewer/Tiles/Props.png" id="4_t2sem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krnis"]
+size = Vector2(46, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_naj0r"]
+size = Vector2(76, 57.5)
+
+[node name="PotionTable" type="StaticBody2D"]
+metadata/_edit_vertical_guides_ = [-72.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_krnis")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qk2mo")
+offset = Vector2(0, -18)
+region_enabled = true
+region_rect = Rect2(368, 12, 48, 36)
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_lmgd6")]
+action_name = "Potion Shop"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(0, -17.75)
+shape = SubResource("RectangleShape2D_naj0r")
+
+[node name="Potions" type="Node2D" parent="."]
+
+[node name="RedPotionSmall" type="Sprite2D" parent="Potions"]
+position = Vector2(-16, -25)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_4cbxm")
+region_enabled = true
+region_rect = Rect2(19, 229, 10, 11)
+
+[node name="RedPotionSmall2" type="Sprite2D" parent="Potions"]
+position = Vector2(2, -32)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_4cbxm")
+region_enabled = true
+region_rect = Rect2(51, 228, 10, 12)
+
+[node name="PotionBig" type="Sprite2D" parent="Potions"]
+position = Vector2(-6, -27)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_4cbxm")
+region_enabled = true
+region_rect = Rect2(18, 241, 12, 15)
+
+[node name="PotionBig2" type="Sprite2D" parent="Potions"]
+position = Vector2(17, -32)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_t2sem")
+region_enabled = true
+region_rect = Rect2(116, 181, 7, 11)
+
+[node name="PotionBig3" type="Sprite2D" parent="Potions"]
+position = Vector2(14, -31)
+scale = Vector2(0.567, 0.567)
+texture = ExtResource("4_t2sem")
+region_enabled = true
+region_rect = Rect2(116, 181, 7, 11)
+
+[node name="PotionBig4" type="Sprite2D" parent="Potions"]
+position = Vector2(10, -22)
+scale = Vector2(0.645, 0.645)
+texture = ExtResource("3_4cbxm")
+region_enabled = true
+region_rect = Rect2(2, 257, 28, 15)

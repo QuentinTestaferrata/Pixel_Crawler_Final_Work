@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://cpm6jn4cwti5u"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_brkdu"]
+
+[resource]
+script = ExtResource("1_brkdu")
+NAME = "Waterball"
+TYPE = 0
+DAMAGE = 25
+MANA_COST = 0
+SPEED = 400
+FIRERATE = 2.0
+LIFETIME = 5.0
+KNOCKBACK_FORCE = 2.0
+CRIT_CHANCE = 3.974

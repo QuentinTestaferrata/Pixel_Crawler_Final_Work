@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://uphodkpv8ase"]
+
+[ext_resource type="Texture2D" uid="uid://bffvrjjv7pjmh" path="res://Entities/EnemyWeapon/bone/sword/bone_sword.png" id="1_p531h"]
+[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_sqgnr"]
+[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_data.gd" id="3_8r62g"]
+
+[sub_resource type="Resource" id="Resource_pjf6y"]
+script = ExtResource("3_8r62g")
+damage = 6
+knockback_force = 2.0
+defense = 0
+
+[node name="Sword" type="Sprite2D"]
+texture = ExtResource("1_p531h")
+offset = Vector2(0, -16.5)
+script = ExtResource("2_sqgnr")
+weapon_data = SubResource("Resource_pjf6y")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(2, -9, -2, -9, -2, -33, -4, -39, 0, -37, 2, -34, 3, -31)
+
+[node name="DamageCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

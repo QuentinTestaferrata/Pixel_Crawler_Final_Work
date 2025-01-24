@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://oqgg573xps4e"]
+
+[ext_resource type="Texture2D" uid="uid://dewb2h0v4y7kb" path="res://assets/Forest/Weapons_Wood.png" id="1_0k3if"]
+[ext_resource type="Script" path="res://Entities/Weapons/Shields/wooden_shield/wooden_shield.gd" id="1_80kwl"]
+[ext_resource type="Resource" uid="uid://bgb2hhsjltha4" path="res://Entities/Weapons/Shields/wooden_shield/wooden_shield.tres" id="2_ig847"]
+
+[node name="Shield" type="Node2D"]
+script = ExtResource("1_80kwl")
+stats = ExtResource("2_ig847")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(43, 0)
+rotation = -1.57079
+texture = ExtResource("1_0k3if")
+offset = Vector2(0, -8)
+region_enabled = true
+region_rect = Rect2(145, 0, 14, 16)

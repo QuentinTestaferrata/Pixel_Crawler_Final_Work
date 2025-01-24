@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwbmfxeomm7j3"]
+
+[ext_resource type="Script" path="res://Common/StateMachine/Player State/State Nodes/State Scripts/Dash.gd" id="1_j65g5"]
+
+[node name="Dash" type="Node"]
+script = ExtResource("1_j65g5")

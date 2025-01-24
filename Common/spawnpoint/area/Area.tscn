@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dmu7q10xuxm76"]
+
+[node name="Area" type="Area2D"]
+collision_layer = 0
+collision_mask = 8

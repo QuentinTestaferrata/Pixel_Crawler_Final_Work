@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cllgrrvw6gtc5"]
+
+[ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_2xpee"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16smj"]
+radius = 4.0
+
+[node name="Plant" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2xpee")
+offset = Vector2(0, -22)
+region_enabled = true
+region_rect = Rect2(288, 225, 15, 47)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_16smj")

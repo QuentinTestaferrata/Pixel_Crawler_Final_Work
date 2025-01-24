@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://d2jxmcmvcc3qr"]
+
+[ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_l570o"]
+[ext_resource type="Texture2D" uid="uid://ds0qs6j0gcrjg" path="res://assets/Castle/castle_fire_light.png" id="2_t1llx"]
+[ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="3_7c4al"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg3rq"]
+atlas = ExtResource("1_l570o")
+region = Rect2(352, 168, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txivn"]
+atlas = ExtResource("1_l570o")
+region = Rect2(368, 168, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5otgf"]
+atlas = ExtResource("1_l570o")
+region = Rect2(384, 168, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lntf7"]
+atlas = ExtResource("1_l570o")
+region = Rect2(336, 168, 16, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ut3tl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg3rq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txivn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5otgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lntf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5otgf")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_txivn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a4c7h"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_6resb"]
+offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
+colors = PackedColorArray(0, 0.862745, 0, 0, 0.917647, 0.862745, 0, 1, 1, 0.0784314, 0.0235294, 1, 1, 0.0784314, 0.0235294, 0)
+
+[sub_resource type="Animation" id="Animation_k0sxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ml184"]
+resource_name = "fire_breathe"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sohmj"]
+_data = {
+"RESET": SubResource("Animation_k0sxw"),
+"fire_breathe": SubResource("Animation_ml184")
+}
+
+[node name="Candle" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ut3tl")
+autoplay = "default"
+frame_progress = 0.639126
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(4.76837e-07, -2)
+scale = Vector2(1.075, 1.075)
+shadow_enabled = true
+texture = ExtResource("2_t1llx")
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_a4c7h")
+position = Vector2(0, -2)
+amount = 4
+explosiveness = 0.12
+texture = ExtResource("3_7c4al")
+direction = Vector2(0, -1)
+spread = 10.78
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = -35.49
+angular_velocity_max = 35.49
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.01
+scale_amount_max = 0.03
+color_ramp = SubResource("Gradient_6resb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sohmj")
+}
+autoplay = "fire_breathe"

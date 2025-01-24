@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blb14wox51sf2"]
+
+[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/surround.gd" id="1_2lbx1"]
+
+[node name="Surround" type="Node"]
+script = ExtResource("1_2lbx1")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu11gda21tff3"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_173d0"]
+
+[node name="NormalPlant" type="Sprite2D"]
+texture = ExtResource("1_173d0")
+offset = Vector2(0, -4)
+region_enabled = true
+region_rect = Rect2(32, 32, 16, 16)

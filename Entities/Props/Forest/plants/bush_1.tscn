@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdq3mg7fl78mc"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_3db4p"]
+
+[node name="Bush" type="Sprite2D"]
+texture = ExtResource("1_3db4p")
+offset = Vector2(0, -18)
+region_enabled = true
+region_rect = Rect2(3, 100, 43, 44)

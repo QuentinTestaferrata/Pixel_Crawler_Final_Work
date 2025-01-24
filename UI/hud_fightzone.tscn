@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csjvivgfv7e36"]
+
+[ext_resource type="PackedScene" uid="uid://bsb08q5g8qvgh" path="res://UI/FightzoneStatbar/fightzone_stat_bar.tscn" id="1_fkb7p"]
+[ext_resource type="Script" path="res://UI/hud_fightzone.gd" id="1_w42ea"]
+[ext_resource type="PackedScene" uid="uid://dbj263dpvv2v5" path="res://UI/player_live_stats/fightzone_playerstat_component.tscn" id="2_lqtg7"]
+
+[node name="HUD_Fightzone" type="CanvasLayer"]
+script = ExtResource("1_w42ea")
+
+[node name="FightzoneStatBar" parent="." instance=ExtResource("1_fkb7p")]
+offset_left = -238.0
+offset_top = 37.0
+offset_right = -238.0
+offset_bottom = 37.0
+
+[node name="PlayerStatUi" parent="." instance=ExtResource("2_lqtg7")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 128.0
+offset_bottom = 37.0

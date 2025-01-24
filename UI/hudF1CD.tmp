@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpr0j8g5xg1bp"]
+
+[ext_resource type="Script" path="res://UI/hud.gd" id="1_vppwa"]
+[ext_resource type="PackedScene" uid="uid://54psad5u02t5" path="res://UI/player_live_stats/playerstat_component.tscn" id="2_e6b8x"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_vppwa")
+
+[node name="PlayerStatUi" parent="." instance=ExtResource("2_e6b8x")]

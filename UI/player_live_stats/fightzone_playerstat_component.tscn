@@ -1,0 +1,122 @@
+[gd_scene load_steps=14 format=3 uid="uid://dbj263dpvv2v5"]
+
+[ext_resource type="Texture2D" uid="uid://csb2bgqcc0t15" path="res://UI/player_live_stats/fightzone_playerstats.png" id="1_3jo5h"]
+[ext_resource type="Script" path="res://UI/player_live_stats/player_live_stats.gd" id="2_3qfx0"]
+[ext_resource type="Texture2D" uid="uid://dscb73e1t1u3x" path="res://UI/heart.png" id="3_ukuk5"]
+[ext_resource type="Texture2D" uid="uid://cxeofbdbiwqfg" path="res://UI/bars/bar.png" id="4_ucjmj"]
+[ext_resource type="Texture2D" uid="uid://kpoudyy7sf60" path="res://UI/bars/health/health.png" id="5_hb3mf"]
+[ext_resource type="Script" path="res://UI/bars/health/health_bar.gd" id="6_loaoj"]
+[ext_resource type="Texture2D" uid="uid://biv8eohhpwdmj" path="res://UI/exp_star.png" id="7_ajuis"]
+[ext_resource type="Texture2D" uid="uid://cppdurcv1yth7" path="res://UI/bars/exp/exp.png" id="8_1frxj"]
+[ext_resource type="Script" path="res://UI/bars/exp/exp_bar.gd" id="9_wyhot"]
+[ext_resource type="Texture2D" uid="uid://crhsl2spr7x8i" path="res://UI/coin.png" id="10_tms3q"]
+[ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="11_km85x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6hci"]
+texture = ExtResource("1_3jo5h")
+
+[sub_resource type="Theme" id="Theme_i2c8e"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_q6hci")
+
+[node name="PlayerStatUi" type="PanelContainer"]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 134.0
+offset_bottom = 42.0
+theme = SubResource("Theme_i2c8e")
+script = ExtResource("2_3qfx0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Health" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HP_Image" type="TextureRect" parent="MarginContainer/VBoxContainer/Health"]
+layout_mode = 2
+texture = ExtResource("3_ukuk5")
+stretch_mode = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/Health"]
+layout_mode = 2
+texture_under = ExtResource("4_ucjmj")
+texture_progress = ExtResource("5_hb3mf")
+script = ExtResource("6_loaoj")
+
+[node name="EXP" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EXP_Image" type="TextureRect" parent="MarginContainer/VBoxContainer/EXP"]
+layout_mode = 2
+texture = ExtResource("7_ajuis")
+stretch_mode = 2
+
+[node name="EXPBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/EXP"]
+layout_mode = 2
+texture_under = ExtResource("4_ucjmj")
+texture_progress = ExtResource("8_1frxj")
+script = ExtResource("9_wyhot")
+
+[node name="Gold" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Coin_image" type="TextureRect" parent="MarginContainer/VBoxContainer/Gold"]
+layout_mode = 2
+texture = ExtResource("10_tms3q")
+stretch_mode = 2
+
+[node name="Textlabels" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 71
+theme_override_constants/margin_top = -6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Textlabels"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/Textlabels/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+theme_override_fonts/font = ExtResource("11_km85x")
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+
+[node name="ExpLabel" type="Label" parent="MarginContainer/Textlabels/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+theme_override_fonts/font = ExtResource("11_km85x")
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="CoinsLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+theme_override_fonts/font = ExtResource("11_km85x")
+theme_override_font_sizes/font_size = 10
+text = "999k"
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+theme_override_fonts/font = ExtResource("11_km85x")
+theme_override_font_sizes/font_size = 10
+text = "LVL: X"

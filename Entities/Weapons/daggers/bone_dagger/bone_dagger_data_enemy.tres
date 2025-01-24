@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WEAPON" load_steps=4 format=3 uid="uid://d33u51p6crn6f"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_pdcj2"]
+[ext_resource type="PackedScene" uid="uid://bbocenh3w0cn6" path="res://Entities/Weapons/daggers/bone_dagger/enemy_bone_dagger.tscn" id="1_s42mv"]
+[ext_resource type="Texture2D" uid="uid://vg81sgikhc31" path="res://Entities/Weapons/daggers/bone_dagger/bone_dagger_sprite.png" id="3_ovjes"]
+
+[resource]
+script = ExtResource("1_pdcj2")
+weapon_name = "Bone Dagger"
+scene = ExtResource("1_s42mv")
+sprite = ExtResource("3_ovjes")
+weapon_type = 4
+weapon_rarity = 0
+damage = 5
+knockback_force = 1.5
+defense = 0
+hover_text = "This is a bone dagger"
+two_handed = false

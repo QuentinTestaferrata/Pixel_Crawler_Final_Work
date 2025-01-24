@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://r51oth4d2mur"]
+
+[ext_resource type="Script" path="res://Entities/Chests/chest.gd" id="1_lsrdm"]
+[ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="2_466ti"]
+[ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_2ktnx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jf8c"]
+size = Vector2(26, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6hai"]
+radius = 43.0
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_lsrdm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_6jf8c")
+
+[node name="SpriteOpened" type="Sprite2D" parent="."]
+texture = ExtResource("2_466ti")
+offset = Vector2(0, -10)
+region_enabled = true
+region_rect = Rect2(161, 236, 30, 20)
+
+[node name="SpriteClosed" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_466ti")
+offset = Vector2(0, -13.5)
+region_enabled = true
+region_rect = Rect2(193, 229, 30, 27)
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_2ktnx")]
+collision_layer = 512
+collision_mask = 514
+action_name = "Open Chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_a6hai")

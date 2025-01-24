@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctm80amydog8u"]
+
+[ext_resource type="Texture2D" uid="uid://du5cuyfc7egyr" path="res://Entities/EnemyWeapon/bone/staff/bone_staff.png" id="1_fl1s1"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_fl1s1")
+offset = Vector2(0, -4)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -17)

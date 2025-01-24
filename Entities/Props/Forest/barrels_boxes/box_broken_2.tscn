@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b64wnm3qkxqup"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_geb3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cncoq"]
+size = Vector2(16, 12)
+
+[node name="Box" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_geb3v")
+offset = Vector2(0, -7)
+region_enabled = true
+region_rect = Rect2(112, 66, 16, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_cncoq")

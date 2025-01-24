@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbegsa4xcf5ea"]
+
+[ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_fp0l3"]
+[ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="2_rk3ko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkb7q"]
+size = Vector2(46, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42vtj"]
+size = Vector2(74, 35)
+
+[node name="WeaponRack3" type="StaticBody2D"]
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fp0l3")
+offset = Vector2(0, -30)
+region_enabled = true
+region_rect = Rect2(272, 340, 48, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_fkb7q")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_rk3ko")]
+collision_layer = 512
+collision_mask = 514
+action_name = "Weapon Shop"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_42vtj")

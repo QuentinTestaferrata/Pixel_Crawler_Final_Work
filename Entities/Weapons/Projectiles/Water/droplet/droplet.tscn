@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://uooffwgf82mu"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/Water/droplet/droplet.gd" id="1_bks0x"]
+[ext_resource type="Resource" uid="uid://bgkgrrankh823" path="res://Entities/Weapons/Projectiles/Water/droplet/droplet.tres" id="2_ivcva"]
+[ext_resource type="Texture2D" uid="uid://gprwlcpb5lpt" path="res://assets/projectiles.png" id="3_esb14"]
+[ext_resource type="PackedScene" uid="uid://jnug7nlypilv" path="res://Entities/Knockback/knockback_component.tscn" id="4_8yj6p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ayq3"]
+radius = 3.0
+
+[node name="Droplet" type="Area2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_bks0x")
+projectile = ExtResource("2_ivcva")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_esb14")
+region_enabled = true
+region_rect = Rect2(6, 6, 5, 5)
+
+[node name="Despawner" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3ayq3")
+
+[node name="KnockbackComponent" parent="." instance=ExtResource("4_8yj6p")]
+force = 10.0
+friction = 10.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Despawner" to="." method="_on_despawner_timeout"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcvkwlt2mybxf"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_v26j6"]
+
+[node name="WhiteFlowers" type="Sprite2D"]
+texture = ExtResource("1_v26j6")
+offset = Vector2(0, 20.5)
+region_enabled = true
+region_rect = Rect2(148, 50, 41, 41)

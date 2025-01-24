@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1rlv18tmqdcw"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_e6kcf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqo4o"]
+radius = 7.0
+height = 16.0
+
+[node name="Barrel" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e6kcf")
+offset = Vector2(0, -11.5)
+region_enabled = true
+region_rect = Rect2(128, 10, 16, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_aqo4o")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjmvks2hfe6mt"]
+
+[ext_resource type="Texture2D" uid="uid://dyxys87pi7x3x" path="res://assets/Forest/Tiles/Props.png" id="1_hubgq"]
+
+[node name="OrangeFlowers" type="Sprite2D"]
+texture = ExtResource("1_hubgq")
+offset = Vector2(0, 21.5)
+region_enabled = true
+region_rect = Rect2(147, 1, 43, 43)
