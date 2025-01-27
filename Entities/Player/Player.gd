@@ -13,12 +13,14 @@ var inventory_open: bool = false
 @onready var camera: Camera2D = $Camera
 @onready var player_dash: GPUParticles2D = $PlayerDash
 @onready var text_position: Node2D = $TextPosition
+@onready var saver_loader: Node = $"../SaverLoader"
 
 func on_item_picked_up(item: Item) -> void:
 	inventory.add_item(item)
 
 func _ready() -> void:
 	player_dash.emitting = false
+	saver_loader.load_game()
 
 func _input(event: InputEvent) -> void:
 	var _inventory: Control

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://qbrbdv7v08pg"]
+[gd_scene load_steps=20 format=4 uid="uid://qbrbdv7v08pg"]
 
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="1_57tk4"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_cgcdv"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="14_8f0tf"]
 [ext_resource type="PackedScene" uid="uid://bpr0j8g5xg1bp" path="res://UI/HUD_restzone.tscn" id="15_iyl6u"]
 [ext_resource type="PackedScene" uid="uid://c0v3mfcb7httg" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.tscn" id="16_15evs"]
+[ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://saver_loader.tscn" id="17_ll0mv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erg28"]
 texture = ExtResource("1_cgcdv")
@@ -883,3 +884,7 @@ position = Vector2(-16, 309)
 
 [node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
 position = Vector2(-176, 147)
+
+[node name="SaverLoader" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_ll0mv")]
+unique_name_in_owner = true
+player = NodePath("../Player")

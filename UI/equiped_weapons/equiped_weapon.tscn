@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dgn4i52730b5b"]
+
+[node name="EquipedWeapon" type="PanelContainer"]

@@ -28,4 +28,5 @@ func _on_next_wave_button_pressed() -> void:
 	
 
 func _on_back_to_lobby_button_pressed() -> void:
+	HUD.saver_loader.save_game()
 	get_tree().change_scene_to_file("res://Entities/Zones/castle.tscn")

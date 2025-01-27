@@ -38,7 +38,7 @@ func _ready() -> void:
 
 func change_state(source_state: EnemyState, new_state_name: String):
 	if source_state != current_state:
-		print("cannot change_state from: ", source_state.name, " but curr in: ", current_state.name)
+		#print("cannot change_state from: ", source_state.name, " but curr in: ", current_state.name)
 		return
 	
 	#check in dictionary if the state exists

@@ -8,6 +8,8 @@ extends CanvasLayer
 signal kill
 signal wave_cleared
 
+@export var saver_loader: Node
+
 func _ready() -> void:
 	wave_manager.connect("enemy_killed", enemy_killed)
 	wave_manager.connect("wave_cleared", wave_ended)
