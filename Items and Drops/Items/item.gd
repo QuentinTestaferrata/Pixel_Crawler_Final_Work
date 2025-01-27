@@ -8,6 +8,7 @@ enum rarity_values {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 @export var scene: PackedScene
 @export var sprite: Texture
 
+@export var description: String
 @export var value: int
 @export var price: int
 

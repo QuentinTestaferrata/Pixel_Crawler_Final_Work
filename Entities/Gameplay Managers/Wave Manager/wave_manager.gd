@@ -40,7 +40,7 @@ var player: CharacterBody2D
 @onready var enemies: Node2D = $"../Enemies"
 @onready var dungeon: Node2D = $".."
 @onready var spawn_points: Node = %SpawnPoints
-@onready var hud_fightzone: CanvasLayer = $"../HUD_Fightzone"
+@onready var _hud: CanvasLayer = $"../HUD"
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -67,7 +67,7 @@ func _init_next_wave() -> void:
 	StatsManager.gain_exp(EXP_per_wave)
 	
 	var wave_dialog = WAVE_FINISHED_DIALOG.instantiate()
-	hud_fightzone.add_child(wave_dialog)
+	_hud.add_child(wave_dialog)
 	
 	spawned_enemies = 0
 	current_wave_kills = 0

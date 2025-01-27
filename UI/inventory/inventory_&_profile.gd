@@ -33,5 +33,8 @@ func update_inventory() -> void:
 		inventory_slots[i].set_label(str(inventory_items[i].amount))
 		inventory_slots[i].set_texture(inventory_items[i].sprite, Vector2(.85, .85))
 
+func _process(_delta: float) -> void:
+	pass
+
 func close_inventory() -> void:
 	animation_player.play("close")
