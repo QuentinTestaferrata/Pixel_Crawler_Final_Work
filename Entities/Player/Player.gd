@@ -59,8 +59,6 @@ func display_message(text: String, color: Color, duration: float) -> void:
 	tween.tween_property(message, "position:y", message.position.y - 5, .5)
 	if duration > .7:
 		tween.tween_property(message, "scale", Vector2(1,1), (duration - .7))
-		
+	
 	tween.tween_property(message, "modulate:a", 0, .2)
-	
-	
 	tween.tween_callback(message.queue_free)

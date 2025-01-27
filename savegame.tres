@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SavedGame" load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_euoim"]
-[ext_resource type="Resource" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="2_rj00l"]
-[ext_resource type="Script" path="res://saved_game.gd" id="3_qnxrp"]
+[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_dtmey"]
+[ext_resource type="Script" path="res://saved_game.gd" id="2_6beja"]
+[ext_resource type="Resource" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="2_25fwk"]
 
 [resource]
-script = ExtResource("3_qnxrp")
-inventory = Array[ExtResource("1_euoim")]([ExtResource("2_rj00l")])
+script = ExtResource("2_6beja")
+inventory = Array[ExtResource("1_dtmey")]([ExtResource("2_25fwk")])

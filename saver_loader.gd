@@ -9,7 +9,6 @@ func save_game():
 	ResourceSaver.save(saved_game, "res://savegame.tres")
 
 	print("Saving")
-	print(player.inventory.content[0].amount)
 
 func load_game() -> void:
 	var saved_game:SavedGame = load("res://savegame.tres") as SavedGame
