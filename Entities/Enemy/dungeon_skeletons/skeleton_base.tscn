@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bhg7b37erk1wy"]
+[gd_scene load_steps=31 format=3 uid="uid://bhg7b37erk1wy"]
 
 [ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_nkq2n"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="1_xe4x4"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bffvrjjv7pjmh" path="res://Entities/EnemyWeapon/bone/sword/bone_sword.png" id="12_62ffq"]
 [ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="13_nvcni"]
 [ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="14_dkbe6"]
+[ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="18_gj34p"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="19_tee5k"]
 [ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="20_e4lsd"]
 
@@ -44,7 +45,14 @@ radius = 9.0
 [sub_resource type="Resource" id="Resource_o863s"]
 script = ExtResource("13_nvcni")
 item = ExtResource("14_dkbe6")
-probability = 100.0
+probability = 50.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_iopvn"]
+script = ExtResource("13_nvcni")
+item = ExtResource("18_gj34p")
+probability = 50.0
 min_amount = 1
 max_amount = 1
 
@@ -85,7 +93,7 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_syp77")
 
 [node name="LootDrops" parent="." instance=ExtResource("6_xn5uj")]
-drops = Array[ExtResource("13_nvcni")]([SubResource("Resource_o863s")])
+drops = Array[ExtResource("13_nvcni")]([SubResource("Resource_o863s"), SubResource("Resource_iopvn")])
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("7_i48xy")]
 initial_state = NodePath("Chase")

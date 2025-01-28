@@ -53,6 +53,7 @@ player=""
 projectiles=""
 enemy=""
 wave_manager=""
+hud=""
 
 [input]
 
