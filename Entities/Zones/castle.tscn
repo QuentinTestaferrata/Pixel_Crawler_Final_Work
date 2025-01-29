@@ -735,7 +735,7 @@ sources/1 = SubResource("TileSetAtlasSource_erg28")
 [node name="Castle" type="Node2D"]
 y_sort_enabled = true
 
-[node name="HUD" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("15_iyl6u")]
+[node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("15_iyl6u")]
 saver_loader = NodePath("../SaverLoader")
 
 [node name="Player" parent="." instance=ExtResource("1_57tk4")]

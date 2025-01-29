@@ -20,3 +20,7 @@ func wave_ended() -> void:
 
 func enemy_killed() -> void:
 	kill.emit()
+
+func save_game() -> void:
+	saver_loader.save_game()
+	print("Game saved succesfully")

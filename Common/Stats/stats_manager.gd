@@ -9,8 +9,8 @@ signal level_changed
 signal player_died
 
 #Potions
-var max_potions: int = 5
-var current_potions: int = 4
+var max_potions: int
+var current_potions: int
 
 #EXP
 var level: int = 1

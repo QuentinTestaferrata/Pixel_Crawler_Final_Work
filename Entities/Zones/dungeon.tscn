@@ -2678,7 +2678,7 @@ sources/1 = SubResource("TileSetAtlasSource_n1q2g")
 y_sort_enabled = true
 script = ExtResource("1_07r07")
 
-[node name="HUD" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("2_sdqqa")]
+[node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("2_sdqqa")]
 visible = false
 saver_loader = NodePath("../SaverLoader")
 

@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="SavedGame" load_steps=6 format=3 uid="uid://bwm4qm4tnmrvg"]
+[gd_resource type="Resource" script_class="SavedGame" load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_ad4uc"]
 [ext_resource type="Script" path="res://saved_game.gd" id="2_7nnf2"]
-[ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="2_nb8rc"]
-[ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="3_h6rnp"]
-[ext_resource type="Resource" uid="uid://t12ra1btsaan" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/emerald.tres" id="4_u80bt"]
+[ext_resource type="Resource" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="2_nb8rc"]
+[ext_resource type="Resource" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="3_h6rnp"]
+[ext_resource type="Resource" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/emerald.tres" id="4_u80bt"]
 
 [resource]
 script = ExtResource("2_7nnf2")
 inventory = Array[ExtResource("1_ad4uc")]([ExtResource("2_nb8rc"), ExtResource("3_h6rnp"), ExtResource("4_u80bt")])
-max_potions = 5
-current_potions = 5
+max_potions = 4
+current_potions = 4
