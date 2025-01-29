@@ -18,7 +18,20 @@ func remove(item:Item):
 	content.erase(item)
 
 func get_items() -> Array[Item]:
-	print("Inventory Content")
 	for i in content:
 		print(i.name, " amount: ", i.amount)
+		
+	clear_items()
 	return content
+
+func clear_items() -> void:
+	var items_to_remove = []
+	
+	for i in content:
+		print(i.amount)
+		if i.amount < 1:
+			print("removing: ", i.name)
+			items_to_remove.append(i)
+	
+	for item in items_to_remove:
+		content.erase(item)

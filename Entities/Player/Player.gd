@@ -14,6 +14,7 @@ var inventory_open: bool = false
 @onready var player_dash: GPUParticles2D = $PlayerDash
 @onready var text_position: Node2D = $TextPosition
 @onready var saver_loader: Node = $"../SaverLoader"
+@onready var gpu_particles_2d: CPUParticles2D = $GPUParticles2D
 
 func on_item_picked_up(item: Item) -> void:
 	inventory.add_item(item)
@@ -35,6 +36,9 @@ func _input(event: InputEvent) -> void:
 		var temp_inv = hud_scene.find_child("Inventory", true, false)
 		temp_inv.close_inventory()
 		inventory_open = false
+
+func play_heal_animation() -> void:
+	gpu_particles_2d.emitting = true
 
 func display_message(text: String, color: Color, duration: float) -> void:
 	print_debug("Message sent")

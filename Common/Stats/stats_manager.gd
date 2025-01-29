@@ -8,6 +8,10 @@ signal gold_changed
 signal level_changed
 signal player_died
 
+#Potions
+var max_potions: int = 5
+var current_potions: int = 4
+
 #EXP
 var level: int = 1
 var exp_needed: float = 125
@@ -16,6 +20,7 @@ var exp_current: float = 124
 #Health
 @onready var max_health: int = 100
 @onready var current_health: int = max_health
+
 #Gold
 var gold: int = 200
 var player: CharacterBody2D
