@@ -4,28 +4,33 @@ class_name Player
 signal player_died
 
 const INVENTORY_HUD = preload("res://UI/inventory/inventory_&_profile.tscn")
+const PAUSE_MENU = preload("res://UI/Pause_Menu/pause_menu.tscn")
 
 var speed = 140
 var inventory: Inventory = Inventory.new()
 var inventory_open: bool = false
+var pause_menu_open: bool = false
 
 @onready var character_sprite: AnimatedSprite2D = $CharacterSprite
 @onready var camera: Camera2D = $Camera
 @onready var player_dash: GPUParticles2D = $PlayerDash
 @onready var text_position: Node2D = $TextPosition
+@onready var saver_loader: Node = $"../SaverLoader"
+@onready var gpu_particles_2d: CPUParticles2D = $GPUParticles2D
 
 func on_item_picked_up(item: Item) -> void:
 	inventory.add_item(item)
 
 func _ready() -> void:
 	player_dash.emitting = false
+	saver_loader.load_game()
 
 func _input(event: InputEvent) -> void:
-	var _inventory: Control
+	
 	var hud_scene: CanvasLayer = get_parent().get_child(0)
-	_inventory = INVENTORY_HUD.instantiate()
 	
 	if event.is_action_pressed("open_inventory") and !inventory_open:
+		var _inventory = INVENTORY_HUD.instantiate()
 		hud_scene.add_child(_inventory)
 		inventory_open = true
 		
@@ -33,6 +38,25 @@ func _input(event: InputEvent) -> void:
 		var temp_inv = hud_scene.find_child("Inventory", true, false)
 		temp_inv.close_inventory()
 		inventory_open = false
+	
+	if event.is_action_pressed("heal") and StatsManager.current_potions > 0:
+		StatsManager.current_potions -= 1
+		play_heal_animation()
+	
+	if event.is_action_pressed("esc") and !pause_menu_open:
+		pause_menu_open = true
+		var temp_pause_menu = PAUSE_MENU.instantiate()
+		hud_scene.add_child(temp_pause_menu)
+		get_tree().paused = true
+		
+	elif event.is_action_pressed("esc") and pause_menu_open:
+		get_tree().paused = false
+		var temp_menu = hud_scene.find_child("PauseMenu", true, false)
+		temp_menu.queue_free()
+		pause_menu_open = false
+
+func play_heal_animation() -> void:
+	gpu_particles_2d.emitting = true
 
 func display_message(text: String, color: Color, duration: float) -> void:
 	print_debug("Message sent")
@@ -57,8 +81,6 @@ func display_message(text: String, color: Color, duration: float) -> void:
 	tween.tween_property(message, "position:y", message.position.y - 5, .5)
 	if duration > .7:
 		tween.tween_property(message, "scale", Vector2(1,1), (duration - .7))
-		
+	
 	tween.tween_property(message, "modulate:a", 0, .2)
-	
-	
 	tween.tween_callback(message.queue_free)

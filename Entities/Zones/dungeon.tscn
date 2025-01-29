@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bg707nxjtqttc"]
+[gd_scene load_steps=38 format=4 uid="uid://bg707nxjtqttc"]
 
 [ext_resource type="Script" path="res://Entities/Zones/dungeon.gd" id="1_07r07"]
 [ext_resource type="Texture2D" uid="uid://ct5h8ruw55s56" path="res://assets/Dungeon/Tiles/Tiles.png" id="1_g0itb"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="13_urudh"]
 [ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="16_qvbn0"]
 [ext_resource type="Script" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="17_bvp4e"]
+[ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://saver_loader.tscn" id="19_du2c1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mexwe"]
 size = Vector2(366, 260)
@@ -2677,8 +2678,9 @@ sources/1 = SubResource("TileSetAtlasSource_n1q2g")
 y_sort_enabled = true
 script = ExtResource("1_07r07")
 
-[node name="HUD_Fightzone" parent="." instance=ExtResource("2_sdqqa")]
+[node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("2_sdqqa")]
 visible = false
+saver_loader = NodePath("../SaverLoader")
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_interval_timer") groups=["wave_manager"] instance=ExtResource("2_idjmp")]
 enemies_per_wave = 5
@@ -2814,5 +2816,8 @@ script = ExtResource("17_bvp4e")
 
 [node name="Drops" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="SaverLoader" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_du2c1")]
+player = NodePath("../Player")
 
 [connection signal="timeout" from="WaveManager/SpawnInterval" to="WaveManager" method="_on_spawn_interval_timeout"]

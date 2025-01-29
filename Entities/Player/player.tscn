@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://uqj3ijcufn81"]
+[gd_scene load_steps=44 format=3 uid="uid://uqj3ijcufn81"]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_xgmka"]
 [ext_resource type="Script" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://invb5wqoqvhd" path="res://Common/StateMachine/Player State/State Nodes/Run.tscn" id="13_uairg"]
 [ext_resource type="Script" path="res://Entities/Player/player_health_component.gd" id="14_gnrcj"]
 [ext_resource type="Script" path="res://Entities/Player/player_hurtbox.gd" id="14_xq40c"]
+[ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="17_icsdk"]
 
 [sub_resource type="Shader" id="Shader_oyr31"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
@@ -203,6 +204,13 @@ height = 16.0
 radius = 6.0
 height = 22.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0n62x"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_xjc2k"]
+offsets = PackedFloat32Array(0, 0.125786, 0.902516, 0.987421, 1)
+colors = PackedColorArray(0, 0.862745, 0, 0, 0.937255, 0.854902, 0, 1, 0.211043, 0.644957, 3.85046e-07, 1, 0.287697, 0.633775, 5.962e-07, 0.451613, 0.350824, 0.624566, 7.70092e-07, 0)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 792
 collision_mask = 549
@@ -283,6 +291,29 @@ player_health = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_87sq1")
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_0n62x")
+position = Vector2(0, -4)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.5
+texture = ExtResource("17_icsdk")
+emission_shape = 1
+emission_sphere_radius = 8.48
+direction = Vector2(0, -1)
+spread = 33.61
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = -35.49
+angular_velocity_max = 35.49
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.06
+scale_amount_max = 0.06
+color_ramp = SubResource("Gradient_xjc2k")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="StateMachine/Dash" method="_on_dash_timer_timeout"]

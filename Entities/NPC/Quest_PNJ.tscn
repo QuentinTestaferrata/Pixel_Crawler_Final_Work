@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://pld51fydlb1l"]
+
+[ext_resource type="Script" path="res://Entities/NPC/quest_pnj.gd" id="1_f868g"]
+[ext_resource type="Texture2D" uid="uid://b06866e6e7mk3" path="res://assets/Castle/Enemies (Royal Crew)/Soldier/Idle-Sheet.png" id="1_imp1h"]
+[ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="2_koeec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvrpd"]
+atlas = ExtResource("1_imp1h")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nis66"]
+atlas = ExtResource("1_imp1h")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0knj"]
+atlas = ExtResource("1_imp1h")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7hid"]
+atlas = ExtResource("1_imp1h")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7sar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvrpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nis66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0knj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7hid")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clq6g"]
+radius = 1.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w44cn"]
+radius = 35.0571
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_f868g")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_g7sar")
+autoplay = "default"
+frame_progress = 0.91917
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_clq6g")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_koeec")]
+collision_layer = 512
+collision_mask = 512
+action_name = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_w44cn")
