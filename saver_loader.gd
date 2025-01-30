@@ -9,7 +9,7 @@ func save_game():
 	
 	#inventory
 	saved_game.inventory = player.inventory.content
-	
+	print("saved potions: ", saved_game.inventory[0].amount)
 	#Potions
 	print(StatsManager.current_potions)
 	saved_game.current_potions = StatsManager.current_potions

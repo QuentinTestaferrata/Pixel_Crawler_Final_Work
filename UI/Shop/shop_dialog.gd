@@ -9,6 +9,8 @@ const SHOP_ITEMS = preload("res://Common/Shop/shop_items.tres")
 
 var amount: int = 1
 var item_price: int
+var player: CharacterBody2D
+var selected_item
 
 @onready var scroll_container: ScrollContainer = $HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer
 @onready var grid_container: GridContainer = $HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer/GridContainer
@@ -24,8 +26,11 @@ var item_price: int
 @onready var texture_holder: TextureRect = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder
 @onready var shadow: Sprite2D = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder/ItemImage/Shadow
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var buy_label: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/BuyButton/BuyLabel
+@onready var amount_number: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/Amount
 
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	get_shop_items()
 
 func get_shop_items() -> void:
@@ -76,6 +81,7 @@ func get_item_info(i: Item) -> void:
 	shadow.visible = true
 	buy_button.visible = true
 	texture_holder.visible = true 
+	amount_number.visible = true
 	
 	item_image.texture = i.sprite
 	item_name_label.text = i.name
@@ -83,6 +89,8 @@ func get_item_info(i: Item) -> void:
 	item_price = i.price
 	item_price_label.text = str(i.price)
 	update_amount()
+	
+	selected_item = i
 
 func get_weapon_info(i: WeaponData) -> void:
 	amount_label.visible = false
@@ -92,6 +100,7 @@ func get_weapon_info(i: WeaponData) -> void:
 	shadow.visible = false
 	buy_button.visible = true
 	texture_holder.visible = true 
+	amount_number.visible = false
 	
 	item_image.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	
@@ -104,6 +113,7 @@ func get_weapon_info(i: WeaponData) -> void:
 	item_price = i.price
 	item_price_label.text = str(i.price)
 	update_amount()
+	selected_item = i
 
 func _on_add_button_pressed() -> void:
 	amount += 1
@@ -115,8 +125,13 @@ func _on_substract_button_pressed() -> void:
 		update_amount()
 
 func update_amount() -> void:
-	amount_label.text = str("Amount: ", amount)
+	amount_number.text = str(amount)
 	item_price_label.text = str(item_price * amount)
+	
+	if ((item_price * amount ) > StatsManager.gold):
+		buy_button.disabled = true
+	else:
+		buy_button.disabled = false
 
 func _on_texture_button_pressed() -> void:
 	animation_player.play("close")
@@ -134,3 +149,7 @@ func _on_consumables_pressed() -> void:
 func _on_weapons_pressed() -> void:
 	clear_shop_items()
 	get_shop_weapons()
+
+func _on_buy_button_pressed() -> void:
+	player.inventory.add_item(selected_item, amount)
+	print(selected_item.amount)
