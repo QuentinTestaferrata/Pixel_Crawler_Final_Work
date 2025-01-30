@@ -1,0 +1,157 @@
+[gd_scene load_steps=9 format=3 uid="uid://46rlbmj6naga"]
+
+[ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_bwjvd"]
+[ext_resource type="Script" path="res://UI/Quests/Script/QuestUI.gd" id="2_8327l"]
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="3_qt086"]
+
+[sub_resource type="Theme" id="Theme_d15v6"]
+Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_bwjvd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqbjd"]
+texture = ExtResource("3_qt086")
+region_rect = Rect2(32, 1120, 183, 280)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22yrt"]
+texture = ExtResource("3_qt086")
+region_rect = Rect2(32, 1120, 183, 280)
+
+[sub_resource type="SystemFont" id="SystemFont_r5hje"]
+
+[sub_resource type="Theme" id="Theme_kiyc5"]
+Label/font_sizes/font_size = 10
+Label/fonts/font = SubResource("SystemFont_r5hje")
+
+[node name="QuestUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.964443)
+theme = SubResource("Theme_d15v6")
+script = ExtResource("2_8327l")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backgrounds" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG_1" type="Panel" parent="Panel/Backgrounds"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_nqbjd")
+
+[node name="BG_2" type="Panel" parent="Panel/Backgrounds"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_22yrt")
+
+[node name="Contents" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = -17.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.989553)
+theme_override_constants/separation = 25
+
+[node name="Headings" type="HBoxContainer" parent="Panel/Contents"]
+layout_mode = 2
+
+[node name="List" type="Label" parent="Panel/Contents/Headings"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Available Quests
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Details" type="Label" parent="Panel/Contents/Headings"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Quest Details
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Details" type="HBoxContainer" parent="Panel/Contents"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="QuestList" type="VBoxContainer" parent="Panel/Contents/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="QuestDetails" type="VBoxContainer" parent="Panel/Contents/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="QuestTitle" type="Label" parent="Panel/Contents/Details/QuestDetails"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questdescription" type="Label" parent="Panel/Contents/Details/QuestDetails"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Description"
+
+[node name="QuestObjectives" type="VBoxContainer" parent="Panel/Contents/Details/QuestDetails"]
+layout_mode = 2
+
+[node name="QuestRewards" type="VBoxContainer" parent="Panel/Contents/Details/QuestDetails"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = 22.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="Panel/TextureButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 15.0
+grow_horizontal = 2
+theme = SubResource("Theme_kiyc5")
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1

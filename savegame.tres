@@ -8,6 +8,6 @@
 
 [resource]
 script = ExtResource("2_7nnf2")
-inventory = Array[ExtResource("1_ad4uc")]([ExtResource("2_nb8rc"), ExtResource("3_h6rnp"), ExtResource("4_u80bt")])
+inventory = Array[ExtResource("1_ad4uc")]([ExtResource("2_nb8rc"), ExtResource("4_u80bt"), ExtResource("3_h6rnp")])
 max_potions = 4
-current_potions = 4
+current_potions = 0
