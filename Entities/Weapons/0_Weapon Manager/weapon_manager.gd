@@ -1,7 +1,14 @@
 extends Node2D
+class_name WeaponManager
 
-var current_weapons: Array = []
-@onready var player: CharacterBody2D = $".."
+var weapon_scenes = {
+	"wooden_staff": "res://Entities/Weapons/Staffs/new Wooden Staff/wooden_staff.tres",
+	"bone_staff": "res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres",
+	"bone_wand": "res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres"
+}
+
+var current_weapons: Array[Node2D] = []
+var active_weapons: Array[WeaponData] = []
 
 var tween: Tween
 var active_weapon_index: int = 0 #0 = no active weapon
@@ -10,10 +17,7 @@ var active_weapon: Node2D
 var primary_attack: PROJECTILE
 var secondary_attack: PROJECTILE
 
-var weapon_scenes = {
-	"wooden_staff": "res://Entities/Weapons/Staffs/new Wooden Staff/wooden_staff.tres",
-	"bone_staff": "res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres"
-}
+@onready var player: CharacterBody2D = $".."
 
 func _ready() -> void:
 	##print("Weapon Manager loaded")
@@ -27,6 +31,7 @@ func equip_weapon(weapon_name: String) -> void:
 	if weapon_scenes.has(weapon_name):
 		var weapon: WeaponData = load(weapon_scenes[weapon_name])
 		var weapon_instance = weapon.scene.instantiate()
+		print(weapon_instance)
 		primary_attack = weapon.primary_attack
 		secondary_attack = weapon.secondary_attack
 		active_weapon = weapon_instance
@@ -39,10 +44,24 @@ func equip_weapon(weapon_name: String) -> void:
 		if weapon.weapon_type == 0:
 			active_weapon_type = 0
 			setup_staff(weapon_instance)
+		elif weapon.weapon_type == 1:
+			active_weapon_type = 1
+			setup_wand(weapon_instance)
+			
 	else:
 		print("Weapon scene: ", weapon_name, " doesn't exist")
 
 func setup_staff(weapon_1) -> Tween:
+	tween = get_tree().create_tween()
+
+	#staff floating effect
+	tween.tween_property(weapon_1, "position:y", weapon_1.position.y - 6, 0.7)
+	tween.tween_property(weapon_1, "position:y", weapon_1.position.y - 3, 0.7)  
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_loops()
+	return tween
+
+func setup_wand(weapon_1) -> Tween:
 	tween = get_tree().create_tween()
 
 	#staff floating effect
@@ -62,9 +81,14 @@ func _process(_delta: float) -> void:
 				var tween_x = get_tree().create_tween()
 				tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x - 7, .1)
 		1: #Wand
-			pass
-
-
+			if player.character_sprite.flip_h and active_weapon.position.x > -13 and active_weapon_type == 1:
+				var tween_x = get_tree().create_tween()
+				tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x - 4, .07)
+				tween_x.tween_property(active_weapon, "rotation", -.15, .2)
+			elif !player.character_sprite.flip_h and active_weapon.position.x < 10 and active_weapon_type == 1:
+				var tween_x = get_tree().create_tween()
+				tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x + 7, .1)
+				tween_x.tween_property(active_weapon, "rotation",  .15, .2)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("equip_weapon_1"):
@@ -72,4 +96,4 @@ func _input(event: InputEvent) -> void:
 		equip_weapon("bone_staff")
 
 	elif event.is_action_pressed("equip_weapon_2"):
-		equip_weapon("wooden_staff")
+		equip_weapon("bone_wand")

@@ -1,0 +1,74 @@
+extends PanelContainer
+
+const ITEM_HOLDER = preload("res://UI/Shop/item_holder.tscn")
+const SHOP_ITEMS = preload("res://Common/Shop/shop_items.tres")
+
+var amount: int = 1
+var item_price: int
+
+@onready var scroll_container: ScrollContainer = $HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer
+@onready var grid_container: GridContainer = $HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer/GridContainer
+@onready var item_name_label: Label = $HBoxContainer/MarginContainer/VBoxContainer/ItemNameLabel
+@onready var item_description_label: RichTextLabel = $HBoxContainer/MarginContainer/VBoxContainer/ItemDescriptionLabel
+@onready var item_image: TextureRect = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder/ItemImage
+@onready var item_price_label: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/PriceLabel
+@onready var coin_sprite: TextureRect = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect
+@onready var amount_label: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/AmountLabel
+@onready var add_button: TextureButton = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton
+@onready var substract_button: TextureButton = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SubstractButton
+@onready var buy_button: TextureButton = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/BuyButton
+@onready var texture_holder: TextureRect = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder
+@onready var shadow: Sprite2D = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder/ItemImage/Shadow
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	print("Shop items: ")
+	for i in SHOP_ITEMS.shop_items:
+		var temp_item_holder: TextureButton = ITEM_HOLDER.instantiate()
+		var sprite: TextureRect = TextureRect.new()
+		
+		sprite.texture = i.sprite
+		sprite.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+		sprite.size = Vector2(16,14)
+		sprite.position = Vector2(3, 3)
+		
+		temp_item_holder.pressed.connect(get_info.bind(i))
+		temp_item_holder.item = i
+		
+		temp_item_holder.add_child(sprite)
+		grid_container.add_child(temp_item_holder)
+		
+		print(i.name)
+
+func get_info(i: Item) -> void:
+	amount_label.visible = true
+	add_button.visible = true
+	substract_button.visible = true
+	coin_sprite.visible = true
+	shadow.visible = true
+	buy_button.visible = true
+	texture_holder.visible = true 
+	
+	item_image.texture = i.sprite
+	item_name_label.text = i.name
+	item_description_label.text = i.description
+	item_price = i.price
+	item_price_label.text = str(i.price)
+	update_amount()
+
+
+func _on_add_button_pressed() -> void:
+	amount += 1
+	update_amount()
+
+func _on_substract_button_pressed() -> void:
+	if amount > 1:
+		amount -= 1
+		update_amount()
+
+func update_amount() -> void:
+	amount_label.text = str("Amount: ", amount)
+	item_price_label.text = str(item_price * amount)
+
+func _on_texture_button_pressed() -> void:
+	animation_player.play("close")

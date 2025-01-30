@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ShopItems" load_steps=4 format=3 uid="uid://do5j7e4l2yp5g"]
+
+[ext_resource type="Script" path="res://Common/Shop/shop_items.gd" id="1_03si4"]
+[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="2_v0rmw"]
+[ext_resource type="Resource" uid="uid://ddrp3yoakbhfl" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="3_rquv6"]
+
+[resource]
+script = ExtResource("1_03si4")
+shop_items = Array[ExtResource("2_v0rmw")]([ExtResource("3_rquv6")])

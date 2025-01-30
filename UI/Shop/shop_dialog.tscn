@@ -1,0 +1,462 @@
+[gd_scene load_steps=31 format=3 uid="uid://dxwvp6h2hvfbq"]
+
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_1q46w"]
+[ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_ab63m"]
+[ext_resource type="Script" path="res://UI/Shop/shop_dialog.gd" id="3_3pdrx"]
+[ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/4_long/button.png" id="4_mnefa"]
+[ext_resource type="Texture2D" uid="uid://cs4m8p4hrxg7v" path="res://UI/Buttons/4_long/pressed_button.png" id="5_n3phx"]
+[ext_resource type="Texture2D" uid="uid://ox6g8eumw3rb" path="res://UI/Buttons/4_long/hover_button.png" id="6_yrl7g"]
+[ext_resource type="Texture2D" uid="uid://cthflfmocst75" path="res://UI/Buttons/2_medium/button.png" id="7_r351t"]
+[ext_resource type="Texture2D" uid="uid://clgtoso2uh6js" path="res://UI/Buttons/2_medium/button_pressed.png" id="8_w2m2w"]
+[ext_resource type="Texture2D" uid="uid://clov3wyoi8kd5" path="res://UI/Buttons/2_medium/button_hover.png" id="9_s4v4f"]
+[ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="10_s3xwb"]
+[ext_resource type="Texture2D" uid="uid://blc53waw0hj1e" path="res://assets/Castle/Weapons.png" id="11_fh3g0"]
+[ext_resource type="Texture2D" uid="uid://6kom7ev2h77y" path="res://UI/Buttons/3_normal/button.png" id="12_6xtoy"]
+[ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="13_beilx"]
+[ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="14_u8u5l"]
+[ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="15_bbih6"]
+[ext_resource type="Texture2D" uid="uid://cupd782arpfu7" path="res://UI/Buttons/0_mini_buttons/button_hover.png" id="16_6f3bt"]
+[ext_resource type="Texture2D" uid="uid://crhsl2spr7x8i" path="res://UI/coin.png" id="17_c1cpc"]
+
+[sub_resource type="Theme" id="Theme_xnk6q"]
+Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_ab63m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eimrp"]
+texture = ExtResource("1_1q46w")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(240, 32, 81, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkqvb"]
+atlas = ExtResource("10_s3xwb")
+region = Rect2(19, 229, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27abr"]
+atlas = ExtResource("11_fh3g0")
+region = Rect2(130, 68, 11, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpjrg"]
+atlas = ExtResource("1_1q46w")
+region = Rect2(147, 862, 69, 9)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eq8i6"]
+texture = ExtResource("1_1q46w")
+texture_margin_left = 7.0
+texture_margin_top = 6.0
+texture_margin_right = 7.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(368, 144, 81, 80)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_trcil"]
+content_margin_left = 2.0
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="Theme" id="Theme_gjkkb"]
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_trcil")
+
+[sub_resource type="Theme" id="Theme_xb616"]
+default_font = ExtResource("1_ab63m")
+default_font_size = 13
+Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+Label/fonts/font = ExtResource("1_ab63m")
+
+[sub_resource type="Animation" id="Animation_86ojw"]
+resource_name = "open"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_toqst"]
+resource_name = "close"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fujow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufyef"]
+_data = {
+"RESET": SubResource("Animation_fujow"),
+"close": SubResource("Animation_toqst"),
+"open": SubResource("Animation_86ojw")
+}
+
+[node name="ShopDialog" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 180)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -99.0
+offset_right = 150.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 99)
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_xnk6q")
+theme_override_styles/panel = SubResource("StyleBoxTexture_eimrp")
+script = ExtResource("3_3pdrx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Items" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Items"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="BuySellButtons" type="HBoxContainer" parent="HBoxContainer/Items/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="BuyButton" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/BuySellButtons"]
+layout_mode = 2
+texture_normal = ExtResource("4_mnefa")
+texture_pressed = ExtResource("5_n3phx")
+texture_hover = ExtResource("6_yrl7g")
+
+[node name="Label" type="Label" parent="HBoxContainer/Items/VBoxContainer/BuySellButtons/BuyButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -5.0
+offset_right = 55.0
+offset_bottom = 15.0
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="SellButton" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/BuySellButtons"]
+layout_mode = 2
+texture_normal = ExtResource("4_mnefa")
+texture_pressed = ExtResource("5_n3phx")
+texture_hover = ExtResource("6_yrl7g")
+
+[node name="Label2" type="Label" parent="HBoxContainer/Items/VBoxContainer/BuySellButtons/SellButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 55.0
+offset_bottom = 16.0
+text = "Sell"
+horizontal_alignment = 1
+
+[node name="Tabs" type="HBoxContainer" parent="HBoxContainer/Items/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Consumables" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("7_r351t")
+texture_pressed = ExtResource("8_w2m2w")
+texture_hover = ExtResource("9_s4v4f")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Items/VBoxContainer/Tabs/Consumables"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_lkqvb")
+stretch_mode = 3
+
+[node name="Weapons" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("7_r351t")
+texture_pressed = ExtResource("8_w2m2w")
+texture_hover = ExtResource("9_s4v4f")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Items/VBoxContainer/Tabs/Weapons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_27abr")
+stretch_mode = 3
+
+[node name="Idk" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("7_r351t")
+texture_pressed = ExtResource("8_w2m2w")
+texture_hover = ExtResource("9_s4v4f")
+stretch_mode = 3
+
+[node name="Idk2" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("7_r351t")
+texture_pressed = ExtResource("8_w2m2w")
+texture_hover = ExtResource("9_s4v4f")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Items/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xpjrg")
+stretch_mode = 3
+
+[node name="ShopItems" type="PanelContainer" parent="HBoxContainer/Items/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_eq8i6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Items/VBoxContainer/ShopItems"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = SubResource("Theme_gjkkb")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+color = Color(0.105882, 0.133333, 0.211765, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureHolder" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("12_6xtoy")
+stretch_mode = 3
+
+[node name="ItemImage" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 3
+
+[node name="Shadow" type="Sprite2D" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder/ItemImage"]
+visible = false
+show_behind_parent = true
+position = Vector2(20, 25)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("13_beilx")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -49
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("14_u8u5l")
+texture_pressed = ExtResource("15_bbih6")
+texture_hover = ExtResource("16_6f3bt")
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer/TextureButton"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -7.0
+offset_right = 44.0
+offset_bottom = 13.0
+text = "x"
+
+[node name="ItemNameLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemDescriptionLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = SubResource("Theme_xb616")
+theme_override_colors/default_color = Color(0.105882, 0.133333, 0.211765, 1)
+bbcode_enabled = true
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -8
+
+[node name="AmountLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "amount: "
+
+[node name="AddButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("14_u8u5l")
+texture_pressed = ExtResource("15_bbih6")
+texture_hover = ExtResource("16_6f3bt")
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.5
+offset_top = -6.0
+offset_right = 7.5
+offset_bottom = 14.0
+grow_horizontal = 2
+text = "+"
+horizontal_alignment = 1
+
+[node name="SubstractButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("14_u8u5l")
+texture_pressed = ExtResource("15_bbih6")
+texture_hover = ExtResource("16_6f3bt")
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SubstractButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.5
+offset_top = -5.0
+offset_right = 7.5
+offset_bottom = 15.0
+grow_horizontal = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="BuyButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("4_mnefa")
+texture_pressed = ExtResource("5_n3phx")
+texture_hover = ExtResource("6_yrl7g")
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/BuyButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -5.0
+offset_right = 55.0
+offset_bottom = 15.0
+text = "Buy"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+texture = ExtResource("17_c1cpc")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = -12
+theme_override_constants/margin_top = -7
+
+[node name="PriceLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ufyef")
+}
+autoplay = "open"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SubstractButton" to="." method="_on_substract_button_pressed"]

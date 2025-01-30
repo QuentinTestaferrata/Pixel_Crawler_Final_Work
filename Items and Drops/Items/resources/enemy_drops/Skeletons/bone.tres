@@ -12,6 +12,7 @@ sprite = ExtResource("3_vffuy")
 description = "Normal bone"
 value = 2
 price = 8
+consumable = false
 rarity = 0
 stackable = true
 amount = 0

@@ -4,6 +4,7 @@ var alive: bool = true
 
 @onready var player_dash: GPUParticles2D = $"../PlayerDash"
 @onready var character_sprite: AnimatedSprite2D = $"../CharacterSprite"
+@onready var shadow: Sprite2D = $"../Shadow"
 
 func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
@@ -17,8 +18,9 @@ func _process(_delta: float) -> void:
 	##check the mouse to left or right of the sprite
 	if alive:
 		if mouse_position.x < global_position.x:
-			character_sprite.flip_h = true  
-			
+			character_sprite.flip_h = true
+			shadow.position.x = -3
 		else:
 			character_sprite.flip_h = false
 			player_dash.scale.x = -1
+			shadow.position.x = 0

@@ -29,7 +29,4 @@ func load_game() -> void:
 	StatsManager.current_potions = saved_game.current_potions
 	StatsManager.max_potions = saved_game.max_potions
 	
-	print(saved_game.current_potions)
-	print(saved_game.max_potions)
-	
 	print("Loading")

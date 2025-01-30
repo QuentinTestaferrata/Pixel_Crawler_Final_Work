@@ -1,12 +1,18 @@
 extends CharacterBody2D
 
+const SHOP_DIALOG = preload("res://UI/Shop/shop_dialog.tscn")
+
 enum States {WALKING, IDLE, INTERACTING}
+
+@export var speed: int = 50
+
 var current_state: States = States.IDLE
 
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var sprite: AnimatedSprite2D = $Sprite
-@export var speed: int = 50
+@onready var hud_layer: hud = $"../HUDLayer"
+
 
 var position_x: int
 var position_y: int
@@ -20,7 +26,8 @@ func _ready():
 	interaction_area.interact = Callable(self, "on_interact")
 
 func on_interact():
-	print("Open")
+	var temp_shop = SHOP_DIALOG.instantiate()
+	hud_layer.add_child(temp_shop)
 	
 
 func set_state(new_state: States) -> void:

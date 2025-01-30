@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WEAPON" load_steps=4 format=3 uid="uid://chi2wf2p2ng60"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://chi2wf2p2ng60"]
 
 [ext_resource type="PackedScene" uid="uid://dum6xe8iwt7ls" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="1_1c6l8"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_io15v"]

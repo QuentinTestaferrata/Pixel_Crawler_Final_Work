@@ -2806,7 +2806,6 @@ tile_map_data = PackedByteArray("AAAZAAEAAAABAAAAAAAZAAIAAAABAAEAAAAVAAIAAAAJAAQ
 tile_set = SubResource("TileSet_78b6w")
 
 [node name="Player" parent="." instance=ExtResource("4_hgt2v")]
-y_sort_enabled = true
 position = Vector2(583, 338)
 
 [node name="Projectiles_Holder" parent="." instance=ExtResource("3_5fo00")]
