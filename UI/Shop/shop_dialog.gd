@@ -1,5 +1,9 @@
 extends PanelContainer
 
+## 16x14 size for small shop items
+## 28x28 size for showcase shop items
+
+const WEAPON_HOLDER = preload("res://UI/Shop/weapon_holder.tscn")
 const ITEM_HOLDER = preload("res://UI/Shop/item_holder.tscn")
 const SHOP_ITEMS = preload("res://Common/Shop/shop_items.tres")
 
@@ -22,6 +26,9 @@ var item_price: int
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	get_shop_items()
+
+func get_shop_items() -> void:
 	print("Shop items: ")
 	for i in SHOP_ITEMS.shop_items:
 		var temp_item_holder: TextureButton = ITEM_HOLDER.instantiate()
@@ -32,15 +39,36 @@ func _ready() -> void:
 		sprite.size = Vector2(16,14)
 		sprite.position = Vector2(3, 3)
 		
-		temp_item_holder.pressed.connect(get_info.bind(i))
+		temp_item_holder.pressed.connect(get_item_info.bind(i))
 		temp_item_holder.item = i
+		temp_item_holder.weapon = null
 		
 		temp_item_holder.add_child(sprite)
 		grid_container.add_child(temp_item_holder)
 		
 		print(i.name)
 
-func get_info(i: Item) -> void:
+func get_shop_weapons() -> void:
+	print("Shop Weapons: ")
+	for i in SHOP_ITEMS.shop_weapons:
+		var temp_item_holder: TextureButton = WEAPON_HOLDER.instantiate()
+		var sprite: TextureRect = TextureRect.new()
+		
+		sprite.texture = i.shop_sprite
+		sprite.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+		sprite.size = Vector2(16,14)
+		sprite.position = Vector2(3, 3)
+		
+		temp_item_holder.pressed.connect(get_weapon_info.bind(i))
+		temp_item_holder.item = null
+		temp_item_holder.weapon = i
+		
+		temp_item_holder.add_child(sprite)
+		grid_container.add_child(temp_item_holder)
+		
+		print(i.weapon_name)
+
+func get_item_info(i: Item) -> void:
 	amount_label.visible = true
 	add_button.visible = true
 	substract_button.visible = true
@@ -56,6 +84,26 @@ func get_info(i: Item) -> void:
 	item_price_label.text = str(i.price)
 	update_amount()
 
+func get_weapon_info(i: WeaponData) -> void:
+	amount_label.visible = false
+	add_button.visible = false
+	substract_button.visible = false
+	coin_sprite.visible = true
+	shadow.visible = false
+	buy_button.visible = true
+	texture_holder.visible = true 
+	
+	item_image.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	
+	if i.showcase_sprite != null:
+		item_image.texture = i.showcase_sprite
+	else: item_image.texture = i.sprite
+	
+	item_name_label.text = i.weapon_name
+	item_description_label.text = i.description
+	item_price = i.price
+	item_price_label.text = str(i.price)
+	update_amount()
 
 func _on_add_button_pressed() -> void:
 	amount += 1
@@ -72,3 +120,17 @@ func update_amount() -> void:
 
 func _on_texture_button_pressed() -> void:
 	animation_player.play("close")
+
+func clear_shop_items() -> void:
+	var grid_children: Array = grid_container.get_children()
+	for i in grid_children:
+		i.queue_free()
+
+## Show specific tabs
+func _on_consumables_pressed() -> void:
+	clear_shop_items()
+	get_shop_items()
+
+func _on_weapons_pressed() -> void:
+	clear_shop_items()
+	get_shop_weapons()

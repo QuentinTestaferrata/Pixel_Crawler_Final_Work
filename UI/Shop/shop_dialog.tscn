@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dxwvp6h2hvfbq"]
+[gd_scene load_steps=32 format=3 uid="uid://dxwvp6h2hvfbq"]
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_1q46w"]
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_ab63m"]
@@ -60,9 +60,12 @@ VScrollBar/styles/scroll = SubResource("StyleBoxLine_trcil")
 
 [sub_resource type="Theme" id="Theme_xb616"]
 default_font = ExtResource("1_ab63m")
-default_font_size = 13
+default_font_size = 10
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
 Label/fonts/font = ExtResource("1_ab63m")
+
+[sub_resource type="Theme" id="Theme_a3ii1"]
+Label/font_sizes/font_size = 15
 
 [sub_resource type="Animation" id="Animation_86ojw"]
 resource_name = "open"
@@ -319,10 +322,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -14.0
 offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_right = 14.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 3
@@ -330,7 +333,7 @@ stretch_mode = 3
 [node name="Shadow" type="Sprite2D" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder/ItemImage"]
 visible = false
 show_behind_parent = true
-position = Vector2(20, 25)
+position = Vector2(14, 23)
 scale = Vector2(0.015, 0.015)
 texture = ExtResource("13_beilx")
 
@@ -375,6 +378,7 @@ theme_override_constants/margin_top = -8
 [node name="AmountLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_a3ii1")
 text = "amount: "
 
 [node name="AddButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -457,6 +461,8 @@ libraries = {
 }
 autoplay = "open"
 
+[connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Consumables" to="." method="_on_consumables_pressed"]
+[connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Weapons" to="." method="_on_weapons_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SubstractButton" to="." method="_on_substract_button_pressed"]
