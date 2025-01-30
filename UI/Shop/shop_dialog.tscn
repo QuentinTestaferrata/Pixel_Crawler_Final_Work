@@ -370,8 +370,9 @@ bbcode_enabled = true
 fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 7
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -403,14 +404,6 @@ grow_horizontal = 2
 text = "-"
 horizontal_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = -7
-
-[node name="Amount" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
-visible = false
-layout_mode = 2
-
 [node name="AddButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
@@ -430,6 +423,14 @@ offset_bottom = 14.0
 grow_horizontal = 2
 text = "+"
 horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -7
+
+[node name="Amount" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+visible = false
+layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -453,7 +454,11 @@ theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
 text = "Buy"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = -9
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer2"]
 visible = false
 layout_mode = 2
 texture = ExtResource("17_c1cpc")
@@ -461,7 +466,7 @@ stretch_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-theme_override_constants/margin_left = -12
+theme_override_constants/margin_left = -11
 theme_override_constants/margin_top = -7
 
 [node name="PriceLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer"]

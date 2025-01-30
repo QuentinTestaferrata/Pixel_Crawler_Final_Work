@@ -18,7 +18,6 @@ var selected_item
 @onready var item_description_label: RichTextLabel = $HBoxContainer/MarginContainer/VBoxContainer/ItemDescriptionLabel
 @onready var item_image: TextureRect = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder/ItemImage
 @onready var item_price_label: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/PriceLabel
-@onready var coin_sprite: TextureRect = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/TextureRect
 @onready var amount_label: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/AmountLabel
 @onready var add_button: TextureButton = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton
 @onready var substract_button: TextureButton = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SubstractButton
@@ -28,6 +27,7 @@ var selected_item
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var buy_label: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/BuyButton/BuyLabel
 @onready var amount_number: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/Amount
+@onready var coin_sprite: TextureRect = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer2/TextureRect
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -126,7 +126,7 @@ func _on_substract_button_pressed() -> void:
 
 func update_amount() -> void:
 	amount_number.text = str(amount)
-	item_price_label.text = str(item_price * amount)
+	item_price_label.text = str(item_price * amount, "/", StatsManager.gold)
 	
 	if ((item_price * amount ) > StatsManager.gold):
 		buy_button.disabled = true
@@ -151,5 +151,7 @@ func _on_weapons_pressed() -> void:
 	get_shop_weapons()
 
 func _on_buy_button_pressed() -> void:
-	player.inventory.add_item(selected_item, amount)
-	print(selected_item.amount)
+	if amount <= StatsManager.gold:
+		StatsManager.spend_gold(selected_item.price)
+		player.inventory.add_item(selected_item, amount)
+		update_amount()

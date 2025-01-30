@@ -887,7 +887,7 @@ position = Vector2(-16, 309)
 [node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
 position = Vector2(-176, 147)
 
-[node name="SaverLoader" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_ll0mv")]
+[node name="SaverLoader" parent="." node_paths=PackedStringArray("player") groups=["saver_loader"] instance=ExtResource("17_ll0mv")]
 unique_name_in_owner = true
 player = NodePath("../Player")
 

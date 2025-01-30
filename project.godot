@@ -54,6 +54,7 @@ projectiles=""
 enemy=""
 wave_manager=""
 hud=""
+saver_loader=""
 
 [input]
 
