@@ -1,6 +1,7 @@
 extends Node
 class_name PlayerStats
 
+
 signal health_changed
 signal exp_changed
 signal exp_needed_changed
@@ -13,22 +14,24 @@ var max_potions: int
 var current_potions: int
 
 #EXP
-var level: int = 1
-var exp_needed: float = 125
-var exp_current: float = 124
+@export var level: int = 1
+@export var exp_needed: float
+@export var exp_current: float
 
 #Health
 @onready var max_health: int = 100
-@onready var current_health: int = max_health
+@onready var current_health: int
 
 #Gold
-var gold: int = 200
+@export var gold: int
+
 var player: CharacterBody2D
+var saver_loader: SaverLoader
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	if player:
-		print_debug(player.name)
+	saver_loader = get_tree().get_first_node_in_group("saver_loader")
+	saver_loader.load_game()
 
 #EXP and LEVEL methods
 func gain_exp(amount) -> void:
@@ -85,5 +88,6 @@ func gain_gold(amount: int) -> void:
 func spend_gold(amount: int) -> void:
 	if gold - amount >= 0:
 		gold -= amount
+		gold_changed.emit()
 	else:
 		print("Player doesn't have enough gold to spend")

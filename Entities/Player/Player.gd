@@ -15,7 +15,6 @@ var temp_pause_menu: PanelContainer
 @onready var camera: Camera2D = $Camera
 @onready var player_dash: GPUParticles2D = $PlayerDash
 @onready var text_position: Node2D = $TextPosition
-@onready var saver_loader: Node = $"../SaverLoader"
 @onready var gpu_particles_2d: CPUParticles2D = $GPUParticles2D
 @onready var shadow: Sprite2D = $Shadow
 
@@ -24,11 +23,9 @@ func on_item_picked_up(item: Item) -> void:
 
 func _ready() -> void:
 	player_dash.emitting = false
-	saver_loader.load_game()
 
 func _input(event: InputEvent) -> void:
 	var hud_scene: CanvasLayer = get_parent().get_child(0)
-	
 	
 	if event.is_action_pressed("open_inventory") and !inventory_open:
 		var _inventory = INVENTORY_HUD.instantiate()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dxwvp6h2hvfbq"]
+[gd_scene load_steps=33 format=3 uid="uid://dxwvp6h2hvfbq"]
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_1q46w"]
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_ab63m"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="14_u8u5l"]
 [ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="15_bbih6"]
 [ext_resource type="Texture2D" uid="uid://cupd782arpfu7" path="res://UI/Buttons/0_mini_buttons/button_hover.png" id="16_6f3bt"]
+[ext_resource type="Texture2D" uid="uid://dyl37wntkl7ru" path="res://UI/Buttons/4_long/disabled.png" id="17_6uk74"]
 [ext_resource type="Texture2D" uid="uid://crhsl2spr7x8i" path="res://UI/coin.png" id="17_c1cpc"]
 
 [sub_resource type="Theme" id="Theme_xnk6q"]
@@ -60,9 +61,12 @@ VScrollBar/styles/scroll = SubResource("StyleBoxLine_trcil")
 
 [sub_resource type="Theme" id="Theme_xb616"]
 default_font = ExtResource("1_ab63m")
-default_font_size = 13
+default_font_size = 10
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
 Label/fonts/font = ExtResource("1_ab63m")
+
+[sub_resource type="Theme" id="Theme_a3ii1"]
+Label/font_sizes/font_size = 15
 
 [sub_resource type="Animation" id="Animation_86ojw"]
 resource_name = "open"
@@ -319,10 +323,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -14.0
 offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_right = 14.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 3
@@ -330,7 +334,7 @@ stretch_mode = 3
 [node name="Shadow" type="Sprite2D" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/TextureHolder/ItemImage"]
 visible = false
 show_behind_parent = true
-position = Vector2(20, 25)
+position = Vector2(14, 24)
 scale = Vector2(0.015, 0.015)
 texture = ExtResource("13_beilx")
 
@@ -366,7 +370,9 @@ bbcode_enabled = true
 fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
+theme_override_constants/separation = 7
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -375,27 +381,8 @@ theme_override_constants/margin_top = -8
 [node name="AmountLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 visible = false
 layout_mode = 2
-text = "amount: "
-
-[node name="AddButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-texture_normal = ExtResource("14_u8u5l")
-texture_pressed = ExtResource("15_bbih6")
-texture_hover = ExtResource("16_6f3bt")
-
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -5.5
-offset_top = -6.0
-offset_right = 7.5
-offset_bottom = 14.0
-grow_horizontal = 2
-text = "+"
-horizontal_alignment = 1
+theme = SubResource("Theme_a3ii1")
+text = "amount:"
 
 [node name="SubstractButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 visible = false
@@ -417,6 +404,34 @@ grow_horizontal = 2
 text = "-"
 horizontal_alignment = 1
 
+[node name="AddButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("14_u8u5l")
+texture_pressed = ExtResource("15_bbih6")
+texture_hover = ExtResource("16_6f3bt")
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.5
+offset_top = -6.0
+offset_right = 7.5
+offset_bottom = 14.0
+grow_horizontal = 2
+text = "+"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -7
+
+[node name="Amount" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+visible = false
+layout_mode = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 14
@@ -427,17 +442,23 @@ layout_mode = 2
 texture_normal = ExtResource("4_mnefa")
 texture_pressed = ExtResource("5_n3phx")
 texture_hover = ExtResource("6_yrl7g")
+texture_disabled = ExtResource("17_6uk74")
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/BuyButton"]
+[node name="BuyLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/BuyButton"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = -5.0
 offset_right = 55.0
 offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
 text = "Buy"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = -9
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer2"]
 visible = false
 layout_mode = 2
 texture = ExtResource("17_c1cpc")
@@ -445,7 +466,7 @@ stretch_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-theme_override_constants/margin_left = -12
+theme_override_constants/margin_left = -11
 theme_override_constants/margin_top = -7
 
 [node name="PriceLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
@@ -457,6 +478,9 @@ libraries = {
 }
 autoplay = "open"
 
+[connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Consumables" to="." method="_on_consumables_pressed"]
+[connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Weapons" to="." method="_on_weapons_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SubstractButton" to="." method="_on_substract_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/BuyButton" to="." method="_on_buy_button_pressed"]
