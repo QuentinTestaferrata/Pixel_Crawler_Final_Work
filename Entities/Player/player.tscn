@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://uqj3ijcufn81"]
+[gd_scene load_steps=45 format=3 uid="uid://uqj3ijcufn81"]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_xgmka"]
 [ext_resource type="Script" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Entities/Player/player_health_component.gd" id="14_gnrcj"]
 [ext_resource type="Script" path="res://Entities/Player/player_hurtbox.gd" id="14_xq40c"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="17_icsdk"]
+[ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="18_k1fmk"]
 
 [sub_resource type="Shader" id="Shader_oyr31"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
@@ -293,12 +294,14 @@ position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_87sq1")
 
 [node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+z_as_relative = false
 material = SubResource("CanvasItemMaterial_0n62x")
 position = Vector2(0, -4)
 emitting = false
 amount = 20
 one_shot = true
 explosiveness = 0.5
+local_coords = true
 texture = ExtResource("17_icsdk")
 emission_shape = 1
 emission_sphere_radius = 8.48
@@ -314,6 +317,11 @@ angle_max = 30.4
 scale_amount_min = 0.06
 scale_amount_max = 0.06
 color_ramp = SubResource("Gradient_xjc2k")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+show_behind_parent = true
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("18_k1fmk")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="StateMachine/Dash" method="_on_dash_timer_timeout"]

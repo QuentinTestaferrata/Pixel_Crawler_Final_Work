@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs4m8p4hrxg7v"
-path="res://.godot/imported/pressed_button.png-ab0f23b94d85dca2abe734e8d860bc60.ctex"
+uid="uid://bval6yocc2y5"
+path="res://.godot/imported/bone_wand_sprite.png-c4b5dc5bb31c078a5f69a9ff5e831a7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Buttons/pressed_button.png"
-dest_files=["res://.godot/imported/pressed_button.png-ab0f23b94d85dca2abe734e8d860bc60.ctex"]
+source_file="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png"
+dest_files=["res://.godot/imported/bone_wand_sprite.png-c4b5dc5bb31c078a5f69a9ff5e831a7c.ctex"]
 
 [params]
 
