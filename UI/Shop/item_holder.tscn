@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://clgm5sm1ekkyj"]
+
+[ext_resource type="Texture2D" uid="uid://cthflfmocst75" path="res://UI/Buttons/2_medium/button.png" id="1_w5aj4"]
+[ext_resource type="Texture2D" uid="uid://clgtoso2uh6js" path="res://UI/Buttons/2_medium/button_pressed.png" id="2_fnypa"]
+[ext_resource type="Texture2D" uid="uid://clov3wyoi8kd5" path="res://UI/Buttons/2_medium/button_hover.png" id="3_sk2ec"]
+[ext_resource type="Script" path="res://UI/Shop/item_holder.gd" id="4_xjlrh"]
+
+[node name="Consumables" type="TextureButton"]
+custom_minimum_size = Vector2(10, 10)
+texture_normal = ExtResource("1_w5aj4")
+texture_pressed = ExtResource("2_fnypa")
+texture_hover = ExtResource("3_sk2ec")
+stretch_mode = 3
+script = ExtResource("4_xjlrh")

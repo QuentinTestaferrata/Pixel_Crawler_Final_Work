@@ -1,7 +1,14 @@
 extends Node2D
+class_name WeaponManager
 
-var current_weapons: Array = []
-@onready var player: CharacterBody2D = $".."
+var weapon_scenes = {
+	"wooden_staff": "res://Entities/Weapons/Staffs/new Wooden Staff/wooden_staff.tres",
+	"bone_staff": "res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres",
+	"bone_wand": "res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres"
+}
+
+var current_weapons: Array[Node2D] = []
+var active_weapons: Array[WeaponData] = []
 
 var tween: Tween
 var active_weapon_index: int = 0 #0 = no active weapon
@@ -10,11 +17,7 @@ var active_weapon: Node2D
 var primary_attack: PROJECTILE
 var secondary_attack: PROJECTILE
 
-var weapon_scenes = {
-	"wooden_staff": "res://Entities/Weapons/Staffs/new Wooden Staff/wooden_staff.tres",
-	"bone_staff": "res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres",
-	"bone_wand": "res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres"
-}
+@onready var player: CharacterBody2D = $".."
 
 func _ready() -> void:
 	##print("Weapon Manager loaded")
@@ -28,6 +31,7 @@ func equip_weapon(weapon_name: String) -> void:
 	if weapon_scenes.has(weapon_name):
 		var weapon: WeaponData = load(weapon_scenes[weapon_name])
 		var weapon_instance = weapon.scene.instantiate()
+		print(weapon_instance)
 		primary_attack = weapon.primary_attack
 		secondary_attack = weapon.secondary_attack
 		active_weapon = weapon_instance

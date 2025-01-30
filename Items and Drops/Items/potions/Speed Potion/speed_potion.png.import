@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs4m8p4hrxg7v"
-path="res://.godot/imported/pressed_button.png-e1d128ace04050a07e027508e67f2bcf.ctex"
+uid="uid://bqbleueonuv46"
+path="res://.godot/imported/speed_potion.png-f35eb535527e17fe350eb97adfe855c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Buttons/long/pressed_button.png"
-dest_files=["res://.godot/imported/pressed_button.png-e1d128ace04050a07e027508e67f2bcf.ctex"]
+source_file="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png"
+dest_files=["res://.godot/imported/speed_potion.png-f35eb535527e17fe350eb97adfe855c8.ctex"]
 
 [params]
 

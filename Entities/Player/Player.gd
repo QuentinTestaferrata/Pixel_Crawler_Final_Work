@@ -1,14 +1,15 @@
-extends CharacterBody2D
 class_name Player
+extends CharacterBody2D
 
 signal player_died
 
 const INVENTORY_HUD = preload("res://UI/inventory/inventory_&_profile.tscn")
 const PAUSE_MENU = preload("res://UI/Pause_Menu/pause_menu.tscn")
 
-var speed = 140
+var speed: int = 140
 var inventory: Inventory = Inventory.new()
 var inventory_open: bool = false
+var temp_pause_menu: PanelContainer
 
 @onready var character_sprite: AnimatedSprite2D = $CharacterSprite
 @onready var camera: Camera2D = $Camera
@@ -26,9 +27,8 @@ func _ready() -> void:
 	saver_loader.load_game()
 
 func _input(event: InputEvent) -> void:
-	
 	var hud_scene: CanvasLayer = get_parent().get_child(0)
-	var temp_pause_menu: PanelContainer
+	
 	
 	if event.is_action_pressed("open_inventory") and !inventory_open:
 		var _inventory = INVENTORY_HUD.instantiate()
