@@ -1,7 +1,9 @@
 class_name SavedGame
 extends Resource
 
-@export var inventory : Array[Item]
+@export_category("Player Inventory")
+@export var items : Array[Item]
+@export var weapons: Array[WeaponData]
 
 @export_category("Player Stats")
 @export var gold: int

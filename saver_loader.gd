@@ -7,7 +7,7 @@ func save_game():
 	var saved_game : SavedGame = SavedGame.new()
 	
 	#inventory
-	saved_game.inventory = player.inventory.content
+	saved_game.items = player.inventory.content
 
 	#Potions
 	saved_game.gold = StatsManager.gold
@@ -25,7 +25,7 @@ func load_game() -> void:
 	var saved_game:SavedGame = load("res://savegame.tres") as SavedGame
 	
 	#inventory
-	player.inventory.content = saved_game.inventory
+	player.inventory.content = saved_game.items
 	
 	StatsManager.gold = saved_game.gold
 	StatsManager.exp_current = saved_game.current_exp

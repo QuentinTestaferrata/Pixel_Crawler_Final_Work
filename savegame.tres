@@ -1,41 +1,27 @@
-[gd_resource type="Resource" script_class="SavedGame" load_steps=10 format=3]
+[gd_resource type="Resource" script_class="SavedGame" load_steps=8 format=3 uid="uid://m3y6i7ve5opx"]
 
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_ad4uc"]
 [ext_resource type="Script" path="res://saved_game.gd" id="2_7nnf2"]
-[ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/bone_drop.tscn" id="4_2ae3q"]
-[ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="4_2iaxw"]
-[ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="5_1cyrd"]
-[ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/bone.png" id="5_1kwvj"]
+[ext_resource type="Texture2D" uid="uid://bupmkrj10g8kh" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_tv8c6"]
+[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="3_3q3e8"]
+[ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="3_m284n"]
 
-[sub_resource type="Resource" id="Resource_kuip5"]
-script = ExtResource("1_ad4uc")
-name = "Bone"
-scene = ExtResource("4_2ae3q")
-sprite = ExtResource("5_1kwvj")
-description = "Normal bone"
-value = 2
-price = 8
-consumable = false
-rarity = 0
-stackable = true
-amount = 9
-
-[sub_resource type="Resource" id="Resource_gc5uh"]
+[sub_resource type="Resource" id="Resource_a8afm"]
 script = ExtResource("1_ad4uc")
 name = "Healing Potion"
-sprite = ExtResource("4_2iaxw")
+sprite = ExtResource("2_tv8c6")
 description = "Heals 20 health points. (10 seconds cooldown)"
 value = 10
 price = 25
 consumable = true
 rarity = 0
 stackable = true
-amount = 4
+amount = 3
 
-[sub_resource type="Resource" id="Resource_gl3n8"]
+[sub_resource type="Resource" id="Resource_rc7hj"]
 script = ExtResource("1_ad4uc")
 name = "Speed Potion"
-sprite = ExtResource("5_1cyrd")
+sprite = ExtResource("3_m284n")
 description = "Gives 20% speed for 10 seconds. (20 seconds cooldown)"
 value = 10
 price = 50
@@ -46,8 +32,9 @@ amount = 3
 
 [resource]
 script = ExtResource("2_7nnf2")
-inventory = Array[ExtResource("1_ad4uc")]([SubResource("Resource_kuip5"), SubResource("Resource_gc5uh"), SubResource("Resource_gl3n8")])
-gold = 9684
+items = Array[ExtResource("1_ad4uc")]([SubResource("Resource_a8afm"), SubResource("Resource_rc7hj")])
+weapons = Array[ExtResource("3_3q3e8")]([])
+gold = 9459
 current_exp = 40
 needed_exp = 125
 level = 1
