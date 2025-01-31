@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_o56gd"]
 [ext_resource type="Script" path="res://UI/wave_finished_dialog/wave_finished_dialog.gd" id="1_slpd4"]
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="3_maojm"]
-[ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/button.png" id="4_00hk3"]
-[ext_resource type="Texture2D" uid="uid://cs4m8p4hrxg7v" path="res://UI/Buttons/pressed_button.png" id="5_jjsec"]
-[ext_resource type="Texture2D" uid="uid://ox6g8eumw3rb" path="res://UI/Buttons/hover_button.png" id="6_fxsb5"]
+[ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/long/button.png" id="4_00hk3"]
+[ext_resource type="Texture2D" uid="uid://cs4m8p4hrxg7v" path="res://UI/Buttons/long/pressed_button.png" id="5_jjsec"]
+[ext_resource type="Texture2D" uid="uid://ox6g8eumw3rb" path="res://UI/Buttons/long/hover_button.png" id="6_fxsb5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gl3a1"]
 texture = ExtResource("1_o56gd")

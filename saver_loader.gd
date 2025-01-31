@@ -1,19 +1,21 @@
 extends Node
+class_name SaverLoader
 
 @export var player:Player
 
-
 func save_game():
 	var saved_game : SavedGame = SavedGame.new()
-	print("this is saved, ", player.inventory.content)
 	
 	#inventory
 	saved_game.inventory = player.inventory.content
-	
+
 	#Potions
-	print(StatsManager.current_potions)
-	saved_game.current_potions = StatsManager.current_potions
-	saved_game.max_potions = StatsManager.max_potions
+	saved_game.gold = StatsManager.gold
+	saved_game.current_exp = StatsManager.exp_current
+	saved_game.needed_exp = StatsManager.exp_needed
+	saved_game.level = StatsManager.level
+	saved_game.current_hp = StatsManager.current_health
+	saved_game.total_hp = StatsManager.max_health
 	
 	ResourceSaver.save(saved_game, "res://savegame.tres")
 
@@ -25,11 +27,11 @@ func load_game() -> void:
 	#inventory
 	player.inventory.content = saved_game.inventory
 	
-	#Potions
-	StatsManager.current_potions = saved_game.current_potions
-	StatsManager.max_potions = saved_game.max_potions
-	
-	print(saved_game.current_potions)
-	print(saved_game.max_potions)
+	StatsManager.gold = saved_game.gold
+	StatsManager.exp_current = saved_game.current_exp
+	StatsManager.exp_needed = saved_game.needed_exp
+	StatsManager.level = saved_game.level
+	StatsManager.current_health = saved_game.current_hp
+	StatsManager.max_health = saved_game.total_hp
 	
 	print("Loading")

@@ -1,27 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://1tomi88mrb43"]
+[gd_scene load_steps=5 format=3 uid="uid://1tomi88mrb43"]
 
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_bacxd"]
 [ext_resource type="Texture2D" uid="uid://bbxpxqw7aq7eu" path="res://UI/active_weapons/holder.png" id="1_bia6r"]
+[ext_resource type="Script" path="res://UI/active_weapons/active_weapon_hud.gd" id="2_6m75b"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qoyyq"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6eoad"]
+texture = ExtResource("1_bacxd")
+region_rect = Rect2(32, 128, 157, 65)
 
 [node name="ActiveWeaponHud" type="PanelContainer"]
-offset_left = 194.0
-offset_top = 231.0
-offset_right = 292.0
-offset_bottom = 261.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_qoyyq")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -30.0
+offset_right = 71.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(49, 14)
+theme_override_styles/panel = SubResource("StyleBoxTexture_6eoad")
+script = ExtResource("2_6m75b")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_bia6r")
+stretch_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_bia6r")
+stretch_mode = 3
 
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_bia6r")
+stretch_mode = 3
+
+[node name="Timer" type="Timer" parent="."]

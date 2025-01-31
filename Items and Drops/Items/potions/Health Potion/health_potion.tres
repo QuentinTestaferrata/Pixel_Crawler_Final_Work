@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ddrp3yoakbhfl"]
+
+[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_ly5hq"]
+[ext_resource type="Texture2D" uid="uid://bupmkrj10g8kh" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_wutw7"]
+
+[resource]
+script = ExtResource("1_ly5hq")
+name = "Healing Potion"
+sprite = ExtResource("2_wutw7")
+description = "Heals 20 health points. (10 seconds cooldown)"
+value = 10
+price = 25
+consumable = true
+rarity = 0
+stackable = true
+amount = 0

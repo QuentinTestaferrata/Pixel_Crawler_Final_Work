@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ox6g8eumw3rb"
-path="res://.godot/imported/hover_button.png-cb982dd9055014ce5f1bfd14c6cd07b7.ctex"
+uid="uid://chw2orvt7kppa"
+path="res://.godot/imported/bone_staff_shop_sprite.png-6845775916dca2e1680503dba8b6fc2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Buttons/hover_button.png"
-dest_files=["res://.godot/imported/hover_button.png-cb982dd9055014ce5f1bfd14c6cd07b7.ctex"]
+source_file="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_sprite.png"
+dest_files=["res://.godot/imported/bone_staff_shop_sprite.png-6845775916dca2e1680503dba8b6fc2e.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
-extends Node
+extends PanelContainer
 
-@onready var saver_loader: Node = %SaverLoader
+@onready var timer: Timer = $Timer
 
 func _ready() -> void:
-	saver_loader.load_game()
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

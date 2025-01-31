@@ -8,6 +8,9 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 @export var weapon_name: String
 @export var scene: PackedScene
 @export var sprite: Texture
+@export var shop_sprite: Texture
+@export var showcase_sprite: Texture = null
+@export var price: int
 
 @export_category("Attacks")
 @export var primary_attack: PROJECTILE
@@ -22,5 +25,5 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 @export var defense: int
 
 @export_category("Other")
-@export var hover_text: String
+@export var description: String
 @export var two_handed: bool

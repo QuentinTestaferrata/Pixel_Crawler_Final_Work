@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://byg0io75dodc1"]
+
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_44qd0"]
+[ext_resource type="Texture2D" uid="uid://u7p1d34mie11" path="res://UI/Buttons/small/button_normal.png" id="2_e0r7j"]
+[ext_resource type="Texture2D" uid="uid://drlw8rtgn1gv3" path="res://UI/Buttons/small/button_pressed.png" id="3_aw1ur"]
+[ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="3_qljo1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6mb2"]
+texture = ExtResource("1_44qd0")
+texture_margin_left = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+region_rect = Rect2(32, 239, 157, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0p38"]
+atlas = ExtResource("3_qljo1")
+region = Rect2(19, 229, 10, 11)
+
+[node name="Consumables" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 31.0
+grow_horizontal = 2
+pivot_offset = Vector2(50, 11)
+theme_override_styles/panel = SubResource("StyleBoxTexture_m6mb2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_e0r7j")
+texture_pressed = ExtResource("3_aw1ur")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.0
+offset_right = 20.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_q0p38")
+stretch_mode = 3
+
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_e0r7j")
+
+[node name="TextureButton3" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_e0r7j")

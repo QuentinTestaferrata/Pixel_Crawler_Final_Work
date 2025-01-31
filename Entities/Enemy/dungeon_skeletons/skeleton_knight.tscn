@@ -52,13 +52,13 @@ shape = SubResource("CapsuleShape2D_bedqo")
 [node name="DamageNumberPosition" parent="." instance=ExtResource("2_jp0mm")]
 
 [node name="Sprite" parent="." instance=ExtResource("3_d2hd5")]
-body = ExtResource("4_bof8s")
 left_hand = ExtResource("5_wal5h")
 left_hand_empty = ExtResource("6_r53sy")
 right_hand = ExtResource("7_cpfiw")
 right_hand_empty = ExtResource("8_o3sea")
 left_hand_weapon = ExtResource("9_8mx0i")
 right_hand_weapon = ExtResource("9_8mx0i")
+body = ExtResource("4_bof8s")
 
 [node name="EXPComponent" parent="." instance=ExtResource("4_fw5uq")]
 exp_amount = 5

@@ -4,15 +4,24 @@ signal new_item_obtained
 
 const SLOT_COUNT: int = 40
 
-var content: Array[Item] = []
+var content: Array[Item]
 
 func add_item(item: Item, amount: int = 1):
 	new_item_obtained.emit()
-	if item.stackable and content.has(item):
-		item.amount += amount
+	var existing_item = find_matching_item(item)
+	if existing_item:
+		existing_item.amount += amount
 	else:
-		content.append(item)
-		item.amount = amount
+		var new_item = item.duplicate()
+		content.append(new_item)
+		new_item.amount = amount
+
+func find_matching_item(item: Item) -> Item:
+	for content_item in content:
+		if content_item.name == item.name:
+			return content_item
+	return null
+
 
 func remove(item:Item):
 	content.erase(item)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://diocly1nuyxyt"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.gd" id="1_k4222"]
+[ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="1_x8qs3"]
+[ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_1js7s"]
+[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/bone_shard.tres" id="2_rpqr7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vhsve"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_163bn"]
+offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
+colors = PackedColorArray(1, 1, 1, 0, 6.37732e-07, 0.393071, 0.246579, 0.501961, 0.431073, 0.810743, 0.326029, 0.552941, 1, 1, 1, 0)
+
+[node name="BoneWand" type="Node2D"]
+script = ExtResource("1_k4222")
+primary_attack = ExtResource("2_rpqr7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x8qs3")
+offset = Vector2(0, -5)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_vhsve")
+position = Vector2(0, -15)
+rotation = 1.5708
+amount = 4
+lifetime = 5.0
+speed_scale = 5.6
+explosiveness = 0.54
+local_coords = true
+texture = ExtResource("2_1js7s")
+direction = Vector2(0, -1)
+spread = 33.61
+gravity = Vector2(0, 0)
+angular_velocity_min = -15.0
+angular_velocity_max = 15.0
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.05
+scale_amount_max = 0.05
+color_ramp = SubResource("Gradient_163bn")
+
+[node name="Timer" type="Timer" parent="."]

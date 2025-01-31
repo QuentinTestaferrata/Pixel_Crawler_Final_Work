@@ -3,5 +3,10 @@ extends Resource
 
 @export var inventory : Array[Item]
 
-@export var max_potions: int
-@export var current_potions: int
+@export_category("Player Stats")
+@export var gold: int
+@export var current_exp: int
+@export var needed_exp: int
+@export var level: int
+@export var current_hp: int
+@export var total_hp: int
