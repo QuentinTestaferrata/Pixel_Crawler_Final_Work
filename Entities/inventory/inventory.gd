@@ -5,6 +5,7 @@ signal new_item_obtained
 const SLOT_COUNT: int = 40
 
 var content: Array[Item]
+var weapons: Array[WeaponData]
 
 func add_item(item: Item, amount: int = 1):
 	new_item_obtained.emit()
@@ -22,6 +23,17 @@ func find_matching_item(item: Item) -> Item:
 			return content_item
 	return null
 
+func add_weapon(weapon: WeaponData):
+	new_item_obtained.emit()
+	var existing_item = find_matching_weapon(weapon)
+	var new_weapon = weapon.duplicate()
+	weapons.append(new_weapon)
+
+func find_matching_weapon(weapon: WeaponData) -> WeaponData:
+	for content_item in weapons:
+		if content_item.weapon_name == weapon.weapon_name:
+			return content_item
+	return null
 
 func remove(item:Item):
 	content.erase(item)

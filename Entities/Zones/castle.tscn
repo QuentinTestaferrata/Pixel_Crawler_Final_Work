@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="1_57tk4"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_cgcdv"]
+[ext_resource type="Script" path="res://Entities/Zones/castle.gd" id="1_ry380"]
 [ext_resource type="PackedScene" uid="uid://cllgrrvw6gtc5" path="res://Entities/Props/Castle/plant.tscn" id="2_47dc5"]
 [ext_resource type="PackedScene" uid="uid://do0dom6f7a16f" path="res://Entities/Props/Castle/Weapon Racks/weapon_rack_1.tscn" id="2_fjayh"]
 [ext_resource type="PackedScene" uid="uid://bmgmvy8wb5p67" path="res://Entities/Props/Forest/barrels_boxes/box.tscn" id="4_de8fg"]
@@ -17,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://bpr0j8g5xg1bp" path="res://UI/HUD_restzone.tscn" id="15_iyl6u"]
 [ext_resource type="PackedScene" uid="uid://c0v3mfcb7httg" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.tscn" id="16_15evs"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://saver_loader.tscn" id="17_ll0mv"]
-[ext_resource type="PackedScene" uid="uid://pld51fydlb1l" path="res://Entities/NPC/Castle_questNPC/Quest_NPC.tscn" id="18_8tgst"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erg28"]
 texture = ExtResource("1_cgcdv")
@@ -734,6 +734,7 @@ sources/1 = SubResource("TileSetAtlasSource_erg28")
 
 [node name="Castle" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_ry380")
 
 [node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("15_iyl6u")]
 saver_loader = NodePath("../SaverLoader")
@@ -820,8 +821,8 @@ position = Vector2(40, 23)
 [node name="InventoryRoom" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Chest" parent="InventoryRoom" instance=ExtResource("5_eb41p")]
-position = Vector2(-16, 57)
+[node name="WeaponRack" parent="InventoryRoom" instance=ExtResource("5_eb41p")]
+position = Vector2(-16, 68)
 
 [node name="Shop" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -891,5 +892,15 @@ position = Vector2(-176, 147)
 unique_name_in_owner = true
 player = NodePath("../Player")
 
-[node name="QuestNPC" parent="." instance=ExtResource("18_8tgst")]
+[node name="QuestNPC" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(126, 175)
+script = null
