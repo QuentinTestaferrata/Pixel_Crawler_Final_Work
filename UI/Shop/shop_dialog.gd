@@ -11,6 +11,8 @@ var amount: int = 1
 var item_price: int
 var player: CharacterBody2D
 var selected_item
+var selected_item_is_weapon: bool = false
+var saver_loader: SaverLoader
 
 @onready var scroll_container: ScrollContainer = $HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer
 @onready var grid_container: GridContainer = $HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer/GridContainer
@@ -31,6 +33,7 @@ var selected_item
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	saver_loader = get_tree().get_first_node_in_group("saver_loader")
 	get_shop_items()
 
 func get_shop_items() -> void:
@@ -74,6 +77,8 @@ func get_shop_weapons() -> void:
 		print(i.weapon_name)
 
 func get_item_info(i: Item) -> void:
+	selected_item_is_weapon = false
+	
 	amount_label.visible = true
 	add_button.visible = true
 	substract_button.visible = true
@@ -93,6 +98,8 @@ func get_item_info(i: Item) -> void:
 	selected_item = i
 
 func get_weapon_info(i: WeaponData) -> void:
+	selected_item_is_weapon = true
+	
 	amount_label.visible = false
 	add_button.visible = false
 	substract_button.visible = false
@@ -152,6 +159,10 @@ func _on_weapons_pressed() -> void:
 
 func _on_buy_button_pressed() -> void:
 	if amount <= StatsManager.gold:
-		StatsManager.spend_gold(selected_item.price)
-		player.inventory.add_item(selected_item, amount)
+		if !selected_item_is_weapon:
+			player.inventory.add_item(selected_item, amount)
+			StatsManager.spend_gold(selected_item.price)
+			saver_loader.save_game()
+		else:
+			pass
 		update_amount()

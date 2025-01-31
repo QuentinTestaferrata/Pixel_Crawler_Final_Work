@@ -5,7 +5,6 @@ signal player_died
 
 const INVENTORY_HUD = preload("res://UI/inventory/inventory_&_profile.tscn")
 const PAUSE_MENU = preload("res://UI/Pause_Menu/pause_menu.tscn")
-
 var speed: int = 140
 var inventory: Inventory = Inventory.new()
 var inventory_open: bool = false
