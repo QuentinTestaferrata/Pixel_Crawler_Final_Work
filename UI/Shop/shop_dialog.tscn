@@ -68,9 +68,8 @@ Label/fonts/font = ExtResource("1_ab63m")
 [sub_resource type="Theme" id="Theme_a3ii1"]
 Label/font_sizes/font_size = 15
 
-[sub_resource type="Animation" id="Animation_86ojw"]
-resource_name = "open"
-length = 0.15
+[sub_resource type="Animation" id="Animation_fujow"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,10 +77,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(1.2, 1.2), Vector2(1, 1)]
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_toqst"]
@@ -115,8 +114,9 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_fujow"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_86ojw"]
+resource_name = "open"
+length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -124,10 +124,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.1, 0.1), Vector2(1.2, 1.2), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ufyef"]
