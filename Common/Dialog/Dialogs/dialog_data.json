@@ -1,0 +1,119 @@
+{
+	"npc_1": {
+		"trees": [
+			{
+				"branch_id": "npc1_1",
+				"dialogs":[
+					{
+						"state": "start",
+						"text": "Hello, adventurer! What do you need?",
+						"options": {
+							"Ask about Castle": "in_progress",
+							"Receive quests": "give_quests",
+							"Say Goodbye": "exit",
+						}
+					},
+					{
+						"state": "in_porgress",
+						"text": "This castle is your safe place adventurer!",
+						"options": {
+							"Go back": "start",
+							"Receive quests": "give_quests",
+							"Say Goodbye": "exit",
+						}
+					},
+					{
+						"state": "give_quests",
+						"text": "Sure if I have anything you can find it in your Quest Logs",
+						"options": {
+							"Go back": "start",
+							"Say Goodbye": "exit",
+						}
+					},
+					{
+						"state": "end",
+						"text": "Goodbye adventurer!",
+						"options": {}
+					},
+					{
+						"state": "exit",
+						"text": "Come back soon adventurer!",
+						"options": {}
+					},
+				]
+			},
+			{
+				"branch_id": "npc1_2",
+				"dialogs":[					{
+						"state": "start",
+						"text": "Hey adventurer! Back so soon?",
+						"options": {
+							"Continue Asking About Castle": "in_progress",
+							"Receive Quests": "give_quests",
+							"Say Goodbye": "exit"
+						}
+					},
+					{
+						"state": "in_progress",
+						"text": "I heard that that the other NPC sells weapons.",
+						"options": {
+							"Say Goodbye": "end",
+							"Go Back": "start"
+						}
+					},
+					{
+						"state": "give_quests",
+						"text": "Sure! If I have anything, you can find it in your Quest Log.",
+						"options": {
+							"Say Goodbye": "exit",
+							"Go Back": "start"
+						}
+					},
+					{
+						"state": "end",
+						"text": "Goodbye, adventurer!",
+						"options": {}
+					},
+					{
+						"state": "exit",
+						"text": "Come back soon!",
+						"options": {}
+					}]
+			},
+			{
+				"branch_id": "npc1_default",
+				"dialogs":[{
+						"state": "start",
+						"text": "Hey adventurer! Thanks again for helping me.",
+						"options": {
+							"Receive Quests": "give_quests",
+							"Say Goodbye": "exit"
+						}
+					},
+					{
+						"state": "give_quests",
+						"text": "Sure! If I have anything, you can find it in your Quest Log.",
+						"options": {
+							"Go Back": "start"
+						}
+					}]
+			},
+		],
+	},
+	"npc_2": {
+		"tree": [
+						{
+				"branch_id": "npc2_1",
+				"dialogs":[]
+			},
+			{
+				"branch_id": "npc2_2",
+				"dialogs":[]
+			},
+			{
+				"branch_id": "npc2_default",
+				"dialogs":[]
+			},
+		],
+	},
+}
