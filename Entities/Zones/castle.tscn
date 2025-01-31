@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bpr0j8g5xg1bp" path="res://UI/HUD_restzone.tscn" id="15_iyl6u"]
 [ext_resource type="PackedScene" uid="uid://c0v3mfcb7httg" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.tscn" id="16_15evs"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://saver_loader.tscn" id="17_ll0mv"]
-[ext_resource type="PackedScene" uid="uid://pld51fydlb1l" path="res://Entities/NPC/Castle_questNPC/Quest_NPC.tscn" id="18_8tgst"]
+[ext_resource type="PackedScene" path="res://Entities/NPC/Castle_questNPC/Quest_NPC.tscn" id="18_8tgst"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erg28"]
 texture = ExtResource("1_cgcdv")
@@ -822,8 +822,8 @@ position = Vector2(40, 23)
 [node name="InventoryRoom" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Chest" parent="InventoryRoom" instance=ExtResource("5_eb41p")]
-position = Vector2(-16, 57)
+[node name="WeaponRack" parent="InventoryRoom" instance=ExtResource("5_eb41p")]
+position = Vector2(-16, 68)
 
 [node name="Shop" type="Node2D" parent="."]
 y_sort_enabled = true
