@@ -1,23 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://pld51fydlb1l"]
+[gd_scene load_steps=14 format=3 uid="uid://pld51fydlb1l"]
 
-[ext_resource type="Script" path="res://Entities/NPC/quest_pnj.gd" id="1_f868g"]
-[ext_resource type="Texture2D" uid="uid://b06866e6e7mk3" path="res://assets/Castle/Enemies (Royal Crew)/Soldier/Idle-Sheet.png" id="1_imp1h"]
-[ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="2_koeec"]
+[ext_resource type="Script" path="res://Entities/NPC/Castle_questNPC/quest_NPC.gd" id="1_bnyew"]
+[ext_resource type="Texture2D" uid="uid://b06866e6e7mk3" path="res://assets/Castle/Enemies (Royal Crew)/Soldier/Idle-Sheet.png" id="2_bgmn1"]
+[ext_resource type="Script" path="res://Common/Dialog/Dialogs/Dialog.gd" id="2_rbnxq"]
+[ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_3eivg"]
+[ext_resource type="PackedScene" uid="uid://18twpagpx1rg" path="res://UI/Dialog/Scenes/DialogManager.tscn" id="5_a4sa8"]
+
+[sub_resource type="Resource" id="Resource_7ibn4"]
+script = ExtResource("2_rbnxq")
+dialogs = {}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvrpd"]
-atlas = ExtResource("1_imp1h")
+atlas = ExtResource("2_bgmn1")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nis66"]
-atlas = ExtResource("1_imp1h")
+atlas = ExtResource("2_bgmn1")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0knj"]
-atlas = ExtResource("1_imp1h")
+atlas = ExtResource("2_bgmn1")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7hid"]
-atlas = ExtResource("1_imp1h")
+atlas = ExtResource("2_bgmn1")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7sar"]
@@ -48,7 +54,10 @@ height = 16.0
 radius = 35.0571
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_f868g")
+script = ExtResource("1_bnyew")
+npc_id = "npc_1"
+npc_name = "Knight Alfred"
+dialog_resource = SubResource("Resource_7ibn4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
@@ -61,10 +70,14 @@ position = Vector2(0, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_clq6g")
 
-[node name="InteractionArea" parent="." instance=ExtResource("2_koeec")]
+[node name="InteractionArea" parent="." instance=ExtResource("3_3eivg")]
 collision_layer = 512
 collision_mask = 512
 action_name = "Talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_w44cn")
+
+[node name="DialogManager" parent="." instance=ExtResource("5_a4sa8")]
+visible = false
+position = Vector2(-212, -267)

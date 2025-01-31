@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4j5awwmyad0s"]
+
+[ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_kd63x"]
+[ext_resource type="Script" path="res://UI/Quests/QuestHUD/QuestTracker.gd" id="2_dd3g7"]
+
+[sub_resource type="Theme" id="Theme_1n3jw"]
+Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("1_kd63x")
+
+[node name="QuestTracker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1n3jw")
+script = ExtResource("2_dd3g7")
+
+[node name="QuestTracker" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 117.0
+offset_right = 475.0
+offset_bottom = 157.0
+color = Color(0.694118, 0.729412, 0.67451, 0.258824)
+
+[node name="Details" type="VBoxContainer" parent="QuestTracker"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="QuestTracker/Details"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Objectives" type="VBoxContainer" parent="QuestTracker/Details"]
+layout_mode = 2
+size_flags_vertical = 3
