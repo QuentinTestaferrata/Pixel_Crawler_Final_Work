@@ -79,4 +79,5 @@ action_name = "Talk"
 shape = SubResource("CircleShape2D_w44cn")
 
 [node name="DialogManager" parent="." instance=ExtResource("5_a4sa8")]
+visible = false
 position = Vector2(-212, -267)
