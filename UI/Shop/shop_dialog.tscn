@@ -52,12 +52,12 @@ texture_margin_right = 7.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(368, 144, 81, 80)
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_trcil"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1pcgs"]
 content_margin_left = 2.0
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 0.807843)
 
 [sub_resource type="Theme" id="Theme_gjkkb"]
-VScrollBar/styles/scroll = SubResource("StyleBoxLine_trcil")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_1pcgs")
 
 [sub_resource type="Theme" id="Theme_xb616"]
 default_font = ExtResource("1_ab63m")

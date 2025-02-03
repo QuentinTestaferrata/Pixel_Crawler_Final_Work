@@ -164,5 +164,7 @@ func _on_buy_button_pressed() -> void:
 			StatsManager.spend_gold(selected_item.price)
 			saver_loader.save_game()
 		else:
-			pass
+			player.inventory.add_weapon(selected_item)
+			StatsManager.spend_gold(selected_item.price)
+			saver_loader.save_game()
 		update_amount()

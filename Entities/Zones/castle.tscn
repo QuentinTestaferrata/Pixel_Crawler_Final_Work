@@ -821,8 +821,9 @@ position = Vector2(40, 23)
 [node name="InventoryRoom" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="WeaponRack" parent="InventoryRoom" instance=ExtResource("5_eb41p")]
+[node name="WeaponRack" parent="InventoryRoom" node_paths=PackedStringArray("HUDLayer") instance=ExtResource("5_eb41p")]
 position = Vector2(-16, 68)
+HUDLayer = NodePath("../../HUDLayer")
 
 [node name="Shop" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -891,16 +892,3 @@ position = Vector2(-176, 147)
 [node name="SaverLoader" parent="." node_paths=PackedStringArray("player") groups=["saver_loader"] instance=ExtResource("17_ll0mv")]
 unique_name_in_owner = true
 player = NodePath("../Player")
-
-[node name="QuestNPC" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(126, 175)
-script = null

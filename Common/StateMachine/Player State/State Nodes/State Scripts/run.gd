@@ -26,6 +26,13 @@ func exit():
 	pass
 
 func _physics_process(_delta):
+	pass
+
+func set_knockback(force: float, dir: Vector2) -> void:
+	knockback_force = force
+	knockback_direction = dir
+
+func _process(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if knockback_direction:
 		player.velocity = knockback_direction * player.speed * knockback_force
@@ -37,9 +44,3 @@ func _physics_process(_delta):
 		knockback_direction = Vector2.ZERO
 	
 	player.move_and_slide()
-
-func set_knockback(force: float, dir: Vector2) -> void:
-	knockback_force = force
-	knockback_direction = dir
-func _process(_delta):
-	pass

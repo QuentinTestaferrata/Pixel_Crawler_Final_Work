@@ -1,6 +1,9 @@
 extends Node2D
 class_name WeaponManager
 
+@export var equipped_weapon_1: WeaponData
+@export var equipped_weapon_2: WeaponData
+
 var weapon_scenes = {
 	"wooden_staff": "res://Entities/Weapons/Staffs/new Wooden Staff/wooden_staff.tres",
 	"bone_staff": "res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres",

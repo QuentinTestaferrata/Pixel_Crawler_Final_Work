@@ -6,10 +6,15 @@ class_name SaverLoader
 func save_game():
 	var saved_game : SavedGame = SavedGame.new()
 	
-	#inventory
+	#Inventory
 	saved_game.items = player.inventory.content
-
-	#Potions
+	saved_game.weapons = player.inventory.weapons
+	
+	#Active Weapons
+	saved_game.equipped_weapon_1 = player.weapon_manager.equipped_weapon_1
+	saved_game.equipped_weapon_2 = player.weapon_manager.equipped_weapon_2
+	
+	#Stats
 	saved_game.gold = StatsManager.gold
 	saved_game.current_exp = StatsManager.exp_current
 	saved_game.needed_exp = StatsManager.exp_needed
@@ -24,9 +29,15 @@ func save_game():
 func load_game() -> void:
 	var saved_game:SavedGame = load("res://savegame.tres") as SavedGame
 	
-	#inventory
+	#Inventory
 	player.inventory.content = saved_game.items
+	player.inventory.weapons = saved_game.weapons
 	
+	#Active Weapons
+	#player.weapon_manager.equipped_weapon_1 = saved_game.equipped_weapon_1
+	#player.weapon_manager.equipped_weapon_2 = saved_game.equipped_weapon_2
+	
+	#Stats
 	StatsManager.gold = saved_game.gold
 	StatsManager.exp_current = saved_game.current_exp
 	StatsManager.exp_needed = saved_game.needed_exp

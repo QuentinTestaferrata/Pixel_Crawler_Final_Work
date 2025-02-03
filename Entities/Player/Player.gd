@@ -5,6 +5,7 @@ signal player_died
 
 const INVENTORY_HUD = preload("res://UI/inventory/inventory_&_profile.tscn")
 const PAUSE_MENU = preload("res://UI/Pause_Menu/pause_menu.tscn")
+
 var speed: int = 140
 var inventory: Inventory = Inventory.new()
 var inventory_open: bool = false
@@ -16,6 +17,7 @@ var temp_pause_menu: PanelContainer
 @onready var text_position: Node2D = $TextPosition
 @onready var gpu_particles_2d: CPUParticles2D = $GPUParticles2D
 @onready var shadow: Sprite2D = $Shadow
+@onready var weapon_manager: WeaponManager = $WeaponManager
 
 func on_item_picked_up(item: Item) -> void:
 	inventory.add_item(item)

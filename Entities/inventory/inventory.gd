@@ -25,7 +25,6 @@ func find_matching_item(item: Item) -> Item:
 
 func add_weapon(weapon: WeaponData):
 	new_item_obtained.emit()
-	var existing_item = find_matching_weapon(weapon)
 	var new_weapon = weapon.duplicate()
 	weapons.append(new_weapon)
 
