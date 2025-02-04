@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgs8cecmhubv"]
+
+[ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/4_long/button.png" id="1_vowhv"]
+[ext_resource type="Texture2D" uid="uid://cs4m8p4hrxg7v" path="res://UI/Buttons/4_long/pressed_button.png" id="2_ltjhq"]
+[ext_resource type="Texture2D" uid="uid://ox6g8eumw3rb" path="res://UI/Buttons/4_long/hover_button.png" id="3_0hywi"]
+[ext_resource type="Script" path="res://UI/Dialog/Script/option_button.gd" id="4_wrxrq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lcduj"]
+texture = ExtResource("3_0hywi")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frk85"]
+texture = ExtResource("1_vowhv")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2xbh"]
+texture = ExtResource("2_ltjhq")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="Theme" id="Theme_jsdte"]
+Button/styles/hover = SubResource("StyleBoxTexture_lcduj")
+Button/styles/normal = SubResource("StyleBoxTexture_frk85")
+Button/styles/pressed = SubResource("StyleBoxTexture_s2xbh")
+
+[node name="Option_button" type="Button"]
+custom_minimum_size = Vector2(30, 0)
+offset_right = 100.0
+offset_bottom = 14.0
+theme = SubResource("Theme_jsdte")
+script = ExtResource("4_wrxrq")
