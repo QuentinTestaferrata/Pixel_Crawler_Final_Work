@@ -44,7 +44,8 @@ func load_game() -> void:
 	#Active Weapons
 	StatsManager.equiped_weapon_1 = saved_game.equiped_weapon_1
 	StatsManager.equiped_weapon_2 = saved_game.equiped_weapon_2
-	
+	if StatsManager.equiped_weapon_1 != null:
+		print(StatsManager.equiped_weapon_1)
 	#Stats
 	StatsManager.gold = saved_game.gold
 	StatsManager.exp_current = saved_game.current_exp
