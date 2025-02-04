@@ -20,7 +20,6 @@ func _ready() -> void:
 	hand_sprites = body.get_child(3)
 	
 	attack_animations = body.set_attack_animation_player()
-	print(attack_animations)
 	
 	target = get_tree().get_first_node_in_group("player")
 	if not target:

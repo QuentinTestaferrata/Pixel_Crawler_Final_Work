@@ -44,8 +44,7 @@ func _ready() -> void:
 	get_shop_items()
 
 func get_shop_items() -> void:
-	print("Shop items: ")
-	for i in SHOP_ITEMS.shop_items:
+	for i in StatsManager.shop_items:
 		var temp_item_holder: TextureButton = ITEM_HOLDER.instantiate()
 		var sprite: TextureRect = TextureRect.new()
 		
@@ -64,7 +63,7 @@ func get_shop_items() -> void:
 		grid_container.add_child(temp_item_holder)
 
 func get_shop_weapons() -> void:
-	for i in SHOP_ITEMS.shop_weapons:
+	for i in StatsManager.shop_weapons:
 		var temp_item_holder: TextureButton = WEAPON_HOLDER.instantiate()
 		var sprite: TextureRect = TextureRect.new()
 		
@@ -240,7 +239,7 @@ func _on_buy_button_pressed() -> void:
 				StatsManager.spend_gold(selected_item.price)
 				saver_loader.save_game()
 			else:
-				SHOP_ITEMS.shop_weapons.erase(selected_item)
+				StatsManager.shop_weapons.erase(selected_item)
 				player.inventory.add_weapon(selected_item)
 				StatsManager.spend_gold(selected_item.price)
 				saver_loader.save_game()

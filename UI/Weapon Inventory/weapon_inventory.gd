@@ -50,10 +50,12 @@ func _showcase_weapon(weapon: WeaponData) -> void:
 func _on_equip_1_button_pressed() -> void:
 	if selected_weapon != null && weapon_manager.equiped_weapon_2 != selected_weapon:
 		weapon_manager.set_weapon(selected_weapon, 1)
+		StatsManager.equiped_weapon_1 = selected_weapon
 
 func _on_equip_2_button_pressed() -> void:
 	if selected_weapon != null && weapon_manager.equiped_weapon_1 != selected_weapon:
 		weapon_manager.set_weapon(selected_weapon, 2)
+		StatsManager.equiped_weapon_2 = selected_weapon
 
 func _on_close_button_pressed() -> void:
 	queue_free()

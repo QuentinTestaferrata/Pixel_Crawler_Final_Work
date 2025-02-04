@@ -1,43 +1,31 @@
-[gd_resource type="Resource" script_class="SavedGame" load_steps=17 format=3 uid="uid://m3y6i7ve5opx"]
+[gd_resource type="Resource" script_class="SavedGame" load_steps=24 format=3 uid="uid://cpxteq7yeirkf"]
 
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_ad4uc"]
-[ext_resource type="Texture2D" uid="uid://bupmkrj10g8kh" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_0o7so"]
+[ext_resource type="Texture2D" uid="uid://bupmkrj10g8kh" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_1r53x"]
 [ext_resource type="Script" path="res://saved_game.gd" id="2_7nnf2"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="3_3q3e8"]
-[ext_resource type="PackedScene" uid="uid://diocly1nuyxyt" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.tscn" id="6_nl31h"]
-[ext_resource type="Texture2D" uid="uid://b2o0hutd2uaix" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_shop_sprite.png" id="7_kcvt4"]
-[ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="8_x1bg6"]
-[ext_resource type="PackedScene" uid="uid://dum6xe8iwt7ls" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="9_8fy8q"]
-[ext_resource type="Texture2D" uid="uid://chw2orvt7kppa" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_sprite.png" id="10_bbyke"]
-[ext_resource type="Texture2D" uid="uid://dtogx0t5k1i0t" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_showcase.png" id="11_23qqd"]
-[ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="11_glfjk"]
-[ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png" id="12_4ewar"]
+[ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="3_5m2q2"]
+[ext_resource type="Resource" uid="uid://ddrp3yoakbhfl" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="3_gkhex"]
+[ext_resource type="Resource" uid="uid://batcoigiqsdiw" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.tres" id="4_xob7d"]
+[ext_resource type="PackedScene" uid="uid://diocly1nuyxyt" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.tscn" id="9_5sjbt"]
+[ext_resource type="Texture2D" uid="uid://b2o0hutd2uaix" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_shop_sprite.png" id="10_ta5x7"]
+[ext_resource type="PackedScene" uid="uid://dum6xe8iwt7ls" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="11_2vxom"]
+[ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="11_8cwck"]
+[ext_resource type="PackedScene" uid="uid://c86e6v634k7vi" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/bone_drop.tscn" id="12_15ge4"]
+[ext_resource type="Texture2D" uid="uid://chw2orvt7kppa" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_sprite.png" id="12_fgpyb"]
+[ext_resource type="Texture2D" uid="uid://dtogx0t5k1i0t" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_showcase.png" id="13_1g8ox"]
+[ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="13_vni8y"]
+[ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png" id="14_pls3p"]
 
-[sub_resource type="Resource" id="Resource_u6uon"]
-script = ExtResource("3_3q3e8")
-weapon_name = "Bone Wand"
-scene = ExtResource("6_nl31h")
-sprite = ExtResource("8_x1bg6")
-shop_sprite = ExtResource("7_kcvt4")
-price = 500
-obtained = false
-weapon_type = 1
-weapon_rarity = 0
-damage = 20
-knockback_force = 0.0
-defense = 0
-description = "Cast powerful undead spells!"
-two_handed = false
-
-[sub_resource type="Resource" id="Resource_hpuan"]
+[sub_resource type="Resource" id="Resource_wu36y"]
 script = ExtResource("3_3q3e8")
 weapon_name = "Bone Staff"
-scene = ExtResource("9_8fy8q")
-sprite = ExtResource("12_4ewar")
-shop_sprite = ExtResource("10_bbyke")
-showcase_sprite = ExtResource("11_23qqd")
+scene = ExtResource("11_2vxom")
+sprite = ExtResource("14_pls3p")
+shop_sprite = ExtResource("12_fgpyb")
+showcase_sprite = ExtResource("13_1g8ox")
 price = 1000
-obtained = false
+obtained = true
 weapon_type = 0
 weapon_rarity = 0
 damage = 10
@@ -46,39 +34,103 @@ defense = 5
 description = "Shoots tons of bone arrow, fully automatic but limited shooting!"
 two_handed = false
 
-[sub_resource type="Resource" id="Resource_d4ye4"]
+[sub_resource type="Resource" id="Resource_wdgd0"]
+script = ExtResource("3_3q3e8")
+weapon_name = "Bone Wand"
+scene = ExtResource("9_5sjbt")
+sprite = ExtResource("11_8cwck")
+shop_sprite = ExtResource("10_ta5x7")
+price = 500
+obtained = true
+weapon_type = 1
+weapon_rarity = 0
+damage = 20
+knockback_force = 0.0
+defense = 0
+description = "Cast powerful undead spells!"
+two_handed = false
+
+[sub_resource type="Resource" id="Resource_8v4f3"]
 script = ExtResource("1_ad4uc")
 name = "Healing Potion"
-sprite = ExtResource("2_0o7so")
+sprite = ExtResource("2_1r53x")
 description = "Heals 20 health points. (10 seconds cooldown)"
 value = 5
 price = 25
 consumable = true
 rarity = 0
 stackable = true
-amount = 10
+amount = 9
 
-[sub_resource type="Resource" id="Resource_sm18j"]
+[sub_resource type="Resource" id="Resource_vebi4"]
+script = ExtResource("1_ad4uc")
+name = "Bone"
+scene = ExtResource("12_15ge4")
+sprite = ExtResource("13_vni8y")
+description = "Normal bone"
+value = 2
+price = 8
+consumable = false
+rarity = 0
+stackable = true
+amount = 59
+
+[sub_resource type="Resource" id="Resource_5n35y"]
 script = ExtResource("1_ad4uc")
 name = "Speed Potion"
-sprite = ExtResource("11_glfjk")
+sprite = ExtResource("3_5m2q2")
 description = "Gives 20% speed for 10 seconds. (20 seconds cooldown)"
 value = 10
 price = 50
 consumable = true
 rarity = 0
 stackable = true
-amount = 1
+amount = 4
+
+[sub_resource type="Resource" id="Resource_lgie6"]
+script = ExtResource("3_3q3e8")
+weapon_name = "Bone Wand"
+scene = ExtResource("9_5sjbt")
+sprite = ExtResource("11_8cwck")
+shop_sprite = ExtResource("10_ta5x7")
+price = 500
+obtained = true
+weapon_type = 1
+weapon_rarity = 0
+damage = 20
+knockback_force = 0.0
+defense = 0
+description = "Cast powerful undead spells!"
+two_handed = false
+
+[sub_resource type="Resource" id="Resource_lufu1"]
+script = ExtResource("3_3q3e8")
+weapon_name = "Bone Staff"
+scene = ExtResource("11_2vxom")
+sprite = ExtResource("14_pls3p")
+shop_sprite = ExtResource("12_fgpyb")
+showcase_sprite = ExtResource("13_1g8ox")
+price = 1000
+obtained = true
+weapon_type = 0
+weapon_rarity = 0
+damage = 10
+knockback_force = 0.0
+defense = 5
+description = "Shoots tons of bone arrow, fully automatic but limited shooting!"
+two_handed = false
 
 [resource]
 script = ExtResource("2_7nnf2")
-items = Array[ExtResource("1_ad4uc")]([SubResource("Resource_d4ye4"), SubResource("Resource_sm18j")])
-weapons = Array[ExtResource("3_3q3e8")]([])
-equiped_weapon_1 = SubResource("Resource_u6uon")
-equiped_weapon_2 = SubResource("Resource_hpuan")
-gold = 4899
-current_exp = 60
-needed_exp = 125
-level = 1
-current_hp = 52
-total_hp = 100
+items = Array[ExtResource("1_ad4uc")]([SubResource("Resource_8v4f3"), SubResource("Resource_vebi4"), SubResource("Resource_5n35y")])
+weapons = Array[ExtResource("3_3q3e8")]([SubResource("Resource_lgie6"), SubResource("Resource_lufu1")])
+shop_items = Array[ExtResource("1_ad4uc")]([ExtResource("3_gkhex"), ExtResource("4_xob7d")])
+shop_weapons = Array[ExtResource("3_3q3e8")]([])
+equiped_weapon_1 = SubResource("Resource_wu36y")
+equiped_weapon_2 = SubResource("Resource_wdgd0")
+gold = 8306
+current_exp = 119
+needed_exp = 500
+level = 2
+current_hp = 77
+total_hp = 105

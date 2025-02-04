@@ -10,7 +10,9 @@ func save_game():
 	saved_game.items = player.inventory.content
 	saved_game.weapons = player.inventory.weapons
 	
-	print("hey: ", player.weapon_manager)
+	#Shop Items
+	saved_game.shop_items = StatsManager.shop_items
+	saved_game.shop_weapons = StatsManager.shop_weapons
 	
 	#Active Weapons
 	saved_game.equiped_weapon_1 = player.weapon_manager.equiped_weapon_1
@@ -34,6 +36,10 @@ func load_game() -> void:
 	#Inventory
 	player.inventory.content = saved_game.items
 	player.inventory.weapons = saved_game.weapons
+	
+	#Shop Items
+	StatsManager.shop_items = saved_game.shop_items
+	StatsManager.shop_weapons = saved_game.shop_weapons 
 	
 	#Active Weapons
 	StatsManager.equiped_weapon_1 = saved_game.equiped_weapon_1
