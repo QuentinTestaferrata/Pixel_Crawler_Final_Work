@@ -14,6 +14,7 @@ sprite = ExtResource("3_qoxri")
 shop_sprite = ExtResource("3_33udq")
 showcase_sprite = ExtResource("4_xp0gd")
 price = 1000
+obtained = false
 weapon_type = 0
 weapon_rarity = 0
 damage = 10

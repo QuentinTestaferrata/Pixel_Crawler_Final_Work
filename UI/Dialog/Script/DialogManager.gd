@@ -44,12 +44,12 @@ func handle_dialog_option(option):
 	if next_state == "end":
 		if npc.current_branch_index < npc.dialog_resource.get_npc_dialog(npc.npc_id).size() - 1:
 			show_dialog(npc)
-			npc.set_dialog_branch(npc.current_branch_index + 1)
-		hide_dialog()
+			npc.set_dialog_tree(npc.current_branch_index + 1)
+		
 	elif next_state == "exit":
 		show_dialog(npc)
 		npc.set_dialog_state("start")
-		hide_dialog()
+		
 	elif next_state == "give_quests":
 		show_dialog(npc)
 		pass
