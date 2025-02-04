@@ -1,15 +1,55 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsxd0uws3fyyp"]
+[gd_scene load_steps=24 format=3 uid="uid://dsxd0uws3fyyp"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_s8cfg"]
 [ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="2_6pvdl"]
 [ext_resource type="Texture2D" uid="uid://qms4g37y4fkr" path="res://UI/Weapon Inventory/weapon_display_page.png" id="3_3p4ed"]
+[ext_resource type="Script" path="res://UI/Weapon Inventory/weapon_inventory.gd" id="3_74gli"]
+[ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="4_fqk0p"]
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="4_thwyg"]
+[ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="5_u8jnr"]
+[ext_resource type="Texture2D" uid="uid://7t4btkly3fdc" path="res://UI/Buttons/5_equip/equip1.png" id="5_vkvt1"]
+[ext_resource type="Texture2D" uid="uid://bkutkwivb4evb" path="res://UI/Buttons/5_equip/equip2.png" id="6_bqr25"]
+[ext_resource type="Texture2D" uid="uid://kp11ndxkhflw" path="res://UI/Buttons/5_equip/equip1_pressed.png" id="6_fcj7b"]
+[ext_resource type="Texture2D" uid="uid://cupd782arpfu7" path="res://UI/Buttons/0_mini_buttons/button_hover.png" id="6_ti0d2"]
+[ext_resource type="Texture2D" uid="uid://3dxn0nc033kf" path="res://UI/Buttons/5_equip/equip1_hover.png" id="7_m236s"]
+[ext_resource type="Texture2D" uid="uid://t8cdd4630d1j" path="res://UI/Buttons/5_equip/equip2_pressed.png" id="9_0qlw0"]
+[ext_resource type="Texture2D" uid="uid://3impb04dxsv0" path="res://UI/Buttons/5_equip/equiped2_hover.png" id="10_bmke8"]
 
 [sub_resource type="Theme" id="Theme_t6q6d"]
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+Label/font_sizes/font_size = 15
 Label/fonts/font = ExtResource("1_s8cfg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0pl2n"]
 texture = ExtResource("2_6pvdl")
+
+[sub_resource type="Theme" id="Theme_mmd2g"]
+Label/font_sizes/font_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvm67"]
+content_margin_left = 2.0
+
+[sub_resource type="Theme" id="Theme_drpsr"]
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_rvm67")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_734jj"]
+atlas = ExtResource("4_thwyg")
+region = Rect2(147, 862, 69, 9)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8a1c"]
+texture = ExtResource("4_thwyg")
+texture_margin_left = 7.0
+texture_margin_top = 6.0
+texture_margin_right = 7.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(368, 144, 81, 80)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_f7e8l"]
+content_margin_left = 2.0
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="Theme" id="Theme_c8yle"]
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_f7e8l")
 
 [node name="WeaponInventory" type="PanelContainer"]
 custom_minimum_size = Vector2(155, 237)
@@ -27,20 +67,148 @@ grow_vertical = 2
 pivot_offset = Vector2(19, 20)
 theme = SubResource("Theme_t6q6d")
 theme_override_styles/panel = SubResource("StyleBoxTexture_0pl2n")
+script = ExtResource("3_74gli")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_top = -1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 7
+theme_override_constants/separation = 5
 
-[node name="WeaponLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 47
+alignment = 2
+
+[node name="WeaponLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_mmd2g")
 text = "WEAPONS"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = -17
+
+[node name="CloseButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_fqk0p")
+texture_pressed = ExtResource("5_u8jnr")
+texture_hover = ExtResource("6_ti0d2")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 38.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = -31
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton/MarginContainer"]
+layout_mode = 2
+text = "x"
+
+[node name="WeaponSpriteShowcase" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_3p4ed")
 stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -30.5
+offset_right = 55.5
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="WeaponImageHolder" type="TextureRect" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -7
+
+[node name="WeaponName" type="Label" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(85, 38)
+layout_mode = 2
+theme = SubResource("Theme_drpsr")
+
+[node name="WeaponDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(85, 38)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.105882, 0.133333, 0.211765, 1)
+theme_override_fonts/normal_font = ExtResource("1_s8cfg")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "
+"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Equip1Button" type="TextureButton" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("5_vkvt1")
+texture_pressed = ExtResource("6_fcj7b")
+texture_hover = ExtResource("7_m236s")
+
+[node name="Equip2Button" type="TextureButton" parent="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("6_bqr25")
+texture_pressed = ExtResource("9_0qlw0")
+texture_hover = ExtResource("10_bmke8")
+
+[node name="Line" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_734jj")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 17
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = 17
+theme_override_constants/margin_bottom = 1
+
+[node name="ShopItems" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_o8a1c")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ShopItems"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = SubResource("Theme_c8yle")
+horizontal_scroll_mode = 0
+
+[node name="WeaponsGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ShopItems/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 5
+columns = 4
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/HBoxContainer/Equip1Button" to="." method="_on_equip_1_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/HBoxContainer/Equip2Button" to="." method="_on_equip_2_button_pressed"]

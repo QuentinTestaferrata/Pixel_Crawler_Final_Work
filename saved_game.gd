@@ -5,6 +5,10 @@ extends Resource
 @export var items : Array[Item]
 @export var weapons: Array[WeaponData]
 
+@export_category("Equipped Weapons")
+@export var equiped_weapon_1: WeaponData
+@export var equiped_weapon_2: WeaponData
+
 @export_category("Player Stats")
 @export var gold: int
 @export var current_exp: int

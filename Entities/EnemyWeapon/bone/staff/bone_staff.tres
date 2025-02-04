@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyWeapon" load_steps=4 format=3 uid="uid://c88057j271vgf"]
+[gd_resource type="Resource" script_class="EnemyWeaponData" load_steps=4 format=3 uid="uid://c88057j271vgf"]
 
 [ext_resource type="PackedScene" uid="uid://ctm80amydog8u" path="res://Entities/EnemyWeapon/bone/staff/bone_staff.tscn" id="1_3h3ei"]
 [ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="1_dnn63"]

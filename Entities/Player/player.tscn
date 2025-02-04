@@ -194,7 +194,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ex530"]
@@ -236,7 +236,7 @@ script = ExtResource("2_3hfeh")
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yb326")
-animation = &"die"
+animation = &"run"
 autoplay = "idle"
 centered = false
 offset = Vector2(-18, -35)

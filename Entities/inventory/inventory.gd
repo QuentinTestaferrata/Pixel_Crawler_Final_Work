@@ -25,8 +25,8 @@ func find_matching_item(item: Item) -> Item:
 
 func add_weapon(weapon: WeaponData):
 	new_item_obtained.emit()
-	var existing_item = find_matching_weapon(weapon)
-	var new_weapon = weapon.duplicate()
+	var new_weapon: WeaponData = weapon.duplicate()
+	new_weapon.obtained = true
 	weapons.append(new_weapon)
 
 func find_matching_weapon(weapon: WeaponData) -> WeaponData:
@@ -35,8 +35,12 @@ func find_matching_weapon(weapon: WeaponData) -> WeaponData:
 			return content_item
 	return null
 
-func remove(item:Item):
-	content.erase(item)
+func remove_item(item:Item, amount: int):
+	for i in content:
+		if i.name == item.name:
+			i.amount -= amount
+			if amount == 0:
+				content.erase(item)
 
 func get_items() -> Array[Item]:
 	for i in content:
