@@ -25,6 +25,10 @@ var current_potions: int
 #Gold
 @export var gold: int
 
+#Weapons
+@export var equiped_weapon_1: WeaponData
+@export var equiped_weapon_2: WeaponData
+
 var player: CharacterBody2D
 var saver_loader: SaverLoader
 

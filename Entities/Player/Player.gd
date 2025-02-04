@@ -24,6 +24,7 @@ func on_item_picked_up(item: Item) -> void:
 
 func _ready() -> void:
 	player_dash.emitting = false
+	print(weapon_manager)
 
 func _input(event: InputEvent) -> void:
 	var hud_scene: CanvasLayer = get_parent().get_child(0)

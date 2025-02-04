@@ -1,8 +1,7 @@
 extends Node2D
 class_name WeaponManager
 
-@export var equipped_weapon_1: WeaponData
-@export var equipped_weapon_2: WeaponData
+
 
 var weapon_scenes = {
 	"wooden_staff": "res://Entities/Weapons/Staffs/new Wooden Staff/wooden_staff.tres",
@@ -11,7 +10,6 @@ var weapon_scenes = {
 }
 
 var current_weapons: Array[Node2D] = []
-var active_weapons: Array[WeaponData] = []
 
 var tween: Tween
 var active_weapon_index: int = 0 #0 = no active weapon
@@ -20,39 +18,50 @@ var active_weapon: Node2D
 var primary_attack: PROJECTILE
 var secondary_attack: PROJECTILE
 
+var equiped_weapon_1: WeaponData
+var equiped_weapon_2: WeaponData
+
 @onready var player: CharacterBody2D = $".."
 
 func _ready() -> void:
-	##print("Weapon Manager loaded")
-	pass
+	equiped_weapon_1 = StatsManager.equiped_weapon_1
+	equiped_weapon_2 = StatsManager.equiped_weapon_2
 
-func equip_weapon(weapon_name: String) -> void:
+func get_weapon_1() -> WeaponData:
+	return equiped_weapon_1
+
+func set_weapon(weapon: WeaponData, slot: int):
+	if slot != 1 && slot != 2:
+		print("Weapon slot has to be 1 or 2")
+	elif slot == 1:
+		equiped_weapon_1 = weapon
+		print(equiped_weapon_1)
+	else:
+		equiped_weapon_2 = weapon
+		print(equiped_weapon_2)
+
+func equip_weapon(_weapon: WeaponData) -> void:
 	if active_weapon: 
 		active_weapon.queue_free()
 		tween.kill()
-
-	if weapon_scenes.has(weapon_name):
-		var weapon: WeaponData = load(weapon_scenes[weapon_name])
-		var weapon_instance = weapon.scene.instantiate()
-		print(weapon_instance)
-		primary_attack = weapon.primary_attack
-		secondary_attack = weapon.secondary_attack
-		active_weapon = weapon_instance
-		
-		add_child(weapon_instance)
-		current_weapons.append(weapon_instance)
-		
-		active_weapon_type = weapon.weapon_type
-		
-		if weapon.weapon_type == 0:
-			active_weapon_type = 0
-			setup_staff(weapon_instance)
-		elif weapon.weapon_type == 1:
-			active_weapon_type = 1
-			setup_wand(weapon_instance)
-			
-	else:
-		print("Weapon scene: ", weapon_name, " doesn't exist")
+	
+	var weapon_instance = _weapon.scene.instantiate()
+	print(weapon_instance)
+	primary_attack = _weapon.primary_attack
+	secondary_attack = _weapon.secondary_attack
+	active_weapon = weapon_instance
+	
+	add_child(weapon_instance)
+	current_weapons.append(weapon_instance)
+	
+	active_weapon_type = _weapon.weapon_type
+	
+	if _weapon.weapon_type == 0:
+		active_weapon_type = 0
+		setup_staff(weapon_instance)
+	elif _weapon.weapon_type == 1:
+		active_weapon_type = 1
+		setup_wand(weapon_instance)
 
 func setup_staff(weapon_1) -> Tween:
 	tween = get_tree().create_tween()
@@ -94,9 +103,10 @@ func _process(_delta: float) -> void:
 				tween_x.tween_property(active_weapon, "rotation",  .15, .2)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("equip_weapon_1"):
+	if event.is_action_pressed("equip_weapon_1") && equiped_weapon_1 != null:
+		print(equiped_weapon_1.weapon_name)
 		rotation = 0
-		equip_weapon("bone_staff")
+		equip_weapon(equiped_weapon_1)
 
-	elif event.is_action_pressed("equip_weapon_2"):
-		equip_weapon("bone_wand")
+	elif event.is_action_pressed("equip_weapon_2") && equiped_weapon_2 != null:
+		equip_weapon(equiped_weapon_2)

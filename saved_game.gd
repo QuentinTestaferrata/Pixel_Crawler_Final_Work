@@ -6,8 +6,8 @@ extends Resource
 @export var weapons: Array[WeaponData]
 
 @export_category("Equipped Weapons")
-@export var equipped_weapon_1: WeaponData
-@export var equipped_weapon_2: WeaponData
+@export var equiped_weapon_1: WeaponData
+@export var equiped_weapon_2: WeaponData
 
 @export_category("Player Stats")
 @export var gold: int
