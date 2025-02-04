@@ -19,5 +19,5 @@ weapon_rarity = 0
 damage = 10
 knockback_force = 0.0
 defense = 5
-description = "Shoots tons of bone marrow, fully automatic but limited shooting!"
+description = "Shoots tons of bone arrow, fully automatic but limited shooting!"
 two_handed = false

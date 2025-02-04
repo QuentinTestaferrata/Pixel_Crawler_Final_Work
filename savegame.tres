@@ -1,28 +1,83 @@
-[gd_resource type="Resource" script_class="SavedGame" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="SavedGame" load_steps=17 format=3 uid="uid://m3y6i7ve5opx"]
 
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_ad4uc"]
+[ext_resource type="Texture2D" uid="uid://bupmkrj10g8kh" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_0o7so"]
 [ext_resource type="Script" path="res://saved_game.gd" id="2_7nnf2"]
-[ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/bone_drop.tscn" id="4_2ae3q"]
-[ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/bone.png" id="5_1kwvj"]
+[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="3_3q3e8"]
+[ext_resource type="PackedScene" uid="uid://diocly1nuyxyt" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.tscn" id="6_nl31h"]
+[ext_resource type="Texture2D" uid="uid://b2o0hutd2uaix" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_shop_sprite.png" id="7_kcvt4"]
+[ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="8_x1bg6"]
+[ext_resource type="PackedScene" uid="uid://dum6xe8iwt7ls" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="9_8fy8q"]
+[ext_resource type="Texture2D" uid="uid://chw2orvt7kppa" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_sprite.png" id="10_bbyke"]
+[ext_resource type="Texture2D" uid="uid://dtogx0t5k1i0t" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_showcase.png" id="11_23qqd"]
+[ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="11_glfjk"]
+[ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png" id="12_4ewar"]
 
-[sub_resource type="Resource" id="Resource_fxl61"]
+[sub_resource type="Resource" id="Resource_u6uon"]
+script = ExtResource("3_3q3e8")
+weapon_name = "Bone Wand"
+scene = ExtResource("6_nl31h")
+sprite = ExtResource("8_x1bg6")
+shop_sprite = ExtResource("7_kcvt4")
+price = 500
+obtained = false
+weapon_type = 1
+weapon_rarity = 0
+damage = 20
+knockback_force = 0.0
+defense = 0
+description = "Cast powerful undead spells!"
+two_handed = false
+
+[sub_resource type="Resource" id="Resource_hpuan"]
+script = ExtResource("3_3q3e8")
+weapon_name = "Bone Staff"
+scene = ExtResource("9_8fy8q")
+sprite = ExtResource("12_4ewar")
+shop_sprite = ExtResource("10_bbyke")
+showcase_sprite = ExtResource("11_23qqd")
+price = 1000
+obtained = false
+weapon_type = 0
+weapon_rarity = 0
+damage = 10
+knockback_force = 0.0
+defense = 5
+description = "Shoots tons of bone arrow, fully automatic but limited shooting!"
+two_handed = false
+
+[sub_resource type="Resource" id="Resource_d4ye4"]
 script = ExtResource("1_ad4uc")
-name = "Bone"
-scene = ExtResource("4_2ae3q")
-sprite = ExtResource("5_1kwvj")
-description = "Normal bone"
-value = 2
-price = 8
-consumable = false
+name = "Healing Potion"
+sprite = ExtResource("2_0o7so")
+description = "Heals 20 health points. (10 seconds cooldown)"
+value = 5
+price = 25
+consumable = true
 rarity = 0
 stackable = true
-amount = 23
+amount = 10
+
+[sub_resource type="Resource" id="Resource_sm18j"]
+script = ExtResource("1_ad4uc")
+name = "Speed Potion"
+sprite = ExtResource("11_glfjk")
+description = "Gives 20% speed for 10 seconds. (20 seconds cooldown)"
+value = 10
+price = 50
+consumable = true
+rarity = 0
+stackable = true
+amount = 1
 
 [resource]
 script = ExtResource("2_7nnf2")
-inventory = Array[ExtResource("1_ad4uc")]([SubResource("Resource_fxl61")])
-gold = 10017
-current_exp = 83
+items = Array[ExtResource("1_ad4uc")]([SubResource("Resource_d4ye4"), SubResource("Resource_sm18j")])
+weapons = Array[ExtResource("3_3q3e8")]([])
+equiped_weapon_1 = SubResource("Resource_u6uon")
+equiped_weapon_2 = SubResource("Resource_hpuan")
+gold = 4899
+current_exp = 60
 needed_exp = 125
 level = 1
 current_hp = 52
