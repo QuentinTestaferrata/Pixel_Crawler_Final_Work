@@ -14,7 +14,7 @@
 						}
 					},
 					{
-						"state": "in_porgress",
+						"state": "in_progress",
 						"text": "This castle is your safe place adventurer!",
 						"options": {
 							"Go back": "start",

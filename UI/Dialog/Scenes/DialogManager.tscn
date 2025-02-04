@@ -7,13 +7,9 @@
 script = ExtResource("1_nnb8d")
 
 [node name="DialogUi" parent="." instance=ExtResource("2_hhxa5")]
-anchors_preset = 0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 8.0
+light_mask = 513
+visibility_layer = 512
+offset_left = 16.0
 offset_top = 208.0
-offset_right = 483.0
+offset_right = 461.0
 offset_bottom = 258.0
-grow_horizontal = 1
-grow_vertical = 1

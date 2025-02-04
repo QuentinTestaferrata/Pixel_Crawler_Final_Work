@@ -42,4 +42,5 @@ func set_dialog_tree(branch_index):
 
 #Update dialog state
 func set_dialog_state(state):
-	current_state
+	current_state = state
+	print(state)
