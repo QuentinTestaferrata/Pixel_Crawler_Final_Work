@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
+const DIALOG_UI = preload("res://UI/Dialog/Scenes/DialogUI.tscn")
 @onready var interaction_area: InteractionArea = $InteractionArea
+@onready var hud_layer: hud = $"../HUDLayer"
 
 @export var npc_id: String
 @export var npc_name: String
@@ -25,6 +27,9 @@ func on_interact():
 	if npc_dialogs.is_empty():
 		return
 	dialog_manager.show_dialog(self)
+	#var temp_dialog = DIALOG_UI.instantiate()
+	#hud_layer.add_child(temp_dialog)
+	#dialog_manager.show_dialog(self)
 
 #Get current bracnh dialog
 func get_current_dialog():
