@@ -308,7 +308,13 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
-[node name="HealTimer" type="Timer" parent="Timers"]
+[node name="HealCooldown" type="Timer" parent="Timers"]
+wait_time = 30.0
+one_shot = true
+
+[node name="SpeedCooldown" type="Timer" parent="Timers"]
+wait_time = 60.0
+one_shot = true
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -376,4 +382,3 @@ color_ramp = SubResource("Gradient_xjc2k")
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/DashTimer" to="StateMachine/Dash" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/SpeedTimer" to="." method="_on_speed_timer_timeout"]
-[connection signal="timeout" from="Timers/HealTimer" to="." method="_on_heal_timer_timeout"]

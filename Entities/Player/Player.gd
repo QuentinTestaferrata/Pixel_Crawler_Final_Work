@@ -26,7 +26,8 @@ var temp_pause_menu: PanelContainer
 @onready var shadow: Sprite2D = $Shadow
 @onready var weapon_manager: WeaponManager = $WeaponManager
 @onready var health_component: PlayerHealthComponent = $HealthComponent
-@onready var heal_timer: Timer = $Timers/HealTimer
+@onready var heal_cooldown: Timer = $Timers/HealCooldown
+@onready var speed_cooldown: Timer = $Timers/SpeedCooldown
 
 func on_item_picked_up(item: Item) -> void:
 	inventory.add_item(item)
@@ -56,8 +57,8 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = false
 		var temp_menu = hud_scene.find_child("PauseMenu", true, false)
 		temp_menu.close_menu()
-	
-	if event.is_action_pressed("heal") and heal_timer.is_stopped():
+	## TODO : get rid of heal and speed inputs here and put the in potions_container.tscn
+	if event.is_action_pressed("heal") and heal_cooldown.is_stopped():
 		var potion: Item = inventory.get_item_by_name("Healing Potion")
 		if potion == null:
 			print("No more heal potions left")
@@ -67,7 +68,7 @@ func _input(event: InputEvent) -> void:
 				potion.amount -= 1
 				health_component.heal(20)
 	
-	elif event.is_action_pressed("speed") and speed_timer.is_stopped():
+	elif event.is_action_pressed("speed") and speed_cooldown.is_stopped():
 		var potion: Item = inventory.get_item_by_name("Speed Potion")
 		if potion == null:
 			print("No more speed potions left")
@@ -80,12 +81,13 @@ func play_heal_animation() -> void:
 	heal_particles.top_level = false
 	heal_particles.local_coords = true
 	heal_particles.emitting = true
-	heal_timer.start()
+	heal_cooldown.start()
 
 func play_speed_animation() -> void:
 	speed_particles.top_level = false
 	speed_particles.local_coords = false
 	speed_particles.emitting = true
+	speed_cooldown.start()
 	speed_timer.start()
 	speed += 75
 

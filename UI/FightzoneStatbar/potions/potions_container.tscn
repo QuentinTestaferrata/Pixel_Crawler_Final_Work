@@ -19,13 +19,8 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_jyj7p")
 
 [node name="PotionsContainer" type="PanelContainer"]
 offset_left = 132.0
-<<<<<<< Updated upstream
 offset_right = 186.0
 offset_bottom = 65.0
-=======
-offset_right = 172.0
-offset_bottom = 40.0
->>>>>>> Stashed changes
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2et80")
 script = ExtResource("1_kpfl7")
 
@@ -37,24 +32,16 @@ theme_override_constants/margin_top = 7
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-<<<<<<< Updated upstream
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="HealthPotion" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-=======
-[node name="HealthPotion" type="TextureButton" parent="MarginContainer/HBoxContainer"]
->>>>>>> Stashed changes
 layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("1_kdu20")
 texture_pressed = ExtResource("2_f1ffe")
 
-<<<<<<< Updated upstream
 [node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/HealthPotion"]
-=======
-[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/HealthPotion"]
->>>>>>> Stashed changes
 clip_contents = true
 layout_mode = 1
 anchors_preset = 5
@@ -68,23 +55,15 @@ grow_horizontal = 2
 theme = SubResource("Theme_x66nx")
 show_percentage = false
 
-<<<<<<< Updated upstream
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="SpeedPotion" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-=======
-[node name="SpeedPotion" type="TextureButton" parent="MarginContainer/HBoxContainer"]
->>>>>>> Stashed changes
 layout_mode = 2
 texture_normal = ExtResource("4_bshl3")
 texture_pressed = ExtResource("5_13asr")
 
-<<<<<<< Updated upstream
 [node name="SpeedBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2/SpeedPotion"]
-=======
-[node name="SpeedBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/SpeedPotion"]
->>>>>>> Stashed changes
 clip_contents = true
 layout_mode = 1
 anchors_preset = 5
