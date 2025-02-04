@@ -6,8 +6,8 @@ signal died
 
 @export var hittable: bool = false
 
-var current_health: int
-var max_health: int
+var current_health: int = StatsManager.current_health
+var max_health: int = StatsManager.max_health
 
 @onready var state_machine: PlayerStateMachine = $"../StateMachine"
 
@@ -18,14 +18,14 @@ func _ready() -> void:
 	##print(max_health, "/", current_health)
 
 func heal(amount: int) -> void:
-	if current_health + amount > max_health:
-		current_health = max_health
-		health_changed.emit()
+	if StatsManager.current_health + amount > StatsManager.max_health:
+		StatsManager.current_health = StatsManager.max_health
+		StatsManager.health_changed.emit()
 	elif amount < 0:
 		print("Can't heal a negative amount")
 	else: 
-		current_health += amount
-		health_changed.emit()
+		StatsManager.current_health += amount
+		StatsManager.health_changed.emit()
 
 func take_damage(amount: int) -> void:
 	if hittable: 

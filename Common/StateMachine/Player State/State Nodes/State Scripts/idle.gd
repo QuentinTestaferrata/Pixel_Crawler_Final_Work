@@ -12,7 +12,6 @@ func update(_delta: float):
 		state_machine.change_state(self, "run")
 
 	if Input.is_action_just_pressed("interact"):
-		print("interacting")
 		pass
 	
 	if Input.is_action_just_pressed("primary_attack") or Input.is_action_just_pressed("secondary_attack"):

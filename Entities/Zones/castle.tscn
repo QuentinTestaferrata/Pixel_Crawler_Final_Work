@@ -741,7 +741,7 @@ script = ExtResource("1_ry380")
 saver_loader = NodePath("../SaverLoader")
 
 [node name="Player" parent="." instance=ExtResource("1_57tk4")]
-position = Vector2(-31, 415)
+position = Vector2(-167, 220)
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -845,7 +845,9 @@ position = Vector2(-68, 331)
 collision_layer = 513
 
 [node name="Table" parent="Shop/WeaponRacks" instance=ExtResource("8_kdhai")]
-position = Vector2(-69, 428)
+position = Vector2(-69, 417)
+collision_layer = 513
+collision_mask = 3
 
 [node name="Decor" type="Node2D" parent="."]
 y_sort_enabled = true

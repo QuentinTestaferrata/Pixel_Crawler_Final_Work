@@ -35,10 +35,8 @@ func set_weapon(weapon: WeaponData, slot: int):
 		print("Weapon slot has to be 1 or 2")
 	elif slot == 1:
 		equiped_weapon_1 = weapon
-		print(equiped_weapon_1)
 	else:
 		equiped_weapon_2 = weapon
-		print(equiped_weapon_2)
 
 func equip_weapon(_weapon: WeaponData) -> void:
 	if active_weapon: 
@@ -46,7 +44,6 @@ func equip_weapon(_weapon: WeaponData) -> void:
 		tween.kill()
 	
 	var weapon_instance = _weapon.scene.instantiate()
-	print(weapon_instance)
 	primary_attack = _weapon.primary_attack
 	secondary_attack = _weapon.secondary_attack
 	active_weapon = weapon_instance
@@ -104,9 +101,9 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("equip_weapon_1") && equiped_weapon_1 != null:
-		print(equiped_weapon_1.weapon_name)
 		rotation = 0
 		equip_weapon(equiped_weapon_1)
 
 	elif event.is_action_pressed("equip_weapon_2") && equiped_weapon_2 != null:
+		equiped_weapon_2 = StatsManager.equiped_weapon_2
 		equip_weapon(equiped_weapon_2)
