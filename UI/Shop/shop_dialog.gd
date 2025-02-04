@@ -47,6 +47,9 @@ func get_shop_items() -> void:
 <<<<<<< Updated upstream
 =======
 	print("Shop items: ")
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	for i in StatsManager.shop_items:
 		var temp_item_holder: TextureButton = ITEM_HOLDER.instantiate()

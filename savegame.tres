@@ -1,9 +1,14 @@
+<<<<<<< Updated upstream
 [gd_resource type="Resource" script_class="SavedGame" load_steps=24 format=3 uid="uid://cpxteq7yeirkf"]
+=======
+[gd_resource type="Resource" script_class="SavedGame" load_steps=22 format=3 uid="uid://m3y6i7ve5opx"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_ad4uc"]
 [ext_resource type="Texture2D" uid="uid://bupmkrj10g8kh" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_1r53x"]
 [ext_resource type="Script" path="res://saved_game.gd" id="2_7nnf2"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="3_3q3e8"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="3_5m2q2"]
 [ext_resource type="Resource" uid="uid://ddrp3yoakbhfl" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="3_gkhex"]
 [ext_resource type="Resource" uid="uid://batcoigiqsdiw" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.tres" id="4_xob7d"]
@@ -24,6 +29,28 @@ scene = ExtResource("11_2vxom")
 sprite = ExtResource("14_pls3p")
 shop_sprite = ExtResource("12_fgpyb")
 showcase_sprite = ExtResource("13_1g8ox")
+=======
+[ext_resource type="Resource" uid="uid://ddrp3yoakbhfl" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="5_rj0qv"]
+[ext_resource type="Resource" uid="uid://batcoigiqsdiw" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.tres" id="6_tgaau"]
+[ext_resource type="PackedScene" uid="uid://diocly1nuyxyt" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.tscn" id="8_q51jm"]
+[ext_resource type="PackedScene" uid="uid://c86e6v634k7vi" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/bone_drop.tscn" id="9_145b7"]
+[ext_resource type="Texture2D" uid="uid://b2o0hutd2uaix" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_shop_sprite.png" id="9_x25uc"]
+[ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="10_8tw1p"]
+[ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="10_bihbe"]
+[ext_resource type="PackedScene" uid="uid://dum6xe8iwt7ls" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="11_dbbah"]
+[ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="11_glfjk"]
+[ext_resource type="Texture2D" uid="uid://chw2orvt7kppa" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_sprite.png" id="12_8nuab"]
+[ext_resource type="Texture2D" uid="uid://dtogx0t5k1i0t" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_showcase.png" id="13_bl3f2"]
+[ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png" id="14_m7kgn"]
+
+[sub_resource type="Resource" id="Resource_b2krb"]
+script = ExtResource("3_3q3e8")
+weapon_name = "Bone Staff"
+scene = ExtResource("11_dbbah")
+sprite = ExtResource("14_m7kgn")
+shop_sprite = ExtResource("12_8nuab")
+showcase_sprite = ExtResource("13_bl3f2")
+>>>>>>> Stashed changes
 price = 1000
 obtained = true
 weapon_type = 0
@@ -85,6 +112,7 @@ price = 50
 consumable = true
 rarity = 0
 stackable = true
+<<<<<<< Updated upstream
 amount = 4
 
 [sub_resource type="Resource" id="Resource_lgie6"]
@@ -93,6 +121,29 @@ weapon_name = "Bone Wand"
 scene = ExtResource("9_5sjbt")
 sprite = ExtResource("11_8cwck")
 shop_sprite = ExtResource("10_ta5x7")
+=======
+amount = 2
+
+[sub_resource type="Resource" id="Resource_773ik"]
+script = ExtResource("1_ad4uc")
+name = "Bone"
+scene = ExtResource("9_145b7")
+sprite = ExtResource("10_8tw1p")
+description = "Normal bone"
+value = 2
+price = 8
+consumable = false
+rarity = 0
+stackable = true
+amount = 24
+
+[sub_resource type="Resource" id="Resource_alaia"]
+script = ExtResource("3_3q3e8")
+weapon_name = "Bone Wand"
+scene = ExtResource("8_q51jm")
+sprite = ExtResource("10_bihbe")
+shop_sprite = ExtResource("9_x25uc")
+>>>>>>> Stashed changes
 price = 500
 obtained = true
 weapon_type = 1
@@ -102,6 +153,7 @@ knockback_force = 0.0
 defense = 0
 description = "Cast powerful undead spells!"
 two_handed = false
+<<<<<<< Updated upstream
 
 [sub_resource type="Resource" id="Resource_lufu1"]
 script = ExtResource("3_3q3e8")
@@ -133,4 +185,19 @@ current_exp = 119
 needed_exp = 500
 level = 2
 current_hp = 77
+=======
+
+[resource]
+script = ExtResource("2_7nnf2")
+items = Array[ExtResource("1_ad4uc")]([SubResource("Resource_d4ye4"), SubResource("Resource_sm18j"), SubResource("Resource_773ik")])
+weapons = Array[ExtResource("3_3q3e8")]([SubResource("Resource_alaia"), SubResource("Resource_b2krb")])
+shop_items = Array[ExtResource("1_ad4uc")]([ExtResource("5_rj0qv"), ExtResource("6_tgaau")])
+shop_weapons = Array[ExtResource("3_3q3e8")]([])
+equiped_weapon_1 = SubResource("Resource_b2krb")
+gold = 2374
+current_exp = 35
+needed_exp = 500
+level = 2
+current_hp = 105
+>>>>>>> Stashed changes
 total_hp = 105

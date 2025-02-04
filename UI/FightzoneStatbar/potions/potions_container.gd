@@ -3,16 +3,22 @@ extends PanelContainer
 @onready var health_potion_cooldown: Timer = $HealthPotionCooldown
 @onready var speed_potion_cooldown: Timer = $SpeedPotionCooldown
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @onready var health_potion: TextureButton = $MarginContainer/HBoxContainer/VBoxContainer/HealthPotion
 @onready var speed_potion: TextureButton = $MarginContainer/HBoxContainer/VBoxContainer2/SpeedPotion
 @onready var speed_bar: ProgressBar = $MarginContainer/HBoxContainer/VBoxContainer2/SpeedPotion/SpeedBar
 @onready var health_bar: ProgressBar = $MarginContainer/HBoxContainer/VBoxContainer/HealthPotion/HealthBar
 =======
+=======
+>>>>>>> Stashed changes
 @onready var health_potion: TextureButton = $MarginContainer/HBoxContainer/HealthPotion
 @onready var speed_potion: TextureButton = $MarginContainer/HBoxContainer/SpeedPotion
 
 @onready var health_bar: ProgressBar = $MarginContainer/HBoxContainer/HealthPotion/HealthBar
 @onready var speed_bar: ProgressBar = $MarginContainer/HBoxContainer/SpeedPotion/SpeedBar
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 @export var health_cooldown: int
@@ -34,6 +40,7 @@ func _input(event: InputEvent) -> void:
 		speed_potion.button_pressed = false
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 func _on_health_potion_cooldown_timeout() -> void:
 	if health_bar.value > 0:
 		health_bar.value -= 3.3
@@ -44,6 +51,8 @@ func _on_speed_potion_cooldown_timeout() -> void:
 	if speed_bar.value > 0:
 		speed_bar.value -= 1.6
 =======
+=======
+>>>>>>> Stashed changes
 
 func _on_health_potion_cooldown_timeout() -> void:
 	if health_bar.value > 0:
@@ -55,6 +64,9 @@ func _on_health_potion_cooldown_timeout() -> void:
 func _on_speed_potion_cooldown_timeout() -> void:
 	if speed_bar.value > 0:
 		speed_bar.value -= 5
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	else:
 		speed_potion_cooldown.stop()
