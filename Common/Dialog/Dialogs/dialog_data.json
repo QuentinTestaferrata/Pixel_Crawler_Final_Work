@@ -18,8 +18,7 @@
 						"text": "This castle is your safe place adventurer!",
 						"options": {
 							"Go back": "start",
-							"Receive quests": "give_quests",
-							"Say Goodbye": "exit",
+							"Say Goodbye": "end",
 						}
 					},
 					{
