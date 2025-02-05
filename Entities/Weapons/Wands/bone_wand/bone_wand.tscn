@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.gd" id="1_k4222"]
 [ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="1_x8qs3"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_1js7s"]
-[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/bone_shard.tres" id="2_rpqr7"]
+[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="2_rpqr7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vhsve"]
 blend_mode = 1

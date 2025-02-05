@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://brvcj3bw0vebq"]
 
 [ext_resource type="Texture2D" uid="uid://3li8ev5mj7kq" path="res://assets/Dungeon/Weapons_Bone.png" id="1_66tvk"]
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/bone_shard.gd" id="1_jx28c"]
-[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/bone_shard.tres" id="2_o5kbk"]
+[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.gd" id="1_jx28c"]
+[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="2_o5kbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwie"]
 size = Vector2(15, 3)

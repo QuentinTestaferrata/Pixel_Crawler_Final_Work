@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtogx0t5k1i0t"
-path="res://.godot/imported/bone_staff_shop_showcase.png-e61bfb1f204e7e51056180579e131fd0.ctex"
+path="res://.godot/imported/bone_staff_shop_showcase.png-bf2a771fa8b5612f78973a19cb646f04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_showcase.png"
-dest_files=["res://.godot/imported/bone_staff_shop_showcase.png-e61bfb1f204e7e51056180579e131fd0.ctex"]
+source_file="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_showcase.png"
+dest_files=["res://.godot/imported/bone_staff_shop_showcase.png-bf2a771fa8b5612f78973a19cb646f04.ctex"]
 
 [params]
 
