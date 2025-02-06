@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Arrow" load_steps=4 format=3 uid="uid://bvd3q6jf3jc7q"]
+
+[ext_resource type="PackedScene" uid="uid://c2uaea40g786k" path="res://Entities/Weapons/bow/bone_bow/arrow/bone_arrow.tscn" id="1_u6kgx"]
+[ext_resource type="Texture2D" uid="uid://bv0k4myvt4d08" path="res://Entities/Weapons/bow/bone_bow/arrow/arrow.png" id="2_ges2l"]
+[ext_resource type="Script" path="res://Entities/Weapons/bow/arrow_resource.gd" id="2_rudsm"]
+
+[resource]
+script = ExtResource("2_rudsm")
+sprite = ExtResource("2_ges2l")
+scene = ExtResource("1_u6kgx")
+damage = 15
+crit_chance = 2
+crit_multiplyer = 1.5
+speed = 400
+knockback = 0.0

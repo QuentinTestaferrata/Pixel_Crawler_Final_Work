@@ -1,19 +1,24 @@
 extends Node2D
 
+# TODO : when i change weapons it resets the cooldown timers for the attacks
+
 const BONE_SHARD = preload("res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tscn")
 const BONE_SHIELD = preload("res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.tscn")
+
+@export_category("Primary Attack")
+@export var primary_attack: PROJECTILE
+@export_category("Secondary Attack")
+@export var secondary_attack: PROJECTILE
+@export var bone_amount: int
+@export var cooldown: int 
 
 var primary: PackedScene
 var secondary: PackedScene
 
-@export var primary_attack: PROJECTILE
-@export var secondary_attack: PROJECTILE
-@export var bone_amount: int = 2
-
 @onready var primary_attack_timer: Timer = $PrimaryAttackTimer
 @onready var marker: Marker2D = $Marker2D
 @onready var projectile_holder = get_tree().get_first_node_in_group("projectiles")
-
+@onready var secondary_cooldown: Timer = $SecondaryCooldown
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary_attack"):
@@ -21,7 +26,8 @@ func _input(event: InputEvent) -> void:
 		primary_attack_timer.start(primary_attack.FIRERATE)
 	if event.is_action_released("primary_attack"):
 		primary_attack_timer.stop()
-	if event.is_action_pressed("secondary_attack"):
+	if event.is_action_pressed("secondary_attack") and secondary_cooldown.is_stopped():
+		secondary_cooldown.start(cooldown)
 		shoot_secondary()
 
 func shoot_primary() -> void:

@@ -1,7 +1,7 @@
 extends Resource
 class_name WeaponData
 
-enum weapon_types {STAFF, WAND, SHIELD, SWORD, DAGGER}
+enum weapon_types {STAFF, WAND, SHIELD, SWORD, DAGGER, BOW}
 enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 
 @export_category("Weapon Data")

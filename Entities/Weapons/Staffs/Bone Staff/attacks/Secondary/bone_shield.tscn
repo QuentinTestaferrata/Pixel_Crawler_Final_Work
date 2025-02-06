@@ -57,6 +57,33 @@ _data = {
 "rotate": SubResource("Animation_ycvsp")
 }
 
+[sub_resource type="Animation" id="Animation_35fnc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_tuvsa"]
 resource_name = "Spawn"
 length = 0.5
@@ -83,33 +110,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(75, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_35fnc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(50, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ekbj8"]
@@ -161,6 +161,21 @@ _data = {
 "despawn": SubResource("Animation_ekbj8")
 }
 
+[sub_resource type="Animation" id="Animation_6r6la"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_ayvn5"]
 resource_name = "new_animation"
 length = 1.5
@@ -178,21 +193,6 @@ tracks/0/keys = {
 "values": [0.0, 6.26573]
 }
 
-[sub_resource type="Animation" id="Animation_6r6la"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sto2t"]
 _data = {
 "RESET": SubResource("Animation_6r6la"),
@@ -207,12 +207,10 @@ projectile_data = ExtResource("2_2lxwf")
 position = Vector2(50, 0)
 
 [node name="Area2D" type="Area2D" parent="Offset"]
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Offset/Area2D"]
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_47e35")
 
 [node name="Sprite2D" type="Sprite2D" parent="Offset"]
