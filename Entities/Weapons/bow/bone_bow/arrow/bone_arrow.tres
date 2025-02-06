@@ -12,4 +12,4 @@ damage = 15
 crit_chance = 2
 crit_multiplyer = 1.5
 speed = 400
-knockback = 0.0
+knockback = 5.0

@@ -26,5 +26,5 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 @export var defense: int
 
 @export_category("Other")
-@export var description: String
+@export_multiline var description: String
 @export var two_handed: bool
