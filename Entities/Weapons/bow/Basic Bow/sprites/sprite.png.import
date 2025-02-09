@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0xc76jde5tk8"
-path="res://.godot/imported/bone_staff_sprite.png-39f358e7ee0151b75c9f5647a0f60065.ctex"
+uid="uid://ddk07l48n8y0d"
+path="res://.godot/imported/sprite.png-cb91074381f94a8f65b39837b0ec1f9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png"
-dest_files=["res://.godot/imported/bone_staff_sprite.png-39f358e7ee0151b75c9f5647a0f60065.ctex"]
+source_file="res://Entities/Weapons/bow/Basic Bow/sprites/sprite.png"
+dest_files=["res://.godot/imported/sprite.png-cb91074381f94a8f65b39837b0ec1f9a.ctex"]
 
 [params]
 

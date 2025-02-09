@@ -38,3 +38,23 @@ func take_damage(projectile: PROJECTILE, knckdir: Vector2):
 		health_bar._set_health(health_component.current_health)
 		knockback_direction = knckdir
 		hit.emit(projectile.KNOCKBACK_FORCE, knockback_direction)
+
+func take_arrow_damage(projectile: Arrow, knckdir: Vector2):
+	randomize()
+	
+	sprite.play_hit_flash_animation()
+	
+	var rng = RandomNumberGenerator.new()
+	var random = rng.randi_range(0, 100)
+	if random <= projectile.crit_chance and health_component and health_bar:
+		DamageNumbers.display_number((projectile.damage * projectile.crit_multiplyer), damage_number_position.global_position, true)
+		health_component.damage(projectile.damage * projectile.crit_multiplyer)
+		health_bar._set_health(health_component.current_health)
+		knockback_direction = knckdir
+		hit.emit(projectile.knockback, knockback_direction)
+	elif random > projectile.crit_chance and health_component and health_bar:
+		DamageNumbers.display_number(projectile.damage, damage_number_position.global_position)
+		health_component.damage(projectile.damage)
+		health_bar._set_health(health_component.current_health)
+		knockback_direction = knckdir
+		hit.emit(projectile.knockback, knockback_direction)

@@ -2,23 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://dum6xe8iwt7ls" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="1_1c6l8"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_io15v"]
-
-[sub_resource type="Resource" id="Resource_bm6mg"]
-metadata/__load_path__ = "res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_sprite.png"
-
-[sub_resource type="Resource" id="Resource_7ahrs"]
-metadata/__load_path__ = "res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_showcase.png"
-
-[sub_resource type="Resource" id="Resource_7xctn"]
-metadata/__load_path__ = "res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png"
+[ext_resource type="Texture2D" uid="uid://dtogx0t5k1i0t" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_showcase.png" id="3_2se8c"]
+[ext_resource type="Texture2D" uid="uid://chw2orvt7kppa" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_sprite.png" id="3_tkiam"]
+[ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_sprite.png" id="4_1y6g0"]
 
 [resource]
 script = ExtResource("1_io15v")
 weapon_name = "Bone Staff"
 scene = ExtResource("1_1c6l8")
-sprite = SubResource("Resource_7xctn")
-shop_sprite = SubResource("Resource_bm6mg")
-showcase_sprite = SubResource("Resource_7ahrs")
+sprite = ExtResource("4_1y6g0")
+shop_sprite = ExtResource("3_tkiam")
+showcase_sprite = ExtResource("3_2se8c")
 price = 1000
 obtained = false
 weapon_type = 0

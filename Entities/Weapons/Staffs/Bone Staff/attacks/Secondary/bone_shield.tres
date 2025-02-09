@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://c2r3v3rrk2630"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_othou"]
+
+[resource]
+script = ExtResource("1_othou")
+NAME = "Bone Shield"
+TYPE = 1
+SPREAD = 0
+DAMAGE = 10
+MANA_COST = 0
+SPEED = 0
+FIRERATE = 0.0
+LIFETIME = 15.0
+KNOCKBACK_FORCE = 3.0
+CRIT_CHANCE = 3
+CRIT_MULTIPLYER = 1.5

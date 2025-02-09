@@ -4,6 +4,8 @@ class_name PROJECTILE
 
 enum DAMAGE_TYPE {WATER, UNDEAD, FIRE, MAGIC, WIND, STONE}
 
+@export var scene: PackedScene
+
 @export var NAME: String
 @export var TYPE: DAMAGE_TYPE
 @export var SPREAD: int

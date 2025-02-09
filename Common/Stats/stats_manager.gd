@@ -41,7 +41,6 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	saver_loader = get_tree().get_first_node_in_group("saver_loader")
 	saver_loader.load_game()
-	print("Equiped weapon : ", equiped_weapon_1)
 
 #EXP and LEVEL methods
 func gain_exp(amount) -> void:
