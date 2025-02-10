@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://23fps8gl55b7"]
+[gd_scene load_steps=15 format=3 uid="uid://23fps8gl55b7"]
 
 [ext_resource type="Texture2D" uid="uid://dtynyhbn3d0o6" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/small_ball.png" id="1_0t7bh"]
 [ext_resource type="Script" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.gd" id="1_s1tor"]
@@ -54,12 +54,72 @@ resource_local_to_scene = true
 offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
 colors = PackedColorArray(3.60981e-06, 0.881789, 0.27651, 0, 0.484949, 0.920187, 0.436563, 1, 0, 0.545098, 0.294118, 1, 1.68458e-07, 0.268509, 0.0226525, 0)
 
-[sub_resource type="Animation" id="Animation_posfi"]
-resource_name = "new_animation"
+[sub_resource type="Animation" id="Animation_tuqmd"]
+resource_name = "spawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5swst"]
+[sub_resource type="Animation" id="Animation_dkpwu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x850y"]
+resource_name = "despawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thi0e"]
 _data = {
-"new_animation": SubResource("Animation_posfi")
+"RESET": SubResource("Animation_dkpwu"),
+"despawn": SubResource("Animation_x850y"),
+"spawn": SubResource("Animation_tuqmd")
 }
 
 [node name="MiniFireball" type="Area2D"]
@@ -101,9 +161,9 @@ scale_amount_min = 0.02
 scale_amount_max = 0.03
 color_ramp = SubResource("Gradient_0b3ba")
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+[node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_5swst")
+"": SubResource("AnimationLibrary_thi0e")
 }
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
