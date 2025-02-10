@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://diocly1nuyxyt"]
+[gd_scene load_steps=17 format=3 uid="uid://diocly1nuyxyt"]
 
 [ext_resource type="Script" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.gd" id="1_k4222"]
 [ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="1_x8qs3"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_1js7s"]
+[ext_resource type="Texture2D" uid="uid://dtynyhbn3d0o6" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/small_ball.png" id="4_qjbex"]
+[ext_resource type="Texture2D" uid="uid://c7bpxrji5hsu3" path="res://assets/masks for  particles/20.png" id="5_b1qd0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vhsve"]
 blend_mode = 1
@@ -10,6 +12,176 @@ blend_mode = 1
 [sub_resource type="Gradient" id="Gradient_163bn"]
 offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
 colors = PackedColorArray(1, 1, 1, 0, 6.37732e-07, 0.393071, 0.246579, 0.501961, 0.431073, 0.810743, 0.326029, 0.552941, 1, 1, 1, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xgsqb"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_ntv8a"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
+colors = PackedColorArray(3.60981e-06, 0.881789, 0.27651, 0, 0.484949, 0.920187, 0.436563, 1, 0, 0.545098, 0.294118, 1, 1.68458e-07, 0.268509, 0.0226525, 0)
+
+[sub_resource type="Animation" id="Animation_himdh"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Markers/Marker2D3/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mp1vi"]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Markers/Marker2D3/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xu72r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Markers/Marker2D3/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ck6ni"]
+_data = {
+"RESET": SubResource("Animation_xu72r"),
+"hide": SubResource("Animation_mp1vi"),
+"show": SubResource("Animation_himdh")
+}
 
 [sub_resource type="Animation" id="Animation_hd2ow"]
 length = 0.001
@@ -28,7 +200,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_gsa1s"]
 resource_name = "rotate"
-length = 1.5
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -37,7 +209,7 @@ tracks/0/path = NodePath("Markers:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 6.26573]
@@ -51,6 +223,10 @@ _data = {
 
 [node name="BoneWand" type="Node2D"]
 script = ExtResource("1_k4222")
+cooldown = 5
+fireballs_amount = 6
+firerate = 0.3
+fireballs_cooldown = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_x8qs3")
@@ -79,8 +255,6 @@ scale_amount_min = 0.05
 scale_amount_max = 0.05
 color_ramp = SubResource("Gradient_163bn")
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="Marker" type="Marker2D" parent="."]
 position = Vector2(0, -15)
 
@@ -90,10 +264,64 @@ position = Vector2(0, -31)
 [node name="Marker2D3" type="Marker2D" parent="Markers"]
 position = Vector2(0, -8)
 
+[node name="Sprite2D" type="Sprite2D" parent="Markers/Marker2D3"]
+visible = false
+texture = ExtResource("4_qjbex")
+
 [node name="Marker2D4" type="Marker2D" parent="Markers"]
 position = Vector2(0, 8)
 
+[node name="Sprite2D" type="Sprite2D" parent="Markers/Marker2D4"]
+visible = false
+texture = ExtResource("4_qjbex")
+
+[node name="FireballSpawner" type="Marker2D" parent="Markers"]
+
+[node name="FireParticles" type="CPUParticles2D" parent="Markers"]
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_xgsqb")
+emitting = false
+amount = 20
+lifetime = 0.7
+local_coords = true
+texture = ExtResource("5_b1qd0")
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+angular_velocity_min = 8.13
+angular_velocity_max = 138.3
+linear_accel_min = 5.0
+linear_accel_max = 8.47
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color_ramp = SubResource("Gradient_ntv8a")
+
 [node name="FireballHolder" type="Node" parent="."]
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(7, -26)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(-7, -26)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="FireballCooldown" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="FireballTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="PrimaryAttackCooldown" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ck6ni")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -101,8 +329,4 @@ libraries = {
 }
 autoplay = "rotate"
 
-[node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(7, -26)
-
-[node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(-7, -26)
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]

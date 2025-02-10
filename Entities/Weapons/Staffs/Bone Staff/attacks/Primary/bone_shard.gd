@@ -4,17 +4,7 @@ extends Area2D
 
 var direction: Vector2
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var despawner: Timer = $Despawner
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-func _ready() -> void:
-	despawner.start(projectile_data.LIFETIME)
-
-func _on_despawner_timeout() -> void:
-	animation_player.play("despawn")
-
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	position += direction * projectile_data.SPEED * delta 
 
 func set_direction(target_position: Vector2) -> Vector2:

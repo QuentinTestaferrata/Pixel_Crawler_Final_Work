@@ -7,7 +7,6 @@ class_name Bow
 var current_arrow: Area2D
 var projectile_holder
 var cooldown: bool = false
-
 @onready var bow_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
