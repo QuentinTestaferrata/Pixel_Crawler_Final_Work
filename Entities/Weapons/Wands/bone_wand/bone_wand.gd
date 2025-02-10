@@ -3,26 +3,43 @@ extends Node2D
 const FIREBALL = preload("res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.tscn")
 const MINI_FIREBALL = preload("res://Entities/Weapons/Wands/bone_wand/attacks/secondary/mini_fireball.tscn")
 
+@export_category("Primary Attack")
 @export var primary_attack: PROJECTILE
+@export var cooldown: int
+@export_category("Secondary Attack")
 @export var secondary_attack: PROJECTILE
+@export var fireballs_amount: int
+@export var firerate: float
+@export var fireballs_cooldown: int
 
 var fireballs = []
+var dir: Vector2
 
 @onready var markers: Node2D = $Markers
 @onready var projectile_holder = get_tree().get_first_node_in_group("projectiles")
 @onready var fireball_holder: Node = $FireballHolder
 @onready var marker: Marker2D = $Marker
+@onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
+@onready var fireball_cooldown: Timer = $Timers/FireballCooldown
+@onready var fireball_timer: Timer = $Timers/FireballTimer
+@onready var fireball_spawner: Marker2D = $Markers/FireballSpawner
+@onready var primary_attack_cooldown: Timer = $Timers/PrimaryAttackCooldown
+@onready var fire_particles: CPUParticles2D = $Markers/FireParticles
+
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("primary_attack"):
+	if event.is_action_pressed("primary_attack") and primary_attack_cooldown.is_stopped():
+		primary_attack_cooldown.start(cooldown)
 		shoot_primary()
-	if event.is_action_pressed("secondary_attack"):
+	if event.is_action_pressed("secondary_attack") and fireball_cooldown.is_stopped():
+		fireball_cooldown.start(fireballs_cooldown)
+		animation_player_2.play("show")
+		await get_tree().create_timer(.5).timeout
 		shoot_secondary()
 
 func shoot_primary() -> void:
 	for n in 3:
 		var temp_fireball = FIREBALL.instantiate()
-		var dir: Vector2
 		
 		temp_fireball.global_position = Vector2(marker.global_position.x , marker.global_position.y - 5)
 		
@@ -35,10 +52,22 @@ func shoot_primary() -> void:
 		await get_tree().create_timer(.3).timeout 
 
 func shoot_secondary() -> void:
-	for _marker in markers.get_children():
-		var temp_mini_fireball = MINI_FIREBALL.instantiate()
-		
-		temp_mini_fireball.global_position = Vector2(_marker.position.x, _marker.position.y + 20)
-		_marker.add_child(temp_mini_fireball)
-		
-		await get_tree().create_timer(.2).timeout
+	fire_particles.emitting = true
+	for x in fireballs_amount:
+		spawn_mini_fireball()
+		await get_tree().create_timer(firerate).timeout
+	animation_player_2.play("hide")
+	fire_particles.emitting = false
+
+func spawn_mini_fireball() -> void:
+	var temp_fireball = MINI_FIREBALL.instantiate()
+	
+	temp_fireball.position = fireball_spawner.global_position
+	
+	dir = temp_fireball.set_direction(get_global_mouse_position())
+	var angle = Vector2.RIGHT.angle_to(dir)
+	
+	temp_fireball.rotation = angle
+	projectile_holder.add_child(temp_fireball)
+	
+	await get_tree().create_timer(.3).timeout

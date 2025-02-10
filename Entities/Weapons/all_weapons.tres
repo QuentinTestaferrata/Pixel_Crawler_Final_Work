@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AllWeapons" load_steps=9 format=3 uid="uid://ctsxdwheeg3y"]
+
+[ext_resource type="Resource" uid="uid://4rr2avitfwy4" path="res://Entities/Weapons/bow/Basic Bow/arrow/basic_arrow.tres" id="1_bpox5"]
+[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_rvx4m"]
+[ext_resource type="Resource" uid="uid://bvd3q6jf3jc7q" path="res://Entities/Weapons/bow/bone_bow/arrow/bone_arrow.tres" id="2_36d41"]
+[ext_resource type="Script" path="res://Entities/Weapons/all_weapons.gd" id="2_kivbd"]
+[ext_resource type="Resource" uid="uid://dsopcd04sno5p" path="res://Entities/Weapons/bow/bone_bow/bone_bow_data.tres" id="3_dg1nb"]
+[ext_resource type="Resource" uid="uid://didxgf32b2i6t" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres" id="5_ax6qm"]
+[ext_resource type="Resource" uid="uid://chi2wf2p2ng60" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres" id="6_km01a"]
+[ext_resource type="Resource" uid="uid://pwiwopat1ns5" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tres" id="7_unbln"]
+
+[resource]
+script = ExtResource("2_kivbd")
+weapons = Array[ExtResource("1_rvx4m")]([])
+bow = ExtResource("7_unbln")
+arrow = ExtResource("1_bpox5")
+bone_weapons = Array[ExtResource("1_rvx4m")]([ExtResource("5_ax6qm"), ExtResource("6_km01a")])
+bone_bow = ExtResource("3_dg1nb")
+bone_arrow = ExtResource("2_36d41")
