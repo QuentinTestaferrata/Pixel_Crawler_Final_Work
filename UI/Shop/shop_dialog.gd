@@ -250,6 +250,16 @@ func _on_buy_button_pressed() -> void:
 	else:
 		StatsManager.gain_gold(selected_item.value * amount)
 		player.inventory.remove_item(selected_item, amount)
+		if selected_item.amount >= 1:
+			amount = 1
+			print_debug("test")
+		else: 
+			amount = 0
+			buy_tab = false
+			consumables.visible = false
+			weapons.visible = false
+			idk.visible = false
+			idk_2.visible = false
 		update_amount()
 		clear_shop_items()
 		get_inventory_items()
