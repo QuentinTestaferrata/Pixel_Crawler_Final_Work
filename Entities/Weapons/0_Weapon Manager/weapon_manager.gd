@@ -18,11 +18,6 @@ var active_weapon: Node2D
 var primary_attack: PROJECTILE
 var secondary_attack: PROJECTILE
 
-var weapon_1_cd_1: float
-var weapon_1_cd_2: float
-var weapon_2_cd_1: float
-var weapon_2_cd_2: float
-
 var equiped_weapon_1: WeaponData
 var equiped_weapon_2: WeaponData
 
@@ -126,10 +121,16 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("equip_weapon_1") && equiped_weapon_1 != null:
 		rotation = 0
-		equip_weapon(equiped_weapon_1)
+		equip_weapon(StatsManager.equiped_weapon_1)
+		set_weapon(StatsManager.equiped_weapon_1, 1)
 		AttackCooldowns.set_data(1, equiped_weapon_1.primary_attack.COOLDOWN, equiped_weapon_1.secondary_attack.COOLDOWN)
 	elif event.is_action_pressed("equip_weapon_2") && equiped_weapon_2 != null:
 		equiped_weapon_2 = StatsManager.equiped_weapon_2
-		equip_weapon(equiped_weapon_2)
-		print(equiped_weapon_2.weapon_name, equiped_weapon_2.secondary_attack.COOLDOWN)
+		equip_weapon(StatsManager.equiped_weapon_2)
+		set_weapon(StatsManager.equiped_weapon_2, 2)
 		AttackCooldowns.set_data(2, equiped_weapon_2.primary_attack.COOLDOWN, equiped_weapon_2.secondary_attack.COOLDOWN)
+
+
+	#elif event.is_action_pressed("dash"):
+		#print(StatsManager.equiped_weapon_1.weapon_name)
+		#print(equiped_weapon_1.primary_attack)

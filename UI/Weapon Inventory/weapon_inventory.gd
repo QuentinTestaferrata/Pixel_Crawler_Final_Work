@@ -51,6 +51,8 @@ func _on_equip_1_button_pressed() -> void:
 	if selected_weapon != null && weapon_manager.equiped_weapon_2 != selected_weapon:
 		weapon_manager.set_weapon(selected_weapon, 1)
 		StatsManager.equiped_weapon_1 = selected_weapon
+		if selected_weapon.primary_attack != null or selected_weapon.secondary_attack != null:
+			AttackCooldowns.set_data(1, selected_weapon.primary_attack.COOLDOWN, selected_weapon.secondary_attack.COOLDOWN)
 
 func _on_equip_2_button_pressed() -> void:
 	if selected_weapon != null && weapon_manager.equiped_weapon_1 != selected_weapon:

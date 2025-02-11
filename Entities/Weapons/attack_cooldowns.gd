@@ -52,7 +52,6 @@ func start_cd(attack: int) -> void:
 
 
 func check_cd(attack: int)-> bool:
-	print(timer_4.time_left)
 	if equiped_weapon == 1 and attack == 1 and timer_1.is_stopped():
 		return true
 	elif equiped_weapon == 1 and attack == 2 and timer_2.is_stopped():
@@ -62,6 +61,3 @@ func check_cd(attack: int)-> bool:
 	elif equiped_weapon == 2 and attack == 2 and timer_4.is_stopped():
 		return true
 	return false
-
-func _process(delta: float) -> void:
-	print(timer_4.time_left)
