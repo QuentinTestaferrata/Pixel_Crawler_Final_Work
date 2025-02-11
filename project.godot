@@ -20,6 +20,7 @@ InteractionManager="*res://Common/Interaction/InteractionManager.tscn"
 DamageNumbers="*res://Common/damage_numbers.gd"
 StatsManager="*res://Common/Stats/stats_manager.gd"
 Math="*res://Common/math.gd"
+AttackCooldowns="*res://Entities/Weapons/attack_cooldowns.gd"
 
 [debug]
 

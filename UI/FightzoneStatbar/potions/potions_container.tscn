@@ -8,14 +8,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2et80"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckl5x"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kw8wo"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyj7p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ry0b"]
 bg_color = Color(0, 0, 0, 0.666667)
 
 [sub_resource type="Theme" id="Theme_x66nx"]
-ProgressBar/styles/background = SubResource("StyleBoxEmpty_ckl5x")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_jyj7p")
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_kw8wo")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_3ry0b")
 
 [node name="PotionsContainer" type="PanelContainer"]
 offset_left = 132.0
