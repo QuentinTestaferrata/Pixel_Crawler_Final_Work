@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://brvcj3bw0vebq"]
+[gd_scene load_steps=9 format=3 uid="uid://brvcj3bw0vebq"]
 
 [ext_resource type="Texture2D" uid="uid://3li8ev5mj7kq" path="res://assets/Dungeon/Weapons_Bone.png" id="1_66tvk"]
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.gd" id="1_jx28c"]
+[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_yju1f"]
 [ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="2_o5kbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwie"]
@@ -52,17 +52,21 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_gs2ru"]
+resource_name = "spawn"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0v15i"]
 _data = {
 "RESET": SubResource("Animation_0m2yt"),
-"despawn": SubResource("Animation_rdc4r")
+"despawn": SubResource("Animation_rdc4r"),
+"spawn": SubResource("Animation_gs2ru")
 }
 
 [node name="BoneShard" type="Area2D"]
 z_index = 2
 collision_layer = 2
 collision_mask = 64
-script = ExtResource("1_jx28c")
+script = ExtResource("1_yju1f")
 projectile_data = ExtResource("2_o5kbk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -76,7 +80,7 @@ shape = SubResource("RectangleShape2D_fuwie")
 
 [node name="Despawner" type="Timer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_0v15i")
 }

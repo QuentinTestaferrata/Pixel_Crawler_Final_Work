@@ -5,12 +5,10 @@ const MINI_FIREBALL = preload("res://Entities/Weapons/Wands/bone_wand/attacks/se
 
 @export_category("Primary Attack")
 @export var primary_attack: PROJECTILE
-@export var cooldown: int
 @export_category("Secondary Attack")
 @export var secondary_attack: PROJECTILE
 @export var fireballs_amount: int
 @export var firerate: float
-@export var fireballs_cooldown: int
 
 var fireballs = []
 var dir: Vector2
@@ -28,11 +26,13 @@ var dir: Vector2
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("primary_attack") and primary_attack_cooldown.is_stopped():
-		primary_attack_cooldown.start(cooldown)
+	if event.is_action_pressed("primary_attack") and AttackCooldowns.check_cd(1):#primary_attack_cooldown.is_stopped():
+		#primary_attack_cooldown.start(primary_attack.COOLDOWN)
+		AttackCooldowns.start_cd(1)
 		shoot_primary()
-	if event.is_action_pressed("secondary_attack") and fireball_cooldown.is_stopped():
-		fireball_cooldown.start(fireballs_cooldown)
+	if event.is_action_pressed("secondary_attack") and AttackCooldowns.check_cd(2): #fireball_cooldown.is_stopped():
+		fireball_cooldown.start(secondary_attack.COOLDOWN)
+		AttackCooldowns.start_cd(2)
 		animation_player_2.play("show")
 		await get_tree().create_timer(.5).timeout
 		shoot_secondary()

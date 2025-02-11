@@ -12,6 +12,7 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 @export var showcase_sprite: Texture = null
 @export var price: int
 @export var obtained: bool = false
+@export var equip_slot: int = 0
 
 @export_category("Attacks")
 @export var primary_attack: PROJECTILE

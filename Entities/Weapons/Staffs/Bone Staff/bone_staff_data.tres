@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=6 format=3 uid="uid://chi2wf2p2ng60"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=8 format=3 uid="uid://chi2wf2p2ng60"]
 
 [ext_resource type="PackedScene" uid="uid://dum6xe8iwt7ls" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="1_1c6l8"]
+[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="1_bp1bl"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_io15v"]
 [ext_resource type="Texture2D" uid="uid://dtogx0t5k1i0t" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_showcase.png" id="3_2se8c"]
 [ext_resource type="Texture2D" uid="uid://chw2orvt7kppa" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_sprite.png" id="3_tkiam"]
 [ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_sprite.png" id="4_1y6g0"]
+[ext_resource type="Resource" uid="uid://c2r3v3rrk2630" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.tres" id="4_qciml"]
 
 [resource]
 script = ExtResource("1_io15v")
@@ -15,6 +17,9 @@ shop_sprite = ExtResource("3_tkiam")
 showcase_sprite = ExtResource("3_2se8c")
 price = 1000
 obtained = false
+equip_slot = 0
+primary_attack = ExtResource("1_bp1bl")
+secondary_attack = ExtResource("4_qciml")
 weapon_type = 0
 weapon_rarity = 0
 damage = 10

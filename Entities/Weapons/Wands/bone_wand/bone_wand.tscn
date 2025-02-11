@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://diocly1nuyxyt"]
+[gd_scene load_steps=19 format=3 uid="uid://diocly1nuyxyt"]
 
 [ext_resource type="Script" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.gd" id="1_k4222"]
 [ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="1_x8qs3"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_1js7s"]
+[ext_resource type="Resource" uid="uid://c4qj5yf413nxr" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.tres" id="2_vpkr1"]
+[ext_resource type="Resource" uid="uid://bg0cxho6xwfde" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/mini_fireball_data.tres" id="3_2xam3"]
 [ext_resource type="Texture2D" uid="uid://dtynyhbn3d0o6" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/small_ball.png" id="4_qjbex"]
 [ext_resource type="Texture2D" uid="uid://c7bpxrji5hsu3" path="res://assets/masks for  particles/20.png" id="5_b1qd0"]
 
@@ -21,9 +23,8 @@ resource_local_to_scene = true
 offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
 colors = PackedColorArray(3.60981e-06, 0.881789, 0.27651, 0, 0.484949, 0.920187, 0.436563, 1, 0, 0.545098, 0.294118, 1, 1.68458e-07, 0.268509, 0.0226525, 0)
 
-[sub_resource type="Animation" id="Animation_himdh"]
-resource_name = "show"
-length = 0.5
+[sub_resource type="Animation" id="Animation_xu72r"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,10 +32,10 @@ tracks/0/path = NodePath("Markers/Marker2D3/Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -43,10 +44,10 @@ tracks/1/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -58,7 +59,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -70,7 +71,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_mp1vi"]
@@ -125,8 +126,9 @@ tracks/3/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_xu72r"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_himdh"]
+resource_name = "show"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -134,10 +136,10 @@ tracks/0/path = NodePath("Markers/Marker2D3/Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -146,10 +148,10 @@ tracks/1/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -161,7 +163,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -173,7 +175,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ck6ni"]
@@ -223,10 +225,10 @@ _data = {
 
 [node name="BoneWand" type="Node2D"]
 script = ExtResource("1_k4222")
-cooldown = 5
-fireballs_amount = 6
-firerate = 0.3
-fireballs_cooldown = 10
+primary_attack = ExtResource("2_vpkr1")
+secondary_attack = ExtResource("3_2xam3")
+fireballs_amount = 10
+firerate = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_x8qs3")

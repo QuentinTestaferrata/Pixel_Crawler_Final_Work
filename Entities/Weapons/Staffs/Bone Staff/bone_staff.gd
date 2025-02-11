@@ -26,8 +26,8 @@ func _input(event: InputEvent) -> void:
 		primary_attack_timer.start(primary_attack.FIRERATE)
 	if event.is_action_released("primary_attack"):
 		primary_attack_timer.stop()
-	if event.is_action_pressed("secondary_attack") and secondary_cooldown.is_stopped():
-		secondary_cooldown.start(cooldown)
+	if event.is_action_pressed("secondary_attack") and AttackCooldowns.check_cd(2):
+		AttackCooldowns.start_cd(2)
 		shoot_secondary()
 
 func shoot_primary() -> void:

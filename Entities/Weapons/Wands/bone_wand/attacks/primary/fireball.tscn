@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b1qisr61tg5mo"]
 
 [ext_resource type="Texture2D" uid="uid://ck2xtexxlfi6d" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.png" id="1_1mr42"]
-[ext_resource type="Script" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.gd" id="1_77r5i"]
+[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_77r5i"]
 [ext_resource type="Resource" uid="uid://c4qj5yf413nxr" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.tres" id="2_jankh"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_pbec1"]
 
