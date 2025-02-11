@@ -16,8 +16,11 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 
 @export_category("Attacks")
 @export var primary_attack: PROJECTILE
+@export var primary_attack_sprite: Texture
 @export var secondary_attack: PROJECTILE
+@export var secondary_attack_sprite: Texture
 @export var special_attack: PROJECTILE
+@export var special_attack_sprite: Texture
 
 @export_category("Weapon Stats")
 @export var weapon_type: weapon_types

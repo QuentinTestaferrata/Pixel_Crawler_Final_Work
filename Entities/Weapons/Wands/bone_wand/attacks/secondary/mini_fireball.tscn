@@ -54,22 +54,6 @@ resource_local_to_scene = true
 offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
 colors = PackedColorArray(3.60981e-06, 0.881789, 0.27651, 0, 0.484949, 0.920187, 0.436563, 1, 0, 0.545098, 0.294118, 1, 1.68458e-07, 0.268509, 0.0226525, 0)
 
-[sub_resource type="Animation" id="Animation_tuqmd"]
-resource_name = "spawn"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_dkpwu"]
 length = 0.001
 tracks/0/type = "value"
@@ -113,6 +97,22 @@ tracks/1/keys = {
 "args": [],
 "method": &"queue_free"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_tuqmd"]
+resource_name = "spawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_thi0e"]

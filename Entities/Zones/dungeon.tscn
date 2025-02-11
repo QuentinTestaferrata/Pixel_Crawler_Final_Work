@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bg707nxjtqttc"]
+[gd_scene load_steps=39 format=4 uid="uid://bg707nxjtqttc"]
 
 [ext_resource type="Script" path="res://Entities/Zones/dungeon.gd" id="1_07r07"]
 [ext_resource type="Texture2D" uid="uid://ct5h8ruw55s56" path="res://assets/Dungeon/Tiles/Tiles.png" id="1_g0itb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="2_sdqqa"]
 [ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="3_5fo00"]
 [ext_resource type="PackedScene" uid="uid://c6nud04qkgp33" path="res://Entities/Gameplay Managers/Loot Manager/loot_manager.tscn" id="3_s7a6y"]
+[ext_resource type="PackedScene" uid="uid://de54ajsmnaq7a" path="res://UI/Ability Cooldowns/ability_cooldown_container.tscn" id="3_stbg2"]
 [ext_resource type="PackedScene" uid="uid://bhg7b37erk1wy" path="res://Entities/Enemy/dungeon_skeletons/skeleton_base.tscn" id="4_4nrw1"]
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="4_hgt2v"]
 [ext_resource type="PackedScene" uid="uid://dq3vhr8h3fr2e" path="res://Entities/Gameplay Managers/Mob Manager/Mob Manager.tscn" id="4_pysfd"]
@@ -2681,6 +2682,8 @@ script = ExtResource("1_07r07")
 [node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("2_sdqqa")]
 visible = false
 saver_loader = NodePath("../SaverLoader")
+
+[node name="AbilityCooldownContainer" parent="HUDLayer" instance=ExtResource("3_stbg2")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_interval_timer") groups=["wave_manager"] instance=ExtResource("2_idjmp")]
 enemies_per_wave = 5

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=7 format=3 uid="uid://didxgf32b2i6t"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=9 format=3 uid="uid://didxgf32b2i6t"]
 
 [ext_resource type="Resource" uid="uid://c4qj5yf413nxr" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.tres" id="1_1or5i"]
 [ext_resource type="PackedScene" uid="uid://diocly1nuyxyt" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.tscn" id="1_ralb5"]
+[ext_resource type="Texture2D" uid="uid://ck2xtexxlfi6d" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.png" id="2_bldp3"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="2_tfl5x"]
 [ext_resource type="Texture2D" uid="uid://b2o0hutd2uaix" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_shop_sprite.png" id="3_1jbep"]
 [ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="4_aemdi"]
 [ext_resource type="Resource" uid="uid://bg0cxho6xwfde" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/mini_fireball_data.tres" id="4_tqieq"]
+[ext_resource type="Texture2D" uid="uid://dtynyhbn3d0o6" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/small_ball.png" id="6_j1fqq"]
 
 [resource]
 script = ExtResource("2_tfl5x")
@@ -17,7 +19,9 @@ price = 500
 obtained = false
 equip_slot = 0
 primary_attack = ExtResource("1_1or5i")
+primary_attack_sprite = ExtResource("2_bldp3")
 secondary_attack = ExtResource("4_tqieq")
+secondary_attack_sprite = ExtResource("6_j1fqq")
 weapon_type = 1
 weapon_rarity = 0
 damage = 20
