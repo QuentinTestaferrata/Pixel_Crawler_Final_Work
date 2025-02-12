@@ -20,7 +20,6 @@ func start(time: float) -> void:
 func _on_progress_bar_update_timeout() -> void:
 	var x = (total_time / total_cooldown.time_left) * 100
 	cooldown.value = (total_cooldown.time_left / total_time) * 100
-	print("update: ", x)
 
 func _on_total_cooldown_timeout() -> void:
 	cooldown.value = 0

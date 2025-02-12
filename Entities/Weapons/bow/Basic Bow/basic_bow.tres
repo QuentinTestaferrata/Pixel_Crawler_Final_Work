@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=7 format=3 uid="uid://pwiwopat1ns5"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=8 format=3 uid="uid://pwiwopat1ns5"]
 
 [ext_resource type="PackedScene" uid="uid://dqs2b63h0yfjm" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tscn" id="1_7p5wh"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_47gmr"]
@@ -6,11 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://nuev4ekmjq6x" path="res://Entities/Weapons/bow/Basic Bow/arrow/arrow.png" id="2_fye4e"]
 [ext_resource type="Texture2D" uid="uid://blr2haaxw0pnm" path="res://Entities/Weapons/bow/Basic Bow/sprites/shop_image.png" id="3_h0lni"]
 [ext_resource type="Texture2D" uid="uid://dw2j0hrbcus2a" path="res://Entities/Weapons/bow/Basic Bow/sprites/shop_showcase.png" id="4_uwnst"]
+[ext_resource type="Texture2D" uid="uid://bghfmyts75tsj" path="res://Entities/Weapons/bow/Basic Bow/sprites/bow.png" id="7_8aiqv"]
 
 [resource]
 script = ExtResource("1_47gmr")
 weapon_name = "Basic Bow"
 scene = ExtResource("1_7p5wh")
+sprite = ExtResource("7_8aiqv")
 shop_sprite = ExtResource("3_h0lni")
 showcase_sprite = ExtResource("4_uwnst")
 price = 25

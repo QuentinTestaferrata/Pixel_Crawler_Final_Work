@@ -35,7 +35,9 @@ animations = [{
 
 [node name="BoneBow" type="Node2D"]
 script = ExtResource("1_nudv3")
+bow = "bone"
 arrow = ExtResource("2_hcewp")
 bow_frames = SubResource("SpriteFrames_2hbc1")
+multishot_arrows = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

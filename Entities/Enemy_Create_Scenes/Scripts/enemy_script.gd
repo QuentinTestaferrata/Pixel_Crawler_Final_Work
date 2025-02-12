@@ -5,6 +5,7 @@ const ITEM_DROP = preload("res://Items and Drops/Drops/item_drop.tscn")
 
 @export var speed: int = 70
 @export var damage_type: String
+@export_enum("melee", "ranged", "miniboss", "boss") var enemy_type: String
 
 var enemy_container: Node2D
 

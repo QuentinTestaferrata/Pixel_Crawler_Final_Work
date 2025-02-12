@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckv7doqqb4npt"]
+
+[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/shoot_projectile.gd" id="1_b64a0"]
+
+[node name="ShootProjectile" type="Node"]
+script = ExtResource("1_b64a0")
+shooting_cooldown = 5
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
