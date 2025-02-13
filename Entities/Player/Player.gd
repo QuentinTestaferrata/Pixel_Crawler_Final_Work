@@ -16,7 +16,7 @@ var temp_pause_menu: PanelContainer
 var temp_quest_menu: Control
 # Dialogs and Quests vars
 var selected_quest: Quest = null
-
+var temp_quest_tracker: Control
 
 @onready var character_sprite: AnimatedSprite2D = $CharacterSprite
 @onready var camera: Camera2D = $Camera
@@ -44,9 +44,6 @@ func _ready() -> void:
 	print(quest_manager)
 	
 
-func _process(delta: float) -> void:
-	check_inventory_for_quest_item(selected_quest)
-	
 
 
 func _input(event: InputEvent) -> void:
@@ -82,6 +79,7 @@ func _input(event: InputEvent) -> void:
 		temp_quest_menu = QUEST_UI.instantiate()
 		hud_scene.add_child(temp_quest_menu)
 		
+		check_inventory_for_quest_item(selected_quest)
 		temp_quest_menu.show_hide_log()
 	elif event.is_action_pressed("ui_quest_menu") and temp_quest_menu != null:
 		var temp_quest = hud_scene.find_child("QuestUi", true, false)
@@ -126,71 +124,46 @@ func flip_sprite() -> void:
 		shadow.position.x -= 10
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
-# Check if quest item is needed
-func is_item_needed(item_id: String) -> bool:
-	var player = get_tree().get_first_node_in_group("player")
-	var my_item
-	if selected_quest != null:
-		for objective in selected_quest.objectives:
-			if objective.target_type == "collection" and not objective.is_completed:
-				my_item = player.inventory.get_item_by_name(item_id) 
-				print(my_item.amount)
-				return my_item.amount
-			#if objective.target_id == item_id and objective.target_type == "collection" and not objective.is_completed:
-				#return true
-				
-	return false
 
+# Check inventory for quest items
 func check_inventory_for_quest_item(quest: Quest):
 	var my_item
 	if selected_quest != null:
 		for objective in quest.objectives:
 			if objective.target_type == "collection" and not objective.is_completed:
 				my_item = player.inventory.get_item_by_name(objective.target_id) 
-				print(my_item.amount)
-				quest.complete_objectives(objective.id, my_item.amount)
+				if my_item != null:
+					objective.collected_quantity = my_item.amount
+					print(my_item.amount)
+					quest.complete_objectives(objective.id, my_item.amount)
+					update_quest_tracker(quest)
+				if quest.state == "completed":
+					handle_quest_completion(quest)
+					my_item = player.inventory.remove_item(my_item, objective.required_quantity)
 	pass
 
-func check_quest_objectives(target_id: String, target_type: String, quantity: int = 1):
-	if selected_quest == null:
-		return
-	
-	# Update objectives
-	var objective_updated = false
-	for objective in selected_quest.objectives:
-		if objective.target_id == target_id and objective.target_type ==  target_type and not objective.is_completed:
-			print("Completing objective for quest: ", selected_quest.quest_name)
-			selected_quest.complete_objectives(objective.id, quantity)
-			objective_updated = true
-			break
-	
-	# Provide rewards
-	if objective_updated:
-		if selected_quest.is_completed():
-			handle_quest_completion(selected_quest)
-	
-	#update Ui
-	print(selected_quest, "check_quest_objectives")
-	update_quest_tracker(selected_quest)
 
-	# Player rewards
 
 # Player rewards
 func handle_quest_completion(quest: Quest):
 	for reward in quest.rewards:
 		if reward.reward_type == "coins":
 			StatsManager.gain_gold(reward.reward_amount)
-			print(quest, "handle_quest_completion")
+			print(reward.reward_amount, "gold won")
 			update_quest_tracker(quest)
+		elif reward.reward_type == "xp":
+			StatsManager.gain_exp(reward.reward_amount)
+			print(reward.reward_amount, "xp won")
 	quest_manager.update_quest(quest.quest_id, "completed")
 	
 
 #update tracker Ui
 func update_quest_tracker(quest: Quest):
 	# if we have an active quest, populate tracker
-	var temp_quest_tracker: Control = QUEST_TRACKER_UI.instantiate()
-	var hud_scene = get_tree().get_first_node_in_group("hud")
-	hud_scene.add_child(temp_quest_tracker)
+	if temp_quest_tracker == null:
+		temp_quest_tracker = QUEST_TRACKER_UI.instantiate()
+		var hud_scene = get_tree().get_first_node_in_group("hud")
+		hud_scene.add_child(temp_quest_tracker)
 	temp_quest_tracker.update_quest_tracker(quest)
 
 # Update tracker if quest is complete
@@ -202,11 +175,8 @@ func _on_quest_updated(quest_id: String):
 	selected_quest = null
 	
 # Update tracker if objective is complete
-func _on_objective_updated(quest_id: String, objective_id: String):
+func _on_objective_updated(quest_id: String):
 	if selected_quest and selected_quest.quest_id == quest_id:
 		print(selected_quest, "_on_objective_updated")
 		update_quest_tracker(selected_quest)
 	selected_quest = null
-
-func make_quest_tracker():
-	pass

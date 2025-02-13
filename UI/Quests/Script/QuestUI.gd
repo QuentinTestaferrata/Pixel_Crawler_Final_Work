@@ -1,5 +1,6 @@
 extends Control
 
+const OPTION_BUTTON = preload("res://UI/Dialog/Scenes/Option_Button.tscn")
 
 @onready var panel: Panel = $Panel
 @onready var quest_list: VBoxContainer = $Panel/Contents/Details/QuestList
@@ -10,6 +11,7 @@ extends Control
 @onready var quest_rewards: VBoxContainer = $Panel/Contents/Details/QuestDetails/QuestRewards
 @onready var quest_ui: Control = $"."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var finish_quest_button: VBoxContainer = $Panel/Contents/Details/QuestDetails/finish_quest_button
 
 var player: CharacterBody2D
 var hud_layer: CanvasLayer
@@ -79,7 +81,7 @@ func _on_quest_selected(quest: Quest):
 	
 	for objective in quest.objectives:
 		var label = Label.new()
-		label.add_theme_font_size_override("font_size", 20)
+		label.add_theme_font_size_override("font_size", 10)
 		
 		if objective.target_type == "collection":
 			label.text = objective.description + "(" + str(objective.collected_quantity) + "/" + str(objective.required_quantity) + ")"
@@ -88,6 +90,7 @@ func _on_quest_selected(quest: Quest):
 	
 		if objective.is_completed:
 			label.add_theme_color_override("font_color", Color(0, 1, 0))
+			
 		else:
 			label.add_theme_color_override("font_color", Color(1,0, 0))
 			
@@ -104,7 +107,28 @@ func _on_quest_selected(quest: Quest):
 		label.text = "Rewards: " + reward.reward_type.capitalize() 	+ ": " + str(reward.reward_amount)
 		quest_rewards.add_child(label)
 		
+	if quest.is_completed():
+		
+		var finish_quest_button = OPTION_BUTTON.instantiate()
+		
+		finish_quest_button.text = "Finish quest"
+		var font = FontFile.new()
+		font.font_data = load("res://Common/Poco.ttf")
+		
+		finish_quest_button.add_theme_font_override("font", font)
+		finish_quest_button.add_theme_font_size_override("font_size", 10)
+		
+		finish_quest_button.add_theme_color_override("font_color", Color8(0x1B, 0x22, 0x36))
+		finish_quest_button.add_theme_constant_override("content_margin_top", 5)
+		
+		finish_quest_button.pressed.connect(_on_finish_quest_button_pressed(quest))
+		temp_quest_log.finish_quest_button.add_child(finish_quest_button)
+		
 
+
+func _on_finish_quest_button_pressed(quest: Quest):
+	quest.state = "finished"
+	
 # Trigger to clear quest details
 func clear_quest_details():
 	quest_title.text = ""
@@ -126,7 +150,7 @@ func _on_quest_updated(quest_id: String):
 	selected_quest = null
 	
 # Trigger to update quest details
-func _on_objectives_updated(quest_id: String, objectives_id: String):
+func _on_objectives_updated(quest_id: String):
 	print("_on_objectives_updated")
 	if selected_quest and selected_quest.quest_id == quest_id:
 		_on_quest_selected(selected_quest)
@@ -138,3 +162,4 @@ func _on_objectives_updated(quest_id: String, objectives_id: String):
 
 func _on_texture_button_pressed() -> void:
 	close_quest_log()
+	print("quest log")

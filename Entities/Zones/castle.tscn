@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://qbrbdv7v08pg"]
+[gd_scene load_steps=36 format=4 uid="uid://qbrbdv7v08pg"]
 
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="1_57tk4"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_cgcdv"]
@@ -762,17 +762,6 @@ unlock_id = "npc_default"
 objectives = Array[ExtResource("17_4ksk0")]([SubResource("Resource_pg72f")])
 rewards = Array[ExtResource("18_bdwwv")]([SubResource("Resource_a3a83")])
 
-[sub_resource type="Resource" id="Resource_acnru"]
-script = ExtResource("17_4ksk0")
-id = "npc_talk_01"
-description = "Talk to Blfred"
-target_id = "npc_2"
-target_type = "talk_to"
-objective_dialog = "The third npc is a shopkeeper!"
-required_quantity = 0
-collected_quantity = 0
-is_completed = false
-
 [sub_resource type="Resource" id="Resource_t4c8k"]
 script = ExtResource("17_4ksk0")
 id = "obj_collect_01"
@@ -780,7 +769,7 @@ description = "Collect 10 bones"
 target_id = "Bone"
 target_type = "collection"
 objective_dialog = ""
-required_quantity = 0
+required_quantity = 10
 collected_quantity = 0
 is_completed = false
 
@@ -789,15 +778,51 @@ script = ExtResource("18_bdwwv")
 reward_type = "coins"
 reward_amount = 50
 
+[sub_resource type="Resource" id="Resource_s8d7j"]
+script = ExtResource("18_bdwwv")
+reward_type = "xp"
+reward_amount = 5
+
 [sub_resource type="Resource" id="Resource_1sejo"]
 script = ExtResource("16_o0br0")
 quest_id = "npc_quest_1"
 quest_name = "Starter"
-quest_description = "Talk to Blfred"
+quest_description = "Collect 10 bones"
 state = "not_started"
 unlock_id = "npc1_1"
-objectives = Array[ExtResource("17_4ksk0")]([SubResource("Resource_acnru"), SubResource("Resource_t4c8k")])
-rewards = Array[ExtResource("18_bdwwv")]([SubResource("Resource_yoik3")])
+objectives = Array[ExtResource("17_4ksk0")]([SubResource("Resource_t4c8k")])
+rewards = Array[ExtResource("18_bdwwv")]([SubResource("Resource_yoik3"), SubResource("Resource_s8d7j")])
+
+[sub_resource type="Resource" id="Resource_anxjg"]
+script = ExtResource("17_4ksk0")
+id = "obj_collect_02"
+description = "Collect 20 bones"
+target_id = "Bone"
+target_type = "collection"
+objective_dialog = ""
+required_quantity = 20
+collected_quantity = 0
+is_completed = false
+
+[sub_resource type="Resource" id="Resource_0cpqf"]
+script = ExtResource("18_bdwwv")
+reward_type = "coins"
+reward_amount = 100
+
+[sub_resource type="Resource" id="Resource_4ybjw"]
+script = ExtResource("18_bdwwv")
+reward_type = "xp"
+reward_amount = 10
+
+[sub_resource type="Resource" id="Resource_i507o"]
+script = ExtResource("16_o0br0")
+quest_id = "npc_quest_2"
+quest_name = "Starter2"
+quest_description = "Collect 20 bones"
+state = "not_started"
+unlock_id = "npc1_2"
+objectives = Array[ExtResource("17_4ksk0")]([SubResource("Resource_anxjg")])
+rewards = Array[ExtResource("18_bdwwv")]([SubResource("Resource_0cpqf"), SubResource("Resource_4ybjw")])
 
 [node name="Castle" type="Node2D"]
 y_sort_enabled = true
@@ -953,7 +978,7 @@ quests = Array[ExtResource("16_o0br0")]([SubResource("Resource_vf22f")])
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("15_023g8")]
 position = Vector2(124, 169)
-quests = Array[ExtResource("16_o0br0")]([SubResource("Resource_1sejo")])
+quests = Array[ExtResource("16_o0br0")]([SubResource("Resource_1sejo"), SubResource("Resource_i507o")])
 
 [node name="Projectiles_Holder" parent="." instance=ExtResource("14_8f0tf")]
 

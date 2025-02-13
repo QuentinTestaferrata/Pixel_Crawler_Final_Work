@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SavedGame" load_steps=17 format=3 uid="uid://m3y6i7ve5opx"]
+[gd_resource type="Resource" script_class="SavedGame" load_steps=20 format=3 uid="uid://m3y6i7ve5opx"]
 
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_ad4uc"]
 [ext_resource type="Texture2D" uid="uid://bupmkrj10g8kh" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_0o7so"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dtogx0t5k1i0t" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_shop_showcase.png" id="11_23qqd"]
 [ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="11_glfjk"]
 [ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png" id="12_4ewar"]
+[ext_resource type="PackedScene" uid="uid://c86e6v634k7vi" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/bone_drop.tscn" id="12_x6yy0"]
+[ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="13_miugl"]
 
 [sub_resource type="Resource" id="Resource_u6uon"]
 script = ExtResource("3_3q3e8")
@@ -70,15 +72,28 @@ rarity = 0
 stackable = true
 amount = 1
 
+[sub_resource type="Resource" id="Resource_i3ffe"]
+script = ExtResource("1_ad4uc")
+name = "Bone"
+scene = ExtResource("12_x6yy0")
+sprite = ExtResource("13_miugl")
+description = "Normal bone"
+value = 2
+price = 8
+consumable = false
+rarity = 0
+stackable = true
+amount = 13
+
 [resource]
 script = ExtResource("2_7nnf2")
-items = Array[ExtResource("1_ad4uc")]([SubResource("Resource_d4ye4"), SubResource("Resource_sm18j")])
+items = Array[ExtResource("1_ad4uc")]([SubResource("Resource_d4ye4"), SubResource("Resource_sm18j"), SubResource("Resource_i3ffe")])
 weapons = Array[ExtResource("3_3q3e8")]([])
 equiped_weapon_1 = SubResource("Resource_u6uon")
 equiped_weapon_2 = SubResource("Resource_hpuan")
-gold = 4899
-current_exp = 60
+gold = 4914
+current_exp = 120
 needed_exp = 125
 level = 1
-current_hp = 52
+current_hp = 88
 total_hp = 100

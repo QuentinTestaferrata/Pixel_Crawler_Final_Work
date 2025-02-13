@@ -27,7 +27,7 @@ func update_quest_tracker(quest: Quest):
 				label.add_theme_color_override("font_color", Color(0, 1, 0))
 			else:
 				label.add_theme_color_override("font_color", Color(1,0, 0))
-				
+				label.add_theme_font_size_override("font_size", 10)
 			objectives.add_child(label)
 	# no active quest, hide tracker		
 	else:

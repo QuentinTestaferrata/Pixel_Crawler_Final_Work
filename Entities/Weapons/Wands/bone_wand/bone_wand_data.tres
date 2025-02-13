@@ -12,6 +12,7 @@ scene = ExtResource("1_ralb5")
 sprite = ExtResource("3_2kw64")
 shop_sprite = ExtResource("3_g3f8p")
 price = 500
+obtained = true
 weapon_type = 1
 weapon_rarity = 0
 damage = 20

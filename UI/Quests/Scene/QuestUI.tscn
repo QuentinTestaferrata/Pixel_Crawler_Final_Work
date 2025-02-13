@@ -182,6 +182,9 @@ layout_mode = 2
 [node name="QuestRewards" type="VBoxContainer" parent="Panel/Contents/Details/QuestDetails"]
 layout_mode = 2
 
+[node name="finish_quest_button" type="VBoxContainer" parent="Panel/Contents/Details/QuestDetails"]
+layout_mode = 2
+
 [node name="TextureButton" type="TextureButton" parent="Panel"]
 layout_mode = 1
 anchors_preset = 1
