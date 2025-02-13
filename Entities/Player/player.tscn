@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=48 format=3 uid="uid://uqj3ijcufn81"]
+
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_xgmka"]
 [ext_resource type="Script" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
@@ -18,6 +20,7 @@
 [ext_resource type="Script" path="res://Entities/Player/player_hurtbox.gd" id="14_xq40c"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="17_icsdk"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="18_k1fmk"]
+[ext_resource type="PackedScene" uid="uid://bu1oqu1abj5an" path="res://UI/Quests/Scene/QuestManager.tscn" id="19_lgj0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tossq"]
 atlas = ExtResource("2_sw8de")
@@ -378,6 +381,12 @@ scale_amount_min = 0.06
 scale_amount_max = 0.06
 color_ramp = SubResource("Gradient_xjc2k")
 
+
+
+[node name="QuestManager" parent="." instance=ExtResource("19_lgj0m")]
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="StateMachine/Dash" method="_on_dash_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/DashTimer" to="StateMachine/Dash" method="_on_dash_timer_timeout"]
