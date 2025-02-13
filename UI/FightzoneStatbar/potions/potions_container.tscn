@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://o4xvvgcucdme"]
+
+[ext_resource type="Texture2D" uid="uid://e31hat7dllen" path="res://Items and Drops/Items/potions/Health Potion/buttons/normal.png" id="1_kdu20"]
+[ext_resource type="Script" path="res://UI/FightzoneStatbar/potions/potions_container.gd" id="1_kpfl7"]
+[ext_resource type="Texture2D" uid="uid://dmn5ltddpggvc" path="res://Items and Drops/Items/potions/Health Potion/buttons/pressed.png" id="2_f1ffe"]
+[ext_resource type="Texture2D" uid="uid://cwjbnk4l8rgal" path="res://Items and Drops/Items/potions/Speed Potion/speed_button/normal.png" id="4_bshl3"]
+[ext_resource type="Texture2D" uid="uid://bm5v2pq18lluj" path="res://Items and Drops/Items/potions/Speed Potion/speed_button/pressed.png" id="5_13asr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2et80"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kw8wo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ry0b"]
+bg_color = Color(0, 0, 0, 0.666667)
+
+[sub_resource type="Theme" id="Theme_x66nx"]
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_kw8wo")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_3ry0b")
+
+[node name="PotionsContainer" type="PanelContainer"]
+offset_left = 132.0
+offset_right = 186.0
+offset_bottom = 65.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2et80")
+script = ExtResource("1_kpfl7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HealthPotion" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("1_kdu20")
+texture_pressed = ExtResource("2_f1ffe")
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/HealthPotion"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.0
+offset_top = 3.0
+offset_right = 7.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme = SubResource("Theme_x66nx")
+show_percentage = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SpeedPotion" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_bshl3")
+texture_pressed = ExtResource("5_13asr")
+
+[node name="SpeedBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2/SpeedPotion"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.0
+offset_top = 3.0
+offset_right = 7.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme = SubResource("Theme_x66nx")
+show_percentage = false
+
+[node name="HealthPotionCooldown" type="Timer" parent="."]
+
+[node name="SpeedPotionCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="HealthPotionCooldown" to="." method="_on_health_potion_cooldown_timeout"]
+[connection signal="timeout" from="SpeedPotionCooldown" to="." method="_on_speed_potion_cooldown_timeout"]

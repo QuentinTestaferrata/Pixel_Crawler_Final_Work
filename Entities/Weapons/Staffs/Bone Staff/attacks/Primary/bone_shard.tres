@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=3 format=3 uid="uid://0wswimdn2cna"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_gnla0"]
+[ext_resource type="Texture2D" uid="uid://bv0k4myvt4d08" path="res://Entities/Weapons/bow/bone_bow/arrow/arrow.png" id="2_1o7k2"]
+
+[resource]
+script = ExtResource("1_gnla0")
+sprite = ExtResource("2_1o7k2")
+NAME = "Bone Shard"
+TYPE = 1
+SPREAD = 30
+DAMAGE = 10
+MANA_COST = 0
+SPEED = 400
+FIRERATE = 0.1
+LIFETIME = 0.3
+COOLDOWN = 0.0
+KNOCKBACK_FORCE = 0.5
+CRIT_CHANCE = 10
+CRIT_MULTIPLYER = 1.5

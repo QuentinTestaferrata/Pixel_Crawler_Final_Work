@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://brvcj3bw0vebq"]
+
+[ext_resource type="Texture2D" uid="uid://3li8ev5mj7kq" path="res://assets/Dungeon/Weapons_Bone.png" id="1_66tvk"]
+[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_yju1f"]
+[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="2_o5kbk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwie"]
+size = Vector2(15, 3)
+
+[sub_resource type="Animation" id="Animation_0m2yt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rdc4r"]
+resource_name = "despawn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gs2ru"]
+resource_name = "spawn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0v15i"]
+_data = {
+"RESET": SubResource("Animation_0m2yt"),
+"despawn": SubResource("Animation_rdc4r"),
+"spawn": SubResource("Animation_gs2ru")
+}
+
+[node name="BoneShard" type="Area2D"]
+z_index = 2
+collision_layer = 2
+collision_mask = 64
+script = ExtResource("1_yju1f")
+projectile_data = ExtResource("2_o5kbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_66tvk")
+region_enabled = true
+region_rect = Rect2(32, 4, 16, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_fuwie")
+
+[node name="Despawner" type="Timer" parent="."]
+
+[node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0v15i")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Despawner" to="." method="_on_despawner_timeout"]

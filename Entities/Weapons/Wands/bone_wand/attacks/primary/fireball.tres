@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=3 format=3 uid="uid://c4qj5yf413nxr"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_yekku"]
+[ext_resource type="Texture2D" uid="uid://ck2xtexxlfi6d" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.png" id="2_6172e"]
+
+[resource]
+script = ExtResource("1_yekku")
+sprite = ExtResource("2_6172e")
+NAME = "Fireball"
+TYPE = 0
+SPREAD = 0
+DAMAGE = 25
+MANA_COST = 0
+SPEED = 300
+FIRERATE = 0.0
+LIFETIME = 0.0
+COOLDOWN = 15.0
+KNOCKBACK_FORCE = 5.0
+CRIT_CHANCE = 50
+CRIT_MULTIPLYER = 1.5

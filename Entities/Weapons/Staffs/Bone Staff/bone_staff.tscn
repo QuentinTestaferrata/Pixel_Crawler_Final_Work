@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dum6xe8iwt7ls"]
 
-[ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_sprite.png" id="1_43tmv"]
+[ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_sprite.png" id="1_43tmv"]
 [ext_resource type="Script" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.gd" id="1_y05u8"]
-[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/bone_shard.tres" id="2_da7tf"]
+[ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="2_da7tf"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_naveh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6hl43"]
@@ -15,6 +15,8 @@ colors = PackedColorArray(1, 1, 1, 0, 6.37732e-07, 0.393071, 0.246579, 0.501961,
 [node name="BoneStaff" type="Node2D"]
 script = ExtResource("1_y05u8")
 primary_attack = ExtResource("2_da7tf")
+bone_amount = 5
+cooldown = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
@@ -44,5 +46,8 @@ color_ramp = SubResource("Gradient_be7yc")
 
 [node name="PrimaryAttackTimer" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="SecondaryCooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="PrimaryAttackTimer" to="." method="_on_primary_attack_timer_timeout"]

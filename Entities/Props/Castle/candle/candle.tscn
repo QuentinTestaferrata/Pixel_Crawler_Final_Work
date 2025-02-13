@@ -51,7 +51,7 @@ blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_6resb"]
 offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
-colors = PackedColorArray(0, 0.862745, 0, 0, 0.917647, 0.862745, 0, 1, 1, 0.0784314, 0.0235294, 1, 1, 0.0784314, 0.0235294, 0)
+colors = PackedColorArray(1, 0.572911, 0.558825, 0, 0.917647, 0.862745, 0, 1, 1, 0.0784314, 0.0235294, 1, 1, 0.0784314, 0.0235294, 0)
 
 [sub_resource type="Animation" id="Animation_k0sxw"]
 length = 0.001

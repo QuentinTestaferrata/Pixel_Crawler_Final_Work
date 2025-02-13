@@ -8,7 +8,12 @@ const PAUSE_MENU = preload("res://UI/Pause_Menu/pause_menu.tscn")
 const QUEST_UI = preload("res://UI/Quests/Scene/QuestUI.tscn")
 const QUEST_TRACKER_UI = preload("res://UI/Quests/QuestHUD/QuestTracker.tscn")
 
-var speed: int = 140
+@export var speed: int = 100
+
+@export_category("Potion Cooldowns")
+@export var HealthPotionCD: int = 30
+@export var SpeedPotionCD: int = 60
+
 var inventory: Inventory = Inventory.new()
 var inventory_open: bool = false
 var temp_pause_menu: PanelContainer
@@ -20,14 +25,22 @@ var temp_quest_tracker: Control
 
 @onready var character_sprite: AnimatedSprite2D = $CharacterSprite
 @onready var camera: Camera2D = $Camera
-@onready var player_dash: GPUParticles2D = $PlayerDash
 @onready var text_position: Node2D = $TextPosition
-@onready var gpu_particles_2d: CPUParticles2D = $GPUParticles2D
+@onready var player_dash: GPUParticles2D = $Particles/PlayerDash
+@onready var heal_particles: CPUParticles2D = $Particles/HealParticles
+@onready var speed_particles: CPUParticles2D = $Particles/SpeedParticles
+@onready var speed_timer: Timer = $Timers/SpeedTimer
 @onready var shadow: Sprite2D = $Shadow
 @onready var weapon_manager: WeaponManager = $WeaponManager
+<<<<<<< HEAD
 @onready var quest_manager: QuestManager = $QuestManager
 @onready var player = get_tree().get_first_node_in_group("player")
 
+=======
+@onready var health_component: PlayerHealthComponent = $HealthComponent
+@onready var heal_cooldown: Timer = $Timers/HealCooldown
+@onready var speed_cooldown: Timer = $Timers/SpeedCooldown
+>>>>>>> main
 
 func on_item_picked_up(item: Item) -> void:
 	inventory.add_item(item)
@@ -35,6 +48,7 @@ func on_item_picked_up(item: Item) -> void:
 
 func _ready() -> void:
 	player_dash.emitting = false
+<<<<<<< HEAD
 	print(weapon_manager)
 	
 	#---------------------------------------------------------
@@ -45,6 +59,8 @@ func _ready() -> void:
 	
 
 
+=======
+>>>>>>> main
 
 func _input(event: InputEvent) -> void:
 	var hud_scene: CanvasLayer = get_parent().get_child(0)
@@ -68,7 +84,18 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = false
 		var temp_menu = hud_scene.find_child("PauseMenu", true, false)
 		temp_menu.close_menu()
+	## TODO : get rid of heal and speed inputs here and put the in potions_container.tscn
+	if event.is_action_pressed("heal") and heal_cooldown.is_stopped():
+		var potion: Item = inventory.get_item_by_name("Healing Potion")
+		if potion == null:
+			print("No more heal potions left")
+		else:
+			if potion.amount > 0:
+				play_heal_animation()
+				potion.amount -= 1
+				health_component.heal(20)
 	
+<<<<<<< HEAD
 	
 	if event.is_action_pressed("heal") and StatsManager.current_potions > 0:
 		StatsManager.current_potions -= 1
@@ -86,11 +113,34 @@ func _input(event: InputEvent) -> void:
 		temp_quest.close_quest_log()
 	
 	
+=======
+	elif event.is_action_pressed("speed") and speed_cooldown.is_stopped():
+		var potion: Item = inventory.get_item_by_name("Speed Potion")
+		if potion == null:
+			print("No more speed potions left")
+		else: 
+			if potion.amount > 0:
+				play_speed_animation()
+				potion.amount -= 1
+>>>>>>> main
 
 func play_heal_animation() -> void:
-	gpu_particles_2d.top_level = false
-	gpu_particles_2d.local_coords = true
-	gpu_particles_2d.emitting = true
+	heal_particles.top_level = false
+	heal_particles.local_coords = true
+	heal_particles.emitting = true
+	heal_cooldown.start()
+
+func play_speed_animation() -> void:
+	speed_particles.top_level = false
+	speed_particles.local_coords = false
+	speed_particles.emitting = true
+	speed_cooldown.start()
+	speed_timer.start()
+	speed += 75
+
+func _on_speed_timer_timeout() -> void:
+	speed_particles.emitting = false
+	speed -= 75
 
 func display_message(text: String, color: Color, duration: float) -> void:
 	print_debug("Message sent")

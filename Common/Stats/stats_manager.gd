@@ -1,6 +1,7 @@
 extends Node
 class_name PlayerStats
 
+const SHOP_ITEMS = preload("res://Common/Shop/shop_items.tres")
 
 signal health_changed
 signal exp_changed
@@ -11,7 +12,7 @@ signal player_died
 
 #Potions
 var max_potions: int
-var current_potions: int
+var current_potions: int = 10
 
 #EXP
 @export var level: int = 1
@@ -28,6 +29,10 @@ var current_potions: int
 #Weapons
 @export var equiped_weapon_1: WeaponData
 @export var equiped_weapon_2: WeaponData
+
+#Shop
+@export var shop_items: Array[Item]
+@export var shop_weapons: Array[WeaponData]
 
 var player: CharacterBody2D
 var saver_loader: SaverLoader

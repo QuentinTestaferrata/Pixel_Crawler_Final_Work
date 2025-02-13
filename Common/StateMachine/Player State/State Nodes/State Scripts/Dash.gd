@@ -1,10 +1,10 @@
 extends PlayerState
 
-@onready var dash_timer: Timer = $"../../DashTimer"
+@onready var dash_timer: Timer = $"../../Timers/DashTimer"
 @onready var state_machine: PlayerStateMachine = $".."
-@onready var player_dash: GPUParticles2D = $"../../PlayerDash"
 @onready var character_sprite: AnimatedSprite2D = $"../../CharacterSprite"
 @onready var player_hurtbox: Area2D = $"../../PlayerHurtbox"
+@onready var player_dash: GPUParticles2D = $"../../Particles/PlayerDash"
 
 func enter():
 	dash_timer.start()

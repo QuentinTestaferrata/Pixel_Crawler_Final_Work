@@ -2,7 +2,7 @@ extends Camera2D
 
 var alive: bool = true
 
-@onready var player_dash: GPUParticles2D = $"../PlayerDash"
+@onready var player_dash: GPUParticles2D = $"../Particles/PlayerDash"
 @onready var character_sprite: AnimatedSprite2D = $"../CharacterSprite"
 @onready var shadow: Sprite2D = $"../Shadow"
 

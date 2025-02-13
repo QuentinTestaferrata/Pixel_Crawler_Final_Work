@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://uqj3ijcufn81"]
+[gd_scene load_steps=48 format=3 uid="uid://uqj3ijcufn81"]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_xgmka"]
 [ext_resource type="Script" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
@@ -19,54 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="17_icsdk"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="18_k1fmk"]
 [ext_resource type="PackedScene" uid="uid://bu1oqu1abj5an" path="res://UI/Quests/Scene/QuestManager.tscn" id="19_lgj0m"]
-
-[sub_resource type="Shader" id="Shader_oyr31"]
-code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
-
-shader_type canvas_item;
-render_mode blend_mix;
-uniform int particles_anim_h_frames;
-uniform int particles_anim_v_frames;
-uniform bool particles_anim_loop;
-
-void vertex() {
-	float h_frames = float(particles_anim_h_frames);
-	float v_frames = float(particles_anim_v_frames);
-	VERTEX.xy /= vec2(h_frames, v_frames);
-	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
-	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
-	if (!particles_anim_loop) {
-		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
-	} else {
-		particle_frame = mod(particle_frame, particle_total_frames);
-	}
-	vec2 scale_uv = UV / vec2(h_frames, v_frames);
-	UV = scale_uv + vec2(
-		mod(particle_frame, h_frames) / h_frames,
-		floor((particle_frame + 0.5) / h_frames) / v_frames
-		);
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m2ckg"]
-shader = SubResource("Shader_oyr31")
-shader_parameter/particles_anim_h_frames = 6
-shader_parameter/particles_anim_v_frames = 1
-shader_parameter/particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_pusqi"]
-_data = [Vector2(0, 0.236712), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_swys3"]
-curve = SubResource("Curve_pusqi")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ickx1"]
-emission_shape_offset = Vector3(-1, -17.5, 0)
-gravity = Vector3(0, 0, 0)
-alpha_curve = SubResource("CurveTexture_swys3")
-anim_speed_min = 1.0
-anim_speed_max = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tossq"]
 atlas = ExtResource("2_sw8de")
@@ -206,25 +158,77 @@ height = 16.0
 radius = 6.0
 height = 22.0
 
+[sub_resource type="Shader" id="Shader_oyr31"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+void vertex() {
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	VERTEX.xy /= vec2(h_frames, v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}
+	vec2 scale_uv = UV / vec2(h_frames, v_frames);
+	UV = scale_uv + vec2(
+		mod(particle_frame, h_frames) / h_frames,
+		floor((particle_frame + 0.5) / h_frames) / v_frames
+		);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m2ckg"]
+shader = SubResource("Shader_oyr31")
+shader_parameter/particles_anim_h_frames = 6
+shader_parameter/particles_anim_v_frames = 1
+shader_parameter/particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_pusqi"]
+_data = [Vector2(0, 0.236712), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_swys3"]
+curve = SubResource("Curve_pusqi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ickx1"]
+emission_shape_offset = Vector3(-1, -17.5, 0)
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_swys3")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aaslo"]
+blend_mode = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2lmkp"]
+load_path = "res://.godot/imported/Flame.png-70f05009b7b5e31de308464fb731f81d.ctex"
+
+[sub_resource type="Gradient" id="Gradient_y7sm2"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.188925, 0.846906, 0.993485)
+colors = PackedColorArray(0, 0.886275, 0, 0, 0.570804, 0.935912, 0.537163, 1, 1.22733e-06, 0.62979, 0.15218, 1, 0, 0.631373, 0.152941, 0)
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0n62x"]
 blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_xjc2k"]
-offsets = PackedFloat32Array(0, 0.125786, 0.902516, 0.987421, 1)
-colors = PackedColorArray(0, 0.862745, 0, 0, 0.937255, 0.854902, 0, 1, 0.211043, 0.644957, 3.85046e-07, 1, 0.287697, 0.633775, 5.962e-07, 0.451613, 0.350824, 0.624566, 7.70092e-07, 0)
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
+colors = PackedColorArray(0, 0.837181, 0.826971, 0, 0.635294, 0.823529, 1, 1, 6.35326e-06, 0.681541, 0.938241, 1, 0, 0.542099, 0.872564, 0)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 792
 collision_mask = 549
 script = ExtResource("1_xgmka")
-
-[node name="PlayerDash" type="GPUParticles2D" parent="."]
-material = SubResource("ShaderMaterial_m2ckg")
-emitting = false
-amount = 32
-process_material = SubResource("ParticleProcessMaterial_ickx1")
-texture = ExtResource("3_gruvd")
-lifetime = 0.5
 
 [node name="Camera" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -246,10 +250,6 @@ offset = Vector2(-18, -35)
 position = Vector2(0, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ex530")
-
-[node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
 
 [node name="WeaponManager" parent="." instance=ExtResource("5_tsom6")]
 position = Vector2(0, -11)
@@ -294,16 +294,50 @@ player_health = NodePath("../HealthComponent")
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_87sq1")
 
-[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
+show_behind_parent = true
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("18_k1fmk")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="DashTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
+[node name="SpeedTimer" type="Timer" parent="Timers"]
+wait_time = 10.0
+one_shot = true
+
+[node name="HealCooldown" type="Timer" parent="Timers"]
+wait_time = 30.0
+one_shot = true
+
+[node name="SpeedCooldown" type="Timer" parent="Timers"]
+wait_time = 60.0
+one_shot = true
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="PlayerDash" type="GPUParticles2D" parent="Particles"]
+material = SubResource("ShaderMaterial_m2ckg")
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_ickx1")
+texture = ExtResource("3_gruvd")
+lifetime = 0.5
+
+[node name="HealParticles" type="CPUParticles2D" parent="Particles"]
 z_as_relative = false
-material = SubResource("CanvasItemMaterial_0n62x")
+material = SubResource("CanvasItemMaterial_aaslo")
 position = Vector2(0, -4)
 emitting = false
 amount = 20
+lifetime = 1.5
 one_shot = true
 explosiveness = 0.5
 local_coords = true
-texture = ExtResource("17_icsdk")
+texture = SubResource("CompressedTexture2D_2lmkp")
 emission_shape = 1
 emission_sphere_radius = 8.48
 direction = Vector2(0, -1)
@@ -313,6 +347,32 @@ initial_velocity_min = 20.0
 initial_velocity_max = 20.0
 angular_velocity_min = -35.49
 angular_velocity_max = 35.49
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.06
+scale_amount_max = 0.06
+color_ramp = SubResource("Gradient_y7sm2")
+
+[node name="SpeedParticles" type="CPUParticles2D" parent="Particles"]
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_0n62x")
+position = Vector2(0, -4)
+emitting = false
+amount = 11
+lifetime = 0.4
+texture = ExtResource("17_icsdk")
+emission_shape = 4
+emission_points = PackedVector2Array(-5, 4, -2, 4, 0, 4, 2, 4, 5, 4, -7, 4, 7, 4)
+emission_colors = PackedColorArray()
+direction = Vector2(0, -1)
+spread = 11.18
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = 8.13
+angular_velocity_max = 138.3
+linear_accel_min = 5.0
+linear_accel_max = 8.47
 angle_min = -25.4
 angle_max = 30.4
 scale_amount_min = 0.06
@@ -329,3 +389,6 @@ texture = ExtResource("18_k1fmk")
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="StateMachine/Dash" method="_on_dash_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
+[connection signal="timeout" from="Timers/DashTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timers/DashTimer" to="StateMachine/Dash" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Timers/SpeedTimer" to="." method="_on_speed_timer_timeout"]

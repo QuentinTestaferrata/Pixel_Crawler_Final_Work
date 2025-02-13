@@ -35,18 +35,16 @@ func set_weapon(weapon: WeaponData, slot: int):
 		print("Weapon slot has to be 1 or 2")
 	elif slot == 1:
 		equiped_weapon_1 = weapon
-		print(equiped_weapon_1)
 	else:
 		equiped_weapon_2 = weapon
-		print(equiped_weapon_2)
 
 func equip_weapon(_weapon: WeaponData) -> void:
 	if active_weapon: 
 		active_weapon.queue_free()
-		tween.kill()
+		if tween:
+			tween.kill()
 	
 	var weapon_instance = _weapon.scene.instantiate()
-	print(weapon_instance)
 	primary_attack = _weapon.primary_attack
 	secondary_attack = _weapon.secondary_attack
 	active_weapon = weapon_instance
@@ -101,12 +99,38 @@ func _process(_delta: float) -> void:
 				var tween_x = get_tree().create_tween()
 				tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x + 7, .1)
 				tween_x.tween_property(active_weapon, "rotation",  .15, .2)
+		2: #Shield
+			pass
+		3: #Sword
+			pass
+		4: #Dagger
+			pass
+		5: #Bow
+			if player.character_sprite.flip_h and active_weapon.position.x > -13 and active_weapon_type == 5:
+				var tween_x = get_tree().create_tween()
+				active_weapon.scale = Vector2(-1, 1)
+				tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x - 4, .07)
+				tween_x.tween_property(active_weapon, "rotation", -.15, .2)
+			elif !player.character_sprite.flip_h and active_weapon.position.x < 10 and active_weapon_type == 5:
+				var tween_x = get_tree().create_tween()
+				active_weapon.scale = Vector2(1, 1)
+				tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x + 7, .1)
+				tween_x.tween_property(active_weapon, "rotation",  .15, .2)
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("equip_weapon_1") && equiped_weapon_1 != null:
-		print(equiped_weapon_1.weapon_name)
 		rotation = 0
-		equip_weapon(equiped_weapon_1)
-
+		equip_weapon(StatsManager.equiped_weapon_1)
+		set_weapon(StatsManager.equiped_weapon_1, 1)
+		AttackCooldowns.set_data(1, equiped_weapon_1.primary_attack.COOLDOWN, equiped_weapon_1.secondary_attack.COOLDOWN)
 	elif event.is_action_pressed("equip_weapon_2") && equiped_weapon_2 != null:
-		equip_weapon(equiped_weapon_2)
+		equiped_weapon_2 = StatsManager.equiped_weapon_2
+		equip_weapon(StatsManager.equiped_weapon_2)
+		set_weapon(StatsManager.equiped_weapon_2, 2)
+		AttackCooldowns.set_data(2, equiped_weapon_2.primary_attack.COOLDOWN, equiped_weapon_2.secondary_attack.COOLDOWN)
+
+
+	#elif event.is_action_pressed("dash"):
+		#print(StatsManager.equiped_weapon_1.weapon_name)
+		#print(equiped_weapon_1.primary_attack)
