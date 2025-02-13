@@ -1,14 +1,43 @@
-[gd_scene load_steps=14 format=3 uid="uid://pld51fydlb1l"]
+[gd_scene load_steps=20 format=3 uid="uid://pld51fydlb1l"]
 
 [ext_resource type="Script" path="res://Entities/NPC/Castle_questNPC/quest_NPC.gd" id="1_bnyew"]
 [ext_resource type="Texture2D" uid="uid://b06866e6e7mk3" path="res://assets/Castle/Enemies (Royal Crew)/Soldier/Idle-Sheet.png" id="2_bgmn1"]
 [ext_resource type="Script" path="res://Common/Dialog/Dialogs/Dialog.gd" id="2_rbnxq"]
 [ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_3eivg"]
+[ext_resource type="Script" path="res://Common/Dialog/Quests/Quest.gd" id="3_3tbl6"]
+[ext_resource type="Script" path="res://Common/Dialog/Quests/Objectives.gd" id="4_3mhei"]
 [ext_resource type="PackedScene" uid="uid://18twpagpx1rg" path="res://UI/Dialog/Scenes/DialogManager.tscn" id="5_a4sa8"]
+[ext_resource type="Script" path="res://Common/Dialog/Quests/Rewards.gd" id="5_qf0yc"]
 
 [sub_resource type="Resource" id="Resource_7ibn4"]
 script = ExtResource("2_rbnxq")
 dialogs = {}
+
+[sub_resource type="Resource" id="Resource_8hmxm"]
+script = ExtResource("4_3mhei")
+id = ""
+description = ""
+target_id = ""
+target_type = ""
+objective_dialog = ""
+required_quantity = 0
+collected_quantity = 0
+is_completed = false
+
+[sub_resource type="Resource" id="Resource_26xgb"]
+script = ExtResource("5_qf0yc")
+reward_type = ""
+reward_amount = 1
+
+[sub_resource type="Resource" id="Resource_fjla7"]
+script = ExtResource("3_3tbl6")
+quest_id = "Quest1"
+quest_name = "Quest1"
+quest_description = ""
+state = "not_started"
+unlock_id = "npc1_1"
+objectives = Array[ExtResource("4_3mhei")]([SubResource("Resource_8hmxm")])
+rewards = Array[ExtResource("5_qf0yc")]([SubResource("Resource_26xgb")])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvrpd"]
 atlas = ExtResource("2_bgmn1")
@@ -58,6 +87,7 @@ script = ExtResource("1_bnyew")
 npc_id = "npc_1"
 npc_name = "Knight Alfred"
 dialog_resource = SubResource("Resource_7ibn4")
+quests = Array[ExtResource("3_3tbl6")]([SubResource("Resource_fjla7")])
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
