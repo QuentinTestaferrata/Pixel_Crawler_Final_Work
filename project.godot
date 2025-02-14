@@ -157,6 +157,7 @@ speed={
 2d_physics/layer_8="soft_collision"
 2d_physics/layer_9="NPC"
 2d_physics/layer_10="interactible"
+2d_physics/layer_11="enemy_projectile"
 
 [rendering]
 

@@ -1,6 +1,8 @@
 extends Node2D
 class_name EnemySprite
 
+signal cast_spell_1
+
 enum weapon_types {SWORD, STAFF, DAGGER, AXE}
 
 @export_subgroup("Left Hand")
@@ -59,11 +61,12 @@ func _ready() -> void:
 	if right_hand_weapon:
 		right_hand_sprite.texture = right_hand
 		right_weapon_scene = right_hand_weapon.scene.instantiate()
-		right_weapon_hitbox = right_weapon_scene.get_child(0)
-		right_weapon_hitbox.scale.x = -1
+		#right_weapon_hitbox.scale.x = -1
 		right_hand_sprite.add_child(right_weapon_scene)
-		right_weapon_scene.weapon_monitoring(false)
 		right_weapon_scene.show_behind_parent = true
+		if left_hand_weapon.weapon_type == 3:
+			right_weapon_hitbox = right_weapon_scene.get_child(0)
+			right_weapon_scene.weapon_monitoring(false)
 	else:
 		right_hand_sprite.texture = right_hand_empty
 	

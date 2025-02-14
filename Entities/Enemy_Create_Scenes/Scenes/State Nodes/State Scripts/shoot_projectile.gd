@@ -1,5 +1,7 @@
 extends EnemyState
 
+signal shoot_signal
+
 @export var shooting_cooldown: int
 @export var available_spells: Array[int]
 
@@ -21,6 +23,12 @@ func _ready() -> void:
 	attack_range.body_exited.connect(_leave_attack_state)
 	enemy_speed = state_machine.enemy.speed
 	set_process(false)
+	
+	#Connecting all spell signals
+	state_machine.body.cast_spell_1.connect(shoot_projectile)
+
+func shoot_projectile() -> void:
+	shoot_signal.emit()
 
 func enter() -> void:
 	set_process(true)
@@ -31,7 +39,6 @@ func enter() -> void:
 	if attack_animations == null:
 		attack_animations = state_machine.attack_animations
 		attack_animations.animation_finished.connect(test)
-		print(attack_animations)
 
 func test(_animation_name: String) -> void:
 	is_animation_finished = true
@@ -55,7 +62,7 @@ func shoot() -> void:
 
 func _leave_attack_state(body: Node2D) -> void:
 	if body.is_in_group("player") and is_animation_finished:
-		set_knockback(0, 0)
+		set_knockback(0, Vector2(0, 0))
 		state_machine.change_state(self, "chase")
 
 func set_knockback(force, dir) -> void:

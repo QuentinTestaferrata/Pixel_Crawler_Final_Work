@@ -28,7 +28,6 @@ func _ready() -> void:
 	
 	for child in get_children():
 		if child is EnemyState:
-			print(child.name)
 			states[child.name.to_lower()] = child
 			child.state_transition.connect(change_state)
 	if initial_state:

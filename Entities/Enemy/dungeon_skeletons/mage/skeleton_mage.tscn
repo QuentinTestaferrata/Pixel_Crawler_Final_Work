@@ -47,10 +47,10 @@ min_amount = 1
 max_amount = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj3jx"]
-radius = 116.276
+radius = 171.026
 
 [sub_resource type="LabelSettings" id="LabelSettings_eae0a"]
-font_size = 10
+font_size = 7
 
 [node name="SkeletonMage" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1

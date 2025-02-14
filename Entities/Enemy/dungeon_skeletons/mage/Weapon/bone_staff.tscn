@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctm80amydog8u"]
+[gd_scene load_steps=5 format=3 uid="uid://ctm80amydog8u"]
 
 [ext_resource type="Texture2D" uid="uid://dpk5de3xqyep6" path="res://Entities/Enemy/dungeon_skeletons/mage/Weapon/staff_sprite.png" id="1_tmrj1"]
+[ext_resource type="Script" path="res://Entities/Enemy/dungeon_skeletons/mage/Weapon/bone_staff.gd" id="2_staxs"]
+[ext_resource type="Script" path="res://Entities/Enemy/enemy_projectile.gd" id="3_k61fg"]
+[ext_resource type="Resource" uid="uid://clrqxqna7ol0u" path="res://Entities/Enemy/dungeon_skeletons/mage/Weapon/projectiles/red_fireball.tres" id="4_lhk6t"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="BoneStaff" type="Sprite2D"]
 texture = ExtResource("1_tmrj1")
 offset = Vector2(0, -10)
+script = ExtResource("2_staxs")
+projectiles = Array[ExtResource("3_k61fg")]([ExtResource("4_lhk6t")])
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -28)
