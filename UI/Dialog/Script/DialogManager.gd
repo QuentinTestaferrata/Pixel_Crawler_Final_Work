@@ -41,6 +41,7 @@ func handle_dialog_option(option):
 			dialog_ui.show_dialog(npc.npc_name, "Goodbye for now.", {"Okay": "exit"})
 	elif next_state == "exit":
 		npc.set_dialog_state("start")
+		
 	
 	elif next_state == "give_quests":
 		offer_quests(npc.dialog_resource.get_npc_dialog(npc.npc_id)[npc.current_branch_index]["branch_id"])

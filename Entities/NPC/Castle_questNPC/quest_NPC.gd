@@ -33,7 +33,6 @@ func on_interact():
 	if npc_dialogs.is_empty():
 		return
 	dialog_manager.show_dialog(self)
-	#player.check_quest_objectives(target.npc_id, "talk_to")
 
 
 #Get current bracnh dialog

@@ -18,7 +18,7 @@ var quests = {}
 func add_quest(quest: Quest):
 	quests[quest.quest_id] = quest
 	quest_updated.emit(quest.quest_id)
-	
+
 # Remove quests
 func remove_quests(quest_id: String):
 	quests.erase(quest_id)

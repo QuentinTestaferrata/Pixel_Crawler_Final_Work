@@ -38,6 +38,6 @@ func complete_objectives(objective_id: String, quantity: int = 1):
 	
 	# If all objectives completed mark quest as completed
 	if is_completed():
-		
-		state = "finished"
+		if state != "quest_paid":
+			state = "finished"
 		

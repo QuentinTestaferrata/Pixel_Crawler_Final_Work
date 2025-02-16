@@ -82,6 +82,8 @@ func _on_quest_selected(quest: Quest):
 		label.add_theme_font_size_override("font_size", 10)
 		
 		if objective.target_type == "collection":
+			
+			player.check_inventory_for_quest_item(quest, "")
 			label.text = objective.description + "(" + str(objective.collected_quantity) + "/" + str(objective.required_quantity) + ")"
 		else: 
 			label.text = objective.description
@@ -105,6 +107,7 @@ func _on_quest_selected(quest: Quest):
 		label.text = "Rewards: " + reward.reward_type.capitalize() 	+ ": " + str(reward.reward_amount)
 		quest_rewards.add_child(label)
 		
+	print(quest.state)
 	if quest.is_completed() and quest.state == "finished":
 		var temp_finish_quest_button = OPTION_BUTTON.instantiate()
 		
@@ -126,7 +129,7 @@ func _on_quest_selected(quest: Quest):
 func _on_finish_quest_button_pressed(quest: Quest):
 	player.check_inventory_for_quest_item(quest, "done")
 	player._on_quest_updated(quest.quest_id)
-	
+	clear_quest_details()
 
 
 # Trigger to clear quest details
@@ -140,6 +143,9 @@ func clear_quest_details():
 	for child in quest_rewards.get_children():
 		quest_rewards.remove_child(child)
 	
+	for child in finish_quest_button.get_children():
+		finish_quest_button.remove_child(child)
+
 # Trigger to update quest list
 func _on_quest_updated(quest_id: String):
 	if selected_quest and selected_quest.quest_id == quest_id:
