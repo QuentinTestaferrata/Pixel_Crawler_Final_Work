@@ -79,7 +79,7 @@ price = 25
 consumable = true
 rarity = 0
 stackable = true
-amount = 20
+amount = 19
 
 [sub_resource type="Resource" id="Resource_tfpq2"]
 script = ExtResource("1_b2ehi")
@@ -92,7 +92,7 @@ price = 8
 consumable = false
 rarity = 0
 stackable = true
-amount = 116
+amount = 114
 
 [sub_resource type="Resource" id="Resource_iofa5"]
 script = ExtResource("1_b2ehi")
@@ -165,9 +165,9 @@ shop_items = Array[ExtResource("1_b2ehi")]([ExtResource("2_fyhge"), ExtResource(
 shop_weapons = Array[ExtResource("3_v2ict")]([])
 equiped_weapon_1 = SubResource("Resource_5x24c")
 equiped_weapon_2 = SubResource("Resource_dhisf")
-gold = 15241
-current_exp = 765
+gold = 15306
+current_exp = 830
 needed_exp = 1125
 level = 3
-current_hp = 54
+current_hp = 42
 total_hp = 60

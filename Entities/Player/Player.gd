@@ -95,6 +95,14 @@ func _input(event: InputEvent) -> void:
 		StatsManager.current_potions -= 1
 		play_heal_animation()
 	
+	elif event.is_action_pressed("speed") and speed_cooldown.is_stopped():
+		var potion: Item = inventory.get_item_by_name("Speed Potion")
+		if potion == null:
+			print("No more speed potions left")
+		else: 
+			if potion.amount > 0:
+				play_speed_animation()
+				potion.amount -= 1
 	#-------------------------------------------------------------------------
 	if event.is_action_pressed("ui_quest_menu") and temp_quest_menu == null:
 		temp_quest_menu = QUEST_UI.instantiate()
@@ -107,14 +115,7 @@ func _input(event: InputEvent) -> void:
 		temp_quest.close_quest_log()
 	
 	
-	elif event.is_action_pressed("speed") and speed_cooldown.is_stopped():
-		var potion: Item = inventory.get_item_by_name("Speed Potion")
-		if potion == null:
-			print("No more speed potions left")
-		else: 
-			if potion.amount > 0:
-				play_speed_animation()
-				potion.amount -= 1
+
 
 
 func play_heal_animation() -> void:

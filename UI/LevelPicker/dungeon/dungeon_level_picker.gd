@@ -22,7 +22,4 @@ func _process(_delta: float) -> void:
 		print("Esc pressed")
 
 func _ready() -> void:
-	var temp_quest_tracker = QUEST_TRACKER_UI.instantiate()
-	var hud_scene = get_tree().get_first_node_in_group("hud")
-	hud_scene.add_child(temp_quest_tracker)
-	
+	pass

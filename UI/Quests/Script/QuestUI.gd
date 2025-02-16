@@ -89,7 +89,7 @@ func _on_quest_selected(quest: Quest):
 			label.text = objective.description
 	
 		if objective.is_completed:
-			label.add_theme_color_override("font_color", Color(0, 1, 0))
+			label.add_theme_color_override("font_color", Color(0, 0.84, 0))
 			
 		else:
 			label.add_theme_color_override("font_color", Color(1,0, 0))
