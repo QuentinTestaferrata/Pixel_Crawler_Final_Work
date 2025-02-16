@@ -9,8 +9,8 @@ var knockback_force: float = 0
 var knockback_direction: Vector2 = Vector2.ZERO
 var sprites: Node2D
 var attacks: Array = []
-@onready var attack_range: Area2D = $"../../AttackRange"
 
+@onready var attack_range: Area2D = $"../../AttackRange"
 @onready var hitbox_component: HurtboxComponent = $"../../HitboxComponent"
 @onready var state_machine: EnemyStateMachine
 

@@ -1,4 +1,5 @@
 extends Area2D
+class_name PlayerHurtbox
 
 signal hit
 signal playerHit
@@ -22,3 +23,6 @@ func _on_area_entered(area: Area2D) -> void:
 		DamageNumbers.display_number(weapon.weapon_data.damage, text_position.global_position)
 		hit.emit(weapon.weapon_data.knockback_force, knockback_direction)
 		playerHit.emit()
+	#if area is EnemyProjectile:
+		#pass
+		##TODO enemy projectile

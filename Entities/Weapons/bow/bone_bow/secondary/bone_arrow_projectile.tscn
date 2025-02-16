@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://ce6nqfpnpp3sh"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_ft2ev"]
+[ext_resource type="Resource" uid="uid://c2smecfjrtw4i" path="res://Entities/Weapons/bow/bone_bow/secondary/bone_arrow.tres" id="2_2tav0"]
+[ext_resource type="Texture2D" uid="uid://bv0k4myvt4d08" path="res://Entities/Weapons/bow/bone_bow/arrow/arrow.png" id="3_vakvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf3pq"]
+size = Vector2(20, 10)
+
+[sub_resource type="Animation" id="Animation_va6fw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_low2f"]
+resource_name = "despawn"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v1e8i"]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmipo"]
+_data = {
+"RESET": SubResource("Animation_va6fw"),
+"despawn": SubResource("Animation_low2f"),
+"spawn": SubResource("Animation_v1e8i")
+}
+
+[node name="BoneArrow" type="Area2D"]
+collision_layer = 2
+collision_mask = 64
+script = ExtResource("1_ft2ev")
+projectile_data = ExtResource("2_2tav0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nf3pq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_vakvv")
+
+[node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nmipo")
+}
+autoplay = "spawn"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,6 +1,12 @@
 extends Node
 class_name EnemyStateMachine
 
+@export var initial_state: EnemyState
+@export var enemy: CharacterBody2D
+@export var loot: Node2D
+@export var body: EnemySprite
+@export var attack_range: Area2D
+
 var target: CharacterBody2D
 var states: Dictionary = {}
 var current_state: EnemyState
@@ -9,16 +15,11 @@ var hand_animation_player: AnimationPlayer
 var weaponsprite_left_hand: EnemyWeapon = null
 var weaponsprite_right_hand: EnemyWeapon = null
 var attack_animations: AnimationPlayer
-
-@export var initial_state: EnemyState
-@export var enemy: CharacterBody2D
-@export var loot: Node2D
-@export var body: EnemySprite
-@export var attack_range: Area2D
+var enemy_type: String
 
 func _ready() -> void:
 	hand_sprites = body.get_child(3)
-	
+	enemy_type = enemy.enemy_type
 	attack_animations = body.set_attack_animation_player()
 	
 	target = get_tree().get_first_node_in_group("player")
