@@ -14,7 +14,7 @@ func _ready() -> void:
 	else:
 		spawn_animation_player.play("spawn")
 	timer = Timer.new()
-	area_entered.connect(_on_area_entered)
+	area_entered.connect(_area_entered)
 	add_child(timer)
 	timer.start(projectile_data.LIFETIME)
 	timer.timeout.connect(despawn)
@@ -68,11 +68,16 @@ func set_multi_direction(target_position: Vector2, amount: int) -> Array[Vector2
 	print(directions)
 	return directions
 
-func _on_area_entered(area: Area2D) -> void:
-	if "PlayerHurtbox" in area.name:
-		print("PLAYER HIT")
+#func _on_area_entered(area: Area2D) -> void:
+	#print(area.name)
+	#if "HitboxComponent" in area.name:
 		#area.take_damage(projectile_data, direction)
 		#queue_free()
+
+func _area_entered(area: Area2D) -> void:
+	if "HitboxComponent" in area.name:
+		area.take_damage(projectile_data, direction)
+		queue_free()
 
 func despawn() -> void:
 	if !spawn_animation_player:

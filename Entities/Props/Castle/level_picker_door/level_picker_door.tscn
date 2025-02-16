@@ -8,7 +8,7 @@
 size = Vector2(32, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlvgi"]
-size = Vector2(39, 55.25)
+size = Vector2(81, 79)
 
 [node name="LevelPickerDoor" type="StaticBody2D"]
 script = ExtResource("1_7e453")
@@ -35,5 +35,5 @@ collision_mask = 512
 action_name = "Fight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-0.5, -8.375)
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_nlvgi")

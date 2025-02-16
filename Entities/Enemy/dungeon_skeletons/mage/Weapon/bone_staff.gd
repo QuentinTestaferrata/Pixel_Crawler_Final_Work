@@ -26,6 +26,7 @@ func _ready() -> void:
 
 func shoot_projectile() -> void:
 	var temp_projectile = RED_FIREBALL.instantiate() #projectiles.pick_random().scene.instantiate()
+	temp_projectile.projectile_owner = state_machine.enemy
 	temp_projectile.global_position = marker_2d.global_position
 	var dir = temp_projectile.set_direction(get_enemy_position())
 	var angle = Vector2.RIGHT.angle_to(dir)
@@ -34,9 +35,9 @@ func shoot_projectile() -> void:
 	projectile_holder.add_child(temp_projectile)
 
 func get_enemy_position() -> Vector2:
-	enemy_position = state_machine.target.global_position
+	enemy_position = Vector2(state_machine.target.global_position.x, state_machine.target.global_position.y - 10)
 	return enemy_position
 
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

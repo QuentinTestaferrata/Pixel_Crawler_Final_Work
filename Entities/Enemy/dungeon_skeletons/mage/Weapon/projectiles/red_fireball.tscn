@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2aupoae03fyo"]
+[gd_scene load_steps=8 format=3 uid="uid://b2aupoae03fyo"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/enemy_projectile_movement.gd" id="1_obkhm"]
 [ext_resource type="Resource" uid="uid://clrqxqna7ol0u" path="res://Entities/Enemy/dungeon_skeletons/mage/Weapon/projectiles/red_fireball.tres" id="2_83g5a"]
@@ -7,8 +7,20 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2nvcd"]
 radius = 4.0
 
-[node name="Area2D" type="Area2D"]
-collision_layer = 0
+[sub_resource type="Animation" id="Animation_yedtl"]
+resource_name = "despawn"
+
+[sub_resource type="Animation" id="Animation_8xo27"]
+resource_name = "spawn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocfty"]
+_data = {
+"despawn": SubResource("Animation_yedtl"),
+"spawn": SubResource("Animation_8xo27")
+}
+
+[node name="RedFireball" type="Area2D"]
+collision_layer = 32
 collision_mask = 16
 script = ExtResource("1_obkhm")
 projectile_data = ExtResource("2_83g5a")
@@ -18,3 +30,8 @@ shape = SubResource("CircleShape2D_2nvcd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_l0e41")
+
+[node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ocfty")
+}

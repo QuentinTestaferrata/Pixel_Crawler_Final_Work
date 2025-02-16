@@ -836,7 +836,7 @@ position = Vector2(-69, 374)
 collision_layer = 513
 
 [node name="WeaponRack2" parent="Shop/WeaponRacks" instance=ExtResource("6_an3tx")]
-position = Vector2(38, 331)
+position = Vector2(40, 331)
 collision_layer = 513
 
 [node name="WeaponRack3" parent="Shop/WeaponRacks" instance=ExtResource("7_e7ykq")]

@@ -7,12 +7,14 @@ const BONE_ARROW = preload("res://Entities/Weapons/bow/bone_bow/secondary/bone_a
 @export var arrow: Arrow
 @export var bow_frames: SpriteFrames
 @export var multishot_arrows: int
+@export_range(1, 3.2, 0.1) var speed_scale: float
 
 var current_arrow: Area2D
 var projectile_holder
 var cooldown: bool = false
 
-@onready var bow_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var bow_sprite: AnimatedSprite2D = $Node2D/AnimatedSprite2D
+@onready var arrow_spawn_point: Marker2D = $ArrowSpawnPoint
 
 func _ready() -> void:
 	var timer = Timer.new()
@@ -21,19 +23,25 @@ func _ready() -> void:
 	
 	bow_sprite.frame_changed.connect(on_frame_changed)
 	bow_sprite.animation_finished.connect(on_animation_finished)
-	
+	bow_sprite.speed_scale = speed_scale
 	bow_sprite.sprite_frames = bow_frames
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary_attack") and !cooldown and (bow == "basic" or bow == "bone"):
 		cooldown = true
 		var temp_arrow: Area2D = arrow.scene.instantiate()
+		temp_arrow.position = arrow_spawn_point.position
 		current_arrow = temp_arrow
 		add_child(temp_arrow)
 		bow_sprite.play()
 	if event.is_action_pressed("secondary_attack") and bow == "bone" and AttackCooldowns.check_cd(2):
 		spread_shot()
 		AttackCooldowns.start_cd(2)
+
+func _process(delta: float) -> void:
+	rotation = lerp_angle(rotation, rotation + get_angle_to(get_global_mouse_position()), .15)
+	#lerp_angle()
+	#look_at(get_global_mouse_position())
 
 func spread_shot() -> void:
 	var temp_arrow = BONE_ARROW.instantiate()
@@ -84,8 +92,8 @@ func on_animation_finished() -> void:
 
 func on_frame_changed() -> void:
 	if bow_sprite.frame == 0:
-		current_arrow.position.x = 5
+		current_arrow.position.x = arrow_spawn_point.position.x + 5
 	if bow_sprite.frame == 1:
-		current_arrow.position.x = 3
+		current_arrow.position.x = arrow_spawn_point.position.x + 3
 	if bow_sprite.frame == 2:
-		current_arrow.position.x = 0
+		current_arrow.position.x = arrow_spawn_point.position.x + 0
