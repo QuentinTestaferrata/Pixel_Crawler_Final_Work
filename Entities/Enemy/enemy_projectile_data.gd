@@ -1,5 +1,5 @@
 extends Resource
-class_name EnemyProjectile
+class_name EnemyProjectileData
 
 enum DAMAGE_TYPE {WATER, UNDEAD, FIRE, MAGIC, WIND, STONE}
 

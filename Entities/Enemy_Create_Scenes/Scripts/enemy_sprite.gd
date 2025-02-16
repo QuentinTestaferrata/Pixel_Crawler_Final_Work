@@ -46,7 +46,7 @@ var weapon_has_hitbox: bool = false
 func _ready() -> void:
 	body_sprite.texture = body
 	
-	if left_hand_weapon: #Sword
+	if left_hand_weapon: # and  weapon_type == 3: #Sword
 		left_hand_sprite.texture = left_hand
 		left_weapon_scene = left_hand_weapon.scene.instantiate()
 		left_hand_sprite.add_child(left_weapon_scene)

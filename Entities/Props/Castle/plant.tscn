@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_2xpee"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_16smj"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3g5i"]
+size = Vector2(13, 10)
 
 [node name="Plant" type="StaticBody2D"]
 
@@ -14,5 +14,5 @@ region_enabled = true
 region_rect = Rect2(288, 225, 15, 47)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_16smj")
+position = Vector2(0.5, -3)
+shape = SubResource("RectangleShape2D_d3g5i")
