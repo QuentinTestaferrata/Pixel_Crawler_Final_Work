@@ -80,7 +80,7 @@
 					}]
 			},
 			{
-				"branch_id": "npc1_default",
+				"branch_id": "npc_default",
 				"dialogs":[{
 						"state": "start",
 						"text": "Hey adventurer! Thanks again for helping me.",
@@ -100,19 +100,67 @@
 		],
 	},
 	"npc_2": {
-		"tree": [
-						{
-				"branch_id": "npc2_1",
-				"dialogs":[]
+		"trees": [
+			{
+				"branch_id": "npc_2_1",
+				"dialogs": [
+					{
+						"state": "start",
+						"text": "Greetings, traveler! How can I assist you?",
+						"options": {
+							"Ask About Forest": "in_progress",
+							"Receive Quests": "give_quests",
+							"Say Goodbye": "exit"
+						}
+					},
+					{
+						"state": "in_progress",
+						"text": "The forest is home to many mystical creatures.",
+						"options": {
+							"Say Goodbye": "end",
+							"Go Back": "start"
+						}
+					},
+					{
+						"state": "give_quests",
+						"text": "Okay. I've updated your quest log with things I need done.",
+						"options": {
+							"Say Goodbye": "exit",
+							"Go Back": "start"
+						}
+					},
+					{
+						"state": "end",
+						"text": "Farewell, traveler!",
+						"options": {}
+					},
+					{
+						"state": "exit",
+						"text": "Come back soon!",
+						"options": {}
+					}
+				]
 			},
 			{
-				"branch_id": "npc2_2",
-				"dialogs":[]
-			},
-			{
-				"branch_id": "npc2_default",
-				"dialogs":[]
-			},
-		],
-	},
+			"branch_id": "npc_default",
+				"dialogs": [
+					{
+						"state": "start",
+						"text": "I wonder why Bobby is always smelling me...",
+						"options": {
+							"Receive Quests": "give_quests",
+							"Say Goodbye": "exit"
+						}
+					},
+					{
+						"state": "give_quests",
+						"text": "Okay. I've updated your quest log with things I need done.",
+						"options": {
+							"Go Back": "start"
+						}
+					},
+				]
+			}
+		]
+	}
 }

@@ -2,6 +2,8 @@ extends Control
 
 #@export var _zone_name: String
 
+const QUEST_TRACKER_UI = preload("res://UI/Quests/QuestHUD/QuestTracker.tscn")
+
 var _hud: CanvasLayer
 
 @onready var zone_name: Label = $PanelContainer/MarginContainer/VBoxContainer/ZoneName
@@ -18,3 +20,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		queue_free()
 		print("Esc pressed")
+
+func _ready() -> void:
+	pass

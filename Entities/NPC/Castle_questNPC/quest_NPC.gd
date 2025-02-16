@@ -3,6 +3,7 @@ extends CharacterBody2D
 const DIALOG_UI = preload("res://UI/Dialog/Scenes/DialogUI.tscn")
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var hud_layer: hud = $"../HUDLayer"
+var player: CharacterBody2D
 
 @export var npc_id: String
 @export var npc_name: String
@@ -13,13 +14,18 @@ const DIALOG_UI = preload("res://UI/Dialog/Scenes/DialogUI.tscn")
 var current_state = "start"
 var current_branch_index = 0
 
+# Quest Vars
+@export var quests: Array[Quest] = []
+var quest_manager: Node = null
+
 func _ready() -> void:
 	#Load dialog data
 	dialog_resource.load_from_json("res://Common/Dialog/Dialogs/dialog_data.json")
-		#Initialize npc ref
-	
-	
 	interaction_area.interact = Callable(self, "on_interact")
+	player = get_tree().get_first_node_in_group("player")
+	# Get Quest manager
+	quest_manager = player.quest_manager
+	print("NPC Ready. Quests loaded", quests.size())
 
 func on_interact():
 	print("Quest Dialog opened")
@@ -27,9 +33,7 @@ func on_interact():
 	if npc_dialogs.is_empty():
 		return
 	dialog_manager.show_dialog(self)
-	#var temp_dialog = DIALOG_UI.instantiate()
-	#hud_layer.add_child(temp_dialog)
-	#dialog_manager.show_dialog(self)
+
 
 #Get current bracnh dialog
 func get_current_dialog():
@@ -49,3 +53,28 @@ func set_dialog_tree(branch_index):
 func set_dialog_state(state):
 	current_state = state
 	print(state)
+	
+
+# Offer quest at required branch
+func offer_quest(quest_id: String):
+	print("Attempting to offer quest: ", quest_id)
+	
+	for quest in quests:
+		if quest.quest_id == quest_id and quest.state == "not_started":
+			quest.state = "in_progress"
+			quest_manager.add_quest(quest)
+			return
+			
+	
+	print("Quest not found or started already")
+	
+#Returns quest dialog
+func get_quest_dialog() -> Dictionary:
+	var active_quests = quest_manager.get_active_quests()
+	for quest in active_quests:
+		for objective in quest.objectives:
+			if objective.target_id == npc_id and objective.target_type == "talk_to" and not objective.is_completed:
+				if current_state == "start":
+					return {"text": objective.objective_dialog, "options": {}}
+			
+	return {"text": "", "options": {}}

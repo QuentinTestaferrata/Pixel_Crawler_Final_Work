@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://46rlbmj6naga"]
+[gd_scene load_steps=12 format=3 uid="uid://46rlbmj6naga"]
 
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_bwjvd"]
 [ext_resource type="Script" path="res://UI/Quests/Script/QuestUI.gd" id="2_8327l"]
@@ -18,10 +18,62 @@ texture = ExtResource("3_qt086")
 region_rect = Rect2(32, 1120, 183, 280)
 
 [sub_resource type="SystemFont" id="SystemFont_r5hje"]
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_kiyc5"]
 Label/font_sizes/font_size = 10
 Label/fonts/font = SubResource("SystemFont_r5hje")
+
+[sub_resource type="Animation" id="Animation_xyo5h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bi2p1"]
+resource_name = "new_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.466667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36pss"]
+_data = {
+"RESET": SubResource("Animation_xyo5h"),
+"new_animation": SubResource("Animation_bi2p1")
+}
 
 [node name="QuestUi" type="Control"]
 layout_mode = 3
@@ -130,6 +182,9 @@ layout_mode = 2
 [node name="QuestRewards" type="VBoxContainer" parent="Panel/Contents/Details/QuestDetails"]
 layout_mode = 2
 
+[node name="finish_quest_button" type="VBoxContainer" parent="Panel/Contents/Details/QuestDetails"]
+layout_mode = 2
+
 [node name="TextureButton" type="TextureButton" parent="Panel"]
 layout_mode = 1
 anchors_preset = 1
@@ -155,3 +210,10 @@ theme = SubResource("Theme_kiyc5")
 text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_36pss")
+}
+
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]

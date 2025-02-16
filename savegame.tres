@@ -1,7 +1,9 @@
+
 [gd_resource type="Resource" script_class="SavedGame" load_steps=20 format=3]
 
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_b2ehi"]
 [ext_resource type="Resource" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres" id="1_npl83"]
+
 [ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_0my7p"]
 [ext_resource type="Resource" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="2_fyhge"]
 [ext_resource type="Script" path="res://saved_game.gd" id="2_jkdrd"]
@@ -12,9 +14,11 @@
 [ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/bone.png" id="13_hv1ps"]
 [ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/golden_bone_drop.tscn" id="14_lh3ob"]
 [ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/golden_bone.png" id="15_3dge3"]
+
 [ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres" id="17_e670u"]
 [ext_resource type="Resource" path="res://Entities/Weapons/bow/bone_bow/bone_bow_data.tres" id="17_wla8b"]
 [ext_resource type="Resource" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tres" id="19_mrgdb"]
+
 
 [sub_resource type="Resource" id="Resource_no5dk"]
 script = ExtResource("1_b2ehi")
@@ -27,6 +31,7 @@ consumable = true
 rarity = 0
 stackable = true
 amount = 193
+
 
 [sub_resource type="Resource" id="Resource_tfpq2"]
 script = ExtResource("1_b2ehi")
@@ -41,6 +46,7 @@ rarity = 0
 stackable = true
 amount = 254
 
+
 [sub_resource type="Resource" id="Resource_iofa5"]
 script = ExtResource("1_b2ehi")
 name = "Golden Bone"
@@ -54,6 +60,7 @@ rarity = 1
 stackable = true
 amount = 15
 
+
 [sub_resource type="Resource" id="Resource_tm1cd"]
 script = ExtResource("1_b2ehi")
 name = "Speed Potion"
@@ -65,6 +72,7 @@ consumable = true
 rarity = 0
 stackable = true
 amount = 20
+
 
 [resource]
 script = ExtResource("2_jkdrd")
@@ -80,3 +88,4 @@ needed_exp = 2000
 level = 4
 current_hp = 65
 total_hp = 65
+
