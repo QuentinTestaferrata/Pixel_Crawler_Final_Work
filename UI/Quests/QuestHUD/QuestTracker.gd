@@ -22,7 +22,6 @@ func update_quest_tracker(quest: Quest):
 		for objective in quest.objectives:
 			var label = Label.new()
 			label.text = objective.description
-			print(quest.quest_name)
 			if objective.is_completed:
 				label.add_theme_color_override("font_color", Color(0, 1, 0))
 			else:

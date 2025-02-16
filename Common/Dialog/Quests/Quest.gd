@@ -19,6 +19,9 @@ func is_completed() -> bool:
 	return true
 	
 
+func get_paid():
+	state = "completed"
+
 # Update quest state
 func complete_objectives(objective_id: String, quantity: int = 1):
 	for objective in objectives:
@@ -36,5 +39,5 @@ func complete_objectives(objective_id: String, quantity: int = 1):
 	# If all objectives completed mark quest as completed
 	if is_completed():
 		
-		state = "completed"
-		print("completed")
+		state = "finished"
+		

@@ -28,7 +28,6 @@ func _ready() -> void:
 	
 	# Quest manager/UI connections
 	quest_manager = player.get_node("QuestManager")
-	print(quest_manager, "101")
 	quest_manager.quest_updated.connect(_on_quest_updated)
 	quest_manager.objective_updated.connect(_on_objectives_updated)
 	
@@ -70,7 +69,6 @@ func update_quest_list():
 func _on_quest_selected(quest: Quest):
 	selected_quest = quest
 	player.selected_quest = quest
-	print(quest, "on_quest_selected")
 	# Populate details
 	quest_title.text = quest.quest_name
 	questdescription.text = quest.quest_description
@@ -102,33 +100,35 @@ func _on_quest_selected(quest: Quest):
 	
 	for reward in quest.rewards:
 		var label = Label.new()
-		label.add_theme_font_size_override("font_size", 20)
+		label.add_theme_font_size_override("font_size", 10)
 		label.add_theme_color_override("font_color", Color(0, 0.84, 0))
 		label.text = "Rewards: " + reward.reward_type.capitalize() 	+ ": " + str(reward.reward_amount)
 		quest_rewards.add_child(label)
 		
-	if quest.is_completed():
+	if quest.is_completed() and quest.state == "finished":
+		var temp_finish_quest_button = OPTION_BUTTON.instantiate()
 		
-		var finish_quest_button = OPTION_BUTTON.instantiate()
-		
-		finish_quest_button.text = "Finish quest"
+		temp_finish_quest_button.text = "Finish quest"
 		var font = FontFile.new()
 		font.font_data = load("res://Common/Poco.ttf")
 		
-		finish_quest_button.add_theme_font_override("font", font)
-		finish_quest_button.add_theme_font_size_override("font_size", 10)
+		temp_finish_quest_button.add_theme_font_override("font", font)
+		temp_finish_quest_button.add_theme_font_size_override("font_size", 10)
 		
-		finish_quest_button.add_theme_color_override("font_color", Color8(0x1B, 0x22, 0x36))
-		finish_quest_button.add_theme_constant_override("content_margin_top", 5)
+		temp_finish_quest_button.add_theme_color_override("font_color", Color8(0x1B, 0x22, 0x36))
+		temp_finish_quest_button.add_theme_constant_override("content_margin_top", 5)
 		
-		finish_quest_button.pressed.connect(_on_finish_quest_button_pressed(quest))
-		temp_quest_log.finish_quest_button.add_child(finish_quest_button)
+		temp_finish_quest_button.pressed.connect(_on_finish_quest_button_pressed.bind(quest))
+		finish_quest_button.add_child(temp_finish_quest_button)
 		
 
 
 func _on_finish_quest_button_pressed(quest: Quest):
-	quest.state = "finished"
+	player.check_inventory_for_quest_item(quest, "done")
+	player._on_quest_updated(quest.quest_id)
 	
+
+
 # Trigger to clear quest details
 func clear_quest_details():
 	quest_title.text = ""
@@ -142,7 +142,6 @@ func clear_quest_details():
 	
 # Trigger to update quest list
 func _on_quest_updated(quest_id: String):
-	print("_on_quest_updated")
 	if selected_quest and selected_quest.quest_id == quest_id:
 		_on_quest_selected(selected_quest)
 	else:

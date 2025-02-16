@@ -35,6 +35,7 @@ func update_quest(quest_id: String, state: String):
 		quest.state = state
 		quest_updated.emit(quest_id)
 		if state == "completed":
+			print("quest deleted")
 			remove_quests(quest_id)
 		
 # Get selected quest
@@ -42,6 +43,8 @@ func get_active_quests() -> Array:
 	var active_quests = []
 	for quest in quests.values():
 		if quest.state == "in_progress":
+			active_quests.append(quest)
+		elif quest.state == "finished":
 			active_quests.append(quest)
 	return active_quests
 	

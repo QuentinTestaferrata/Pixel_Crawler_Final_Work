@@ -51,7 +51,7 @@ func handle_dialog_option(option):
 func all_quests_completed_for_branch(branch_index):
 	var branch_id = npc.dialog_resource.get_npc_dialog(npc.npc_id)[branch_index]["branch_id"]
 	for quest in npc.quests:
-		if quest.unlock_id == branch_id and quest.state != "completed":
+		if quest.unlock_id == branch_id and quest.state != "quest_paid":
 			return false
 	return true
 
