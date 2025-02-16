@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctm80amydog8u"]
+
+[ext_resource type="Texture2D" uid="uid://dpk5de3xqyep6" path="res://Entities/Enemy/dungeon_skeletons/mage/Weapon/staff_sprite.png" id="1_tmrj1"]
+[ext_resource type="Script" path="res://Entities/Enemy/dungeon_skeletons/mage/Weapon/bone_staff.gd" id="2_staxs"]
+
+[node name="BoneStaff" type="Sprite2D" node_paths=PackedStringArray("projectiles")]
+texture = ExtResource("1_tmrj1")
+offset = Vector2(0, -10)
+script = ExtResource("2_staxs")
+projectiles = [null]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -28)

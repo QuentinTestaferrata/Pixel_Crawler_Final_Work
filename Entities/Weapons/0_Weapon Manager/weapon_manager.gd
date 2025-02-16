@@ -106,16 +106,17 @@ func _process(_delta: float) -> void:
 		4: #Dagger
 			pass
 		5: #Bow
-			if player.character_sprite.flip_h and active_weapon.position.x > -13 and active_weapon_type == 5:
-				var tween_x = get_tree().create_tween()
-				active_weapon.scale = Vector2(-1, 1)
-				tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x - 4, .07)
-				tween_x.tween_property(active_weapon, "rotation", -.15, .2)
-			elif !player.character_sprite.flip_h and active_weapon.position.x < 10 and active_weapon_type == 5:
-				var tween_x = get_tree().create_tween()
-				active_weapon.scale = Vector2(1, 1)
-				tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x + 7, .1)
-				tween_x.tween_property(active_weapon, "rotation",  .15, .2)
+			pass
+			#if player.character_sprite.flip_h and active_weapon.position.x > -13 and active_weapon_type == 5:
+				#var tween_x = get_tree().create_tween()
+				#active_weapon.scale = Vector2(-1, 1)
+				#tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x - 4, .07)
+				#tween_x.tween_property(active_weapon, "rotation", -.15, .2)
+			#elif !player.character_sprite.flip_h and active_weapon.position.x < 10 and active_weapon_type == 5:
+				#var tween_x = get_tree().create_tween()
+				#active_weapon.scale = Vector2(1, 1)
+				#tween_x.tween_property(active_weapon, "position:x", active_weapon.position.x + 7, .1)
+				#tween_x.tween_property(active_weapon, "rotation",  .15, .2)
 
 
 func _input(event: InputEvent) -> void:

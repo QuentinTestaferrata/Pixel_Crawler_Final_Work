@@ -45,9 +45,9 @@ func _ready() -> void:
 			weapon_2_secondary.set_ability_sprite(StatsManager.equiped_weapon_2.secondary_attack_sprite)
 			weapon_2_primary.add_sibling(weapon_2_secondary)
 		
-func display_cooldowns(_texture: CompressedTexture2D, texture_rect: TextureRect) -> void:
-	texture_rect.texture = _texture
-	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+func display_cooldowns(_texture: CompressedTexture2D, _texture_rect: TextureRect) -> void:
+	_texture_rect.texture = _texture
+	_texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 
 func start_cooldown(attack: int, time: float) -> void:
 	#print("attack: ", attack, " | time: ", time)

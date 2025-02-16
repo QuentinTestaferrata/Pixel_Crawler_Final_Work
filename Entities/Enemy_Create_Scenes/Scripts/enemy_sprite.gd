@@ -1,6 +1,8 @@
 extends Node2D
 class_name EnemySprite
 
+signal cast_spell_1
+
 enum weapon_types {SWORD, STAFF, DAGGER, AXE}
 
 @export_subgroup("Left Hand")
@@ -22,6 +24,8 @@ var right_weapon_scene: Sprite2D
 var left_weapon_hitbox: Area2D
 var right_weapon_hitbox: Area2D
 
+var weapon_has_hitbox: bool = false
+
 @onready var sword_attacks: AnimationPlayer = $Attacks/SwordAttacks
 @onready var axe_attacks: AnimationPlayer = $Attacks/AxeAttacks
 @onready var dagger_attacks: AnimationPlayer = $Attacks/DaggerAttacks
@@ -37,27 +41,32 @@ var right_weapon_hitbox: Area2D
 @onready var hit_flash_animation_player: AnimationPlayer = $HitFlash
 @export var body: Texture
 
+#weapon type 0 -> staff, type 3 -> sword
+
 func _ready() -> void:
 	body_sprite.texture = body
 	
-	if left_hand_weapon:
+	if left_hand_weapon: # and  weapon_type == 3: #Sword
 		left_hand_sprite.texture = left_hand
 		left_weapon_scene = left_hand_weapon.scene.instantiate()
-		left_weapon_hitbox = left_weapon_scene.get_child(0)
 		left_hand_sprite.add_child(left_weapon_scene)
-		left_weapon_scene.weapon_monitoring(false)
 		left_weapon_scene.show_behind_parent = true
+		if left_hand_weapon.weapon_type == 3:
+			weapon_has_hitbox = true
+			left_weapon_hitbox = left_weapon_scene.get_child(0)
+			left_weapon_scene.weapon_monitoring(false)
 	else:
 		left_hand_sprite.texture = left_hand_empty
 	
 	if right_hand_weapon:
 		right_hand_sprite.texture = right_hand
 		right_weapon_scene = right_hand_weapon.scene.instantiate()
-		right_weapon_hitbox = right_weapon_scene.get_child(0)
-		right_weapon_hitbox.scale.x = -1
+		#right_weapon_hitbox.scale.x = -1
 		right_hand_sprite.add_child(right_weapon_scene)
-		right_weapon_scene.weapon_monitoring(false)
 		right_weapon_scene.show_behind_parent = true
+		if left_hand_weapon.weapon_type == 3:
+			right_weapon_hitbox = right_weapon_scene.get_child(0)
+			right_weapon_scene.weapon_monitoring(false)
 	else:
 		right_hand_sprite.texture = right_hand_empty
 	
@@ -90,10 +99,12 @@ func play_run_right_animation() -> void:
 	
 	if left_weapon_scene:
 		left_weapon_scene.flip_h = false
-		left_weapon_hitbox.scale.x = 1
+		if weapon_has_hitbox:
+			left_weapon_hitbox.scale.x = 1
 	if right_weapon_scene:
 		right_weapon_scene.flip_h = true
-		right_weapon_hitbox.scale.x = -1
+		if weapon_has_hitbox:
+			right_weapon_hitbox.scale.x = -1
 
 func play_idle_animation() -> void:
 	body_animation_player.play("idle_right")

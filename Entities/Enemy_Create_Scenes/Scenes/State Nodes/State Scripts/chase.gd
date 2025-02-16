@@ -26,8 +26,10 @@ func _ready() -> void:
 	state_machine.body.play_run_right_animation()
 
 func enter():
+	set_knockback(0, Vector2(0,0))
 	set_process(true)
 	state_machine.enemy.speed = enemy_speed
+	state_machine.body.play_run_right_animation()
 
 func exit():
 	set_process(false)
@@ -67,5 +69,9 @@ func weapon_facing_direction(left: bool, right: bool) -> void:
 		right_hand_weapon_sprite.flip_h = right
 
 func _enter_attack_state(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and state_machine.enemy_type == "melee":
+		print("Entered melee")
 		state_machine.change_state(self, "attack")
+	elif body.is_in_group("player") and state_machine.enemy_type == "ranged":
+		print("entered ranged")
+		state_machine.change_state(self, "shootprojectile")

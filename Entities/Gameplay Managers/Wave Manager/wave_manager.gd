@@ -4,11 +4,10 @@ signal enemy_killed
 signal wave_cleared
 
 const WAVE_FINISHED_DIALOG = preload("res://UI/wave_finished_dialog/wave_finished_dialog.tscn")
-
 const SKELETON_BASE = preload("res://Entities/Enemy/dungeon_skeletons/skeleton_base.tscn")
-const SKELETON_MAGE = preload("res://Entities/Enemy/dungeon_skeletons/skeleton_mage.tscn")
 const SKELETON_ROGUE = preload("res://Entities/Enemy/dungeon_skeletons/skeleton_rogue.tscn")
 const SKELETON_KNIGHT = preload("res://Entities/Enemy/dungeon_skeletons/skeleton_knight.tscn")
+const SKELETON_MAGE = preload("res://Entities/Enemy/dungeon_skeletons/mage/skeleton_mage.tscn")
 
 @export_category("Wave Settings")
 @export var enemies_per_wave: int
@@ -53,7 +52,7 @@ func _ready() -> void:
 	spawn_interval_timer.start()
 
 func _on_spawn_interval_timeout() -> void:
-	var enemy = enemy_types[0].instantiate()
+	var enemy = enemy_types[1].instantiate()
 	var spawn_point: Vector2 = spawn_points.get_random_valid_spawnpoint()
 	
 	enemy.global_position = spawn_point

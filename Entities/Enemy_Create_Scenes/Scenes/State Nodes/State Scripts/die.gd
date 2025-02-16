@@ -14,6 +14,7 @@ func enter():
 	state_machine.enemy.set_process(false)
 	
 	state_machine.body.play_die_animation()
+	state_machine.attack_animations.play("RESET")
 	state_machine.loot.drop_items()
 	
 	collision_shape_2d.queue_free()
