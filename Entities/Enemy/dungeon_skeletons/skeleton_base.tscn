@@ -84,7 +84,6 @@ left_hand_empty = ExtResource("8_hsgdq")
 right_hand = ExtResource("9_a0slr")
 right_hand_empty = ExtResource("10_qqbca")
 left_hand_weapon = SubResource("Resource_ahqcv")
-right_hand_weapon = SubResource("Resource_ahqcv")
 body = ExtResource("6_pcd22")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_qxysp")]

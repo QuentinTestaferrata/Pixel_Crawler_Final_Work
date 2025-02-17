@@ -15,6 +15,10 @@ var weapon_2_secondary: TextureButton
 @onready var texture_rect_2: TextureRect = $MarginContainer/HBoxContainer/TextureRect2
 
 func _ready() -> void:
+	#if weapon_1_sprite == null and weapon_2_sprite == null:
+		#visible = false
+	#else:
+		#visible = true
 	if StatsManager.equiped_weapon_1:
 		if StatsManager.equiped_weapon_1.showcase_sprite:
 			display_cooldowns(StatsManager.equiped_weapon_1.showcase_sprite, texture_rect)

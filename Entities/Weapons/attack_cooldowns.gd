@@ -57,12 +57,10 @@ func start_cd(attack: int) -> void:
 		timer_2.start(weapon_1_cd_2)
 		ability_cooldowns.start_cooldown(2, weapon_1_cd_2)
 	if equiped_weapon == 2 and attack == 1:
-		print(ability_cooldowns)
 		timer_3.start(weapon_2_cd_1)
 		ability_cooldowns.start_cooldown(3, weapon_2_cd_1)
 	if equiped_weapon == 2 and attack == 2:
 		timer_4.start(weapon_2_cd_2)
-		print(ability_cooldowns)
 		ability_cooldowns.start_cooldown(4, weapon_2_cd_2)
 
 func check_cd(attack: int)-> bool:

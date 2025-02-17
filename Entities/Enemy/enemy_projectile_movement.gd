@@ -17,8 +17,9 @@ func _ready() -> void:
 		spawn_animation_player.play("spawn")
 	#area_entered.connect(_on_area_entered)
 	timer = Timer.new()
-	add_child(timer)
 	timer.start(projectile_data.LIFETIME)
+	add_child(timer)
+	timer.one_shot = true
 	timer.timeout.connect(despawn)
 
 func _process(delta: float) -> void:
