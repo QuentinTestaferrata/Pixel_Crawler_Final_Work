@@ -59,7 +59,7 @@ show_percentage = false
 [node name="TotalCooldown" type="Timer" parent="."]
 
 [node name="ProgressBarUpdate" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 
 [connection signal="timeout" from="TotalCooldown" to="." method="_on_total_cooldown_timeout"]
 [connection signal="timeout" from="ProgressBarUpdate" to="." method="_on_progress_bar_update_timeout"]

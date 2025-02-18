@@ -1,6 +1,8 @@
 extends EnemyState
 
-@export var entity: CharacterBody2D
+@export var available_attacks: Array[int]
+@export var attack_cooldown: int
+@export var rotate_hands: bool = false
 
 var angle_to_target: float
 var target_position: Vector2
@@ -9,6 +11,9 @@ var knockback_force: float = 0
 var knockback_direction: Vector2 = Vector2.ZERO
 var sprites: Node2D
 var attacks: Array = []
+var attack_animations: AnimationPlayer
+var is_animation_finished: bool = true
+var cooldown_timer: Timer
 
 @onready var attack_range: Area2D = $"../../AttackRange"
 @onready var hitbox_component: HurtboxComponent = $"../../HitboxComponent"
@@ -19,19 +24,43 @@ func _ready() -> void:
 	hitbox_component.hit.connect(set_knockback)
 	state_machine = get_parent()
 	
+	cooldown_timer = Timer.new()
+	cooldown_timer.timeout.connect(attack)
+	add_child(cooldown_timer)
+	
 	set_process(false)
 
 func enter():
 	set_process(true)
 	state_machine.body.play_run_right_animation()
-	state_machine.body.set_weapons_monitorable(true)
-	attacks = state_machine.attack_animations.get_animation_list()
-	randi_range(1, state_machine.attack_animations.get_animation_list().size() - 1)
-	state_machine.attack_animations.play(attacks.pick_random())
+	
+	if attack_animations == null:
+		attack_animations = state_machine.attack_animations
+	
+	attack()
+
+func attack() -> void:
+	if attack_range.get_overlapping_bodies().is_empty():
+			state_machine.change_state(self, "chase")
+			cooldown_timer.stop()
+	else: 
+		pick_random_attack()
+		
+	cooldown_timer.start(attack_cooldown)
+
+func pick_random_attack() -> void:
+	var random_attack = randi() % available_attacks.size()
+	var attacks = state_machine.attack_animations.get_animation_list()
+	
+	match random_attack:
+		0:
+			state_machine.attack_animations.play(attacks[available_attacks[random_attack]])
+		1: 
+			state_machine.attack_animations.play(attacks[available_attacks[random_attack]])
 
 func exit():
+	cooldown_timer.stop()
 	set_process(false)
-	state_machine.body.set_weapons_monitorable(false)
 
 func update(_delta: float):
 	pass
@@ -54,10 +83,16 @@ func _process(_delta):
 		if knockback_direction.length() < 0.1:
 			knockback_direction = Vector2.ZERO
 		#weapons angle
-		#direction_to_target = state_machine.enemy.position.direction_to(target_position)
-		#angle_to_target = direction_to_target.angle()
-		#state_machine.hand_sprites.rotation = lerp_angle(state_machine.hand_sprites.rotation, angle_to_target + PI / 2, 15.0 * _delta)
-		#
+		if rotate_hands and state_machine.enemy.position.x <= state_machine.target.position.x:
+			direction_to_target = state_machine.enemy.position.direction_to(target_position)
+			angle_to_target = direction_to_target.angle()
+			state_machine.hand_sprites.rotation = lerp_angle(state_machine.hand_sprites.rotation, angle_to_target + PI / 2, 15.0 * _delta)
+		if rotate_hands and !(state_machine.enemy.position.x <= state_machine.target.position.x):
+			direction_to_target = state_machine.enemy.position.direction_to(target_position)
+			angle_to_target = direction_to_target.angle()
+			state_machine.hand_sprites.rotation = lerp_angle(state_machine.hand_sprites.rotation, -(angle_to_target + PI / 2), 15.0 * _delta)
+
+		
 		if state_machine.enemy.position.x <= state_machine.target.position.x:
 			state_machine.body.scale.x = 1
 		else:

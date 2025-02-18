@@ -806,7 +806,7 @@ script = ExtResource("1_ry380")
 saver_loader = NodePath("../SaverLoader")
 
 [node name="Player" parent="." instance=ExtResource("1_57tk4")]
-position = Vector2(-17, 147)
+position = Vector2(-178, 196)
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 y_sort_enabled = true

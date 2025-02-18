@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="SavedGame" load_steps=46 format=3]
+[gd_resource type="Resource" script_class="SavedGame" load_steps=41 format=3]
 
+[ext_resource type="Resource" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tres" id="1_7vhvv"]
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_b2ehi"]
 [ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_0my7p"]
 [ext_resource type="Resource" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="2_fyhge"]
@@ -12,11 +13,6 @@
 [ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/golden_bone_drop.tscn" id="14_lh3ob"]
 [ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/golden_bone.png" id="15_3dge3"]
 [ext_resource type="Resource" path="res://Entities/Weapons/bow/Basic Bow/arrow_projectile_data.tres" id="15_mpq7x"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/bow/Basic Bow/arrow/arrow.png" id="16_24ff8"]
-[ext_resource type="PackedScene" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tscn" id="17_t7msb"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/bow/Basic Bow/sprites/shop_image.png" id="18_bpmed"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/bow/Basic Bow/sprites/shop_showcase.png" id="19_dk1hg"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/bow/Basic Bow/sprites/bow.png" id="20_knpgm"]
 [ext_resource type="Texture2D" path="res://Entities/Weapons/bow/bone_bow/arrow/arrow.png" id="20_s6s4o"]
 [ext_resource type="PackedScene" path="res://Entities/Weapons/bow/bone_bow/bone_bow.tscn" id="21_h4pbq"]
 [ext_resource type="Resource" path="res://Entities/Weapons/bow/bone_bow/secondary/bone_arrow.tres" id="22_ygvq7"]
@@ -60,6 +56,56 @@ defense = 0
 description = "A bow made of bones, the arrows are a bit faster and the knockback is a bit higher."
 two_handed = false
 
+[sub_resource type="Resource" id="Resource_no5dk"]
+script = ExtResource("1_b2ehi")
+name = "Healing Potion"
+sprite = ExtResource("2_0my7p")
+description = "Heals 20 health points. (10 seconds cooldown)"
+value = 5
+price = 25
+consumable = true
+rarity = 0
+stackable = true
+amount = 192
+
+[sub_resource type="Resource" id="Resource_tfpq2"]
+script = ExtResource("1_b2ehi")
+name = "Bone"
+scene = ExtResource("12_ka342")
+sprite = ExtResource("13_hv1ps")
+description = "Normal bone"
+value = 2
+price = 8
+consumable = false
+rarity = 0
+stackable = true
+amount = 292
+
+[sub_resource type="Resource" id="Resource_iofa5"]
+script = ExtResource("1_b2ehi")
+name = "Golden Bone"
+scene = ExtResource("14_lh3ob")
+sprite = ExtResource("15_3dge3")
+description = "Gold bone"
+value = 50
+price = 0
+consumable = false
+rarity = 1
+stackable = true
+amount = 22
+
+[sub_resource type="Resource" id="Resource_tm1cd"]
+script = ExtResource("1_b2ehi")
+name = "Speed Potion"
+sprite = ExtResource("3_8fdhq")
+description = "Gives 20% speed for 10 seconds. (20 seconds cooldown)"
+value = 10
+price = 50
+consumable = true
+rarity = 0
+stackable = true
+amount = 16
+
 [sub_resource type="Resource" id="Resource_uldl3"]
 script = ExtResource("3_v2ict")
 weapon_name = "Bone Wand"
@@ -79,77 +125,6 @@ damage = 20
 knockback_force = 0.0
 defense = 0
 description = "Cast powerful undead spells!"
-two_handed = false
-
-[sub_resource type="Resource" id="Resource_no5dk"]
-script = ExtResource("1_b2ehi")
-name = "Healing Potion"
-sprite = ExtResource("2_0my7p")
-description = "Heals 20 health points. (10 seconds cooldown)"
-value = 5
-price = 25
-consumable = true
-rarity = 0
-stackable = true
-amount = 193
-
-[sub_resource type="Resource" id="Resource_tfpq2"]
-script = ExtResource("1_b2ehi")
-name = "Bone"
-scene = ExtResource("12_ka342")
-sprite = ExtResource("13_hv1ps")
-description = "Normal bone"
-value = 2
-price = 8
-consumable = false
-rarity = 0
-stackable = true
-amount = 244
-
-[sub_resource type="Resource" id="Resource_iofa5"]
-script = ExtResource("1_b2ehi")
-name = "Golden Bone"
-scene = ExtResource("14_lh3ob")
-sprite = ExtResource("15_3dge3")
-description = "Gold bone"
-value = 50
-price = 0
-consumable = false
-rarity = 1
-stackable = true
-amount = 15
-
-[sub_resource type="Resource" id="Resource_tm1cd"]
-script = ExtResource("1_b2ehi")
-name = "Speed Potion"
-sprite = ExtResource("3_8fdhq")
-description = "Gives 20% speed for 10 seconds. (20 seconds cooldown)"
-value = 10
-price = 50
-consumable = true
-rarity = 0
-stackable = true
-amount = 18
-
-[sub_resource type="Resource" id="Resource_p8dwm"]
-script = ExtResource("3_v2ict")
-weapon_name = "Basic Bow"
-scene = ExtResource("17_t7msb")
-sprite = ExtResource("20_knpgm")
-shop_sprite = ExtResource("18_bpmed")
-showcase_sprite = ExtResource("19_dk1hg")
-price = 25
-obtained = true
-equip_slot = 0
-primary_attack = ExtResource("15_mpq7x")
-primary_attack_sprite = ExtResource("16_24ff8")
-secondary_attack = ExtResource("15_mpq7x")
-weapon_type = 5
-weapon_rarity = 0
-damage = 0
-knockback_force = 0.0
-defense = 0
-description = "Basic wooden bow, only shoots one arrow at a time. And the arrows are pretty slow"
 two_handed = false
 
 [sub_resource type="Resource" id="Resource_2h5jl"]
@@ -177,14 +152,14 @@ two_handed = false
 [resource]
 script = ExtResource("2_jkdrd")
 items = Array[ExtResource("1_b2ehi")]([SubResource("Resource_no5dk"), SubResource("Resource_tfpq2"), SubResource("Resource_iofa5"), SubResource("Resource_tm1cd")])
-weapons = Array[ExtResource("3_v2ict")]([SubResource("Resource_p8dwm"), SubResource("Resource_pk73a"), SubResource("Resource_uldl3"), SubResource("Resource_2h5jl")])
+weapons = Array[ExtResource("3_v2ict")]([ExtResource("1_7vhvv"), SubResource("Resource_pk73a"), SubResource("Resource_uldl3"), SubResource("Resource_2h5jl")])
 shop_items = Array[ExtResource("1_b2ehi")]([ExtResource("2_fyhge"), ExtResource("3_sok1f")])
 shop_weapons = Array[ExtResource("3_v2ict")]([])
-equiped_weapon_1 = SubResource("Resource_pk73a")
-equiped_weapon_2 = SubResource("Resource_uldl3")
-gold = 12180
-current_exp = 603
+equiped_weapon_1 = ExtResource("1_7vhvv")
+equiped_weapon_2 = SubResource("Resource_pk73a")
+gold = 12235
+current_exp = 853
 needed_exp = 2000
 level = 4
-current_hp = 25
+current_hp = 50
 total_hp = 65

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2w0ghs7o1ogx"
-path="res://.godot/imported/swing.png-503c09d18711861951b30e9b04d0b3c5.ctex"
+uid="uid://cjqf1esb1gmx6"
+path="res://.godot/imported/bone_dagger.png-edee1e7b9b0f507cb76232e470b92c73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/EnemyWeapon/bone/sword/swing.png"
-dest_files=["res://.godot/imported/swing.png-503c09d18711861951b30e9b04d0b3c5.ctex"]
+source_file="res://Entities/Enemy/dungeon_skeletons/rogue/weapon/bone_dagger.png"
+dest_files=["res://.godot/imported/bone_dagger.png-edee1e7b9b0f507cb76232e470b92c73.ctex"]
 
 [params]
 

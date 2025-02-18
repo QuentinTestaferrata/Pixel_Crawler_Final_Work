@@ -70,8 +70,8 @@ func weapon_facing_direction(left: bool, right: bool) -> void:
 
 func _enter_attack_state(body: Node2D) -> void:
 	if body.is_in_group("player") and state_machine.enemy_type == "melee":
-		print("Entered melee")
+		#print("Entered melee")
 		state_machine.change_state(self, "attack")
 	elif body.is_in_group("player") and state_machine.enemy_type == "ranged":
-		print("entered ranged")
+		#print("entered ranged")
 		state_machine.change_state(self, "shootprojectile")

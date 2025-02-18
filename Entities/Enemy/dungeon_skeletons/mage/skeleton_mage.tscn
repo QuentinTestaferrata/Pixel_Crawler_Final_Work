@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="22_sm5jf"]
 [ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="23_fhrng"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="24_ehq70"]
-[ext_resource type="Script" path="res://Entities/Enemy/dungeon_skeletons/mage/label.gd" id="24_p5ss7"]
+[ext_resource type="Script" path="res://Entities/Enemy/label.gd" id="24_p5ss7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
 radius = 2.0

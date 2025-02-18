@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bhg7b37erk1wy"]
+[gd_scene load_steps=33 format=3 uid="uid://bhg7b37erk1wy"]
 
 [ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_nkq2n"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="1_xe4x4"]
@@ -14,28 +14,29 @@
 [ext_resource type="Texture2D" uid="uid://dwvq463nyduol" path="res://assets/Dungeon/Hands/left_empty.png" id="8_hsgdq"]
 [ext_resource type="Texture2D" uid="uid://dkop8kpdb0yeh" path="res://assets/Dungeon/Hands/right_closed.png" id="9_a0slr"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="9_nuax5"]
-[ext_resource type="PackedScene" uid="uid://uphodkpv8ase" path="res://Entities/EnemyWeapon/bone/sword/bone_sword.tscn" id="10_bqqdd"]
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="10_bwek2"]
+[ext_resource type="PackedScene" uid="uid://cjsretkoxtvse" path="res://Entities/Enemy/dungeon_skeletons/base/weapon/bone_sword.tscn" id="10_df557"]
 [ext_resource type="Texture2D" uid="uid://cfvkq2yjcxsas" path="res://assets/Dungeon/Hands/right_empty.png" id="10_qqbca"]
 [ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_4ttr6"]
-[ext_resource type="Texture2D" uid="uid://bffvrjjv7pjmh" path="res://Entities/EnemyWeapon/bone/sword/bone_sword.png" id="12_62ffq"]
+[ext_resource type="Texture2D" uid="uid://bffvrjjv7pjmh" path="res://Entities/Enemy/dungeon_skeletons/base/weapon/bone_sword.png" id="12_62ffq"]
 [ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="13_nvcni"]
 [ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="14_dkbe6"]
 [ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="18_xckw3"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="19_tee5k"]
 [ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="20_e4lsd"]
+[ext_resource type="Script" path="res://Entities/Enemy/label.gd" id="25_futpx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
 radius = 2.0
 height = 16.0
 
-[sub_resource type="Resource" id="Resource_ahqcv"]
+[sub_resource type="Resource" id="Resource_1fqxs"]
 script = ExtResource("11_4ttr6")
 weapon_name = "Bone Sword"
-scene = ExtResource("10_bqqdd")
+scene = ExtResource("10_df557")
 sprite = ExtResource("12_62ffq")
 weapon_type = 3
-damage = 5
+damage = 2
 knockback_force = 2.0
 defense = 0
 
@@ -58,6 +59,9 @@ max_amount = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj3jx"]
 radius = 73.0069
+
+[sub_resource type="LabelSettings" id="LabelSettings_yea2t"]
+font_size = 7
 
 [node name="SkeletonBase" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
@@ -83,7 +87,7 @@ left_hand = ExtResource("7_mmj6o")
 left_hand_empty = ExtResource("8_hsgdq")
 right_hand = ExtResource("9_a0slr")
 right_hand_empty = ExtResource("10_qqbca")
-left_hand_weapon = SubResource("Resource_ahqcv")
+left_hand_weapon = SubResource("Resource_1fqxs")
 body = ExtResource("6_pcd22")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_qxysp")]
@@ -110,6 +114,8 @@ attack_range = NodePath("../AttackRange")
 [node name="Surround" parent="StateMachine" instance=ExtResource("10_bwek2")]
 
 [node name="Attack" parent="StateMachine" instance=ExtResource("20_e4lsd")]
+available_attacks = Array[int]([1, 2])
+attack_cooldown = 2
 
 [node name="DamageNumberPosition" parent="." instance=ExtResource("19_tee5k")]
 
@@ -119,3 +125,12 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_fj3jx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -26.0
+offset_top = -61.0
+offset_right = 27.0
+offset_bottom = -47.0
+label_settings = SubResource("LabelSettings_yea2t")
+horizontal_alignment = 1
+script = ExtResource("25_futpx")
