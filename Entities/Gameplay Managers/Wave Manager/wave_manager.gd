@@ -52,7 +52,7 @@ func _ready() -> void:
 	spawn_interval_timer.start()
 
 func _on_spawn_interval_timeout() -> void:
-	var enemy = enemy_types[1].instantiate()
+	var enemy = enemy_types[0].instantiate()
 	var spawn_point: Vector2 = spawn_points.get_random_valid_spawnpoint()
 	
 	enemy.global_position = spawn_point

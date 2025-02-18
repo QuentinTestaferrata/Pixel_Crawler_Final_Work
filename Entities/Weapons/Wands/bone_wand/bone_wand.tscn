@@ -301,8 +301,6 @@ scale_amount_min = 0.01
 scale_amount_max = 0.02
 color_ramp = SubResource("Gradient_ntv8a")
 
-[node name="FireballHolder" type="Node" parent="."]
-
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(7, -26)
 

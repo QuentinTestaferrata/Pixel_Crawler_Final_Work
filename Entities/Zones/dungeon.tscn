@@ -2681,7 +2681,7 @@ visible = false
 saver_loader = NodePath("../SaverLoader")
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_interval_timer") groups=["wave_manager"] instance=ExtResource("2_idjmp")]
-enemies_per_wave = 1
+enemies_per_wave = 10
 enemies_multiplyer = 1.5
 enemy_types = Array[PackedScene]([ExtResource("4_4nrw1"), ExtResource("5_sdb60")])
 EXP_per_wave = 10
