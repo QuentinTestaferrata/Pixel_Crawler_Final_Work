@@ -25,10 +25,10 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	# Get Quest manager
 	quest_manager = player.quest_manager
-	print("NPC Ready. Quests loaded", quests.size())
+	#print("NPC Ready. Quests loaded", quests.size())
 
 func on_interact():
-	print("Quest Dialog opened")
+	#print("Quest Dialog opened")
 	var npc_dialogs = dialog_resource.get_npc_dialog(npc_id)
 	if npc_dialogs.is_empty():
 		return
@@ -52,7 +52,7 @@ func set_dialog_tree(branch_index):
 #Update dialog state
 func set_dialog_state(state):
 	current_state = state
-	print(state)
+	#print(state)
 	
 
 # Offer quest at required branch

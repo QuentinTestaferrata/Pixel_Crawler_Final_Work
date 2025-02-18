@@ -8,10 +8,13 @@ var player: CharacterBody2D
 
 @onready var timer: Timer = $Offset/Timer
 @onready var spawn_animation: AnimationPlayer = $Offset/SpawnAnimation
+@onready var area_2d: Area2D = $Offset/Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	area_2d.set_collision_mask_value(1, false)
+	area_2d.set_collision_mask_value(6, true)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

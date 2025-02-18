@@ -28,7 +28,7 @@ func save_game():
 	
 	ResourceSaver.save(saved_game, "res://savegame.tres")
 
-	print("Saving")
+	print("Saving Game")
 
 func load_game() -> void:
 	var saved_game:SavedGame = load("res://savegame.tres") as SavedGame
@@ -54,4 +54,4 @@ func load_game() -> void:
 	StatsManager.current_health = saved_game.current_hp
 	StatsManager.max_health = saved_game.total_hp
 	
-	print("Loading")
+	print("Loading Game")

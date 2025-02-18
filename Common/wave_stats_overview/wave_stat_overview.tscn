@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o5jnr2piypc5"]
+
+[ext_resource type="Script" path="res://Common/wave_stats_overview/wave_stats_overview.gd" id="1_ilvqg"]
+
+[node name="WaveStatOverview" type="Node"]
+script = ExtResource("1_ilvqg")

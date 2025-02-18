@@ -113,7 +113,7 @@ _data = {
 [node name="ThornBomb" type="Area2D"]
 script = ExtResource("1_pyijj")
 projectile_data = ExtResource("2_prw5n")
-hittable = false
+destroy_on_hit = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_nt7mr")
@@ -137,6 +137,7 @@ autoplay = "rotate"
 script = ExtResource("4_vyqss")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="ThornMechanic" method="_on_timer_timeout"]

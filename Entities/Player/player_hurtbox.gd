@@ -20,7 +20,7 @@ func _on_area_entered(area: Area2D) -> void:
 	var knockback_direction: Vector2
 	
 	playerHit.emit()
-	print("PLAYER IS HIT ", area.get_parent())
+	#print("PLAYER IS HIT ", area.get_parent())
 	
 	if area.get_parent() is EnemyWeapon:
 		weapon = area.get_parent()

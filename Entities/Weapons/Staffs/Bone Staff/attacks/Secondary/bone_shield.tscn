@@ -207,8 +207,7 @@ projectile_data = ExtResource("2_2lxwf")
 position = Vector2(50, 0)
 
 [node name="Area2D" type="Area2D" parent="Offset"]
-collision_layer = 2
-collision_mask = 64
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Offset/Area2D"]
 shape = SubResource("CapsuleShape2D_47e35")
