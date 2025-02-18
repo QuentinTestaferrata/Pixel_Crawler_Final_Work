@@ -286,7 +286,7 @@ player = NodePath("../..")
 
 [node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("player_health")]
 collision_layer = 16
-collision_mask = 1056
+collision_mask = 1088
 script = ExtResource("14_xq40c")
 player_health = NodePath("../HealthComponent")
 

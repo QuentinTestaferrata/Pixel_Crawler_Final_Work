@@ -19,6 +19,9 @@ func _on_area_entered(area: Area2D) -> void:
 	var enemy_position: Vector2
 	var knockback_direction: Vector2
 	
+	playerHit.emit()
+	print("PLAYER IS HIT ", area.get_parent())
+	
 	if area.get_parent() is EnemyWeapon:
 		weapon = area.get_parent()
 		enemy_position = area.get_parent().get_parent().get_parent().get_parent().global_position
@@ -26,7 +29,6 @@ func _on_area_entered(area: Area2D) -> void:
 		player_health.take_damage(weapon.weapon_data.damage)
 		DamageNumbers.display_number(weapon.weapon_data.damage, text_position.global_position)
 		hit.emit(weapon.weapon_data.knockback_force, knockback_direction)
-		playerHit.emit()
 		
 	if area is EnemyProjectile and StatsManager.current_health > 0:
 		projectile = area
@@ -35,4 +37,3 @@ func _on_area_entered(area: Area2D) -> void:
 		player_health.take_damage(projectile.projectile_data.DAMAGE)
 		DamageNumbers.display_number(projectile.projectile_data.DAMAGE, text_position.global_position)
 		hit.emit(projectile.projectile_data.KNOCKBACK_FORCE, knockback_direction)
-		playerHit.emit()

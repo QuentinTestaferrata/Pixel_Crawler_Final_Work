@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyWeaponDatax" load_steps=2 format=3 uid="uid://bngci2wvqopvp"]
+
+[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_data.gd" id="1_orlya"]
+
+[resource]
+script = ExtResource("1_orlya")
+damage = 6
+knockback_force = 5.0
+defense = 0

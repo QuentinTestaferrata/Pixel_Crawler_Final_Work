@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://bg707nxjtqttc"]
+[gd_scene load_steps=38 format=4 uid="uid://bg707nxjtqttc"]
 
 [ext_resource type="Script" path="res://Entities/Zones/dungeon.gd" id="1_07r07"]
 [ext_resource type="Texture2D" uid="uid://ct5h8ruw55s56" path="res://assets/Dungeon/Tiles/Tiles.png" id="1_g0itb"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="2_sdqqa"]
 [ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="3_5fo00"]
 [ext_resource type="PackedScene" uid="uid://c6nud04qkgp33" path="res://Entities/Gameplay Managers/Loot Manager/loot_manager.tscn" id="3_s7a6y"]
-[ext_resource type="PackedScene" uid="uid://bhg7b37erk1wy" path="res://Entities/Enemy/dungeon_skeletons/skeleton_base.tscn" id="4_4nrw1"]
+[ext_resource type="PackedScene" uid="uid://bhg7b37erk1wy" path="res://Entities/Enemy/dungeon_skeletons/base/skeleton_base.tscn" id="4_4nrw1"]
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="4_hgt2v"]
 [ext_resource type="PackedScene" uid="uid://dq3vhr8h3fr2e" path="res://Entities/Gameplay Managers/Mob Manager/Mob Manager.tscn" id="4_pysfd"]
 [ext_resource type="PackedScene" uid="uid://bx4gp00rfwml1" path="res://Entities/Enemy/dungeon_skeletons/mage/skeleton_mage.tscn" id="5_sdb60"]
+[ext_resource type="PackedScene" uid="uid://duoywsqggejq7" path="res://Entities/Enemy/dungeon_skeletons/knight/skeleton_knight.tscn" id="6_7sogw"]
+[ext_resource type="PackedScene" uid="uid://dx7l2qy4imiur" path="res://Entities/Enemy/dungeon_skeletons/rogue/skeleton_rogue.tscn" id="7_gkfjd"]
 [ext_resource type="PackedScene" uid="uid://c6g8tsl74w2o6" path="res://Common/spawnpoint/spawn_points.tscn" id="9_cdqes"]
 [ext_resource type="PackedScene" uid="uid://0hfqtdetcfbt" path="res://Common/spawnpoint/points/point.tscn" id="10_q2cpp"]
 [ext_resource type="PackedScene" uid="uid://dmu7q10xuxm76" path="res://Common/spawnpoint/area/Area.tscn" id="11_q2rwl"]
@@ -2683,7 +2685,7 @@ saver_loader = NodePath("../SaverLoader")
 [node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_interval_timer") groups=["wave_manager"] instance=ExtResource("2_idjmp")]
 enemies_per_wave = 1
 enemies_multiplyer = 1.5
-enemy_types = Array[PackedScene]([ExtResource("4_4nrw1"), ExtResource("5_sdb60")])
+enemy_types = Array[PackedScene]([ExtResource("4_4nrw1"), ExtResource("5_sdb60"), ExtResource("6_7sogw"), ExtResource("7_gkfjd")])
 EXP_per_wave = 10
 EXP_multiplyer = 1.3
 gold_per_wave = 5

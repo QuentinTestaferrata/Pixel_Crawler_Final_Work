@@ -1,7 +1,7 @@
 extends Node2D
 class_name EnemySprite
 
-signal cast_spell_1
+signal cast_spell
 
 enum weapon_types {SWORD, STAFF, DAGGER, AXE}
 
@@ -54,7 +54,7 @@ func _ready() -> void:
 		if left_hand_weapon.weapon_type == 3:
 			weapon_has_hitbox = true
 			left_weapon_hitbox = left_weapon_scene.get_child(0)
-			left_weapon_scene.weapon_monitoring(false)
+			#left_weapon_scene.weapon_monitoring(false)
 	else:
 		left_hand_sprite.texture = left_hand_empty
 	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2w0ghs7o1ogx"
-path="res://.godot/imported/swing.png-503c09d18711861951b30e9b04d0b3c5.ctex"
+uid="uid://5f3nrt4ivb6j"
+path="res://.godot/imported/spike_bomb.png-64a4b99f17fa5b7e4698c8cdc51ce8f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/EnemyWeapon/bone/sword/swing.png"
-dest_files=["res://.godot/imported/swing.png-503c09d18711861951b30e9b04d0b3c5.ctex"]
+source_file="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/spike_bomb.png"
+dest_files=["res://.godot/imported/spike_bomb.png-64a4b99f17fa5b7e4698c8cdc51ce8f8.ctex"]
 
 [params]
 

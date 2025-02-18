@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjqf1esb1gmx6"
-path="res://.godot/imported/bone_dagger.png-a76633ebc58ad2cca5d0985745fe2e9a.ctex"
+uid="uid://desh76vxq8qdq"
+path="res://.godot/imported/basic_staff.png-7db8436b99d692db2c52f820f7c75584.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/EnemyWeapon/bone/dagger/bone_dagger.png"
-dest_files=["res://.godot/imported/bone_dagger.png-a76633ebc58ad2cca5d0985745fe2e9a.ctex"]
+source_file="res://Entities/Weapons/Staffs/Basic Staff/sprites/basic_staff.png"
+dest_files=["res://.godot/imported/basic_staff.png-7db8436b99d692db2c52f820f7c75584.ctex"]
 
 [params]
 

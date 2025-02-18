@@ -15,12 +15,11 @@ var timer_3: Timer
 var timer_4: Timer
 
 var ability_cooldowns: PanelContainer
-var _hud: CanvasLayer
 
 func _ready() -> void:
-	_hud = get_tree().get_first_node_in_group("hud")
-	ability_cooldowns = ABILITY_COOLDOWN_CONTAINER.instantiate()
-	_hud.add_child(ability_cooldowns)
+	#_hud = get_tree().get_first_node_in_group("hud")
+	#ability_cooldowns = ABILITY_COOLDOWN_CONTAINER.instantiate()
+	#_hud.add_child(ability_cooldowns)
 	
 	timer_1 = Timer.new()
 	timer_2 = Timer.new()
@@ -57,12 +56,10 @@ func start_cd(attack: int) -> void:
 		timer_2.start(weapon_1_cd_2)
 		ability_cooldowns.start_cooldown(2, weapon_1_cd_2)
 	if equiped_weapon == 2 and attack == 1:
-		print(ability_cooldowns)
 		timer_3.start(weapon_2_cd_1)
 		ability_cooldowns.start_cooldown(3, weapon_2_cd_1)
 	if equiped_weapon == 2 and attack == 2:
 		timer_4.start(weapon_2_cd_2)
-		print(ability_cooldowns)
 		ability_cooldowns.start_cooldown(4, weapon_2_cd_2)
 
 func check_cd(attack: int)-> bool:
@@ -83,9 +80,16 @@ func reset_cooldowns() -> void:
 	timer_4.stop()
 
 func reset_cooldown_display() -> void:
-	_hud = get_tree().get_first_node_in_group("hud")
+	var _hud_scene: CanvasLayer
+	_hud_scene = get_tree().get_first_node_in_group("hud")
 	ability_cooldowns = get_tree().get_first_node_in_group("ability_cooldown_container")
 	if ability_cooldowns:
 		ability_cooldowns.queue_free()
 		ability_cooldowns = ABILITY_COOLDOWN_CONTAINER.instantiate()
-		_hud.add_child(ability_cooldowns)
+		_hud_scene.add_child(ability_cooldowns)
+
+func instantiate_cooldown_container() -> void:
+	var temp_container = ABILITY_COOLDOWN_CONTAINER.instantiate() 
+	var _hud_scene: CanvasLayer
+	_hud_scene = get_tree().get_first_node_in_group("hud")
+	_hud_scene.add_child(temp_container)

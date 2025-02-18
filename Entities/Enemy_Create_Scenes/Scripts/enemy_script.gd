@@ -20,7 +20,7 @@ func _ready() -> void:
 	set_collision_mask_value(4, true)
 	
 	hitbox_component.set_collision_layer_value(1, false)
-	hitbox_component.set_collision_layer_value(7, true)
+	hitbox_component.set_collision_layer_value(6, true)
 	
 	hitbox_component.set_collision_mask_value(1, false)
 	hitbox_component.set_collision_mask_value(2, false)

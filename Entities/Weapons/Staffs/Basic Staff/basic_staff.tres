@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=10 format=3 uid="uid://cl85ihssq8jjq"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_ibryx"]
+[ext_resource type="Resource" uid="uid://cr6q6fs7pvxeq" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/primary/thorn.tres" id="1_jm6o8"]
+[ext_resource type="PackedScene" uid="uid://ddnx3vhvtvilc" path="res://Entities/Weapons/Staffs/Basic Staff/basic_staff.tscn" id="1_nrnkx"]
+[ext_resource type="Texture2D" uid="uid://b4dd26y4srxpm" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/primary/thorn.png" id="2_yy81s"]
+[ext_resource type="Resource" uid="uid://dwiqf7ef586rv" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/thorn_bomb.tres" id="5_er4m2"]
+[ext_resource type="Texture2D" uid="uid://dlu2rst6437cn" path="res://Entities/Weapons/Staffs/Basic Staff/sprites/basic_staff_shop_sprite.png" id="6_mr6hm"]
+[ext_resource type="Texture2D" uid="uid://5f3nrt4ivb6j" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/spike_bomb.png" id="6_op1s4"]
+[ext_resource type="Texture2D" uid="uid://cxuulq7dctrim" path="res://Entities/Weapons/Staffs/Basic Staff/sprites/basic_staff_showcase.png" id="7_07b78"]
+[ext_resource type="Texture2D" uid="uid://desh76vxq8qdq" path="res://Entities/Weapons/Staffs/Basic Staff/sprites/basic_staff.png" id="8_qsv3e"]
+
+[resource]
+script = ExtResource("1_ibryx")
+weapon_name = "Basic Staff"
+scene = ExtResource("1_nrnkx")
+sprite = ExtResource("8_qsv3e")
+shop_sprite = ExtResource("6_mr6hm")
+showcase_sprite = ExtResource("7_07b78")
+price = 5
+obtained = false
+equip_slot = 0
+primary_attack = ExtResource("1_jm6o8")
+primary_attack_sprite = ExtResource("2_yy81s")
+secondary_attack = ExtResource("5_er4m2")
+secondary_attack_sprite = ExtResource("6_op1s4")
+weapon_type = 0
+weapon_rarity = 0
+damage = 0
+knockback_force = 0.0
+defense = 0
+description = "test"
+two_handed = false
