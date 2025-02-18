@@ -82,16 +82,16 @@ func _process(_delta):
 		knockback_direction = knockback_direction.lerp(Vector2.ZERO, 0.3)
 		if knockback_direction.length() < 0.1:
 			knockback_direction = Vector2.ZERO
-		#weapons angle
+		
+		#weapons angle and body flips
 		if rotate_hands and state_machine.enemy.position.x <= state_machine.target.position.x:
 			direction_to_target = state_machine.enemy.position.direction_to(target_position)
 			angle_to_target = direction_to_target.angle()
 			state_machine.hand_sprites.rotation = lerp_angle(state_machine.hand_sprites.rotation, angle_to_target + PI / 2, 15.0 * _delta)
-		if rotate_hands and !(state_machine.enemy.position.x <= state_machine.target.position.x):
+		elif rotate_hands and !(state_machine.enemy.position.x <= state_machine.target.position.x):
 			direction_to_target = state_machine.enemy.position.direction_to(target_position)
 			angle_to_target = direction_to_target.angle()
 			state_machine.hand_sprites.rotation = lerp_angle(state_machine.hand_sprites.rotation, -(angle_to_target + PI / 2), 15.0 * _delta)
-
 		
 		if state_machine.enemy.position.x <= state_machine.target.position.x:
 			state_machine.body.scale.x = 1

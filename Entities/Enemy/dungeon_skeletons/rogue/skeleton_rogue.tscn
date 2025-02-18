@@ -67,7 +67,6 @@ font_size = 7
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_wmxwf")
-speed = 0
 enemy_type = "melee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
