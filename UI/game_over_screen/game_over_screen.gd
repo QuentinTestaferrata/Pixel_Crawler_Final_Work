@@ -4,7 +4,7 @@ const GAME_OVER_SCREEN = preload("res://UI/game_over_screen/GameOverScreen.tscn"
 @onready var game_over_screen: Control = $"."
 @onready var retry_button: TextureButton = $shader/ColorRect/HBoxContainer/RetryButton
 @onready var back_to_castle_button: TextureButton = $shader/ColorRect/HBoxContainer/BackToCastleButton
-@onready var quit_game_button: TextureButton = $shader/ColorRect/HBoxContainer/QuitGameButton
+@onready var quit_game_button: TextureButton = $shader/ColorRect/HBoxContainer/QuitGameButtonas  
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var hud_layer: CanvasLayer
@@ -23,12 +23,16 @@ func _on_retry_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Entities/Zones/dungeon.tscn")
 	AttackCooldowns.reset_cooldowns()
 	animation_player.play("fade_to_normal")
+	StatsManager.current_health = StatsManager.max_health
+	StatsManager.health_changed.emit()
 
 
 func _on_back_to_castle_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Entities/Zones/castle.tscn")
 	AttackCooldowns.reset_cooldowns()
 	animation_player.play("fade_to_normal")
+	StatsManager.current_health = StatsManager.max_health
+	StatsManager.health_changed.emit()
 
 
 func _on_quit_game_button_pressed() -> void:
