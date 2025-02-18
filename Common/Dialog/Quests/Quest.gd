@@ -4,7 +4,7 @@ class_name Quest
 
 @export var quest_id: String
 @export var quest_name: String
-@export var quest_description: String
+@export_multiline var quest_description: String
 @export var state: String = "not_started"
 @export var unlock_id: String
 @export var objectives: Array[Objectives] = []

@@ -1,9 +1,7 @@
-
 [gd_resource type="Resource" script_class="SavedGame" load_steps=20 format=3]
 
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_b2ehi"]
 [ext_resource type="Resource" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres" id="1_npl83"]
-
 [ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_0my7p"]
 [ext_resource type="Resource" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="2_fyhge"]
 [ext_resource type="Script" path="res://saved_game.gd" id="2_jkdrd"]
@@ -14,11 +12,9 @@
 [ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/bone.png" id="13_hv1ps"]
 [ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/golden_bone_drop.tscn" id="14_lh3ob"]
 [ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/golden_bone.png" id="15_3dge3"]
-
 [ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres" id="17_e670u"]
 [ext_resource type="Resource" path="res://Entities/Weapons/bow/bone_bow/bone_bow_data.tres" id="17_wla8b"]
 [ext_resource type="Resource" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tres" id="19_mrgdb"]
-
 
 [sub_resource type="Resource" id="Resource_no5dk"]
 script = ExtResource("1_b2ehi")
@@ -32,7 +28,6 @@ rarity = 0
 stackable = true
 amount = 193
 
-
 [sub_resource type="Resource" id="Resource_tfpq2"]
 script = ExtResource("1_b2ehi")
 name = "Bone"
@@ -44,8 +39,7 @@ price = 8
 consumable = false
 rarity = 0
 stackable = true
-amount = 254
-
+amount = 242
 
 [sub_resource type="Resource" id="Resource_iofa5"]
 script = ExtResource("1_b2ehi")
@@ -60,7 +54,6 @@ rarity = 1
 stackable = true
 amount = 15
 
-
 [sub_resource type="Resource" id="Resource_tm1cd"]
 script = ExtResource("1_b2ehi")
 name = "Speed Potion"
@@ -73,7 +66,6 @@ rarity = 0
 stackable = true
 amount = 20
 
-
 [resource]
 script = ExtResource("2_jkdrd")
 items = Array[ExtResource("1_b2ehi")]([SubResource("Resource_no5dk"), SubResource("Resource_tfpq2"), SubResource("Resource_iofa5"), SubResource("Resource_tm1cd")])
@@ -81,11 +73,10 @@ weapons = Array[ExtResource("3_v2ict")]([ExtResource("19_mrgdb"), ExtResource("1
 shop_items = Array[ExtResource("1_b2ehi")]([ExtResource("2_fyhge"), ExtResource("3_sok1f")])
 shop_weapons = Array[ExtResource("3_v2ict")]([ExtResource("19_mrgdb"), ExtResource("17_wla8b"), ExtResource("1_npl83"), ExtResource("17_e670u")])
 equiped_weapon_1 = ExtResource("17_wla8b")
-equiped_weapon_2 = ExtResource("17_e670u")
-gold = 15500
-current_exp = 586
+equiped_weapon_2 = ExtResource("1_npl83")
+gold = 15605
+current_exp = 648
 needed_exp = 2000
 level = 4
-current_hp = 65
+current_hp = 11
 total_hp = 65
-

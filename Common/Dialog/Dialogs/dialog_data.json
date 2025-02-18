@@ -18,7 +18,7 @@
 						"text": "This castle is your safe place adventurer!",
 						"options": {
 							"Go back": "start",
-							"Say Goodbye": "end",
+							"Say Goodbye": "exit",
 						}
 					},
 					{
@@ -56,7 +56,7 @@
 						"state": "in_progress",
 						"text": "I heard that that the other NPC sells weapons.",
 						"options": {
-							"Say Goodbye": "end",
+							"Say Goodbye": "exit",
 							"Go Back": "start"
 						}
 					},

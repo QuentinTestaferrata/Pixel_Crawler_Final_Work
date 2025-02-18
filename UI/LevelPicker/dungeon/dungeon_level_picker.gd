@@ -2,7 +2,6 @@ extends Control
 
 #@export var _zone_name: String
 
-const QUEST_TRACKER_UI = preload("res://UI/Quests/QuestHUD/QuestTracker.tscn")
 
 var _hud: CanvasLayer
 
