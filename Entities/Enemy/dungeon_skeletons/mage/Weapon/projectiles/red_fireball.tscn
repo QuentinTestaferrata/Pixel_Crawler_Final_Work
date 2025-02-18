@@ -34,7 +34,7 @@ _data = {
 }
 
 [node name="RedFireball" type="Area2D"]
-collision_layer = 32
+collision_layer = 1024
 collision_mask = 16
 script = ExtResource("1_obkhm")
 projectile_data = ExtResource("2_83g5a")

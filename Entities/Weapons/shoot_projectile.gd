@@ -15,7 +15,7 @@ func _ready() -> void:
 		set_collision_layer_value(2, true)
 		
 		set_collision_mask_value(1, false)
-		set_collision_mask_value(7, true)
+		set_collision_mask_value(6, true)
 	
 	if !spawn_animation_player:
 		print(name, " doesn't have a spawn & despawn animation")

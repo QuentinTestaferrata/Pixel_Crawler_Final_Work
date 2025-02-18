@@ -11,6 +11,8 @@ var timer = Timer.new()
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
+	set_collision_mask_value(6, true)
+	
 	bow = get_parent()
 	speed = bow.arrow.speed
 	arrow = bow.arrow
