@@ -2680,10 +2680,10 @@ visible = false
 saver_loader = NodePath("../SaverLoader")
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_interval_timer") groups=["wave_manager"] instance=ExtResource("2_idjmp")]
-enemies_per_wave = 3
+enemies_per_wave = 40
 enemies_multiplyer = 1.5
 spawn_rates = ExtResource("8_1mdyj")
-max_percentage_enemies_alive = 50.0
+max_percentage_enemies_alive = 25.0
 EXP_per_wave = 10
 EXP_multiplyer = 1.3
 gold_per_wave = 5

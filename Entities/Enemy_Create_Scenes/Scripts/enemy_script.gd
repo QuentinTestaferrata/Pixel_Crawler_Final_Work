@@ -13,10 +13,10 @@ var enemy_container: Node2D
 @onready var hitbox_component: HurtboxComponent = $HitboxComponent
 
 func _ready() -> void:
-	set_collision_layer_value(1, true)
+	#set_collision_layer_value(1, true)
 	set_collision_layer_value(6, true)
 	
-	set_collision_mask_value(1, true)
+	#set_collision_mask_value(1, true)
 	set_collision_mask_value(4, true)
 	
 	hitbox_component.set_collision_layer_value(1, false)

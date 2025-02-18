@@ -1,6 +1,6 @@
 extends Node2D
 
-const THORN = preload("res://Entities/Weapons/Staffs/Basic Staff/attacks/primary/thorn.tscn")
+const MINI_THORN = preload("res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/mini thorn/mini_thorn.tscn")
 
 var dir: Vector2
 var projectile_holder: Node2D
@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	for i in projectile_directions:
-		var attack = _instantiate_projectile(THORN, position, i)
+		var attack = _instantiate_projectile(MINI_THORN, position, i)
 		attack.reparent(projectile_holder)
 	
 

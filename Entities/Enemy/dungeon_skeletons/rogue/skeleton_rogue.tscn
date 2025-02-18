@@ -58,15 +58,18 @@ min_amount = 1
 max_amount = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj3jx"]
-radius = 134.302
+radius = 73.0274
 
 [sub_resource type="LabelSettings" id="LabelSettings_x06hy"]
 font_size = 7
 
 [node name="SkeletonRogue" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_wmxwf")
+speed = 120
 enemy_type = "melee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -79,7 +82,7 @@ exp_amount = 2
 [node name="HealthBar" parent="." instance=ExtResource("3_guf3s")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_lb2rc")]
-max_health = 100
+max_health = 40
 
 [node name="Sprite" parent="." instance=ExtResource("5_kblif")]
 left_hand = ExtResource("6_38l13")

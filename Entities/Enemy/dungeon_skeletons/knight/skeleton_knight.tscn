@@ -67,7 +67,7 @@ font_size = 7
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_41c5o")
-speed = 100
+speed = 40
 enemy_type = "melee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -80,7 +80,7 @@ exp_amount = 2
 [node name="HealthBar" parent="." instance=ExtResource("5_2qft0")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_x6q4h")]
-max_health = 100
+max_health = 300
 
 [node name="Sprite" parent="." instance=ExtResource("3_d2hd5")]
 left_hand = ExtResource("5_wal5h")

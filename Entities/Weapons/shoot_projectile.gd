@@ -2,6 +2,7 @@ extends Area2D
 
 @export var projectile_data: PROJECTILE
 @export var hittable: bool = true
+@export var destroy_on_hit: bool = true
 
 var direction: Vector2
 var timer: Timer
@@ -87,7 +88,8 @@ func set_direction_BG(target_position: Vector2) -> Vector2:
 func _area_entered(area: Area2D) -> void:
 	if "HitboxComponent" in area.name:
 		area.take_damage(projectile_data, direction)
-		queue_free()
+		if destroy_on_hit:
+			queue_free()
 
 func despawn() -> void:
 	if !spawn_animation_player:

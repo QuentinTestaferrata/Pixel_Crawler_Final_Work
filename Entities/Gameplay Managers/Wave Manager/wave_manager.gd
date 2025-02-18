@@ -66,7 +66,6 @@ func _on_spawn_interval_timeout() -> void:
 	
 	if spawned_enemies < max_enemies_alive:
 		while true:
-			print(random_number)
 			if random_number <= spawn_rate: 
 				enemy =spawn_rates.enemy_1.instantiate()
 				break
@@ -90,7 +89,6 @@ func _on_spawn_interval_timeout() -> void:
 		enemies.add_child(enemy)
 		spawned_enemies += 1
 	else: 
-		print("Can't spawn enemies")
 		spawn_interval_timer.start()
 
 		
