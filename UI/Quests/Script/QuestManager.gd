@@ -18,11 +18,15 @@ var quests = {}
 func add_quest(quest: Quest):
 	quests[quest.quest_id] = quest
 	quest_updated.emit(quest.quest_id)
+	
 
 # Remove quests
 func remove_quests(quest_id: String):
 	quests.erase(quest_id)
 	quest_list_updated.emit()
+	for stats_manager_quest in StatsManager.quests:
+		if stats_manager_quest.quest_id == quest_id:
+			StatsManager.player_quests.erase(stats_manager_quest)
 	
 # Get quest
 func get_quest(quest_id: String):
@@ -34,6 +38,7 @@ func update_quest(quest_id: String, state: String):
 	if quest:
 		quest.state = state
 		quest_updated.emit(quest_id)
+		
 		if state == "completed":
 			print("quest deleted")
 			remove_quests(quest_id)
@@ -43,9 +48,9 @@ func get_active_quests() -> Array:
 	var active_quests = []
 	for quest in quests.values():
 		if quest.state == "in_progress":
-			active_quests.append(quest)
+			StatsManager.player_quests.append(quest)
 		elif quest.state == "finished":
-			active_quests.append(quest)
+			StatsManager.player_quests.append(quest)
 	return active_quests
 	
 

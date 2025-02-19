@@ -59,6 +59,7 @@ func _on_option_selected(option):
 	get_parent().handle_dialog_option(option)
 	if option == "Say Goodbye":
 		temp_dialog.hide_dialog()
+		
 
 #Hide dialog box
 func hide_dialog():

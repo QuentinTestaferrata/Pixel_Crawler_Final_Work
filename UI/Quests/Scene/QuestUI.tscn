@@ -165,16 +165,20 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
 [node name="QuestTitle" type="Label" parent="Panel/Contents/Details/QuestDetails"]
+custom_minimum_size = Vector2(213, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Questdescription" type="Label" parent="Panel/Contents/Details/QuestDetails"]
+custom_minimum_size = Vector2(213, 10)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Description"
+text = "Description sfs fsdfg sdfsdf dsfdsfd sfsfsfd sfdsfdsf dsfsdfs fsdfsd fdsfsdfs dfsdfd"
+autowrap_mode = 3
 
 [node name="QuestObjectives" type="VBoxContainer" parent="Panel/Contents/Details/QuestDetails"]
 layout_mode = 2

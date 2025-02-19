@@ -7,6 +7,7 @@ const INVENTORY_HUD = preload("res://UI/inventory/inventory_&_profile.tscn")
 const PAUSE_MENU = preload("res://UI/Pause_Menu/pause_menu.tscn")
 const QUEST_UI = preload("res://UI/Quests/Scene/QuestUI.tscn")
 const QUEST_TRACKER_UI = preload("res://UI/Quests/QuestHUD/QuestTracker.tscn")
+const GAME_OVER_SCREEN = preload("res://UI/game_over_screen/GameOverScreen.tscn")
 
 @export var speed: int = 100
 
@@ -52,7 +53,7 @@ func _ready() -> void:
 	#signal connections
 	quest_manager.quest_updated.connect(_on_quest_updated)
 	quest_manager.objective_updated.connect(_on_objective_updated)
-	
+	health_component.died.connect(_show_game_over_screen)
 
 
 
@@ -114,7 +115,7 @@ func _input(event: InputEvent) -> void:
 		var temp_quest = hud_scene.find_child("QuestUi", true, false)
 		temp_quest.close_quest_log()
 	
-	
+
 
 
 
@@ -185,7 +186,7 @@ func check_inventory_for_quest_item(quest: Quest, quest_done: String):
 					handle_quest_completion(quest)
 					player.inventory.remove_item(my_item, objective.required_quantity)
 					quest.state = "quest_paid"
-					print(quest.state)
+					
 					quest_manager.update_quest(quest.quest_id, "quest_paid")
 					temp_quest_tracker.close_quest_tracker()
 					quest_manager.remove_quests(quest.quest_id)
@@ -230,3 +231,12 @@ func _on_objective_updated(quest_id: String):
 		print(selected_quest, "_on_objective_updated")
 		update_quest_tracker(selected_quest)
 	selected_quest = null
+
+
+func _show_game_over_screen():
+	var temp_game_over_screen: Control
+	var hud_scene: CanvasLayer = get_parent().get_child(0)
+	
+	temp_game_over_screen = GAME_OVER_SCREEN.instantiate()
+	hud_scene.add_child(temp_game_over_screen)
+	

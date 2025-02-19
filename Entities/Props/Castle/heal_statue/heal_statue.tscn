@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://u3t3kgp73be8"]
+
+[ext_resource type="Script" path="res://Entities/Props/Castle/heal_statue/heal_statue.gd" id="1_n76x3"]
+[ext_resource type="Texture2D" uid="uid://bne3l786qajo2" path="res://Entities/Props/Castle/heal_statue/heal_stone.png" id="2_cq1op"]
+[ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_ap8la"]
+[ext_resource type="Texture2D" uid="uid://ubx4a2meh1ds" path="res://assets/masks for  particles/12.png" id="4_a0yq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0na57"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_brvyh"]
+radius = 39.9
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4rf3"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_yuq8u"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
+colors = PackedColorArray(3.60981e-06, 0.881789, 0.27651, 0, 0.484949, 0.920187, 0.436563, 1, 0, 0.545098, 0.294118, 1, 1.68458e-07, 0.268509, 0.0226525, 0)
+
+[node name="HealStatue" type="StaticBody2D"]
+script = ExtResource("1_n76x3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cq1op")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_0na57")
+one_way_collision_margin = 0.0
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_ap8la")]
+collision_layer = 512
+collision_mask = 514
+action_name = "Heal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_brvyh")
+
+[node name="GreenParticles" type="CPUParticles2D" parent="."]
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_g4rf3")
+amount = 7
+lifetime = 3.0
+texture = ExtResource("4_a0yq3")
+emission_shape = 1
+emission_sphere_radius = 23.2
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 0.05
+linear_accel_min = 3.54
+linear_accel_max = 4.12
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.02
+scale_amount_max = 0.04
+color_ramp = SubResource("Gradient_yuq8u")

@@ -20,12 +20,15 @@ var quest_manager: Node = null
 
 func _ready() -> void:
 	#Load dialog data
+	
 	dialog_resource.load_from_json("res://Common/Dialog/Dialogs/dialog_data.json")
 	interaction_area.interact = Callable(self, "on_interact")
 	player = get_tree().get_first_node_in_group("player")
 	# Get Quest manager
 	quest_manager = player.quest_manager
-	#print("NPC Ready. Quests loaded", quests.size())
+	quests = StatsManager.quests
+	print("NPC Ready. Quests loaded", quests.size())
+
 
 func on_interact():
 	#print("Quest Dialog opened")
@@ -63,6 +66,9 @@ func offer_quest(quest_id: String):
 		if quest.quest_id == quest_id and quest.state == "not_started":
 			quest.state = "in_progress"
 			quest_manager.add_quest(quest)
+			for stats_manager_quest in StatsManager.quests:
+				if stats_manager_quest.quest_id == quest_id:
+					stats_manager_quest.state = "in_progress"
 			return
 			
 	
