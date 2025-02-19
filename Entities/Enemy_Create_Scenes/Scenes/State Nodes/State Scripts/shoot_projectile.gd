@@ -25,7 +25,7 @@ func _ready() -> void:
 	set_process(false)
 	
 	#Connecting all spell signals
-	state_machine.body.cast_spell_1.connect(shoot_projectile)
+	state_machine.body.cast_spell.connect(shoot_projectile)
 
 func shoot_projectile() -> void:
 	shoot_signal.emit()

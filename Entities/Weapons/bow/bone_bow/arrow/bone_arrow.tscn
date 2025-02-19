@@ -45,8 +45,8 @@ _data = {
 }
 
 [node name="BoneArrow" type="Area2D"]
-collision_layer = 2
-collision_mask = 64
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_psuhl")
 sprite = ExtResource("2_7rpi1")
 

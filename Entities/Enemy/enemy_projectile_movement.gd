@@ -19,6 +19,7 @@ func _ready() -> void:
 	timer = Timer.new()
 	add_child(timer)
 	timer.start(projectile_data.LIFETIME)
+	timer.one_shot = true
 	timer.timeout.connect(despawn)
 
 func _process(delta: float) -> void:

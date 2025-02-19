@@ -39,7 +39,7 @@ bow = "bone"
 arrow = ExtResource("2_hcewp")
 bow_frames = SubResource("SpriteFrames_2hbc1")
 multishot_arrows = 5
-speed_scale = 1.0
+speed_scale = 1.2
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(20, 0)

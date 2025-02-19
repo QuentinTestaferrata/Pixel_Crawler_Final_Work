@@ -30,11 +30,6 @@
 						}
 					},
 					{
-						"state": "end",
-						"text": "Goodbye adventurer!",
-						"options": {}
-					},
-					{
 						"state": "exit",
 						"text": "Come back soon adventurer!",
 						"options": {}
@@ -43,7 +38,8 @@
 			},
 			{
 				"branch_id": "npc1_2",
-				"dialogs":[					{
+				"dialogs":[
+					{
 						"state": "start",
 						"text": "Hey adventurer! Back so soon?",
 						"options": {
@@ -67,11 +63,6 @@
 							"Say Goodbye": "exit",
 							"Go Back": "start"
 						}
-					},
-					{
-						"state": "end",
-						"text": "Goodbye, adventurer!",
-						"options": {}
 					},
 					{
 						"state": "exit",

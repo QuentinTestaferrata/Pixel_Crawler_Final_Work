@@ -4,3 +4,4 @@ extends Node2D
 
 func _ready() -> void:
 	saver_loader.load_game()
+	AttackCooldowns.instantiate_cooldown_container()

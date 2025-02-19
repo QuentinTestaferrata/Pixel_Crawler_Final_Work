@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqs2b63h0yfjm"]
+[gd_scene load_steps=9 format=3 uid="uid://rdq63s2jojhy"]
 
 [ext_resource type="Script" path="res://Entities/Weapons/bow/bow.gd" id="1_bmmib"]
 [ext_resource type="Resource" uid="uid://4rr2avitfwy4" path="res://Entities/Weapons/bow/Basic Bow/arrow/basic_arrow.tres" id="2_7rn7j"]
@@ -33,13 +33,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwk8m"]
+
 [node name="Bow" type="Node2D"]
 script = ExtResource("1_bmmib")
 bow = "basic"
 arrow = ExtResource("2_7rn7j")
 bow_frames = SubResource("SpriteFrames_7bvrt")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+sprite_frames = SubResource("SpriteFrames_kwk8m")
+
+[node name="ArrowSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(20, 0)
+
+[connection signal="animation_finished" from="Node2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="Node2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

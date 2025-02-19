@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://j33qsvupkdvo"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/bow/bow.gd" id="1_ooy6x"]
+[ext_resource type="Resource" uid="uid://4rr2avitfwy4" path="res://Entities/Weapons/bow/Basic Bow/arrow/basic_arrow.tres" id="2_0a1ys"]
+[ext_resource type="Texture2D" uid="uid://dewb2h0v4y7kb" path="res://assets/Forest/Weapons_Wood.png" id="3_nkvey"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmio8"]
+atlas = ExtResource("3_nkvey")
+region = Rect2(48, 48, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pda7o"]
+atlas = ExtResource("3_nkvey")
+region = Rect2(64, 48, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlku8"]
+atlas = ExtResource("3_nkvey")
+region = Rect2(80, 48, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hbc1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmio8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pda7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlku8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BasicBow" type="Node2D"]
+script = ExtResource("1_ooy6x")
+bow = "basic"
+arrow = ExtResource("2_0a1ys")
+bow_frames = SubResource("SpriteFrames_2hbc1")
+multishot_arrows = 5
+speed_scale = 1.0
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(20, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+
+[node name="ArrowSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(20, 0)

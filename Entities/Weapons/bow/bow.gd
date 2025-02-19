@@ -17,7 +17,7 @@ var cooldown: bool = false
 @onready var arrow_spawn_point: Marker2D = $ArrowSpawnPoint
 
 func _ready() -> void:
-	var timer = Timer.new()
+	#var timer = Timer.new()
 	projectile_holder = get_tree().get_first_node_in_group("projectiles")
 	bow_frames.set_animation_loop("default", false)
 	
@@ -38,7 +38,7 @@ func _input(event: InputEvent) -> void:
 		spread_shot()
 		AttackCooldowns.start_cd(2)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	rotation = lerp_angle(rotation, rotation + get_angle_to(get_global_mouse_position()), .15)
 	#lerp_angle()
 	#look_at(get_global_mouse_position())

@@ -15,7 +15,6 @@ var dir: Vector2
 
 @onready var markers: Node2D = $Markers
 @onready var projectile_holder = get_tree().get_first_node_in_group("projectiles")
-@onready var fireball_holder: Node = $FireballHolder
 @onready var marker: Marker2D = $Marker
 @onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
 @onready var fireball_cooldown: Timer = $Timers/FireballCooldown

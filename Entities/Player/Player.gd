@@ -47,7 +47,7 @@ func on_item_picked_up(item: Item) -> void:
 
 func _ready() -> void:
 	player_dash.emitting = false
-	print(weapon_manager)
+	#print(weapon_manager)
 	
 	#---------------------------------------------------------
 	#signal connections

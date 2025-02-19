@@ -32,7 +32,7 @@ func save_game():
 	
 	ResourceSaver.save(saved_game, "res://savegame.tres")
 
-	print("Saving")
+	print("Saving Game")
 
 func load_game() -> void:
 	var saved_game:SavedGame = load("res://savegame.tres") as SavedGame
@@ -48,8 +48,8 @@ func load_game() -> void:
 	#Active Weapons
 	StatsManager.equiped_weapon_1 = saved_game.equiped_weapon_1
 	StatsManager.equiped_weapon_2 = saved_game.equiped_weapon_2
-	if StatsManager.equiped_weapon_1 != null:
-		print(StatsManager.equiped_weapon_1)
+	#if StatsManager.equiped_weapon_1 != null:
+		#print(StatsManager.equiped_weapon_1)
 	#Stats
 	StatsManager.gold = saved_game.gold
 	StatsManager.exp_current = saved_game.current_exp
@@ -58,7 +58,7 @@ func load_game() -> void:
 	StatsManager.current_health = saved_game.current_hp
 	StatsManager.max_health = saved_game.total_hp
 	
-	# Quests
+# Quests
 	StatsManager.quests = saved_game.quests 
 	StatsManager.player_quests = saved_game.player_quests
 	
