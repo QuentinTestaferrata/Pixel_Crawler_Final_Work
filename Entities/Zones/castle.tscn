@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://qbrbdv7v08pg"]
+[gd_scene load_steps=34 format=4 uid="uid://qbrbdv7v08pg"]
 
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="1_57tk4"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_cgcdv"]

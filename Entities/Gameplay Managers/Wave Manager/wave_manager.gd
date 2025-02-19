@@ -52,7 +52,7 @@ func _ready() -> void:
 	current_wave = 1
 	total_kills = 0
 	spawned_enemies = 0
-	spawn_interval_timer.start()
+	#spawn_interval_timer.start()
 	max_enemies_alive = (max_percentage_enemies_alive / 100) * enemies_per_wave
 
 func _on_spawn_interval_timeout() -> void:

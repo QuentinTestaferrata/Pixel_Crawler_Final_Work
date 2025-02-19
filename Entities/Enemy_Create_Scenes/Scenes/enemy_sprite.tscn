@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_sprite.gd" id="1_df4ns"]
 [ext_resource type="Shader" uid="uid://dqdxcay1lpomt" path="res://Common/hit_flash.tres" id="2_1us2u"]
-[ext_resource type="Texture2D" uid="uid://cw7wrbb0md2ed" path="res://assets/Dungeon/Enemies (Skeleton)/skeleton_rogue_spritesheet.png" id="3_8saun"]
+[ext_resource type="Texture2D" uid="uid://be2emdb6tihpo" path="res://Entities/Enemy/2_cemetery/base/sprites/base_zombie_spritesheet.png" id="3_k1fl1"]
 [ext_resource type="Texture2D" uid="uid://cv0g5gutxysni" path="res://assets/Dungeon/Hands/left.png" id="4_yvjxb"]
 [ext_resource type="Texture2D" uid="uid://dkop8kpdb0yeh" path="res://assets/Dungeon/Hands/right_closed.png" id="5_rjk8m"]
 
@@ -1012,7 +1012,7 @@ libraries = {
 [node name="Body" type="Sprite2D" parent="Body"]
 material = SubResource("ShaderMaterial_x3yyr")
 position = Vector2(0, -9)
-texture = ExtResource("3_8saun")
+texture = ExtResource("3_k1fl1")
 hframes = 6
 vframes = 4
 
