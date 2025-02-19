@@ -1,0 +1,243 @@
+[gd_scene load_steps=15 format=3 uid="uid://cdo6ovay1x5ke"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.gd" id="1_5xlsd"]
+[ext_resource type="Resource" uid="uid://dn6lvq846lx5m" path="res://Entities/Weapons/Staffs/Admin Staff/admin_attacks/Secondary/admin_shield.tres" id="2_pg4tx"]
+[ext_resource type="Texture2D" uid="uid://dqgjvt1eyw222" path="res://Entities/Weapons/Staffs/Admin Staff/admin_attacks/Secondary/bone.png" id="3_p7oi8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47e35"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_k4vv3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Offset:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ycvsp"]
+resource_name = "rotate"
+length = 0.66
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Offset:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.66),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.26573]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53056"]
+_data = {
+"RESET": SubResource("Animation_k4vv3"),
+"rotate": SubResource("Animation_ycvsp")
+}
+
+[sub_resource type="Animation" id="Animation_35fnc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tuvsa"]
+resource_name = "Spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(75, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ekbj8"]
+resource_name = "despawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(75, 0), Vector2(20, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0bno2"]
+_data = {
+"RESET": SubResource("Animation_35fnc"),
+"Spawn": SubResource("Animation_tuvsa"),
+"despawn": SubResource("Animation_ekbj8")
+}
+
+[sub_resource type="Animation" id="Animation_6r6la"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ayvn5"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.26573]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sto2t"]
+_data = {
+"RESET": SubResource("Animation_6r6la"),
+"new_animation": SubResource("Animation_ayvn5")
+}
+
+[node name="Pivot" type="Node2D"]
+script = ExtResource("1_5xlsd")
+projectile_data = ExtResource("2_pg4tx")
+
+[node name="Offset" type="Node2D" parent="."]
+position = Vector2(50, 0)
+
+[node name="Area2D" type="Area2D" parent="Offset"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Offset/Area2D"]
+shape = SubResource("CapsuleShape2D_47e35")
+
+[node name="Sprite2D" type="Sprite2D" parent="Offset"]
+texture = ExtResource("3_p7oi8")
+
+[node name="Timer" type="Timer" parent="Offset"]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="RotationAnimation" type="AnimationPlayer" parent="Offset"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_53056")
+}
+autoplay = "rotate"
+
+[node name="SpawnAnimation" type="AnimationPlayer" parent="Offset"]
+libraries = {
+"": SubResource("AnimationLibrary_0bno2")
+}
+autoplay = "Spawn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sto2t")
+}
+autoplay = "new_animation"
+
+[connection signal="area_entered" from="Offset/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Offset/Timer" to="." method="_on_timer_timeout"]

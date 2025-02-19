@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://dn6lvq846lx5m"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_ttehu"]
+
+[resource]
+script = ExtResource("1_ttehu")
+NAME = "Admin Shield"
+TYPE = 0
+SPREAD = 1
+DAMAGE = 99
+MANA_COST = 0
+SPEED = 1
+FIRERATE = 0.0
+LIFETIME = 10.0
+COOLDOWN = 10.0
+KNOCKBACK_FORCE = 100.0
+CRIT_CHANCE = 100
+CRIT_MULTIPLYER = 10.0

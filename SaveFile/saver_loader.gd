@@ -26,6 +26,7 @@ func save_game():
 	saved_game.current_hp = StatsManager.current_health
 	saved_game.total_hp = StatsManager.max_health
 	
+
 	#Quests
 	saved_game.quests = StatsManager.quests
 	saved_game.player_quests = StatsManager.player_quests
@@ -35,7 +36,7 @@ func save_game():
 	print("Saving Game")
 
 func load_game() -> void:
-	var saved_game:SavedGame = load("res://savegame.tres") as SavedGame
+	var saved_game:SavedGame = load("res://SaveFile/savegame.tres") as SavedGame
 	
 	#Inventory
 	player.inventory.content = saved_game.items

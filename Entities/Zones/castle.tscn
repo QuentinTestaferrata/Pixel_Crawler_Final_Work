@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c0v3mfcb7httg" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.tscn" id="16_15evs"]
 [ext_resource type="Script" path="res://Common/Dialog/Quests/Quest.gd" id="16_o0br0"]
 [ext_resource type="Script" path="res://Common/Dialog/Quests/Objectives.gd" id="17_4ksk0"]
-[ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://saver_loader.tscn" id="17_ll0mv"]
+[ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="17_ll0mv"]
 [ext_resource type="Script" path="res://Common/Dialog/Quests/Rewards.gd" id="18_bdwwv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erg28"]
