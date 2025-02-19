@@ -30,13 +30,12 @@ func handle_dialog_option(option):
 	var current_dialog = npc.get_current_dialog()
 	if not current_dialog:
 		return
-
 	var next_state = current_dialog["options"].get(option, "start")
 	npc.set_dialog_state(next_state)
-
 	if next_state == "end":
 		if all_quests_completed_for_branch(npc.current_branch_index):
 			advance_to_next_branch()
+			
 		else:
 			dialog_ui.show_dialog(npc.npc_name, "Goodbye for now.", {"Okay": "exit"})
 	elif next_state == "exit":

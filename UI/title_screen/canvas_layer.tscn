@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1vbsegscrfj5"]
+[gd_scene load_steps=11 format=3 uid="uid://c1vbsegscrfj5"]
 
 [ext_resource type="Texture2D" uid="uid://ox6g8eumw3rb" path="res://UI/Buttons/4_long/hover_button.png" id="1_1b1lj"]
+[ext_resource type="Script" path="res://UI/title_screen/canvas_layer.gd" id="1_g4lsm"]
 [ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/4_long/button.png" id="1_hwg7y"]
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="2_7xgsp"]
 [ext_resource type="Texture2D" uid="uid://dch2gv4gudt7o" path="res://assets/background.png" id="3_rvypj"]
+[ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://saver_loader.tscn" id="6_m53hc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oa2qm"]
 texture = ExtResource("1_1b1lj")
@@ -30,6 +32,7 @@ font_size = 20
 font_color = Color(0.105882, 0.133333, 0.211765, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_g4lsm")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -37,14 +40,15 @@ anchors_preset = 0
 offset_right = 480.0
 offset_bottom = 270.0
 theme = SubResource("Theme_whewi")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="BackgroundImage" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
 texture = ExtResource("3_rvypj")
 
-[node name="Button" type="Button" parent="Control"]
+[node name="PlayButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,7 +62,7 @@ offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/Button"]
+[node name="PlayButtonLabel" type="Label" parent="Control/PlayButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,7 +79,7 @@ text = "PLAY"
 label_settings = SubResource("LabelSettings_ftj7h")
 horizontal_alignment = 1
 
-[node name="Button2" type="Button" parent="Control"]
+[node name="QuitButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,7 +93,7 @@ offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/Button2"]
+[node name="QuitButtonLabel" type="Label" parent="Control/QuitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,3 +109,9 @@ grow_vertical = 2
 text = "Quit Game"
 label_settings = SubResource("LabelSettings_ftj7h")
 horizontal_alignment = 1
+
+[node name="SaverLoader" parent="." groups=["saver_loader"] instance=ExtResource("6_m53hc")]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]

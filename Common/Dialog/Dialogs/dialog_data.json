@@ -52,7 +52,7 @@
 						"state": "in_progress",
 						"text": "I heard that that the other NPC sells weapons.",
 						"options": {
-							"Say Goodbye": "end",
+							"Say Goodbye": "exit",
 							"Go Back": "start"
 						}
 					},

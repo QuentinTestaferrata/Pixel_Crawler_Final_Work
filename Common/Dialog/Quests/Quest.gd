@@ -4,7 +4,7 @@ class_name Quest
 
 @export var quest_id: String
 @export var quest_name: String
-@export var quest_description: String
+@export_multiline var quest_description: String
 @export var state: String = "not_started"
 @export var unlock_id: String
 @export var objectives: Array[Objectives] = []
@@ -40,4 +40,5 @@ func complete_objectives(objective_id: String, quantity: int = 1):
 	if is_completed():
 		if state != "quest_paid":
 			state = "finished"
+			
 		

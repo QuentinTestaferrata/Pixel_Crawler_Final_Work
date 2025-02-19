@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://d2jxmcmvcc3qr" path="res://Entities/Props/Castle/candle/candle.tscn" id="11_ykno6"]
 [ext_resource type="PackedScene" uid="uid://dupy2el25jyvs" path="res://Entities/NPC/Castle_Shopkeeper/shopkeeper.tscn" id="12_fpkah"]
 [ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="14_8f0tf"]
+[ext_resource type="PackedScene" uid="uid://u3t3kgp73be8" path="res://Entities/Props/Castle/heal_statue/heal_statue.tscn" id="14_qakhh"]
 [ext_resource type="PackedScene" uid="uid://pld51fydlb1l" path="res://Entities/NPC/Castle_questNPC/Quest_NPC.tscn" id="15_023g8"]
 [ext_resource type="PackedScene" uid="uid://bpr0j8g5xg1bp" path="res://UI/HUD_restzone.tscn" id="15_iyl6u"]
 [ext_resource type="PackedScene" uid="uid://c0v3mfcb7httg" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.tscn" id="16_15evs"]
@@ -761,7 +762,7 @@ reward_amount = 5
 script = ExtResource("16_o0br0")
 quest_id = "npc_quest_1"
 quest_name = "Starter"
-quest_description = "Collect 10 bones by killing skeletons"
+quest_description = "Go in the dungeon and collect 10 bones by killing the skeletons"
 state = "not_started"
 unlock_id = "npc1_1"
 objectives = Array[ExtResource("17_4ksk0")]([SubResource("Resource_t4c8k")])
@@ -940,6 +941,9 @@ position = Vector2(88, 221)
 
 [node name="Plant2" parent="Decor" instance=ExtResource("2_47dc5")]
 position = Vector2(-98, 218)
+
+[node name="HealStatue" parent="." instance=ExtResource("14_qakhh")]
+position = Vector2(-203, 237)
 
 [node name="Shopkeeper" parent="." instance=ExtResource("12_fpkah")]
 position = Vector2(27, 405)

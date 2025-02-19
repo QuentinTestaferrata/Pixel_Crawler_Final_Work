@@ -34,6 +34,10 @@ var current_potions: int = 10
 @export var shop_items: Array[Item]
 @export var shop_weapons: Array[WeaponData]
 
+# Quests
+var quests : Array[Quest]
+var player_quests : Array[Quest]
+
 var player: CharacterBody2D
 var saver_loader: SaverLoader
 
