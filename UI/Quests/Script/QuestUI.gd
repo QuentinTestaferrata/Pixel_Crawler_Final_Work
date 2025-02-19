@@ -49,7 +49,7 @@ func update_quest_list():
 		quest_list.remove_child(child)
 	
 	# Populate with new items
-	var active_quests = player.get_node("QuestManager").get_active_quests()
+	var active_quests = StatsManager.player_quests #player.get_node("QuestManager").get_active_quests()
 	
 	if active_quests.size() == 0:
 		player.selected_quest = null
@@ -109,6 +109,11 @@ func _on_quest_selected(quest: Quest):
 		
 	print(quest.state)
 	if quest.is_completed() and quest.state == "finished":
+		
+		for child in finish_quest_button.get_children():
+			finish_quest_button.remove_child(child)
+			child.queue_free()
+		
 		var temp_finish_quest_button = OPTION_BUTTON.instantiate()
 		
 		temp_finish_quest_button.text = "Finish quest"
@@ -130,6 +135,7 @@ func _on_finish_quest_button_pressed(quest: Quest):
 	player.check_inventory_for_quest_item(quest, "done")
 	player._on_quest_updated(quest.quest_id)
 	clear_quest_details()
+	
 
 
 # Trigger to clear quest details

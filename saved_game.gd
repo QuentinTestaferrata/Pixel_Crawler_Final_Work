@@ -20,3 +20,7 @@ extends Resource
 @export var level: int
 @export var current_hp: int
 @export var total_hp: int
+
+@export_category("Quests")
+@export var quests : Array[Quest]
+@export var player_quests : Array[Quest]

@@ -4,7 +4,7 @@ const GAME_OVER_SCREEN = preload("res://UI/game_over_screen/GameOverScreen.tscn"
 @onready var game_over_screen: Control = $"."
 @onready var retry_button: TextureButton = $shader/ColorRect/HBoxContainer/RetryButton
 @onready var back_to_castle_button: TextureButton = $shader/ColorRect/HBoxContainer/BackToCastleButton
-@onready var quit_game_button: TextureButton = $shader/ColorRect/HBoxContainer/QuitGameButtonas  
+@onready var quit_game_button: TextureButton = $shader/ColorRect/HBoxContainer/QuitGameButton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var hud_layer: CanvasLayer

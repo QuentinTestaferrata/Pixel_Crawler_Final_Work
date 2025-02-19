@@ -186,7 +186,7 @@ func check_inventory_for_quest_item(quest: Quest, quest_done: String):
 					handle_quest_completion(quest)
 					player.inventory.remove_item(my_item, objective.required_quantity)
 					quest.state = "quest_paid"
-					print(quest.state)
+					
 					quest_manager.update_quest(quest.quest_id, "quest_paid")
 					temp_quest_tracker.close_quest_tracker()
 					quest_manager.remove_quests(quest.quest_id)
@@ -234,9 +234,9 @@ func _on_objective_updated(quest_id: String):
 
 
 func _show_game_over_screen():
-	var temp_game_over_screen
+	var temp_game_over_screen: Control
 	var hud_scene: CanvasLayer = get_parent().get_child(0)
-	if temp_game_over_screen == null:
-		temp_game_over_screen = GAME_OVER_SCREEN.instantiate()
-		hud_scene.add_child(temp_game_over_screen)
+	
+	temp_game_over_screen = GAME_OVER_SCREEN.instantiate()
+	hud_scene.add_child(temp_game_over_screen)
 	

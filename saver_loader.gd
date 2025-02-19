@@ -26,6 +26,10 @@ func save_game():
 	saved_game.current_hp = StatsManager.current_health
 	saved_game.total_hp = StatsManager.max_health
 	
+	#Quests
+	saved_game.quests = StatsManager.quests
+	saved_game.player_quests = StatsManager.player_quests
+	
 	ResourceSaver.save(saved_game, "res://savegame.tres")
 
 	print("Saving")
@@ -53,5 +57,9 @@ func load_game() -> void:
 	StatsManager.level = saved_game.level
 	StatsManager.current_health = saved_game.current_hp
 	StatsManager.max_health = saved_game.total_hp
+	
+	# Quests
+	StatsManager.quests = saved_game.quests 
+	StatsManager.player_quests = saved_game.player_quests
 	
 	print("Loading")

@@ -40,4 +40,5 @@ func complete_objectives(objective_id: String, quantity: int = 1):
 	if is_completed():
 		if state != "quest_paid":
 			state = "finished"
+			
 		
