@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="SavedGame" load_steps=30 format=3]
+[gd_resource type="Resource" script_class="SavedGame" load_steps=22 format=3]
 
 [ext_resource type="Resource" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tres" id="1_7vhvv"]
 [ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_b2ehi"]
+[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Admin Staff/admin_staff.tres" id="1_bdvy8"]
 [ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Basic Staff/basic_staff.tres" id="1_pw4j3"]
 [ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_0my7p"]
 [ext_resource type="Resource" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="2_fyhge"]
@@ -13,39 +14,9 @@
 [ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/bone.png" id="13_hv1ps"]
 [ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/golden_bone_drop.tscn" id="14_lh3ob"]
 [ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/golden_bone.png" id="15_3dge3"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/bow/bone_bow/arrow/arrow.png" id="20_s6s4o"]
 [ext_resource type="Resource" path="res://Entities/Weapons/bow/bone_bow/bone_bow_data.tres" id="22_7aa3h"]
 [ext_resource type="Resource" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres" id="23_xxam8"]
 [ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres" id="24_q08dv"]
-[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="31_eprmy"]
-[ext_resource type="PackedScene" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="32_buhui"]
-[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.tres" id="33_6cg5p"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone.png" id="34_84uf3"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_sprite.png" id="35_bxscl"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_showcase.png" id="36_sddl4"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_sprite.png" id="37_c56eb"]
-
-[sub_resource type="Resource" id="Resource_2h5jl"]
-script = ExtResource("3_v2ict")
-weapon_name = "Bone Staff"
-scene = ExtResource("32_buhui")
-sprite = ExtResource("37_c56eb")
-shop_sprite = ExtResource("35_bxscl")
-showcase_sprite = ExtResource("36_sddl4")
-price = 1000
-obtained = true
-equip_slot = 0
-primary_attack = ExtResource("31_eprmy")
-primary_attack_sprite = ExtResource("20_s6s4o")
-secondary_attack = ExtResource("33_6cg5p")
-secondary_attack_sprite = ExtResource("34_84uf3")
-weapon_type = 0
-weapon_rarity = 0
-damage = 10
-knockback_force = 0.0
-defense = 5
-description = "Shoots tons of bone arrows, fully automatic but limited shooting!"
-two_handed = false
 
 [sub_resource type="Resource" id="Resource_no5dk"]
 script = ExtResource("1_b2ehi")
@@ -103,8 +74,8 @@ items = Array[ExtResource("1_b2ehi")]([SubResource("Resource_no5dk"), SubResourc
 weapons = Array[ExtResource("3_v2ict")]([ExtResource("1_pw4j3"), ExtResource("1_7vhvv"), ExtResource("22_7aa3h"), ExtResource("23_xxam8"), ExtResource("24_q08dv")])
 shop_items = Array[ExtResource("1_b2ehi")]([ExtResource("2_fyhge"), ExtResource("3_sok1f")])
 shop_weapons = Array[ExtResource("3_v2ict")]([ExtResource("1_pw4j3"), ExtResource("1_7vhvv"), ExtResource("22_7aa3h"), ExtResource("23_xxam8"), ExtResource("24_q08dv")])
-equiped_weapon_1 = ExtResource("1_pw4j3")
-equiped_weapon_2 = SubResource("Resource_2h5jl")
+equiped_weapon_1 = ExtResource("1_bdvy8")
+equiped_weapon_2 = ExtResource("24_q08dv")
 gold = 12271
 current_exp = 1058
 needed_exp = 2000

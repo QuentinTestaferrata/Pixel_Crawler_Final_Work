@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=6 format=3 uid="uid://bnxp4jb0ctemo"]
+
+[ext_resource type="Resource" uid="uid://d3efsil8oglg6" path="res://Entities/Weapons/Staffs/Admin Staff/admin_attacks/Primary/admin_shard.tres" id="1_wc1oy"]
+[ext_resource type="PackedScene" uid="uid://dfldwvy7fkcww" path="res://Entities/Weapons/Staffs/Admin Staff/admin_staff.tscn" id="2_ummrx"]
+[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="3_85t0p"]
+[ext_resource type="Resource" uid="uid://dn6lvq846lx5m" path="res://Entities/Weapons/Staffs/Admin Staff/admin_attacks/Secondary/admin_shield.tres" id="4_bvqol"]
+[ext_resource type="Texture2D" uid="uid://meffw82o7oj1" path="res://Entities/Weapons/Staffs/Admin Staff/sprite.png" id="4_i6qym"]
+
+[resource]
+script = ExtResource("3_85t0p")
+weapon_name = "AdminStaff"
+scene = ExtResource("2_ummrx")
+sprite = ExtResource("4_i6qym")
+shop_sprite = ExtResource("4_i6qym")
+showcase_sprite = ExtResource("4_i6qym")
+price = 0
+obtained = false
+equip_slot = 0
+primary_attack = ExtResource("1_wc1oy")
+secondary_attack = ExtResource("4_bvqol")
+weapon_type = 0
+weapon_rarity = 0
+damage = 0
+knockback_force = 0.0
+defense = 0
+description = ""
+two_handed = false

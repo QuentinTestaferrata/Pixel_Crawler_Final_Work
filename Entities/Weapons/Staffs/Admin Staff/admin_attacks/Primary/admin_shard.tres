@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://d3efsil8oglg6"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_tphtb"]
+
+[resource]
+script = ExtResource("1_tphtb")
+NAME = "Admin Shard"
+TYPE = 0
+SPREAD = 0
+DAMAGE = 99
+MANA_COST = 0
+SPEED = 500
+FIRERATE = 0.0
+LIFETIME = 10.0
+COOLDOWN = 0.0
+KNOCKBACK_FORCE = 0.0
+CRIT_CHANCE = 100
+CRIT_MULTIPLYER = 10.0
