@@ -1,21 +1,21 @@
 [gd_scene load_steps=35 format=4 uid="uid://bg707nxjtqttc"]
 
-[ext_resource type="Script" path="res://Entities/Zones/dungeon.gd" id="1_07r07"]
-[ext_resource type="Texture2D" uid="uid://ct5h8ruw55s56" path="res://assets/Dungeon/Tiles/Tiles.png" id="1_g0itb"]
-[ext_resource type="PackedScene" uid="uid://c5ah34slmey0s" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager.tscn" id="2_idjmp"]
-[ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="2_sdqqa"]
-[ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="3_5fo00"]
-[ext_resource type="PackedScene" uid="uid://c6nud04qkgp33" path="res://Entities/Gameplay Managers/Loot Manager/loot_manager.tscn" id="3_s7a6y"]
-[ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="4_hgt2v"]
-[ext_resource type="PackedScene" uid="uid://dq3vhr8h3fr2e" path="res://Entities/Gameplay Managers/Mob Manager/Mob Manager.tscn" id="4_pysfd"]
-[ext_resource type="Resource" uid="uid://bmf4q2kbcxp0g" path="res://Entities/EnemySpawnrates/1_dungeon_spawnrates.tres" id="8_1mdyj"]
-[ext_resource type="PackedScene" uid="uid://c6g8tsl74w2o6" path="res://Common/spawnpoint/spawn_points.tscn" id="9_cdqes"]
-[ext_resource type="PackedScene" uid="uid://0hfqtdetcfbt" path="res://Common/spawnpoint/points/point.tscn" id="10_q2cpp"]
-[ext_resource type="PackedScene" uid="uid://dmu7q10xuxm76" path="res://Common/spawnpoint/area/Area.tscn" id="11_q2rwl"]
-[ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="13_urudh"]
-[ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="16_qvbn0"]
-[ext_resource type="Script" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="17_bvp4e"]
-[ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://saver_loader.tscn" id="19_du2c1"]
+[ext_resource type="Script" path="res://Entities/Zones/FightZones/zone.gd" id="1_7b7bi"]
+[ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="2_04jl3"]
+[ext_resource type="PackedScene" uid="uid://c5ah34slmey0s" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager.tscn" id="3_u74fm"]
+[ext_resource type="Resource" uid="uid://bmf4q2kbcxp0g" path="res://Entities/EnemySpawnrates/1_dungeon_spawnrates.tres" id="4_bb3ig"]
+[ext_resource type="PackedScene" uid="uid://c6g8tsl74w2o6" path="res://Common/spawnpoint/spawn_points.tscn" id="5_4rd6f"]
+[ext_resource type="PackedScene" uid="uid://0hfqtdetcfbt" path="res://Common/spawnpoint/points/point.tscn" id="6_j5vue"]
+[ext_resource type="PackedScene" uid="uid://dmu7q10xuxm76" path="res://Common/spawnpoint/area/Area.tscn" id="7_4un8u"]
+[ext_resource type="PackedScene" uid="uid://c6nud04qkgp33" path="res://Entities/Gameplay Managers/Loot Manager/loot_manager.tscn" id="8_ui4dn"]
+[ext_resource type="PackedScene" uid="uid://dq3vhr8h3fr2e" path="res://Entities/Gameplay Managers/Mob Manager/Mob Manager.tscn" id="9_ebke1"]
+[ext_resource type="Texture2D" uid="uid://ct5h8ruw55s56" path="res://assets/Dungeon/Tiles/Tiles.png" id="10_xb87c"]
+[ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="11_xai17"]
+[ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="12_bgllq"]
+[ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="13_7l2to"]
+[ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="14_5m6tu"]
+[ext_resource type="Script" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="15_8e67p"]
+[ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="16_e8vk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mexwe"]
 size = Vector2(366, 260)
@@ -24,7 +24,7 @@ size = Vector2(366, 260)
 size = Vector2(366, 432)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21tth"]
-texture = ExtResource("1_g0itb")
+texture = ExtResource("10_xb87c")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -331,10 +331,10 @@ texture = ExtResource("1_g0itb")
 15:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wi3o6"]
-texture = ExtResource("1_g0itb")
+texture = ExtResource("10_xb87c")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0p6l"]
-texture = ExtResource("13_urudh")
+texture = ExtResource("11_xai17")
 0:0/0 = 0
 1:0/0 = 0
 3:0/0 = 0
@@ -546,7 +546,7 @@ sources/1 = SubResource("TileSetAtlasSource_wi3o6")
 sources/2 = SubResource("TileSetAtlasSource_g0p6l")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38jde"]
-texture = ExtResource("1_g0itb")
+texture = ExtResource("10_xb87c")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -901,7 +901,7 @@ texture = ExtResource("1_g0itb")
 16:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v87wn"]
-texture = ExtResource("13_urudh")
+texture = ExtResource("11_xai17")
 0:0/0 = 0
 1:0/0 = 0
 3:0/0 = 0
@@ -1113,7 +1113,7 @@ sources/0 = SubResource("TileSetAtlasSource_38jde")
 sources/1 = SubResource("TileSetAtlasSource_v87wn")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7gwk"]
-texture = ExtResource("13_urudh")
+texture = ExtResource("11_xai17")
 0:0/0 = 0
 1:0/0 = 0
 3:0/0 = 0
@@ -1320,7 +1320,7 @@ texture = ExtResource("13_urudh")
 1:16/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hb7o8"]
-texture = ExtResource("1_g0itb")
+texture = ExtResource("10_xb87c")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1626,7 +1626,7 @@ sources/0 = SubResource("TileSetAtlasSource_x7gwk")
 sources/1 = SubResource("TileSetAtlasSource_hb7o8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8mcy"]
-texture = ExtResource("1_g0itb")
+texture = ExtResource("10_xb87c")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1924,7 +1924,7 @@ texture = ExtResource("1_g0itb")
 8:21/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb1cv"]
-texture = ExtResource("13_urudh")
+texture = ExtResource("11_xai17")
 0:0/0 = 0
 1:0/0 = 0
 3:0/0 = 0
@@ -2135,7 +2135,7 @@ sources/0 = SubResource("TileSetAtlasSource_n8mcy")
 sources/1 = SubResource("TileSetAtlasSource_eb1cv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uyfs5"]
-texture = ExtResource("13_urudh")
+texture = ExtResource("11_xai17")
 0:0/0 = 0
 1:0/0 = 0
 3:0/0 = 0
@@ -2369,7 +2369,7 @@ texture = ExtResource("13_urudh")
 1:16/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1q2g"]
-texture = ExtResource("1_g0itb")
+texture = ExtResource("10_xb87c")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2673,16 +2673,16 @@ sources/1 = SubResource("TileSetAtlasSource_n1q2g")
 
 [node name="Dungeon" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_07r07")
+script = ExtResource("1_7b7bi")
 
-[node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("2_sdqqa")]
+[node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") instance=ExtResource("2_04jl3")]
 visible = false
 saver_loader = NodePath("../SaverLoader")
 
-[node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_interval_timer") groups=["wave_manager"] instance=ExtResource("2_idjmp")]
+[node name="WaveManager" parent="." groups=["wave_manager"] instance=ExtResource("3_u74fm")]
 enemies_per_wave = 40
 enemies_multiplyer = 1.5
-spawn_rates = ExtResource("8_1mdyj")
+spawn_rates = ExtResource("4_bb3ig")
 max_percentage_enemies_alive = 25.0
 EXP_per_wave = 10
 EXP_multiplyer = 1.3
@@ -2690,97 +2690,94 @@ gold_per_wave = 5
 gold_multiplyer = 1.3
 health_multiplyer = 1.1
 speed_multiplyer = 1.02
-spawn_interval_timer = NodePath("SpawnInterval")
 
-[node name="SpawnInterval" type="Timer" parent="WaveManager"]
-
-[node name="SpawnPoints" parent="." instance=ExtResource("9_cdqes")]
+[node name="SpawnPoints" parent="." instance=ExtResource("5_4rd6f")]
 unique_name_in_owner = true
 
-[node name="Point" parent="SpawnPoints" instance=ExtResource("10_q2cpp")]
+[node name="Point" parent="SpawnPoints" instance=ExtResource("6_j5vue")]
 visible = false
 position = Vector2(46, 67)
 
-[node name="Area" parent="SpawnPoints/Point" instance=ExtResource("11_q2rwl")]
+[node name="Area" parent="SpawnPoints/Point" instance=ExtResource("7_4un8u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point/Area"]
 position = Vector2(137, 94)
 shape = SubResource("RectangleShape2D_mexwe")
 
-[node name="Point2" parent="SpawnPoints" instance=ExtResource("10_q2cpp")]
+[node name="Point2" parent="SpawnPoints" instance=ExtResource("6_j5vue")]
 visible = false
 position = Vector2(1132, 67)
 
-[node name="Area" parent="SpawnPoints/Point2" instance=ExtResource("11_q2rwl")]
+[node name="Area" parent="SpawnPoints/Point2" instance=ExtResource("7_4un8u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point2/Area"]
 position = Vector2(-148, 93)
 shape = SubResource("RectangleShape2D_mexwe")
 
-[node name="Point3" parent="SpawnPoints" instance=ExtResource("10_q2cpp")]
+[node name="Point3" parent="SpawnPoints" instance=ExtResource("6_j5vue")]
 visible = false
 position = Vector2(31, 621)
 
-[node name="Area" parent="SpawnPoints/Point3" instance=ExtResource("11_q2rwl")]
+[node name="Area" parent="SpawnPoints/Point3" instance=ExtResource("7_4un8u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point3/Area"]
 position = Vector2(152, -96)
 shape = SubResource("RectangleShape2D_mexwe")
 
-[node name="Point5" parent="SpawnPoints" instance=ExtResource("10_q2cpp")]
+[node name="Point5" parent="SpawnPoints" instance=ExtResource("6_j5vue")]
 visible = false
 position = Vector2(583, 636)
 
-[node name="Area" parent="SpawnPoints/Point5" instance=ExtResource("11_q2rwl")]
+[node name="Area" parent="SpawnPoints/Point5" instance=ExtResource("7_4un8u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point5/Area"]
 position = Vector2(1, -111)
 shape = SubResource("RectangleShape2D_mexwe")
 
-[node name="Point6" parent="SpawnPoints" instance=ExtResource("10_q2cpp")]
+[node name="Point6" parent="SpawnPoints" instance=ExtResource("6_j5vue")]
 visible = false
 position = Vector2(583, 71)
 
-[node name="Area" parent="SpawnPoints/Point6" instance=ExtResource("11_q2rwl")]
+[node name="Area" parent="SpawnPoints/Point6" instance=ExtResource("7_4un8u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point6/Area"]
 position = Vector2(1, 89)
 shape = SubResource("RectangleShape2D_mexwe")
 
-[node name="Point4" parent="SpawnPoints" instance=ExtResource("10_q2cpp")]
+[node name="Point4" parent="SpawnPoints" instance=ExtResource("6_j5vue")]
 visible = false
 position = Vector2(1133, 612)
 
-[node name="Area" parent="SpawnPoints/Point4" instance=ExtResource("11_q2rwl")]
+[node name="Area" parent="SpawnPoints/Point4" instance=ExtResource("7_4un8u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point4/Area"]
 position = Vector2(-149, -87)
 shape = SubResource("RectangleShape2D_mexwe")
 
-[node name="Point7" parent="SpawnPoints" instance=ExtResource("10_q2cpp")]
+[node name="Point7" parent="SpawnPoints" instance=ExtResource("6_j5vue")]
 visible = false
 position = Vector2(1134, 335)
 
-[node name="Area" parent="SpawnPoints/Point7" instance=ExtResource("11_q2rwl")]
+[node name="Area" parent="SpawnPoints/Point7" instance=ExtResource("7_4un8u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point7/Area"]
 position = Vector2(-151, 0)
 shape = SubResource("RectangleShape2D_1ikx3")
 
-[node name="Point8" parent="SpawnPoints" instance=ExtResource("10_q2cpp")]
+[node name="Point8" parent="SpawnPoints" instance=ExtResource("6_j5vue")]
 visible = false
 position = Vector2(32, 335)
 rotation = 3.14159
 
-[node name="Area" parent="SpawnPoints/Point8" instance=ExtResource("11_q2rwl")]
+[node name="Area" parent="SpawnPoints/Point8" instance=ExtResource("7_4un8u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point8/Area"]
 position = Vector2(-151, 0)
 shape = SubResource("RectangleShape2D_1ikx3")
 
-[node name="LootManager" parent="." instance=ExtResource("3_s7a6y")]
+[node name="LootManager" parent="." instance=ExtResource("8_ui4dn")]
 
-[node name="MobManager" parent="." instance=ExtResource("4_pysfd")]
+[node name="MobManager" parent="." instance=ExtResource("9_ebke1")]
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_60hl4")
@@ -2805,18 +2802,16 @@ tile_set = SubResource("TileSet_c8i74")
 tile_map_data = PackedByteArray("AAAZAAEAAAABAAAAAAAZAAIAAAABAAEAAAAVAAIAAAAJAAQAAAAaAAEAAAABAAIAAAAaAAIAAAABAAMAAAAaAAMAAAAIAAQAAAAYAAQAAAAJAAUAAAAMAAQAAAAHAAkAAAAEAAIAAAAHAAoAAAAKAAIAAAAGAAsAAAAFAAgAAAAHAAsAAAAAAAEAAAAEAAAAAAAAAAIAAAAEAAEAAAABAAEAAAAFAAAAAAABAAIAAAAFAAEAAAA8AAEAAAAAAAAAAAA8AAIAAAAAAAEAAAA6AAMAAAAGAAkAAAA9AAUAAAAHAAkAAAAzAAIAAAAHAAsAAAAxAAMAAAAIAAUAAAAzAAUAAAAJAAQAAAA0AAMAAAAJAAUAAAAqAAEAAAAMAAMAAAAqAAIAAAAMAAQAAAAgAAAAAAAGAAIAAAAgAAEAAAAGAAQAAABAAPz/AQAKAAIAAABBAPz/AQAMAAIAAABCAPz/AQANAAIAAABBAPv/AQAMAAEAAABCAPv/AQANAAEAAABAAPv/AQAKAAEAAAAXAAEAAAAGAAAAAABIAAEAAAANAAEAAABIAAIAAAANAAIAAABIAAMAAAAHAAQAAABIAAQAAAAHAAUAAABIAAUAAAAHAAYAAAAxAAAAAAAKAAIAAAAxAAEAAAAKAAMAAAAxAAIAAAAKAAQAAAAyAAAAAAALAAIAAAAyAAEAAAALAAMAAAAyAAIAAAALAAQAAAAXAAIAAAAGAAEAAAAYAAEAAAAIAAAAAAAYAAIAAAAIAAEAAAA=")
 tile_set = SubResource("TileSet_78b6w")
 
-[node name="Player" parent="." instance=ExtResource("4_hgt2v")]
+[node name="Player" parent="." instance=ExtResource("12_bgllq")]
 position = Vector2(583, 338)
 
-[node name="Projectiles_Holder" parent="." instance=ExtResource("3_5fo00")]
+[node name="Projectiles_Holder" parent="." instance=ExtResource("13_7l2to")]
 
-[node name="Enemies" parent="." instance=ExtResource("16_qvbn0")]
-script = ExtResource("17_bvp4e")
+[node name="Enemies" parent="." instance=ExtResource("14_5m6tu")]
+script = ExtResource("15_8e67p")
 
 [node name="Drops" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="SaverLoader" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_du2c1")]
+[node name="SaverLoader" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_e8vk2")]
 player = NodePath("../Player")
-
-[connection signal="timeout" from="WaveManager/SpawnInterval" to="WaveManager" method="_on_spawn_interval_timeout"]

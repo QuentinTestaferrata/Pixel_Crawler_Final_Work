@@ -49,6 +49,7 @@ folder_colors={
 "res://Common/": "green",
 "res://Entities/": "red",
 "res://Items and Drops/": "blue",
+"res://SaveFile/": "pink",
 "res://UI/": "yellow",
 "res://assets/": "purple"
 }

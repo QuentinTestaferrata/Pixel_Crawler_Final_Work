@@ -25,7 +25,6 @@ const WAVE_FINISHED_DIALOG = preload("res://UI/wave_finished_dialog/wave_finishe
 @export var speed_multiplyer: float
 
 @export_category("Wave intervals")
-@export var spawn_interval_timer: Timer
 @export var spawn_interval: float
 @export var spawn_interval_multiplyer: float
 
@@ -43,6 +42,7 @@ var max_enemies_alive: float
 @onready var dungeon: Node2D = $".."
 @onready var spawn_points: Node = %SpawnPoints
 @onready var hud_layer: CanvasLayer = $"../HUDLayer"
+@onready var spawn_interval_timer: Timer = $Timer
 
 
 func _ready() -> void:
@@ -118,7 +118,6 @@ func _add_kill() -> void:
 	max_enemies_alive += 1
 
 func _wave_check() -> void:
-	
 	if current_wave_kills >= enemies_per_wave:
 		print("Wave ended! (wavemanager)")
 		wave_cleared.emit()
