@@ -31,7 +31,7 @@ func save_game():
 	saved_game.quests = StatsManager.quests
 	saved_game.player_quests = StatsManager.player_quests
 	
-	ResourceSaver.save(saved_game, "res://savegame.tres")
+	ResourceSaver.save(saved_game, "res://SaveFile/savegame.tres")
 
 	print("Saving Game")
 

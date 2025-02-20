@@ -113,7 +113,6 @@ func _on_quest_selected(quest: Quest):
 		for child in finish_quest_button.get_children():
 			finish_quest_button.remove_child(child)
 			child.queue_free()
-		
 		var temp_finish_quest_button = OPTION_BUTTON.instantiate()
 		
 		temp_finish_quest_button.text = "Finish quest"
