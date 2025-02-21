@@ -1,69 +1,41 @@
-[gd_resource type="Resource" script_class="SavedGame" load_steps=30 format=3]
+[gd_resource type="Resource" script_class="SavedGame" load_steps=23 format=3]
 
-[ext_resource type="Resource" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tres" id="1_7vhvv"]
-[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_b2ehi"]
-[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Basic Staff/basic_staff.tres" id="1_pw4j3"]
-[ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="2_0my7p"]
-[ext_resource type="Resource" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="2_fyhge"]
-[ext_resource type="Script" path="res://saved_game.gd" id="2_jkdrd"]
-[ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="3_8fdhq"]
-[ext_resource type="Resource" uid="uid://batcoigiqsdiw" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.tres" id="3_sok1f"]
-[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="3_v2ict"]
-[ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/bone_drop.tscn" id="12_ka342"]
-[ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/bone.png" id="13_hv1ps"]
-[ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/golden_bone_drop.tscn" id="14_lh3ob"]
-[ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/golden_bone.png" id="15_3dge3"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/bow/bone_bow/arrow/arrow.png" id="20_s6s4o"]
-[ext_resource type="Resource" path="res://Entities/Weapons/bow/bone_bow/bone_bow_data.tres" id="22_7aa3h"]
-[ext_resource type="Resource" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres" id="23_xxam8"]
-[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres" id="24_q08dv"]
-[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="31_eprmy"]
-[ext_resource type="PackedScene" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.tscn" id="32_buhui"]
-[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.tres" id="33_6cg5p"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone.png" id="34_84uf3"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_sprite.png" id="35_bxscl"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_shop_showcase.png" id="36_sddl4"]
-[ext_resource type="Texture2D" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_sprite.png" id="37_c56eb"]
-
-[sub_resource type="Resource" id="Resource_2h5jl"]
-script = ExtResource("3_v2ict")
-weapon_name = "Bone Staff"
-scene = ExtResource("32_buhui")
-sprite = ExtResource("37_c56eb")
-shop_sprite = ExtResource("35_bxscl")
-showcase_sprite = ExtResource("36_sddl4")
-price = 1000
-obtained = true
-equip_slot = 0
-primary_attack = ExtResource("31_eprmy")
-primary_attack_sprite = ExtResource("20_s6s4o")
-secondary_attack = ExtResource("33_6cg5p")
-secondary_attack_sprite = ExtResource("34_84uf3")
-weapon_type = 0
-weapon_rarity = 0
-damage = 10
-knockback_force = 0.0
-defense = 5
-description = "Shoots tons of bone arrows, fully automatic but limited shooting!"
-two_handed = false
+[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Admin Staff/admin_staff.tres" id="1_2a5fr"]
+[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff_data.tres" id="2_gpmva"]
+[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="3_htcba"]
+[ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Health Potion/heal_potion.png" id="4_sgd7q"]
+[ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/bone_drop.tscn" id="5_wi1dp"]
+[ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/bone.png" id="6_6ld1p"]
+[ext_resource type="PackedScene" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/scenes/golden_bone_drop.tscn" id="7_aglgo"]
+[ext_resource type="Texture2D" path="res://assets/Dungeon/items and drops/golden_bone.png" id="8_i5bvd"]
+[ext_resource type="Texture2D" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="9_qjlxo"]
+[ext_resource type="Script" path="res://Common/Dialog/Quests/Quest.gd" id="10_s1kns"]
+[ext_resource type="Script" path="res://SaveFile/saved_game.gd" id="11_kbuo7"]
+[ext_resource type="Resource" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="12_bu21x"]
+[ext_resource type="Resource" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.tres" id="13_1nfmu"]
+[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="14_sob2i"]
+[ext_resource type="Resource" path="res://Entities/Weapons/Staffs/Basic Staff/basic_staff.tres" id="15_1w4nr"]
+[ext_resource type="Resource" path="res://Entities/Weapons/bow/Basic Bow/basic_bow.tres" id="16_p2lg3"]
+[ext_resource type="Resource" path="res://Entities/Weapons/bow/bone_bow/bone_bow_data.tres" id="17_ks5cg"]
+[ext_resource type="Resource" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_data.tres" id="18_1poen"]
 
 [sub_resource type="Resource" id="Resource_no5dk"]
-script = ExtResource("1_b2ehi")
+script = ExtResource("3_htcba")
 name = "Healing Potion"
-sprite = ExtResource("2_0my7p")
+sprite = ExtResource("4_sgd7q")
 description = "Heals 20 health points. (10 seconds cooldown)"
 value = 5
 price = 25
 consumable = true
 rarity = 0
 stackable = true
-amount = 190
+amount = 200
 
 [sub_resource type="Resource" id="Resource_tfpq2"]
-script = ExtResource("1_b2ehi")
+script = ExtResource("3_htcba")
 name = "Bone"
-scene = ExtResource("12_ka342")
-sprite = ExtResource("13_hv1ps")
+scene = ExtResource("5_wi1dp")
+sprite = ExtResource("6_6ld1p")
 description = "Normal bone"
 value = 2
 price = 8
@@ -73,10 +45,10 @@ stackable = true
 amount = 346
 
 [sub_resource type="Resource" id="Resource_iofa5"]
-script = ExtResource("1_b2ehi")
+script = ExtResource("3_htcba")
 name = "Golden Bone"
-scene = ExtResource("14_lh3ob")
-sprite = ExtResource("15_3dge3")
+scene = ExtResource("7_aglgo")
+sprite = ExtResource("8_i5bvd")
 description = "Gold bone"
 value = 50
 price = 0
@@ -86,9 +58,9 @@ stackable = true
 amount = 27
 
 [sub_resource type="Resource" id="Resource_tm1cd"]
-script = ExtResource("1_b2ehi")
+script = ExtResource("3_htcba")
 name = "Speed Potion"
-sprite = ExtResource("3_8fdhq")
+sprite = ExtResource("9_qjlxo")
 description = "Gives 20% speed for 10 seconds. (20 seconds cooldown)"
 value = 10
 price = 50
@@ -98,16 +70,18 @@ stackable = true
 amount = 16
 
 [resource]
-script = ExtResource("2_jkdrd")
-items = Array[ExtResource("1_b2ehi")]([SubResource("Resource_no5dk"), SubResource("Resource_tfpq2"), SubResource("Resource_iofa5"), SubResource("Resource_tm1cd")])
-weapons = Array[ExtResource("3_v2ict")]([ExtResource("1_pw4j3"), ExtResource("1_7vhvv"), ExtResource("22_7aa3h"), ExtResource("23_xxam8"), ExtResource("24_q08dv")])
-shop_items = Array[ExtResource("1_b2ehi")]([ExtResource("2_fyhge"), ExtResource("3_sok1f")])
-shop_weapons = Array[ExtResource("3_v2ict")]([ExtResource("1_pw4j3"), ExtResource("1_7vhvv"), ExtResource("22_7aa3h"), ExtResource("23_xxam8"), ExtResource("24_q08dv")])
-equiped_weapon_1 = ExtResource("1_pw4j3")
-equiped_weapon_2 = SubResource("Resource_2h5jl")
-gold = 12271
+script = ExtResource("11_kbuo7")
+items = Array[ExtResource("3_htcba")]([SubResource("Resource_no5dk"), SubResource("Resource_tfpq2"), SubResource("Resource_iofa5"), SubResource("Resource_tm1cd")])
+weapons = Array[ExtResource("14_sob2i")]([ExtResource("15_1w4nr"), ExtResource("16_p2lg3"), ExtResource("17_ks5cg"), ExtResource("18_1poen"), ExtResource("2_gpmva")])
+shop_items = Array[ExtResource("3_htcba")]([ExtResource("12_bu21x"), ExtResource("13_1nfmu")])
+shop_weapons = Array[ExtResource("14_sob2i")]([ExtResource("15_1w4nr"), ExtResource("16_p2lg3"), ExtResource("17_ks5cg"), ExtResource("18_1poen"), ExtResource("2_gpmva")])
+equiped_weapon_1 = ExtResource("1_2a5fr")
+equiped_weapon_2 = ExtResource("2_gpmva")
+gold = 12246
 current_exp = 1058
 needed_exp = 2000
 level = 4
 current_hp = 65
 total_hp = 65
+quests = Array[ExtResource("10_s1kns")]([])
+player_quests = Array[ExtResource("10_s1kns")]([])

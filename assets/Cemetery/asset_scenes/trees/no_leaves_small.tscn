@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dequ7bbxre03s"]
+
+[ext_resource type="Texture2D" uid="uid://ct6sqjkpumgsp" path="res://assets/Cemetery/Tiles/Trees.png" id="1_lbuud"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uyka2"]
+radius = 4.0
+height = 10.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lbuud")
+offset = Vector2(-2, -37)
+region_enabled = true
+region_rect = Rect2(82, 208, 25, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uyka2")

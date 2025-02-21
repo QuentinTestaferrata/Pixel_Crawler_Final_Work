@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b17cmks1rn6r8"]
+
+[ext_resource type="Texture2D" uid="uid://wblecdgswcoi" path="res://Entities/Enemy/2_cemetery/muscle/weapon/cursed_scythe.png" id="1_qgfb6"]
+[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_hyba8"]
+[ext_resource type="Resource" uid="uid://dn5sy2envsq3l" path="res://Entities/Enemy/2_cemetery/muscle/weapon/cursed_scythe.tres" id="3_lpevv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1rn4"]
+radius = 7.0
+height = 18.0
+
+[node name="CursedScythe" type="Sprite2D"]
+texture = ExtResource("1_qgfb6")
+offset = Vector2(4.51, -6.195)
+script = ExtResource("2_hyba8")
+weapon_data = ExtResource("3_lpevv")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, -13)
+shape = SubResource("CapsuleShape2D_i1rn4")
+
+[node name="DamageCooldown" type="Timer" parent="."]

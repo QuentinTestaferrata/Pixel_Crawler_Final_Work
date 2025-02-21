@@ -90,7 +90,6 @@ func _on_spawn_interval_timeout() -> void:
 		spawned_enemies += 1
 	else: 
 		spawn_interval_timer.start()
-
 		
 	if spawned_enemies >= enemies_per_wave:
 		spawn_interval_timer.stop()

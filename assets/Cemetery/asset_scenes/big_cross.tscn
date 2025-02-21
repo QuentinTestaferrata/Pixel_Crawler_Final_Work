@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2xuy2703k1bk"]
+
+[ext_resource type="Texture2D" uid="uid://7oukxkadtj80" path="res://assets/Cemetery/Tiles/Tiles.png" id="1_gs3fe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5toj7"]
+size = Vector2(56, 49)
+
+[node name="BigCross" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gs3fe")
+region_enabled = true
+region_rect = Rect2(167, 297, 56, 49)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_gs3fe")
+offset = Vector2(0, -10)
+region_enabled = true
+region_rect = Rect2(135, 297, 28, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_5toj7")
