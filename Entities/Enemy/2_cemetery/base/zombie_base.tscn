@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://dbssskf1fgkqt" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthBar.tscn" id="3_81wf7"]
 [ext_resource type="PackedScene" uid="uid://cicvwla72mg1e" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthComponent.tscn" id="4_musxa"]
 [ext_resource type="PackedScene" uid="uid://c46kqb4qaj0eo" path="res://Entities/Enemy_Create_Scenes/Scenes/enemy_sprite.tscn" id="5_pytwy"]
-[ext_resource type="Texture2D" uid="uid://cuivq888mcfg" path="res://Entities/Enemy/2_cemetery/base/sprites/hand_left.png" id="6_g7sgy"]
-[ext_resource type="Texture2D" uid="uid://bf8gma86fnfj" path="res://Entities/Enemy/2_cemetery/base/sprites/hand_holding.png" id="7_p640k"]
-[ext_resource type="Texture2D" uid="uid://dditykii4rnak" path="res://Entities/Enemy/2_cemetery/base/sprites/hand.png" id="8_drolk"]
-[ext_resource type="Texture2D" uid="uid://8f7gxgjkpb31" path="res://Entities/Enemy/2_cemetery/base/sprites/hand_holding_right.png" id="9_cmsa0"]
-[ext_resource type="PackedScene" uid="uid://cjsretkoxtvse" path="res://Entities/Enemy/1_dungeon/base/weapon/bone_sword.tscn" id="10_uolua"]
+[ext_resource type="Texture2D" uid="uid://bf8gma86fnfj" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/left_hand.png" id="6_g7sgy"]
+[ext_resource type="Texture2D" uid="uid://cuivq888mcfg" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/left_hand_empty.png" id="7_77ht6"]
+[ext_resource type="Texture2D" uid="uid://dditykii4rnak" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/right_hand_empty.png" id="8_drolk"]
+[ext_resource type="Texture2D" uid="uid://8f7gxgjkpb31" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/right_hand.png" id="9_cmsa0"]
+[ext_resource type="PackedScene" uid="uid://dpbrcrvkr73f4" path="res://Entities/Enemy/2_cemetery/base/weapon/cursed_sword.tscn" id="10_qk27o"]
 [ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_nkfw0"]
-[ext_resource type="Texture2D" uid="uid://bffvrjjv7pjmh" path="res://Entities/Enemy/1_dungeon/base/weapon/bone_sword.png" id="12_hmlwr"]
+[ext_resource type="Texture2D" uid="uid://cnt6i55x30776" path="res://Entities/Enemy/2_cemetery/base/weapon/cursed_sword.png" id="12_cunek"]
 [ext_resource type="Texture2D" uid="uid://be2emdb6tihpo" path="res://Entities/Enemy/2_cemetery/base/sprites/base_zombie_spritesheet.png" id="13_33qju"]
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="14_ux4es"]
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="15_f6txq"]
@@ -30,14 +30,14 @@
 radius = 2.0
 height = 16.0
 
-[sub_resource type="Resource" id="Resource_1fqxs"]
+[sub_resource type="Resource" id="Resource_nrrm3"]
 script = ExtResource("11_nkfw0")
-weapon_name = "Bone Sword"
-scene = ExtResource("10_uolua")
-sprite = ExtResource("12_hmlwr")
+weapon_name = "Cursed Sword"
+scene = ExtResource("10_qk27o")
+sprite = ExtResource("12_cunek")
 weapon_type = 3
-damage = 2
-knockback_force = 2.0
+damage = 10
+knockback_force = 5.0
 defense = 0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syp77"]
@@ -63,7 +63,7 @@ radius = 73.0069
 [sub_resource type="LabelSettings" id="LabelSettings_yea2t"]
 font_size = 7
 
-[node name="SkeletonBase" type="CharacterBody2D" groups=["enemy"]]
+[node name="ZombieBase" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lay81")
@@ -83,10 +83,10 @@ max_health = 100
 
 [node name="Sprite" parent="." instance=ExtResource("5_pytwy")]
 left_hand = ExtResource("6_g7sgy")
-left_hand_empty = ExtResource("7_p640k")
-right_hand = ExtResource("8_drolk")
-right_hand_empty = ExtResource("9_cmsa0")
-left_hand_weapon = SubResource("Resource_1fqxs")
+left_hand_empty = ExtResource("7_77ht6")
+right_hand = ExtResource("9_cmsa0")
+right_hand_empty = ExtResource("8_drolk")
+left_hand_weapon = SubResource("Resource_nrrm3")
 body = ExtResource("13_33qju")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("14_ux4es")]

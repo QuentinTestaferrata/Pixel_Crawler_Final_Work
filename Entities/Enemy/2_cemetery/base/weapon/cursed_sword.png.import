@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dditykii4rnak"
-path="res://.godot/imported/hand.png-006c404066cbbcba65e9d8a0d545e055.ctex"
+uid="uid://cnt6i55x30776"
+path="res://.godot/imported/cursed_sword.png-6cabdd7d1a399b9c21e5ecb3ab3c8a7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Enemy/2_cemetery/base/sprites/hand.png"
-dest_files=["res://.godot/imported/hand.png-006c404066cbbcba65e9d8a0d545e055.ctex"]
+source_file="res://Entities/Enemy/2_cemetery/base/weapon/cursed_sword.png"
+dest_files=["res://.godot/imported/cursed_sword.png-6cabdd7d1a399b9c21e5ecb3ab3c8a7e.ctex"]
 
 [params]
 

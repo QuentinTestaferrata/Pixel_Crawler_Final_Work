@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuivq888mcfg"
-path="res://.godot/imported/hand_left.png-458d974434541acd332c31ec0d0f4f99.ctex"
+uid="uid://dditykii4rnak"
+path="res://.godot/imported/right_hand_empty.png-a7f2279ed0a1d7e1686516c0fe8c06db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Enemy/2_cemetery/base/sprites/hand_left.png"
-dest_files=["res://.godot/imported/hand_left.png-458d974434541acd332c31ec0d0f4f99.ctex"]
+source_file="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/right_hand_empty.png"
+dest_files=["res://.godot/imported/right_hand_empty.png-a7f2279ed0a1d7e1686516c0fe8c06db.ctex"]
 
 [params]
 

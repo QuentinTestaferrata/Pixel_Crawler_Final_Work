@@ -1818,7 +1818,7 @@ position = Vector2(-729, -157)
 position = Vector2(-883, -126)
 
 [node name="Sprite2D10" parent="Decoration" instance=ExtResource("31_n5sb4")]
-position = Vector2(-496, 258)
+position = Vector2(-495, 261)
 
 [node name="Sprite2D11" parent="Decoration" instance=ExtResource("31_n5sb4")]
 position = Vector2(-520, 325)

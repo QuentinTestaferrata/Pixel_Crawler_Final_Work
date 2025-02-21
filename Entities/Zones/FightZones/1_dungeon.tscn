@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Entities/Zones/FightZones/zone.gd" id="1_7b7bi"]
 [ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="2_04jl3"]
 [ext_resource type="PackedScene" uid="uid://c5ah34slmey0s" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager.tscn" id="3_u74fm"]
-[ext_resource type="Resource" uid="uid://bmf4q2kbcxp0g" path="res://Entities/EnemySpawnrates/1_dungeon_spawnrates.tres" id="4_bb3ig"]
+[ext_resource type="Resource" uid="uid://bmf4q2kbcxp0g" path="res://Entities/WaveData/1_dungeon/dungeon_spawnrates.tres" id="4_bb3ig"]
 [ext_resource type="PackedScene" uid="uid://c6g8tsl74w2o6" path="res://Common/spawnpoint/spawn_points.tscn" id="5_4rd6f"]
 [ext_resource type="PackedScene" uid="uid://0hfqtdetcfbt" path="res://Common/spawnpoint/points/point.tscn" id="6_j5vue"]
 [ext_resource type="PackedScene" uid="uid://dmu7q10xuxm76" path="res://Common/spawnpoint/area/Area.tscn" id="7_4un8u"]

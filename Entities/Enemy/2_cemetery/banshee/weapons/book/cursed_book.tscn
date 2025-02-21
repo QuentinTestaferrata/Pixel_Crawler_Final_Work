@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8evqn7sm37hq"]
+
+[ext_resource type="Texture2D" uid="uid://bekfje73elaib" path="res://assets/Cemetery/Weapons_Cursed.png" id="1_qibxd"]
+
+[node name="CursedBook" type="Sprite2D"]
+texture = ExtResource("1_qibxd")
+offset = Vector2(3.35, 0)
+region_enabled = true
+region_rect = Rect2(82, 33, 12, 14)

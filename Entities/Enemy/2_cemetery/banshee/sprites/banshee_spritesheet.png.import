@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf8gma86fnfj"
-path="res://.godot/imported/hand_holding.png-a1d6f1c5da32f2c1d6544b05ed21e9d0.ctex"
+uid="uid://clatyuqrgcyeq"
+path="res://.godot/imported/banshee_spritesheet.png-0429f9b002725dda512f255ac8f60907.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Enemy/2_cemetery/base/sprites/hand_holding.png"
-dest_files=["res://.godot/imported/hand_holding.png-a1d6f1c5da32f2c1d6544b05ed21e9d0.ctex"]
+source_file="res://Entities/Enemy/2_cemetery/banshee/sprites/banshee_spritesheet.png"
+dest_files=["res://.godot/imported/banshee_spritesheet.png-0429f9b002725dda512f255ac8f60907.ctex"]
 
 [params]
 
