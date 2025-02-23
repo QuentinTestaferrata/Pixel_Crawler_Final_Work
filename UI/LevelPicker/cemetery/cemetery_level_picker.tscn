@@ -1,28 +1,28 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqwj3c4pycffx"]
+[gd_scene load_steps=21 format=3 uid="uid://dl24dxrinjlw0"]
 
-[ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_8f03v"]
-[ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="2_l0nxv"]
-[ext_resource type="Script" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.gd" id="2_puaox"]
-[ext_resource type="Texture2D" uid="uid://cg7qsfsb6albe" path="res://UI/LevelPicker/zone_pictures/dungeon.png" id="3_73coa"]
-[ext_resource type="PackedScene" uid="uid://cle5f2ytjueb" path="res://Entities/Zones/FightZones/2_cemetery.tscn" id="3_hmeh4"]
-[ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="4_spigu"]
-[ext_resource type="Texture2D" uid="uid://blo78g4o38ggl" path="res://assets/Dungeon/items and drops/golden_bone.png" id="5_enyto"]
-[ext_resource type="Texture2D" uid="uid://ceefxrpwtdv8k" path="res://assets/Dungeon/items and drops/emerald.png" id="6_4n34g"]
-[ext_resource type="Texture2D" uid="uid://c5y0sgl047sl0" path="res://UI/LevelPicker/dungeon/skeleton_base.png" id="7_b355w"]
-[ext_resource type="Texture2D" uid="uid://bdposooolanrl" path="res://UI/LevelPicker/dungeon/mage.png" id="8_4o3e5"]
-[ext_resource type="Texture2D" uid="uid://c70pc2aueefx0" path="res://UI/LevelPicker/dungeon/rogue.png" id="9_boq2p"]
-[ext_resource type="Texture2D" uid="uid://6o4tc6xdp1kx" path="res://UI/LevelPicker/dungeon/warrior.png" id="10_jgyi8"]
-[ext_resource type="Texture2D" uid="uid://crb7v2hmhywdv" path="res://UI/LevelPicker/start_button.png" id="11_1510c"]
-[ext_resource type="Texture2D" uid="uid://gqdg4tku1s76" path="res://UI/LevelPicker/start_pressed.png" id="12_157ji"]
-[ext_resource type="Texture2D" uid="uid://cjcjj6dn4unjd" path="res://UI/LevelPicker/start_button_hover.png" id="13_6og1v"]
+[ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_on3hs"]
+[ext_resource type="Script" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.gd" id="2_irug7"]
+[ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="3_bg2w7"]
+[ext_resource type="PackedScene" uid="uid://cle5f2ytjueb" path="res://Entities/Zones/FightZones/2_cemetery.tscn" id="3_rmsma"]
+[ext_resource type="Texture2D" uid="uid://cg7qsfsb6albe" path="res://UI/LevelPicker/zone_pictures/dungeon.png" id="4_05tb3"]
+[ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="5_sjcwk"]
+[ext_resource type="Texture2D" uid="uid://blo78g4o38ggl" path="res://assets/Dungeon/items and drops/golden_bone.png" id="6_n4c7p"]
+[ext_resource type="Texture2D" uid="uid://ceefxrpwtdv8k" path="res://assets/Dungeon/items and drops/emerald.png" id="7_mpvnr"]
+[ext_resource type="Texture2D" uid="uid://c5y0sgl047sl0" path="res://UI/LevelPicker/dungeon/skeleton_base.png" id="8_08hcr"]
+[ext_resource type="Texture2D" uid="uid://bdposooolanrl" path="res://UI/LevelPicker/dungeon/mage.png" id="9_liigh"]
+[ext_resource type="Texture2D" uid="uid://c70pc2aueefx0" path="res://UI/LevelPicker/dungeon/rogue.png" id="10_r3x2b"]
+[ext_resource type="Texture2D" uid="uid://6o4tc6xdp1kx" path="res://UI/LevelPicker/dungeon/warrior.png" id="11_xqaq7"]
+[ext_resource type="Texture2D" uid="uid://crb7v2hmhywdv" path="res://UI/LevelPicker/start_button.png" id="12_t7gdu"]
+[ext_resource type="Texture2D" uid="uid://gqdg4tku1s76" path="res://UI/LevelPicker/start_pressed.png" id="13_bhx2u"]
+[ext_resource type="Texture2D" uid="uid://cjcjj6dn4unjd" path="res://UI/LevelPicker/start_button_hover.png" id="14_io8jh"]
 
 [sub_resource type="Theme" id="Theme_4mlrj"]
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
 Label/font_sizes/font_size = 10
-Label/fonts/font = ExtResource("1_8f03v")
+Label/fonts/font = ExtResource("1_on3hs")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36m5c"]
-texture = ExtResource("2_l0nxv")
+texture = ExtResource("3_bg2w7")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
@@ -123,8 +123,8 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_4mlrj")
-script = ExtResource("2_puaox")
-_zone = ExtResource("3_hmeh4")
+script = ExtResource("2_irug7")
+_zone = ExtResource("3_rmsma")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_direction = 2
@@ -164,7 +164,7 @@ theme_override_constants/margin_bottom = -5
 
 [node name="DungeonImage" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_73coa")
+texture = ExtResource("4_05tb3")
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -197,7 +197,7 @@ text = "Common"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Common/Common"]
 layout_mode = 2
-texture = ExtResource("4_spigu")
+texture = ExtResource("5_sjcwk")
 stretch_mode = 3
 
 [node name="Uncommon" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
@@ -215,7 +215,7 @@ text = "uncommon"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Uncommon/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_enyto")
+texture = ExtResource("6_n4c7p")
 stretch_mode = 3
 
 [node name="Rare" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
@@ -233,7 +233,7 @@ text = "Rare"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Rare/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("6_4n34g")
+texture = ExtResource("7_mpvnr")
 stretch_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
@@ -260,19 +260,19 @@ alignment = 1
 
 [node name="BaseSkeleton" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Enemies"]
 layout_mode = 2
-texture = ExtResource("7_b355w")
+texture = ExtResource("8_08hcr")
 
 [node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Enemies"]
 layout_mode = 2
-texture = ExtResource("8_4o3e5")
+texture = ExtResource("9_liigh")
 
 [node name="TextureRect3" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Enemies"]
 layout_mode = 2
-texture = ExtResource("9_boq2p")
+texture = ExtResource("10_r3x2b")
 
 [node name="TextureRect4" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Enemies"]
 layout_mode = 2
-texture = ExtResource("10_jgyi8")
+texture = ExtResource("11_xqaq7")
 
 [node name="MarginContainer4" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -280,9 +280,9 @@ theme_override_constants/margin_top = 4
 
 [node name="StartButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer4"]
 layout_mode = 2
-texture_normal = ExtResource("11_1510c")
-texture_pressed = ExtResource("12_157ji")
-texture_hover = ExtResource("13_6og1v")
+texture_normal = ExtResource("12_t7gdu")
+texture_pressed = ExtResource("13_bhx2u")
+texture_hover = ExtResource("14_io8jh")
 stretch_mode = 3
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer4/StartButton" to="." method="_on_start_button_pressed"]

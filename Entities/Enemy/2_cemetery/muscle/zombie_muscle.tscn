@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://tevagqmlefhq"]
+[gd_scene load_steps=29 format=3 uid="uid://tevagqmlefhq"]
 
 [ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_rts70"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="2_aexcc"]
@@ -16,15 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="14_jsgc1"]
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="15_np7ia"]
 [ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="16_c00r3"]
-[ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="17_ckkf5"]
-[ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="18_neky3"]
+[ext_resource type="Resource" uid="uid://buhigwa7ovvbp" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.tres" id="17_wa12o"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="19_v5pe8"]
 [ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="20_bgrb5"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="21_iurr4"]
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="22_rwebq"]
 [ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="23_oiler"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="24_hnhjs"]
-[ext_resource type="Script" path="res://Entities/Enemy/label.gd" id="25_yyiox"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
 radius = 2.0
@@ -43,30 +41,21 @@ defense = 0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syp77"]
 radius = 9.0
 
-[sub_resource type="Resource" id="Resource_o863s"]
+[sub_resource type="Resource" id="Resource_w4i1t"]
 script = ExtResource("16_c00r3")
-item = ExtResource("17_ckkf5")
-probability = 100.0
-min_amount = 1
-max_amount = 1
-
-[sub_resource type="Resource" id="Resource_dxuxj"]
-script = ExtResource("16_c00r3")
-item = ExtResource("18_neky3")
-probability = 10.0
+item = ExtResource("17_wa12o")
+probability = 4.0
 min_amount = 1
 max_amount = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj3jx"]
 radius = 73.0069
 
-[sub_resource type="LabelSettings" id="LabelSettings_yea2t"]
-font_size = 7
-
 [node name="ZombieMuscle" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_rts70")
+speed = 85
 enemy_type = "melee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -97,7 +86,7 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_syp77")
 
 [node name="LootDrops" parent="." instance=ExtResource("15_np7ia")]
-drops = Array[ExtResource("16_c00r3")]([SubResource("Resource_o863s"), SubResource("Resource_dxuxj")])
+drops = Array[ExtResource("16_c00r3")]([SubResource("Resource_w4i1t")])
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("19_v5pe8")]
 initial_state = NodePath("Chase")
@@ -124,13 +113,3 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_fj3jx")
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -26.0
-offset_top = -61.0
-offset_right = 27.0
-offset_bottom = -47.0
-label_settings = SubResource("LabelSettings_yea2t")
-horizontal_alignment = 1
-script = ExtResource("25_yyiox")

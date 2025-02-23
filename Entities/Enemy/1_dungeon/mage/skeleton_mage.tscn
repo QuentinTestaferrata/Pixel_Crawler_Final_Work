@@ -41,7 +41,7 @@ max_amount = 1
 [sub_resource type="Resource" id="Resource_dxuxj"]
 script = ExtResource("16_6yg3o")
 item = ExtResource("18_rlqea")
-probability = 10.0
+probability = 2.0
 min_amount = 1
 max_amount = 1
 
@@ -96,9 +96,9 @@ attack_range = NodePath("../AttackRange")
 
 [node name="Die" parent="StateMachine" instance=ExtResource("21_o2j4c")]
 
-[node name="Surround" parent="StateMachine" instance=ExtResource("22_sm5jf")]
-
 [node name="Attack" parent="StateMachine" instance=ExtResource("23_fhrng")]
+
+[node name="Surround" parent="StateMachine" instance=ExtResource("22_sm5jf")]
 
 [node name="ShootProjectile" parent="StateMachine" instance=ExtResource("22_gh6gn")]
 available_spells = Array[int]([1, 1])
