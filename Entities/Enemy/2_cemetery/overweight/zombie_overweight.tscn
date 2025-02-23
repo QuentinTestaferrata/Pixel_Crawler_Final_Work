@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cmyacaa62f8jf"]
+[gd_scene load_steps=29 format=3 uid="uid://cmyacaa62f8jf"]
 
 [ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_1htee"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="2_s7fcf"]
@@ -16,15 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="14_pyfop"]
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="15_okvdm"]
 [ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="16_ds00f"]
-[ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="17_inr3f"]
-[ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="18_52afm"]
+[ext_resource type="Resource" uid="uid://buhigwa7ovvbp" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.tres" id="17_mougj"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="19_fwcb0"]
 [ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="20_44jvy"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="21_3eeqi"]
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="22_5snai"]
 [ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="23_3cs6h"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="24_mw6il"]
-[ext_resource type="Script" path="res://Entities/Enemy/label.gd" id="25_sjma5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
 radius = 2.0
@@ -43,30 +41,21 @@ defense = 0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syp77"]
 radius = 9.0
 
-[sub_resource type="Resource" id="Resource_o863s"]
+[sub_resource type="Resource" id="Resource_q7vxx"]
 script = ExtResource("16_ds00f")
-item = ExtResource("17_inr3f")
-probability = 100.0
+item = ExtResource("17_mougj")
+probability = 5.0
 min_amount = 1
-max_amount = 1
-
-[sub_resource type="Resource" id="Resource_dxuxj"]
-script = ExtResource("16_ds00f")
-item = ExtResource("18_52afm")
-probability = 10.0
-min_amount = 1
-max_amount = 1
+max_amount = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj3jx"]
 radius = 73.0069
-
-[sub_resource type="LabelSettings" id="LabelSettings_yea2t"]
-font_size = 7
 
 [node name="ZombieMuscle" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_1htee")
+speed = 45
 enemy_type = "melee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -79,7 +68,7 @@ exp_amount = 25
 [node name="HealthBar" parent="." instance=ExtResource("3_1tcia")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_2bgag")]
-max_health = 100
+max_health = 550
 
 [node name="Sprite" parent="." instance=ExtResource("5_nyb05")]
 left_hand = ExtResource("6_330n8")
@@ -97,7 +86,7 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_syp77")
 
 [node name="LootDrops" parent="." instance=ExtResource("15_okvdm")]
-drops = Array[ExtResource("16_ds00f")]([SubResource("Resource_o863s"), SubResource("Resource_dxuxj")])
+drops = Array[ExtResource("16_ds00f")]([SubResource("Resource_q7vxx")])
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("19_fwcb0")]
 initial_state = NodePath("Chase")
@@ -124,13 +113,3 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_fj3jx")
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -26.0
-offset_top = -61.0
-offset_right = 27.0
-offset_bottom = -47.0
-label_settings = SubResource("LabelSettings_yea2t")
-horizontal_alignment = 1
-script = ExtResource("25_sjma5")

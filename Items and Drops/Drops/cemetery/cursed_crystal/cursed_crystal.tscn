@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6vy3kodw2k66"]
+
+[ext_resource type="Texture2D" uid="uid://ddth51yqheb5q" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.png" id="1_uujit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aflyj"]
+radius = 28.0
+
+[node name="BoneDrop" type="Area2D"]
+
+[node name="PickupArea" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aflyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uujit")

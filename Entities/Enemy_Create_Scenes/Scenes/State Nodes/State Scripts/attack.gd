@@ -50,7 +50,7 @@ func attack() -> void:
 
 func pick_random_attack() -> void:
 	var random_attack = randi() % available_attacks.size()
-	var attacks = state_machine.attack_animations.get_animation_list()
+	attacks = state_machine.attack_animations.get_animation_list()
 	
 	match random_attack:
 		0:

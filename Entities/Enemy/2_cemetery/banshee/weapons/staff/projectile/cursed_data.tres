@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyProjectileData" load_steps=2 format=3 uid="uid://dbee05m7kkv05"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/enemy_projectile_data.gd" id="1_r56pd"]
+
+[resource]
+script = ExtResource("1_r56pd")
+NAME = "Red Fireball"
+TYPE = 2
+SPREAD = 10
+DAMAGE = 10
+SPEED = 300
+FIRERATE = 5.0
+LIFETIME = 5.0
+KNOCKBACK_FORCE = 5.0
+CRIT_CHANCE = 5
+CRIT_MULTIPLYER = 1.5

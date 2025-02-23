@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://r51oth4d2mur"]
 
-[ext_resource type="Script" path="res://Entities/Chests/chest.gd" id="1_lsrdm"]
+[ext_resource type="Script" path="res://Entities/Props/Chests/chest.gd" id="1_lsrdm"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="2_sivjn"]
 [ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_2ktnx"]
 

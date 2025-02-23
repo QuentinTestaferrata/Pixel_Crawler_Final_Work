@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c67kpjdcm5m6h"]
+[gd_scene load_steps=27 format=3 uid="uid://c67kpjdcm5m6h"]
 
 [ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_2ushu"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="2_ouhdj"]
@@ -7,21 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://c46kqb4qaj0eo" path="res://Entities/Enemy_Create_Scenes/Scenes/enemy_sprite.tscn" id="5_uf6x6"]
 [ext_resource type="Texture2D" uid="uid://bf8gma86fnfj" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/left_hand.png" id="6_y4r7p"]
 [ext_resource type="Texture2D" uid="uid://cuivq888mcfg" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/left_hand_empty.png" id="7_evrq2"]
+[ext_resource type="Resource" uid="uid://dsmxlfshd42e7" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/cursed_staff.tres" id="8_6q2rt"]
 [ext_resource type="Texture2D" uid="uid://8f7gxgjkpb31" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/right_hand.png" id="8_kjk43"]
 [ext_resource type="Texture2D" uid="uid://dditykii4rnak" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/right_hand_empty.png" id="9_0k16h"]
-[ext_resource type="Resource" uid="uid://c88057j271vgf" path="res://Entities/Enemy/1_dungeon/mage/Weapon/bone_staff.tres" id="10_vit2o"]
 [ext_resource type="Resource" uid="uid://ccm1hx0yobxg" path="res://Entities/Enemy/2_cemetery/banshee/weapons/book/cursed_book.tres" id="11_xscr0"]
 [ext_resource type="Texture2D" uid="uid://clatyuqrgcyeq" path="res://Entities/Enemy/2_cemetery/banshee/sprites/banshee_spritesheet.png" id="12_p6k5q"]
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="12_uv5la"]
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="13_d0bj0"]
 [ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="14_f3uri"]
-[ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="15_xf26w"]
-[ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="16_jnwct"]
+[ext_resource type="Resource" uid="uid://buhigwa7ovvbp" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.tres" id="16_ado46"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="17_prtbt"]
 [ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="18_wr55s"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="19_n5cc4"]
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="20_n8rm0"]
-[ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="21_46saw"]
 [ext_resource type="PackedScene" uid="uid://ckv7doqqb4npt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/shoot_projectile.tscn" id="22_31qlb"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="23_2ww6k"]
 
@@ -32,19 +30,12 @@ height = 16.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syp77"]
 radius = 9.0
 
-[sub_resource type="Resource" id="Resource_o863s"]
+[sub_resource type="Resource" id="Resource_sxljv"]
 script = ExtResource("14_f3uri")
-item = ExtResource("15_xf26w")
+item = ExtResource("16_ado46")
 probability = 100.0
 min_amount = 1
-max_amount = 1
-
-[sub_resource type="Resource" id="Resource_dxuxj"]
-script = ExtResource("14_f3uri")
-item = ExtResource("16_jnwct")
-probability = 10.0
-min_amount = 1
-max_amount = 1
+max_amount = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj3jx"]
 radius = 171.026
@@ -53,6 +44,7 @@ radius = 171.026
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_2ushu")
+speed = 90
 enemy_type = "ranged"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -62,20 +54,20 @@ shape = SubResource("CapsuleShape2D_5goyu")
 [node name="EXPComponent" parent="." instance=ExtResource("2_ouhdj")]
 exp_amount = 20
 
-[node name="HealthBar" parent="." instance=ExtResource("3_23uvf")]
-
-[node name="HealthComponent" parent="." instance=ExtResource("4_fbytd")]
-max_health = 100
-
 [node name="Sprite" parent="." instance=ExtResource("5_uf6x6")]
 left_hand = ExtResource("6_y4r7p")
 left_hand_empty = ExtResource("7_evrq2")
 right_hand = ExtResource("8_kjk43")
 right_hand_empty = ExtResource("9_0k16h")
 weapon_type = 1
-left_hand_weapon = ExtResource("10_vit2o")
+left_hand_weapon = ExtResource("8_6q2rt")
 right_hand_weapon = ExtResource("11_xscr0")
 body = ExtResource("12_p6k5q")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_23uvf")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_fbytd")]
+max_health = 100
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("12_uv5la")]
 health_component = NodePath("../HealthComponent")
@@ -85,7 +77,7 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_syp77")
 
 [node name="LootDrops" parent="." instance=ExtResource("13_d0bj0")]
-drops = Array[ExtResource("14_f3uri")]([SubResource("Resource_o863s"), SubResource("Resource_dxuxj")])
+drops = Array[ExtResource("14_f3uri")]([SubResource("Resource_sxljv")])
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("17_prtbt")]
 initial_state = NodePath("Chase")
@@ -100,10 +92,8 @@ attack_range = NodePath("../AttackRange")
 
 [node name="Surround" parent="StateMachine" instance=ExtResource("20_n8rm0")]
 
-[node name="Attack" parent="StateMachine" instance=ExtResource("21_46saw")]
-
 [node name="ShootProjectile" parent="StateMachine" instance=ExtResource("22_31qlb")]
-available_spells = Array[int]([1, 1])
+available_spells = Array[int]([2])
 
 [node name="DamageNumberPosition" parent="." instance=ExtResource("23_2ww6k")]
 
