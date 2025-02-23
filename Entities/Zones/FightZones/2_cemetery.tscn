@@ -1664,6 +1664,16 @@ position = Vector2(9, 49)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xc635")
 
+[node name="Point2" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(-1130, 395)
+
+[node name="Area" parent="SpawnPoints/Point2" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point2/Area"]
+position = Vector2(9, 49)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xc635")
+
 [node name="MobManager" parent="." instance=ExtResource("5_4r6xx")]
 
 [node name="SaverLoader" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_chvlr")]
@@ -1717,10 +1727,11 @@ position = Vector2(-921, 377)
 [node name="Drops" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="LootManager" parent="." instance=ExtResource("4_8njly")]
+y_sort_enabled = true
+
 [node name="Enemies" parent="." instance=ExtResource("8_ph4jo")]
 script = ExtResource("10_uocvm")
-
-[node name="LootManager" parent="." instance=ExtResource("4_8njly")]
 
 [node name="Decoration" type="Node2D" parent="."]
 y_sort_enabled = true

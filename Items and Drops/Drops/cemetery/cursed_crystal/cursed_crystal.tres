@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://buhigwa7ovvbp"]
+
+[ext_resource type="PackedScene" uid="uid://b6vy3kodw2k66" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.tscn" id="1_ki4am"]
+[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_m4xpi"]
+[ext_resource type="Texture2D" uid="uid://ddth51yqheb5q" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.png" id="3_5tjmt"]
+
+[resource]
+script = ExtResource("1_m4xpi")
+name = "Cursed Crystal"
+scene = ExtResource("1_ki4am")
+sprite = ExtResource("3_5tjmt")
+description = "This crystal is cursed"
+value = 99
+price = 0
+consumable = false
+rarity = 1
+stackable = true
+amount = 0
