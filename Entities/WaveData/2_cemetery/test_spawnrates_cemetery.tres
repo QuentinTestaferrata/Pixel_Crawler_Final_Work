@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemySpawnRates" load_steps=6 format=3 uid="uid://bs4showxllyly"]
+
+[ext_resource type="PackedScene" uid="uid://bce22fgcladp" path="res://Entities/Enemy/2_cemetery/base/zombie_base.tscn" id="1_0fu0c"]
+[ext_resource type="PackedScene" uid="uid://c67kpjdcm5m6h" path="res://Entities/Enemy/2_cemetery/banshee/zombie_banshee.tscn" id="2_75fmx"]
+[ext_resource type="PackedScene" uid="uid://tevagqmlefhq" path="res://Entities/Enemy/2_cemetery/muscle/zombie_muscle.tscn" id="3_mpklc"]
+[ext_resource type="PackedScene" uid="uid://cmyacaa62f8jf" path="res://Entities/Enemy/2_cemetery/overweight/zombie_overweight.tscn" id="4_7jenx"]
+[ext_resource type="Script" path="res://Entities/Gameplay Managers/Wave Manager/enemy_spawnrates.gd" id="5_qriyk"]
+
+[resource]
+script = ExtResource("5_qriyk")
+enemy_1 = ExtResource("1_0fu0c")
+spawn_rate_1 = 0
+enemy_2 = ExtResource("2_75fmx")
+spawn_rate_2 = 100
+enemy_3 = ExtResource("3_mpklc")
+spawn_rate_3 = 0
+enemy_4 = ExtResource("4_7jenx")
+spawn_rate_4 = 0
+spawn_rate_rare = 0
+wave = 0
+wave_2 = 0
