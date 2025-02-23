@@ -2,7 +2,6 @@ extends ProgressBar
 
 @onready var damage_bar: ProgressBar = $DamageBar
 @onready var timer: Timer = $Timer
-@onready var skeleton_rogue: CharacterBody2D = $".."
 
 var health: int = 0
 
