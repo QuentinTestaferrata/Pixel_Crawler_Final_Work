@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://u3t3kgp73be8"]
+[gd_scene load_steps=10 format=3 uid="uid://u3t3kgp73be8"]
 
 [ext_resource type="Script" path="res://Entities/Props/Castle/heal_statue/heal_statue.gd" id="1_n76x3"]
 [ext_resource type="Texture2D" uid="uid://bne3l786qajo2" path="res://Entities/Props/Castle/heal_statue/heal_stone.png" id="2_cq1op"]
+[ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="2_f6uw4"]
 [ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_ap8la"]
 [ext_resource type="Texture2D" uid="uid://ubx4a2meh1ds" path="res://assets/masks for  particles/12.png" id="4_a0yq3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0na57"]
-radius = 11.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fsn1"]
+radius = 3.5
+height = 19.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_brvyh"]
 radius = 39.9
@@ -22,12 +24,20 @@ colors = PackedColorArray(3.60981e-06, 0.881789, 0.27651, 0, 0.484949, 0.920187,
 [node name="HealStatue" type="StaticBody2D"]
 script = ExtResource("1_n76x3")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1.0125, 0)
+scale = Vector2(0.0483683, 0.05)
+texture = ExtResource("2_f6uw4")
+offset = Vector2(0, 63.19)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_cq1op")
+offset = Vector2(0, -13.975)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_0na57")
+shape = SubResource("CapsuleShape2D_0fsn1")
 one_way_collision_margin = 0.0
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_ap8la")]
@@ -36,6 +46,8 @@ collision_mask = 514
 action_name = "Heal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_brvyh")
 
 [node name="GreenParticles" type="CPUParticles2D" parent="."]
