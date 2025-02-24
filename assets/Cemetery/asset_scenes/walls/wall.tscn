@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bksrvsy3ua4qh"]
+
+[ext_resource type="Texture2D" uid="uid://b3ugesqbyh1ui" path="res://assets/Cemetery/asset_scenes/walls/walls.png" id="1_y5vl0"]
+
+[node name="Wall" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y5vl0")
+offset = Vector2(0, -17.5)
+region_enabled = true
+region_rect = Rect2(16, 5, 64, 59)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, 5, -16, 5, -16, 0, 32, 0, 32, -3, -16, -3, -16, -6, -32, -6)
