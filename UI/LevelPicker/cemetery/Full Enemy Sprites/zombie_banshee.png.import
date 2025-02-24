@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxb6v00d3mxm"
-path="res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"
+uid="uid://dou42pubui02s"
+path="res://.godot/imported/zombie_banshee.png-b8f5e6d1643f33f69613474b3785c67d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/LevelPicker/zone_pictures/dungeon.png"
-dest_files=["res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"]
+source_file="res://UI/LevelPicker/cemetery/Full Enemy Sprites/zombie_banshee.png"
+dest_files=["res://.godot/imported/zombie_banshee.png-b8f5e6d1643f33f69613474b3785c67d.ctex"]
 
 [params]
 

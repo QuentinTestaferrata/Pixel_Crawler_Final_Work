@@ -12,7 +12,6 @@ var projectile_holder: Node2D
 @onready var marker_2d: Marker2D = $Marker2D
 
 func _ready() -> void:
-	print(get_parent())
 	state_machine = get_parent()
 	projectile_holder = get_tree().get_first_node_in_group("projectiles")
 	

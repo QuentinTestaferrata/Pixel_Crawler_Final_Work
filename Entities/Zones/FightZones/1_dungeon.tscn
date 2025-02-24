@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bg707nxjtqttc"]
+[gd_scene load_steps=34 format=4 uid="uid://bg707nxjtqttc"]
 
 [ext_resource type="Script" path="res://Entities/Zones/FightZones/zone.gd" id="1_7b7bi"]
 [ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="2_04jl3"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c6g8tsl74w2o6" path="res://Common/spawnpoint/spawn_points.tscn" id="5_4rd6f"]
 [ext_resource type="PackedScene" uid="uid://0hfqtdetcfbt" path="res://Common/spawnpoint/points/point.tscn" id="6_j5vue"]
 [ext_resource type="PackedScene" uid="uid://dmu7q10xuxm76" path="res://Common/spawnpoint/area/Area.tscn" id="7_4un8u"]
-[ext_resource type="PackedScene" uid="uid://c6nud04qkgp33" path="res://Entities/Gameplay Managers/Loot Manager/loot_manager.tscn" id="8_ui4dn"]
 [ext_resource type="PackedScene" uid="uid://dq3vhr8h3fr2e" path="res://Entities/Gameplay Managers/Mob Manager/Mob Manager.tscn" id="9_ebke1"]
 [ext_resource type="Texture2D" uid="uid://ct5h8ruw55s56" path="res://assets/Dungeon/Tiles/Tiles.png" id="10_xb87c"]
 [ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="11_xai17"]
@@ -2775,9 +2774,10 @@ rotation = 3.14159
 position = Vector2(-151, 0)
 shape = SubResource("RectangleShape2D_1ikx3")
 
-[node name="LootManager" parent="." instance=ExtResource("8_ui4dn")]
-
 [node name="MobManager" parent="." instance=ExtResource("9_ebke1")]
+
+[node name="SaverLoader" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_e8vk2")]
+player = NodePath("../Player")
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_60hl4")
@@ -2812,6 +2812,3 @@ script = ExtResource("15_8e67p")
 
 [node name="Drops" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="SaverLoader" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_e8vk2")]
-player = NodePath("../Player")
