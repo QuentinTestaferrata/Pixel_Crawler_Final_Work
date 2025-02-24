@@ -26,6 +26,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	# Get Quest manager
 	quest_manager = player.quest_manager
+	
 	quests = StatsManager.quests
 	print("NPC Ready. Quests loaded", quests.size())
 

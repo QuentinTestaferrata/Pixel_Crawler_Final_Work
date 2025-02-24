@@ -11,6 +11,7 @@ var _hud: CanvasLayer
 func _on_start_button_pressed() -> void:
 	_hud = get_parent()
 	_hud.saver_loader.save_game()
+
 	print()
 	get_tree().change_scene_to_file(_zone.resource_path)
 	AttackCooldowns.reset_cooldowns()

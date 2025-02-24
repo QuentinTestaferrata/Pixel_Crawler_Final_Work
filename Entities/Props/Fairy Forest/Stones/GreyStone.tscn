@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2is3xl6w7bd7"]
+
+[ext_resource type="Texture2D" uid="uid://jmaxi5n8a3t3" path="res://assets/Fairy Forest/Assets/Props.png" id="1_016cd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_llt77"]
+radius = 14.59
+height = 45.41
+
+[node name="GreyStone" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_016cd")
+offset = Vector2(0, -40)
+region_enabled = true
+region_rect = Rect2(211, 231, 44, 41)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("1_016cd")
+offset = Vector2(0, -40)
+region_enabled = true
+region_rect = Rect2(211, 231, 44, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+rotation = -1.57952
+shape = SubResource("CapsuleShape2D_llt77")
