@@ -1,15 +1,44 @@
 extends Node2D
 
-const DUNGEON_LEVEL_PICKER = preload("res://UI/LevelPicker/dungeon/dungeon_level_picker.tscn")
-
 @export var all_zones: Array[PackedScene]
+
+var current_selected_zone: int
+var canvas_layer: CanvasLayer
+var current_page: Control
 
 @onready var interaction_area: InteractionArea = $InteractionArea
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "on_interact")
+	current_selected_zone = 0
+	canvas_layer = get_parent().get_child(0)
+#func _connect_signals(zone: int) -> void:
+	#all_zones[zone].next_pressed.connect(test)
+	#all_zones[zone].prev_pressed.connect(test2)
 
 func on_interact():
-	var level_info: Control = all_zones[0].instantiate()
-	var canvas_layer: CanvasLayer = get_parent().get_child(0)
+	instantiate_zone_page(0)
+
+func instantiate_zone_page(i: int) -> void:
+	var level_info: Control = all_zones[i].instantiate()
+	
+	level_info.connect("next_pressed", next)
+	level_info.connect("prev_pressed", prev)
+	
+	current_page = level_info
+	
 	canvas_layer.add_child(level_info)
+
+func next() -> void:
+	if current_selected_zone < all_zones.size() - 1:
+		current_selected_zone += 1
+		print(current_selected_zone)
+		current_page.play_animation("despawn")
+		instantiate_zone_page(current_selected_zone)
+
+func prev() -> void:
+	if current_selected_zone > 0:
+		current_selected_zone -= 1
+		print(current_selected_zone)
+		current_page.play_animation("despawn")
+		instantiate_zone_page(current_selected_zone)

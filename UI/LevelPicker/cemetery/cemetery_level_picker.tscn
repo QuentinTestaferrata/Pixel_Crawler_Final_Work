@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dl24dxrinjlw0"]
+[gd_scene load_steps=31 format=3 uid="uid://dl24dxrinjlw0"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_on3hs"]
-[ext_resource type="Script" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.gd" id="2_irug7"]
+[ext_resource type="Script" path="res://UI/LevelPicker/dungeon/level_picker.gd" id="2_irug7"]
 [ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="3_bg2w7"]
 [ext_resource type="PackedScene" uid="uid://cle5f2ytjueb" path="res://Entities/Zones/FightZones/2_cemetery.tscn" id="3_rmsma"]
 [ext_resource type="Texture2D" uid="uid://n61snvgq6qp7" path="res://UI/LevelPicker/zone_pictures/cemetery.png" id="5_vn2by"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://crb7v2hmhywdv" path="res://UI/LevelPicker/start_button.png" id="12_t7gdu"]
 [ext_resource type="Texture2D" uid="uid://gqdg4tku1s76" path="res://UI/LevelPicker/start_pressed.png" id="13_bhx2u"]
 [ext_resource type="Texture2D" uid="uid://cjcjj6dn4unjd" path="res://UI/LevelPicker/start_button_hover.png" id="14_io8jh"]
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="16_4k7u6"]
 
 [sub_resource type="Theme" id="Theme_4mlrj"]
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
@@ -113,22 +114,6 @@ _data = {
 "rarities": SubResource("Animation_tinvx")
 }
 
-[sub_resource type="Animation" id="Animation_xnb3s"]
-resource_name = "spawn"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PanelContainer:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.133333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-170, 16.5), Vector2(195.5, 16.5), Vector2(162.5, 16.5)]
-}
-
 [sub_resource type="Animation" id="Animation_xbeon"]
 length = 0.001
 tracks/0/type = "value"
@@ -159,6 +144,36 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(162.5, 16.5), Vector2(129, 16.5), Vector2(550, 16.5)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xnb3s"]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-170, 16.5), Vector2(195.5, 16.5), Vector2(162.5, 16.5)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ecwr0"]
 _data = {
@@ -166,6 +181,25 @@ _data = {
 "despawn": SubResource("Animation_efb01"),
 "spawn": SubResource("Animation_xnb3s")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f53xv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1xu1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btsp1"]
+texture = ExtResource("16_4k7u6")
+region_rect = Rect2(105, 1496, 17, 31)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_of4vx"]
+texture = ExtResource("16_4k7u6")
+region_rect = Rect2(57, 1496, 17, 31)
+
+[sub_resource type="Theme" id="Theme_mpvkr"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_f53xv")
+Button/styles/focus = SubResource("StyleBoxEmpty_c1xu1")
+Button/styles/hover = SubResource("StyleBoxTexture_btsp1")
+Button/styles/normal = SubResource("StyleBoxTexture_of4vx")
+Button/styles/pressed = SubResource("StyleBoxTexture_of4vx")
 
 [node name="CemeteryLevelPicker" type="Control"]
 layout_mode = 3
@@ -346,5 +380,33 @@ libraries = {
 "": SubResource("AnimationLibrary_ecwr0")
 }
 autoplay = "spawn"
+
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -15.0
+offset_right = -121.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_mpvkr")
+
+[node name="PreviousButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 142.0
+offset_top = -15.5
+offset_right = 159.0
+offset_bottom = 15.5
+grow_vertical = 2
+scale = Vector2(-1, 1)
+theme = SubResource("Theme_mpvkr")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer4/StartButton" to="." method="_on_start_button_pressed"]
