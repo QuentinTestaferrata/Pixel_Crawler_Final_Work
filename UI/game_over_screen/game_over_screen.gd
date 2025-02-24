@@ -20,7 +20,7 @@ func _ready() -> void:
 # TODO: After button pressed player needs to go back to z index 0 
 
 func _on_retry_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Entities/Zones/dungeon.tscn")
+	get_tree().change_scene_to_file("res://Entities/Zones/FightZones/1_dungeon.tscn")
 	AttackCooldowns.reset_cooldowns()
 	animation_player.play("fade_to_normal")
 	StatsManager.current_health = StatsManager.max_health

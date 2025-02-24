@@ -42,7 +42,7 @@ price = 8
 consumable = false
 rarity = 0
 stackable = true
-amount = 346
+amount = 361
 
 [sub_resource type="Resource" id="Resource_iofa5"]
 script = ExtResource("3_htcba")
@@ -55,7 +55,7 @@ price = 0
 consumable = false
 rarity = 1
 stackable = true
-amount = 27
+amount = 28
 
 [sub_resource type="Resource" id="Resource_tm1cd"]
 script = ExtResource("3_htcba")
@@ -69,6 +69,68 @@ rarity = 0
 stackable = true
 amount = 16
 
+[sub_resource type="Resource" id="Resource_t4c8k"]
+script = ExtResource("11_je1js")
+id = "obj_collect_01"
+description = "Give 10 bones"
+target_id = "Bone"
+target_type = "collection"
+objective_dialog = ""
+required_quantity = 10
+collected_quantity = 346
+is_completed = true
+
+[sub_resource type="Resource" id="Resource_yoik3"]
+script = ExtResource("12_yu4y2")
+reward_type = "coins"
+reward_amount = 50
+
+[sub_resource type="Resource" id="Resource_s8d7j"]
+script = ExtResource("12_yu4y2")
+reward_type = "xp"
+reward_amount = 5
+
+[sub_resource type="Resource" id="Resource_1sejo"]
+script = ExtResource("10_3y13a")
+quest_id = "npc_quest_1"
+quest_name = "Starter"
+quest_description = "Go in the dungeon and collect 10 bones by killing the skeletons"
+state = "finished"
+unlock_id = "npc1_1"
+objectives = Array[ExtResource("11_je1js")]([SubResource("Resource_t4c8k")])
+rewards = Array[ExtResource("12_yu4y2")]([SubResource("Resource_yoik3"), SubResource("Resource_s8d7j")])
+
+[sub_resource type="Resource" id="Resource_anxjg"]
+script = ExtResource("11_je1js")
+id = "obj_collect_02"
+description = "Collect 20 bones"
+target_id = "Bone"
+target_type = "collection"
+objective_dialog = ""
+required_quantity = 20
+collected_quantity = 0
+is_completed = false
+
+[sub_resource type="Resource" id="Resource_0cpqf"]
+script = ExtResource("12_yu4y2")
+reward_type = "coins"
+reward_amount = 100
+
+[sub_resource type="Resource" id="Resource_4ybjw"]
+script = ExtResource("12_yu4y2")
+reward_type = "xp"
+reward_amount = 10
+
+[sub_resource type="Resource" id="Resource_i507o"]
+script = ExtResource("10_3y13a")
+quest_id = "npc_quest_2"
+quest_name = "Starter2"
+quest_description = "Collect 20 bones"
+state = "not_started"
+unlock_id = "npc1_2"
+objectives = Array[ExtResource("11_je1js")]([SubResource("Resource_anxjg")])
+rewards = Array[ExtResource("12_yu4y2")]([SubResource("Resource_0cpqf"), SubResource("Resource_4ybjw")])
+
 [resource]
 script = ExtResource("11_kbuo7")
 items = Array[ExtResource("3_htcba")]([SubResource("Resource_no5dk"), SubResource("Resource_tfpq2"), SubResource("Resource_iofa5"), SubResource("Resource_tm1cd")])
@@ -81,7 +143,7 @@ gold = 12246
 current_exp = 1058
 needed_exp = 2000
 level = 4
-current_hp = 65
+current_hp = 32
 total_hp = 65
-quests = Array[ExtResource("10_s1kns")]([])
-player_quests = Array[ExtResource("10_s1kns")]([])
+quests = Array[ExtResource("10_3y13a")]([SubResource("Resource_1sejo"), SubResource("Resource_i507o")])
+player_quests = Array[ExtResource("10_3y13a")]([])
