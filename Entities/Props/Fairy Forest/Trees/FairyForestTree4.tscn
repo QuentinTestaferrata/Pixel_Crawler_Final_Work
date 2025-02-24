@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmubyfbs2v0k3"]
+
+[ext_resource type="Texture2D" uid="uid://c4kyb4vjai1d" path="res://assets/Fairy Forest/Assets/Tree.png" id="1_h5yj3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7ngk"]
+radius = 7.9997
+height = 38.0
+
+[node name="FairyForestTree4" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h5yj3")
+offset = Vector2(0, -40)
+region_enabled = true
+region_rect = Rect2(959, 1197, 113, 147)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 24)
+rotation = -1.57952
+shape = SubResource("CapsuleShape2D_p7ngk")
