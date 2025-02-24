@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b245sa56l3irb"]
+
+[ext_resource type="Texture2D" uid="uid://c4pnctkkh3hbe" path="res://Items and Drops/Drops/cemetery/zombie_eye/zombie_eye.png" id="1_760od"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aflyj"]
+radius = 26.0
+
+[node name="ZombieEye" type="Area2D"]
+
+[node name="PickupArea" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aflyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_760od")
