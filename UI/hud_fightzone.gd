@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var wave_manager: Node = $"../WaveManager"
-@onready var loot_manager: Node = $"../LootManager"
 @onready var mob_manager: Node = $"../MobManager"
 @onready var enemies: Node2D = $"../Enemies"
 

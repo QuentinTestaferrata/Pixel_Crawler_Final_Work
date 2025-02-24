@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxb6v00d3mxm"
-path="res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"
+uid="uid://cusvl7jlmc1fk"
+path="res://.godot/imported/zombie_overweight.png-ea73fc891a01906cdf02f660311b9fbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/LevelPicker/zone_pictures/dungeon.png"
-dest_files=["res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"]
+source_file="res://UI/LevelPicker/cemetery/Full Enemy Sprites/zombie_overweight.png"
+dest_files=["res://.godot/imported/zombie_overweight.png-ea73fc891a01906cdf02f660311b9fbd.ctex"]
 
 [params]
 

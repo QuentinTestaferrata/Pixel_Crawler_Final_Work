@@ -1,17 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://dl24dxrinjlw0"]
+[gd_scene load_steps=25 format=3 uid="uid://dl24dxrinjlw0"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_on3hs"]
 [ext_resource type="Script" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.gd" id="2_irug7"]
 [ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="3_bg2w7"]
 [ext_resource type="PackedScene" uid="uid://cle5f2ytjueb" path="res://Entities/Zones/FightZones/2_cemetery.tscn" id="3_rmsma"]
-[ext_resource type="Texture2D" uid="uid://cg7qsfsb6albe" path="res://UI/LevelPicker/zone_pictures/dungeon.png" id="4_05tb3"]
-[ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="5_sjcwk"]
-[ext_resource type="Texture2D" uid="uid://blo78g4o38ggl" path="res://assets/Dungeon/items and drops/golden_bone.png" id="6_n4c7p"]
-[ext_resource type="Texture2D" uid="uid://ceefxrpwtdv8k" path="res://assets/Dungeon/items and drops/emerald.png" id="7_mpvnr"]
-[ext_resource type="Texture2D" uid="uid://c5y0sgl047sl0" path="res://UI/LevelPicker/dungeon/skeleton_base.png" id="8_08hcr"]
-[ext_resource type="Texture2D" uid="uid://bdposooolanrl" path="res://UI/LevelPicker/dungeon/mage.png" id="9_liigh"]
-[ext_resource type="Texture2D" uid="uid://c70pc2aueefx0" path="res://UI/LevelPicker/dungeon/rogue.png" id="10_r3x2b"]
-[ext_resource type="Texture2D" uid="uid://6o4tc6xdp1kx" path="res://UI/LevelPicker/dungeon/warrior.png" id="11_xqaq7"]
+[ext_resource type="Texture2D" uid="uid://n61snvgq6qp7" path="res://UI/LevelPicker/zone_pictures/cemetery.png" id="5_vn2by"]
+[ext_resource type="Texture2D" uid="uid://c4pnctkkh3hbe" path="res://Items and Drops/Drops/cemetery/zombie_eye/zombie_eye.png" id="6_hkton"]
+[ext_resource type="Texture2D" uid="uid://ddth51yqheb5q" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.png" id="7_pekwh"]
+[ext_resource type="Texture2D" uid="uid://dgvoomjw81vi6" path="res://Items and Drops/Drops/cemetery/cursed_heart/cursed_heart.png" id="8_s7i46"]
+[ext_resource type="Texture2D" uid="uid://38ugqn21ofcq" path="res://UI/LevelPicker/cemetery/Full Enemy Sprites/zombie_base.png" id="9_msdfg"]
+[ext_resource type="Texture2D" uid="uid://cm2etv24o86iw" path="res://UI/LevelPicker/cemetery/Full Enemy Sprites/zombie_muscle.png" id="10_hyial"]
+[ext_resource type="Texture2D" uid="uid://dou42pubui02s" path="res://UI/LevelPicker/cemetery/Full Enemy Sprites/zombie_banshee.png" id="11_u8uuj"]
+[ext_resource type="Texture2D" uid="uid://cusvl7jlmc1fk" path="res://UI/LevelPicker/cemetery/Full Enemy Sprites/zombie_overweight.png" id="12_e3nhb"]
 [ext_resource type="Texture2D" uid="uid://crb7v2hmhywdv" path="res://UI/LevelPicker/start_button.png" id="12_t7gdu"]
 [ext_resource type="Texture2D" uid="uid://gqdg4tku1s76" path="res://UI/LevelPicker/start_pressed.png" id="13_bhx2u"]
 [ext_resource type="Texture2D" uid="uid://cjcjj6dn4unjd" path="res://UI/LevelPicker/start_button_hover.png" id="14_io8jh"]
@@ -33,7 +33,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Rare/VBoxContainer/Label:theme_override_colors/font_outline_color")
+tracks/0/path = NodePath("Epic/VBoxContainer/Label:theme_override_colors/font_outline_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -69,18 +69,18 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_tinvx"]
 resource_name = "rarities"
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Rare/VBoxContainer/Label:theme_override_colors/font_outline_color")
+tracks/0/path = NodePath("Epic/VBoxContainer/Label:theme_override_colors/font_outline_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.513685, 0.723942, 0.999996, 1), Color(0.721569, 0.843137, 1, 0)]
+"values": [Color(0.776471, 0.603922, 1, 1), Color(0.737255, 0.721569, 1, 0.588235)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -89,10 +89,10 @@ tracks/1/path = NodePath("Uncommon/VBoxContainer/Label:theme_override_colors/fon
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.491048, 1, 0.447311, 1), Color(0.643137, 1, 0.607843, 0)]
+"values": [Color(0.396078, 0.658824, 1, 1), Color(0.596078, 0.772549, 1, 0.552941)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -101,10 +101,10 @@ tracks/2/path = NodePath("Common/Common/Label:theme_override_colors/font_outline
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.758192, 0.758192, 0.758192, 1), Color(0.831373, 0.831373, 0.831373, 0)]
+"values": [Color(0.603922, 1, 0.568627, 1), Color(0.765573, 1, 0.740676, 0.415686)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ibt6g"]
@@ -113,7 +113,61 @@ _data = {
 "rarities": SubResource("Animation_tinvx")
 }
 
-[node name="DungeonLevelPicker" type="Control"]
+[sub_resource type="Animation" id="Animation_xnb3s"]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-170, 16.5), Vector2(195.5, 16.5), Vector2(162.5, 16.5)]
+}
+
+[sub_resource type="Animation" id="Animation_xbeon"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(162.5, 16.5)]
+}
+
+[sub_resource type="Animation" id="Animation_efb01"]
+resource_name = "despawn"
+length = 0.133
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.133),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(162.5, 16.5), Vector2(129, 16.5), Vector2(550, 16.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecwr0"]
+_data = {
+"RESET": SubResource("Animation_xbeon"),
+"despawn": SubResource("Animation_efb01"),
+"spawn": SubResource("Animation_xnb3s")
+}
+
+[node name="CemeteryLevelPicker" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -152,7 +206,7 @@ layout_mode = 2
 [node name="ZoneName" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "dungeon"
+text = "cemetery"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -164,7 +218,7 @@ theme_override_constants/margin_bottom = -5
 
 [node name="DungeonImage" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("4_05tb3")
+texture = ExtResource("5_vn2by")
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -178,7 +232,7 @@ horizontal_alignment = 1
 
 [node name="Loot" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 19
 alignment = 1
 
 [node name="Common" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
@@ -190,14 +244,14 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Common/Common"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_colors/font_color = Color(0.0980392, 0.886275, 0, 1)
 theme_override_colors/font_outline_color = Color(0.758192, 0.758192, 0.758192, 1)
 theme_override_constants/outline_size = 3
 text = "Common"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Common/Common"]
 layout_mode = 2
-texture = ExtResource("5_sjcwk")
+texture = ExtResource("6_hkton")
 stretch_mode = 3
 
 [node name="Uncommon" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
@@ -208,32 +262,34 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Uncommon/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.098927, 0.885623, 0, 1)
+theme_override_colors/font_color = Color(0, 0.439216, 0.866667, 1)
 theme_override_colors/font_outline_color = Color(0.605577, 1, 0.56712, 1)
 theme_override_constants/outline_size = 3
-text = "uncommon"
+text = "Rare
+"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Uncommon/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("6_n4c7p")
+texture = ExtResource("7_pekwh")
 stretch_mode = 3
 
-[node name="Rare" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
+[node name="Epic" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Rare"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Epic"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Rare/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Epic/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.439216, 0.866667, 1)
+theme_override_colors/font_color = Color(0.657281, 0.303031, 0.999997, 1)
 theme_override_colors/font_outline_color = Color(0.394242, 0.658231, 0.999992, 1)
 theme_override_constants/outline_size = 3
-text = "Rare"
+text = "Epic
+"
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Rare/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Epic/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("7_mpvnr")
+texture = ExtResource("8_s7i46")
 stretch_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
@@ -260,19 +316,19 @@ alignment = 1
 
 [node name="BaseSkeleton" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Enemies"]
 layout_mode = 2
-texture = ExtResource("8_08hcr")
+texture = ExtResource("9_msdfg")
 
 [node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Enemies"]
 layout_mode = 2
-texture = ExtResource("9_liigh")
+texture = ExtResource("10_hyial")
 
 [node name="TextureRect3" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Enemies"]
 layout_mode = 2
-texture = ExtResource("10_r3x2b")
+texture = ExtResource("11_u8uuj")
 
 [node name="TextureRect4" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Enemies"]
 layout_mode = 2
-texture = ExtResource("11_xqaq7")
+texture = ExtResource("12_e3nhb")
 
 [node name="MarginContainer4" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -284,5 +340,11 @@ texture_normal = ExtResource("12_t7gdu")
 texture_pressed = ExtResource("13_bhx2u")
 texture_hover = ExtResource("14_io8jh")
 stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ecwr0")
+}
+autoplay = "spawn"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer4/StartButton" to="." method="_on_start_button_pressed"]
