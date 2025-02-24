@@ -1,7 +1,6 @@
 extends Control
 
-#@export var _zone_name: String
-
+@export var _zone: PackedScene
 
 var _hud: CanvasLayer
 
@@ -12,13 +11,14 @@ var _hud: CanvasLayer
 func _on_start_button_pressed() -> void:
 	_hud = get_parent()
 	_hud.saver_loader.save_game()
-	get_tree().change_scene_to_file("res://Entities/Zones/FightZones/3_fairy_forest.tscn")
+
+	print()
+	get_tree().change_scene_to_file(_zone.resource_path)
 	AttackCooldowns.reset_cooldowns()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		queue_free()
-		print("Esc pressed")
 
 func _ready() -> void:
 	pass

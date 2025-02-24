@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="5_86fij"]
 [ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="6_5hqvt"]
 [ext_resource type="Script" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="7_15oad"]
-[ext_resource type="PackedScene" uid="uid://bhg7b37erk1wy" path="res://Entities/Enemy/dungeon_skeletons/base/skeleton_base.tscn" id="8_y3hiu"]
+[ext_resource type="PackedScene" uid="uid://bhg7b37erk1wy" path="res://Entities/Enemy/1_dungeon/base/skeleton_base.tscn" id="8_y3hiu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s27pb"]
 texture = ExtResource("1_swigx")

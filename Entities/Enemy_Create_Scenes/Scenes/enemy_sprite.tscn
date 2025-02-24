@@ -1,8 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://c46kqb4qaj0eo"]
+[gd_scene load_steps=40 format=3 uid="uid://c46kqb4qaj0eo"]
 
 [ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_sprite.gd" id="1_df4ns"]
 [ext_resource type="Shader" uid="uid://dqdxcay1lpomt" path="res://Common/hit_flash.tres" id="2_1us2u"]
-[ext_resource type="Texture2D" uid="uid://cw7wrbb0md2ed" path="res://assets/Dungeon/Enemies (Skeleton)/skeleton_rogue_spritesheet.png" id="3_8saun"]
+[ext_resource type="Texture2D" uid="uid://be2emdb6tihpo" path="res://Entities/Enemy/2_cemetery/base/sprites/base_zombie_spritesheet.png" id="3_k1fl1"]
 [ext_resource type="Texture2D" uid="uid://cv0g5gutxysni" path="res://assets/Dungeon/Hands/left.png" id="4_yvjxb"]
 [ext_resource type="Texture2D" uid="uid://dkop8kpdb0yeh" path="res://assets/Dungeon/Hands/right_closed.png" id="5_rjk8m"]
 
@@ -146,6 +146,47 @@ tracks/4/keys = {
 "values": [0.0, -1.5708, -3.14159]
 }
 
+[sub_resource type="Animation" id="Animation_1inws"]
+resource_name = "hit"
+length = 0.28
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 21, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hands/LeftHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0714286, 0.142857, 0.28),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(13.5, 3), Vector2(13.5, 3), Vector2(12.5, 2), Vector2(13.5, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hands/RightHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0714286, 0.142857, 0.28),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-18, 5), Vector2(-18, 5), Vector2(-17, 4), Vector2(-18, 5)]
+}
+
 [sub_resource type="Animation" id="Animation_q0hg5"]
 resource_name = "idle_right"
 length = 0.8
@@ -252,6 +293,7 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_sjlpl"),
 "die": SubResource("Animation_j15pf"),
+"hit": SubResource("Animation_1inws"),
 "idle_right": SubResource("Animation_q0hg5"),
 "run_left": SubResource("Animation_ge4sy"),
 "run_right": SubResource("Animation_04o5m")
@@ -969,27 +1011,93 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_7a78f"]
+[sub_resource type="Animation" id="Animation_3fhaw"]
 resource_name = "cast_spell_2"
+length = 3.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("../Hands/LeftHand:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 1.15, 1.3, 2.65, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(18, 5), Vector2(18, -20), Vector2(18, 5)]
+"values": [Vector2(18, 5), Vector2(16, -15), Vector2(16, -15), Vector2(19, -10), Vector2(19, -10), Vector2(18, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hands/LeftHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.15, 1.3, 2.65, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.324631, -0.314159, 0.698132, 0.698132, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hands/RightHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.15, 1.3, 2.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-18, 5), Vector2(-17, 2), Vector2(-17, 2), Vector2(-20, 4), Vector2(-20, 4), Vector2(-18, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Hands/RightHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.15, 1.3, 2.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, 0.174533, -0.174533, -0.174533, 0.0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.3, 1.6, 1.9, 2.2, 2.5, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [&"cast_spell"],
+"method": &"emit_signal"
+}, {
+"args": [&"cast_spell"],
+"method": &"emit_signal"
+}, {
+"args": [&"cast_spell"],
+"method": &"emit_signal"
+}, {
+"args": [&"cast_spell"],
+"method": &"emit_signal"
+}, {
+"args": [&"cast_spell"],
+"method": &"emit_signal"
+}, {
+"args": [&"cast_spell"],
+"method": &"emit_signal"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_avel0"]
 _data = {
 "RESET": SubResource("Animation_rhdig"),
 "cast_spell_1": SubResource("Animation_gx8ud"),
-"cast_spell_2": SubResource("Animation_7a78f")
+"cast_spell_2": SubResource("Animation_3fhaw")
 }
 
 [node name="Sprite" type="Node2D"]
@@ -1011,8 +1119,8 @@ libraries = {
 
 [node name="Body" type="Sprite2D" parent="Body"]
 material = SubResource("ShaderMaterial_x3yyr")
-position = Vector2(0, -9)
-texture = ExtResource("3_8saun")
+position = Vector2(-2.5, -9)
+texture = ExtResource("3_k1fl1")
 hframes = 6
 vframes = 4
 

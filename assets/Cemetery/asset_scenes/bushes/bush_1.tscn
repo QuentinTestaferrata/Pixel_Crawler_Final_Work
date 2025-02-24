@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dus5nc2h2amye"]
+
+[ext_resource type="Texture2D" uid="uid://ct6sqjkpumgsp" path="res://assets/Cemetery/Tiles/Trees.png" id="1_6yv7c"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_6yv7c")
+offset = Vector2(0, -11.895)
+region_enabled = true
+region_rect = Rect2(346, 259, 36, 31)

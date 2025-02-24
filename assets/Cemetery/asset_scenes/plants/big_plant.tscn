@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmete3r3loomp"]
+
+[ext_resource type="Texture2D" uid="uid://7oukxkadtj80" path="res://assets/Cemetery/Tiles/Tiles.png" id="1_twigw"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_twigw")
+offset = Vector2(0, -12)
+region_enabled = true
+region_rect = Rect2(132, 160, 24, 32)

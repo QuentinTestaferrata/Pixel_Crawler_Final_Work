@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhj07lpf5v3mx"]
+
+[ext_resource type="Texture2D" uid="uid://bnole6nux6j0p" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/cursed_staff.png" id="1_tn0tg"]
+[ext_resource type="Script" path="res://Entities/Enemy/1_dungeon/mage/Weapon/bone_staff.gd" id="2_fxqdg"]
+[ext_resource type="PackedScene" uid="uid://cbmly6wgbex4s" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_projectile.tscn" id="3_ape2h"]
+
+[node name="Staff" type="Sprite2D"]
+texture = ExtResource("1_tn0tg")
+offset = Vector2(0, -10)
+script = ExtResource("2_fxqdg")
+projectiles = Array[PackedScene]([ExtResource("3_ape2h")])
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -33)

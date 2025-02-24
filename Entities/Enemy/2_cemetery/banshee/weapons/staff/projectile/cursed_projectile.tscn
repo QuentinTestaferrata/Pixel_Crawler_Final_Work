@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbmly6wgbex4s"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/enemy_projectile_movement.gd" id="1_qjtjk"]
+[ext_resource type="Resource" uid="uid://dbee05m7kkv05" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_data.tres" id="2_smbdl"]
+[ext_resource type="Texture2D" uid="uid://ceku0ql7jtldx" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_projectile.png" id="3_qwbjg"]
+
+[sub_resource type="Animation" id="Animation_yedtl"]
+resource_name = "despawn"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8xo27"]
+resource_name = "spawn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocfty"]
+_data = {
+"despawn": SubResource("Animation_yedtl"),
+"spawn": SubResource("Animation_8xo27")
+}
+
+[node name="CursedProjectile" type="Area2D"]
+collision_layer = 1024
+collision_mask = 16
+script = ExtResource("1_qjtjk")
+projectile_data = ExtResource("2_smbdl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(2, 1, 0, 3, -2, 3, -2, -3, 0, -3, 2, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("3_qwbjg")
+
+[node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ocfty")
+}

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WaveManagerData" load_steps=2 format=3 uid="uid://bjva4a7g52tt0"]
+
+[ext_resource type="Script" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager_data.gd" id="1_6ypiv"]
+
+[resource]
+script = ExtResource("1_6ypiv")
+enemies_per_wave = 40
+enemies_multiplyer = 1.2
+max_percentage_enemies_alive = 25.0
+EXP_per_wave = 20
+EXP_multiplyer = 1.2
+gold_per_wave = 25
+gold_multiplyer = 1.2
+health_multiplyer = 1.1
+speed_multiplyer = 1.0
+spawn_interval = 1.5
+spawn_interval_multiplyer = 1.0
