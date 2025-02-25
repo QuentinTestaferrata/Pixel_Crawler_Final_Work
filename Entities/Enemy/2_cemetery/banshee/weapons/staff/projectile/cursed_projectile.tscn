@@ -33,7 +33,7 @@ _data = {
 
 [node name="CursedProjectile" type="Area2D"]
 collision_layer = 1024
-collision_mask = 16
+collision_mask = 17
 script = ExtResource("1_qjtjk")
 projectile_data = ExtResource("2_smbdl")
 

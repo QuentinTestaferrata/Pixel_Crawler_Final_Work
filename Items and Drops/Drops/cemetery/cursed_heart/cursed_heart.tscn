@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce11wsocwopn1"]
+[gd_scene load_steps=3 format=3 uid="uid://bop04pcf02fkl"]
 
 [ext_resource type="Texture2D" uid="uid://dgvoomjw81vi6" path="res://Items and Drops/Drops/cemetery/cursed_heart/cursed_heart.png" id="1_ctko8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aflyj"]
-radius = 29.0172
+radius = 28.0
 
-[node name="ZombieEye" type="Area2D"]
+[node name="BoneDrop" type="Area2D"]
 
 [node name="PickupArea" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_aflyj")
