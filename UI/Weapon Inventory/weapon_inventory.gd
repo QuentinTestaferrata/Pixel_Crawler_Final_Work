@@ -9,13 +9,17 @@ const WEAPON_HOLDER = preload("res://UI/Shop/weapon_holder.tscn")
 @onready var close_button: TextureButton = $MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton
 @onready var equip_1_button: TextureButton = $MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/HBoxContainer/Equip1Button
 @onready var equip_2_button: TextureButton = $MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/HBoxContainer/Equip2Button
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var player: CharacterBody2D
 var weapon_inventory: Array[WeaponData]
 var weapon_manager: Node2D
 var selected_weapon: WeaponData
+var ability_cooldowns: PanelContainer
 
 func _ready() -> void:
+	ability_cooldowns = get_tree().get_first_node_in_group("ability_cooldown_container")
+	ability_cooldowns.visible = false
 	player = get_tree().get_first_node_in_group("player")
 	weapon_inventory = player.inventory.weapons
 	weapon_manager = player.weapon_manager
@@ -62,4 +66,6 @@ func _on_equip_2_button_pressed() -> void:
 	AttackCooldowns.reset_cooldown_display()
 
 func _on_close_button_pressed() -> void:
+	ability_cooldowns.visible = true
+	animation_player.play("despawn")
 	queue_free()
