@@ -33,7 +33,7 @@ radius = 9.0
 [sub_resource type="Resource" id="Resource_sxljv"]
 script = ExtResource("14_f3uri")
 item = ExtResource("16_ado46")
-probability = 100.0
+probability = 18.0
 min_amount = 1
 max_amount = 1
 
