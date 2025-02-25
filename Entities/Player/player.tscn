@@ -381,6 +381,7 @@ color_ramp = SubResource("Gradient_xjc2k")
 
 [node name="Shadow2" type="Sprite2D" parent="."]
 show_behind_parent = true
+position = Vector2(0, -1)
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("18_k1fmk")
 

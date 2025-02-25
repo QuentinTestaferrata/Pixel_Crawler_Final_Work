@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://qbrbdv7v08pg"]
+[gd_scene load_steps=36 format=4 uid="uid://qbrbdv7v08pg"]
 
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="1_57tk4"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_cgcdv"]
@@ -20,7 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://bpr0j8g5xg1bp" path="res://UI/HUD_restzone.tscn" id="15_iyl6u"]
 [ext_resource type="PackedScene" uid="uid://c0v3mfcb7httg" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.tscn" id="16_15evs"]
 [ext_resource type="Script" path="res://Common/Dialog/Quests/Quest.gd" id="16_o0br0"]
+[ext_resource type="PackedScene" uid="uid://bqwj3c4pycffx" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.tscn" id="16_sq1y7"]
 [ext_resource type="Script" path="res://Common/Dialog/Quests/Objectives.gd" id="17_4ksk0"]
+[ext_resource type="PackedScene" uid="uid://dl24dxrinjlw0" path="res://UI/LevelPicker/cemetery/cemetery_level_picker.tscn" id="17_g4dqj"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="17_ll0mv"]
 [ext_resource type="Script" path="res://Common/Dialog/Quests/Rewards.gd" id="18_bdwwv"]
 
@@ -942,6 +944,16 @@ position = Vector2(88, 221)
 [node name="Plant2" parent="Decor" instance=ExtResource("2_47dc5")]
 position = Vector2(-98, 218)
 
+[node name="Door" parent="Decor" instance=ExtResource("9_o44r5")]
+position = Vector2(-16, 198)
+
+[node name="Door2" parent="Decor" instance=ExtResource("9_o44r5")]
+position = Vector2(-16, 309)
+
+[node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
+position = Vector2(-176, 147)
+all_zones = Array[PackedScene]([ExtResource("16_sq1y7"), ExtResource("17_g4dqj")])
+
 [node name="HealStatue" parent="." instance=ExtResource("14_qakhh")]
 position = Vector2(-223, 239)
 
@@ -955,15 +967,6 @@ position = Vector2(124, 169)
 quests = Array[ExtResource("16_o0br0")]([SubResource("Resource_1sejo"), SubResource("Resource_i507o")])
 
 [node name="Projectiles_Holder" parent="." instance=ExtResource("14_8f0tf")]
-
-[node name="Door" parent="." instance=ExtResource("9_o44r5")]
-position = Vector2(-16, 198)
-
-[node name="Door2" parent="." instance=ExtResource("9_o44r5")]
-position = Vector2(-16, 309)
-
-[node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
-position = Vector2(-176, 147)
 
 [node name="SaverLoader" parent="." node_paths=PackedStringArray("player") groups=["saver_loader"] instance=ExtResource("17_ll0mv")]
 unique_name_in_owner = true

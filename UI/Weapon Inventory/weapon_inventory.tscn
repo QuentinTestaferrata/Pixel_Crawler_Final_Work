@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dsxd0uws3fyyp"]
+[gd_scene load_steps=28 format=3 uid="uid://dsxd0uws3fyyp"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_s8cfg"]
 [ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="2_6pvdl"]
@@ -51,6 +51,60 @@ color = Color(0, 0, 0, 0)
 [sub_resource type="Theme" id="Theme_c8yle"]
 VScrollBar/styles/scroll = SubResource("StyleBoxLine_f7e8l")
 
+[sub_resource type="Animation" id="Animation_jvbao"]
+resource_name = "spawn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3wx7h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_22bt0"]
+resource_name = "despawn"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrngx"]
+_data = {
+"RESET": SubResource("Animation_3wx7h"),
+"despawn": SubResource("Animation_22bt0"),
+"spawn": SubResource("Animation_jvbao")
+}
+
 [node name="WeaponInventory" type="PanelContainer"]
 custom_minimum_size = Vector2(155, 237)
 anchors_preset = 8
@@ -58,13 +112,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -77.5
+offset_top = -118.5
+offset_right = 77.5
+offset_bottom = 118.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(19, 20)
+pivot_offset = Vector2(78.5, 118.5)
 theme = SubResource("Theme_t6q6d")
 theme_override_styles/panel = SubResource("StyleBoxTexture_0pl2n")
 script = ExtResource("3_74gli")
@@ -108,6 +162,24 @@ theme_override_constants/margin_top = -31
 theme_override_constants/margin_right = 4
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton/MarginContainer"]
+layout_mode = 2
+text = "x"
+
+[node name="CloseButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_fqk0p")
+texture_pressed = ExtResource("5_u8jnr")
+texture_hover = ExtResource("6_ti0d2")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton2"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 38.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = -31
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton2/MarginContainer"]
 layout_mode = 2
 text = "x"
 
@@ -209,6 +281,13 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 5
 columns = 4
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lrngx")
+}
+autoplay = "spawn"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/CloseButton2" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/HBoxContainer/Equip1Button" to="." method="_on_equip_1_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/VBoxContainer/HBoxContainer/Equip2Button" to="." method="_on_equip_2_button_pressed"]

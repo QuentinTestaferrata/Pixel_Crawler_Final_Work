@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxb6v00d3mxm"
-path="res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"
+uid="uid://n61snvgq6qp7"
+path="res://.godot/imported/cemetery.png-e095429e66a49d29ea7d168d09709527.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/LevelPicker/zone_pictures/dungeon.png"
-dest_files=["res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"]
+source_file="res://UI/LevelPicker/zone_pictures/cemetery.png"
+dest_files=["res://.godot/imported/cemetery.png-e095429e66a49d29ea7d168d09709527.ctex"]
 
 [params]
 

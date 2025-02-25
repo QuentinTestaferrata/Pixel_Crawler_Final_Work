@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="14_ux4es"]
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="15_f6txq"]
 [ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="16_v4fe4"]
-[ext_resource type="Resource" uid="uid://buhigwa7ovvbp" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.tres" id="17_qwsge"]
+[ext_resource type="Resource" uid="uid://dbxv8rkuxisy2" path="res://Items and Drops/Drops/cemetery/zombie_eye/zombie_eye.tres" id="17_c630k"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="19_k6kf3"]
 [ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="20_gxdf7"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="21_m5rgf"]
@@ -42,10 +42,10 @@ defense = 0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syp77"]
 radius = 9.0
 
-[sub_resource type="Resource" id="Resource_yhrgw"]
+[sub_resource type="Resource" id="Resource_4jkif"]
 script = ExtResource("16_v4fe4")
-item = ExtResource("17_qwsge")
-probability = 2.0
+item = ExtResource("17_c630k")
+probability = 25.0
 min_amount = 1
 max_amount = 1
 
@@ -90,7 +90,7 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_syp77")
 
 [node name="LootDrops" parent="." instance=ExtResource("15_f6txq")]
-drops = Array[ExtResource("16_v4fe4")]([SubResource("Resource_yhrgw")])
+drops = Array[ExtResource("16_v4fe4")]([SubResource("Resource_4jkif")])
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("19_k6kf3")]
 initial_state = NodePath("Chase")

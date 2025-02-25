@@ -9,13 +9,13 @@
 [resource]
 script = ExtResource("5_evhmx")
 enemy_1 = ExtResource("1_y7a0m")
-spawn_rate_1 = 100
+spawn_rate_1 = 50
 enemy_2 = ExtResource("2_cpia8")
-spawn_rate_2 = 0
+spawn_rate_2 = 15
 enemy_3 = ExtResource("3_ppct5")
-spawn_rate_3 = 0
+spawn_rate_3 = 30
 enemy_4 = ExtResource("4_ex2e2")
-spawn_rate_4 = 0
+spawn_rate_4 = 5
 spawn_rate_rare = 0
 wave = 0
 wave_2 = 0

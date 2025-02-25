@@ -14,6 +14,7 @@ var selected_item
 var selected_item_is_weapon: bool = false
 var saver_loader: SaverLoader
 var buy_tab: bool = true
+var ability_cooldowns: PanelContainer
 
 @onready var consumables: TextureButton = $HBoxContainer/Items/VBoxContainer/Tabs/Consumables
 @onready var weapons: TextureButton = $HBoxContainer/Items/VBoxContainer/Tabs/Weapons
@@ -39,6 +40,8 @@ var buy_tab: bool = true
 @onready var buy_tab_button: TextureButton = $HBoxContainer/Items/VBoxContainer/BuySellButtons/BuyTabButton
 
 func _ready() -> void:
+	ability_cooldowns = get_tree().get_first_node_in_group("ability_cooldown_container")
+	ability_cooldowns.visible = false
 	player = get_tree().get_first_node_in_group("player")
 	saver_loader = get_tree().get_first_node_in_group("saver_loader")
 	get_shop_items()
@@ -195,6 +198,7 @@ func update_amount() -> void:
 
 
 func _on_texture_button_pressed() -> void:
+	ability_cooldowns.visible = true
 	animation_player.play("close")
 
 func clear_shop_items() -> void:
