@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ah34slmey0s" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager.tscn" id="2_njgom"]
 [ext_resource type="PackedScene" uid="uid://c6g8tsl74w2o6" path="res://Common/spawnpoint/spawn_points.tscn" id="3_ccrfd"]
 [ext_resource type="PackedScene" uid="uid://c6nud04qkgp33" path="res://Entities/Gameplay Managers/Loot Manager/loot_manager.tscn" id="4_a7psr"]
-[ext_resource type="Resource" uid="uid://bmf4q2kbcxp0g" path="res://Entities/WaveData/1_dungeon/dungeon_spawnrates.tres" id="4_oca2p"]
+[ext_resource type="Resource" uid="uid://bs4showxllyly" path="res://Entities/WaveData/2_cemetery/test_spawnrates_cemetery.tres" id="4_gf1lv"]
 [ext_resource type="PackedScene" uid="uid://0hfqtdetcfbt" path="res://Common/spawnpoint/points/point.tscn" id="5_74hxw"]
 [ext_resource type="PackedScene" uid="uid://dq3vhr8h3fr2e" path="res://Entities/Gameplay Managers/Mob Manager/Mob Manager.tscn" id="5_e5vnl"]
 [ext_resource type="PackedScene" uid="uid://dmu7q10xuxm76" path="res://Common/spawnpoint/area/Area.tscn" id="6_871kl"]
@@ -11671,10 +11671,10 @@ script = ExtResource("1_dbeo8")
 visible = false
 
 [node name="WaveManager" parent="." groups=["wave_manager"] instance=ExtResource("2_njgom")]
-enemies_per_wave = 2
+enemies_per_wave = 4
 enemies_multiplyer = 1.5
-spawn_rates = ExtResource("4_oca2p")
-max_percentage_enemies_alive = 25.0
+spawn_rates = ExtResource("4_gf1lv")
+max_percentage_enemies_alive = 100.0
 EXP_per_wave = 10
 EXP_multiplyer = 1.3
 gold_per_wave = 5

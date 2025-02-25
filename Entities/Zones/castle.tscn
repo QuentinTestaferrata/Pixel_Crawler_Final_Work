@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://qbrbdv7v08pg"]
+[gd_scene load_steps=37 format=4 uid="uid://qbrbdv7v08pg"]
 
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="1_57tk4"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_cgcdv"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dl24dxrinjlw0" path="res://UI/LevelPicker/cemetery/cemetery_level_picker.tscn" id="17_g4dqj"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="17_ll0mv"]
 [ext_resource type="Script" path="res://Common/Dialog/Quests/Rewards.gd" id="18_bdwwv"]
+[ext_resource type="PackedScene" uid="uid://25wqo1rfrvxw" path="res://UI/LevelPicker/fairy_forest/fairy_forest_level_picker.tscn" id="18_xab7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erg28"]
 texture = ExtResource("1_cgcdv")
@@ -952,7 +953,7 @@ position = Vector2(-16, 309)
 
 [node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
 position = Vector2(-176, 147)
-all_zones = Array[PackedScene]([ExtResource("16_sq1y7"), ExtResource("17_g4dqj")])
+all_zones = Array[PackedScene]([ExtResource("16_sq1y7"), ExtResource("17_g4dqj"), ExtResource("18_xab7q")])
 
 [node name="HealStatue" parent="." instance=ExtResource("14_qakhh")]
 position = Vector2(-223, 239)
