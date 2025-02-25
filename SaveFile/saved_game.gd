@@ -7,6 +7,7 @@ extends Resource
 
 @export_category("Shop Items")
 @export var shop_items: Array[Item]
+@export var shop_resources: Array[Item]
 @export var shop_weapons: Array[WeaponData]
 
 @export_category("Equipped Weapons")
