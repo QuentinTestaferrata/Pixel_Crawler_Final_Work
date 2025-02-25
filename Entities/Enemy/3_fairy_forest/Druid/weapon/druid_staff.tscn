@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c11prseq4ejiq"]
+
+[ext_resource type="Texture2D" uid="uid://vakh68fg6i4g" path="res://Entities/Enemy/3_fairy_forest/Druid/weapon/Druid_staff.png" id="1_yclo5"]
+[ext_resource type="Script" path="res://Entities/Enemy/1_dungeon/mage/Weapon/bone_staff.gd" id="2_yh4qk"]
+[ext_resource type="PackedScene" uid="uid://b2aupoae03fyo" path="res://Entities/Enemy/1_dungeon/mage/Weapon/projectiles/red_fireball.tscn" id="3_w6xep"]
+
+[node name="BoneStaff" type="Sprite2D"]
+texture = ExtResource("1_yclo5")
+offset = Vector2(0, -10)
+script = ExtResource("2_yh4qk")
+projectiles = Array[PackedScene]([ExtResource("3_w6xep")])
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -28)

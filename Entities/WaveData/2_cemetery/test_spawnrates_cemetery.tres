@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="EnemySpawnRates" load_steps=6 format=3 uid="uid://bs4showxllyly"]
 
-[ext_resource type="PackedScene" uid="uid://bce22fgcladp" path="res://Entities/Enemy/2_cemetery/base/zombie_base.tscn" id="1_0fu0c"]
-[ext_resource type="PackedScene" uid="uid://c67kpjdcm5m6h" path="res://Entities/Enemy/2_cemetery/banshee/zombie_banshee.tscn" id="2_75fmx"]
-[ext_resource type="PackedScene" uid="uid://tevagqmlefhq" path="res://Entities/Enemy/2_cemetery/muscle/zombie_muscle.tscn" id="3_mpklc"]
+[ext_resource type="PackedScene" uid="uid://by8x86chidhsp" path="res://Entities/Enemy/3_fairy_forest/Base/BaseElf.tscn" id="1_r7url"]
+[ext_resource type="PackedScene" uid="uid://cn2d75x201bw" path="res://Entities/Enemy/3_fairy_forest/Hunter/HunterElf.tscn" id="2_emql3"]
+[ext_resource type="PackedScene" uid="uid://n0nd0gljwb83" path="res://Entities/Enemy/3_fairy_forest/Ranger/RangerElf.tscn" id="3_pbeuw"]
 [ext_resource type="PackedScene" uid="uid://cmyacaa62f8jf" path="res://Entities/Enemy/2_cemetery/overweight/zombie_overweight.tscn" id="4_7jenx"]
 [ext_resource type="Script" path="res://Entities/Gameplay Managers/Wave Manager/enemy_spawnrates.gd" id="5_qriyk"]
 
 [resource]
 script = ExtResource("5_qriyk")
-enemy_1 = ExtResource("1_0fu0c")
-spawn_rate_1 = 100
-enemy_2 = ExtResource("2_75fmx")
-spawn_rate_2 = 0
-enemy_3 = ExtResource("3_mpklc")
-spawn_rate_3 = 0
+enemy_1 = ExtResource("1_r7url")
+spawn_rate_1 = 33
+enemy_2 = ExtResource("2_emql3")
+spawn_rate_2 = 33
+enemy_3 = ExtResource("3_pbeuw")
+spawn_rate_3 = 34
 enemy_4 = ExtResource("4_7jenx")
 spawn_rate_4 = 0
 spawn_rate_rare = 0
