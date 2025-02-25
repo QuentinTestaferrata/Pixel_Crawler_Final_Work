@@ -952,7 +952,7 @@ position = Vector2(-16, 309)
 
 [node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
 position = Vector2(-176, 147)
-all_zones = Array[PackedScene]([ExtResource("16_sq1y7"), ExtResource("17_g4dqj")])
+all_zones = Array[PackedScene]([ExtResource("17_g4dqj"), ExtResource("16_sq1y7")])
 
 [node name="HealStatue" parent="." instance=ExtResource("14_qakhh")]
 position = Vector2(-223, 239)
