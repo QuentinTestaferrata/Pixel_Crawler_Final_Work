@@ -44,7 +44,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_th15j")
 speed = 90
-enemy_type = "healer"
+enemy_type = "ranged"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
