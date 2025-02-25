@@ -6,6 +6,7 @@ class_name EnemyStateMachine
 @export var loot: Node2D
 @export var body: EnemySprite
 @export var attack_range: Area2D
+@export var pathfind: NavigationAgent2D
 
 var target: CharacterBody2D
 var states: Dictionary = {}

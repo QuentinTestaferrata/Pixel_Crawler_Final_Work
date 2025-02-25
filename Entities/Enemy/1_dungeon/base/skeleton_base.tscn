@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="6_xn5uj"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="7_i48xy"]
 [ext_resource type="Texture2D" uid="uid://cv0g5gutxysni" path="res://assets/Dungeon/Hands/left.png" id="7_mmj6o"]
-[ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="8_5eews"]
 [ext_resource type="Texture2D" uid="uid://dwvq463nyduol" path="res://assets/Dungeon/Hands/left_empty.png" id="8_hsgdq"]
 [ext_resource type="Texture2D" uid="uid://dkop8kpdb0yeh" path="res://assets/Dungeon/Hands/right_closed.png" id="9_a0slr"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="9_nuax5"]
@@ -23,7 +22,8 @@
 [ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="14_dkbe6"]
 [ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="18_xckw3"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="19_tee5k"]
-[ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="20_e4lsd"]
+[ext_resource type="PackedScene" uid="uid://tysy6rrrqpyi" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack_no_pathfind.tscn" id="23_5u4cd"]
+[ext_resource type="PackedScene" uid="uid://bjapmlee3rbwq" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase_no_pathfind.tscn" id="23_fs0rj"]
 [ext_resource type="Script" path="res://Entities/Enemy/label.gd" id="25_futpx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
@@ -106,15 +106,14 @@ loot = NodePath("../LootDrops")
 body = NodePath("../Sprite")
 attack_range = NodePath("../AttackRange")
 
-[node name="Chase" parent="StateMachine" instance=ExtResource("8_5eews")]
-
 [node name="Die" parent="StateMachine" instance=ExtResource("9_nuax5")]
 
 [node name="Surround" parent="StateMachine" instance=ExtResource("10_bwek2")]
 
-[node name="Attack" parent="StateMachine" instance=ExtResource("20_e4lsd")]
+[node name="Chase" parent="StateMachine" instance=ExtResource("23_fs0rj")]
+
+[node name="Attack" parent="StateMachine" instance=ExtResource("23_5u4cd")]
 available_attacks = Array[int]([1, 2])
-attack_cooldown = 2
 
 [node name="DamageNumberPosition" parent="." instance=ExtResource("19_tee5k")]
 

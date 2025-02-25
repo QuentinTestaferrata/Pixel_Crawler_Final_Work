@@ -952,9 +952,10 @@ position = Vector2(-16, 309)
 
 [node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
 position = Vector2(-176, 147)
-all_zones = Array[PackedScene]([ExtResource("16_sq1y7"), ExtResource("17_g4dqj")])
+all_zones = Array[PackedScene]([ExtResource("17_g4dqj"), ExtResource("16_sq1y7")])
 
 [node name="HealStatue" parent="." instance=ExtResource("14_qakhh")]
+y_sort_enabled = true
 position = Vector2(-223, 239)
 
 [node name="Shopkeeper" parent="." instance=ExtResource("12_fpkah")]
@@ -967,6 +968,7 @@ position = Vector2(124, 169)
 quests = Array[ExtResource("16_o0br0")]([SubResource("Resource_1sejo"), SubResource("Resource_i507o")])
 
 [node name="Projectiles_Holder" parent="." instance=ExtResource("14_8f0tf")]
+y_sort_enabled = true
 
 [node name="SaverLoader" parent="." node_paths=PackedStringArray("player") groups=["saver_loader"] instance=ExtResource("17_ll0mv")]
 unique_name_in_owner = true
