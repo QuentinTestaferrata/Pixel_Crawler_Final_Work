@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7rn7"]
 size = Vector2(10, 18)
 
-[node name="CursedScythe" type="Sprite2D"]
+[node name="CursedHammer" type="Sprite2D"]
 texture = ExtResource("1_fro5a")
 offset = Vector2(-0.04, -6.46)
 script = ExtResource("2_kmett")

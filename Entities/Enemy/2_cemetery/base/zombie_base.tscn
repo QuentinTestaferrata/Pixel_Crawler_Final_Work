@@ -110,7 +110,7 @@ pathfind = NodePath("../NavigationAgent2D")
 [node name="Surround" parent="StateMachine" instance=ExtResource("22_yku2t")]
 
 [node name="Attack" parent="StateMachine" instance=ExtResource("23_hn275")]
-available_attacks = Array[int]([1, 2])
+available_attacks = Array[int]([1, 2, 3])
 attack_cooldown = 2
 
 [node name="DamageNumberPosition" parent="." instance=ExtResource("24_c221r")]
