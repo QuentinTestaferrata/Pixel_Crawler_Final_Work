@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxb6v00d3mxm"
-path="res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"
+uid="uid://dgvoomjw81vi6"
+path="res://.godot/imported/cursed_heart.png-e39af92748bb8c3d4f47385e49d720bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/LevelPicker/zone_pictures/dungeon.png"
-dest_files=["res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"]
+source_file="res://Items and Drops/Drops/cemetery/cursed_heart/cursed_heart.png"
+dest_files=["res://.godot/imported/cursed_heart.png-e39af92748bb8c3d4f47385e49d720bf.ctex"]
 
 [params]
 

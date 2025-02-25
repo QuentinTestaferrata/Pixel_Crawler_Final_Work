@@ -13,6 +13,6 @@ description = "This crystal is cursed"
 value = 99
 price = 0
 consumable = false
-rarity = 1
+rarity = 3
 stackable = true
 amount = 0

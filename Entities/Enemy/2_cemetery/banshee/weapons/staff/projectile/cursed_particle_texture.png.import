@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxb6v00d3mxm"
-path="res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"
+uid="uid://elt4fl3subep"
+path="res://.godot/imported/cursed_particle_texture.png-74d6beb0ab0e4bb107ab0c66e58d7869.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/LevelPicker/zone_pictures/dungeon.png"
-dest_files=["res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"]
+source_file="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_particle_texture.png"
+dest_files=["res://.godot/imported/cursed_particle_texture.png-74d6beb0ab0e4bb107ab0c66e58d7869.ctex"]
 
 [params]
 

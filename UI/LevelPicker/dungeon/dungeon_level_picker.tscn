@@ -1,20 +1,24 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqwj3c4pycffx"]
+[gd_scene load_steps=35 format=3 uid="uid://bqwj3c4pycffx"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_8f03v"]
 [ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="2_l0nxv"]
-[ext_resource type="Script" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.gd" id="2_puaox"]
-[ext_resource type="Texture2D" uid="uid://cg7qsfsb6albe" path="res://UI/LevelPicker/zone_pictures/dungeon.png" id="3_73coa"]
-[ext_resource type="PackedScene" uid="uid://cle5f2ytjueb" path="res://Entities/Zones/FightZones/2_cemetery.tscn" id="3_hmeh4"]
+[ext_resource type="Script" path="res://UI/LevelPicker/dungeon/level_picker.gd" id="2_puaox"]
+[ext_resource type="Texture2D" uid="uid://buxb6v00d3mxm" path="res://UI/LevelPicker/zone_pictures/dungeon.png" id="3_73coa"]
+[ext_resource type="PackedScene" uid="uid://bg707nxjtqttc" path="res://Entities/Zones/FightZones/1_dungeon.tscn" id="3_cb57f"]
 [ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="4_spigu"]
+[ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="5_6nrvt"]
 [ext_resource type="Texture2D" uid="uid://blo78g4o38ggl" path="res://assets/Dungeon/items and drops/golden_bone.png" id="5_enyto"]
+[ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="6_0u807"]
 [ext_resource type="Texture2D" uid="uid://ceefxrpwtdv8k" path="res://assets/Dungeon/items and drops/emerald.png" id="6_4n34g"]
 [ext_resource type="Texture2D" uid="uid://c5y0sgl047sl0" path="res://UI/LevelPicker/dungeon/skeleton_base.png" id="7_b355w"]
+[ext_resource type="Texture2D" uid="uid://cupd782arpfu7" path="res://UI/Buttons/0_mini_buttons/button_hover.png" id="7_p7k8g"]
 [ext_resource type="Texture2D" uid="uid://bdposooolanrl" path="res://UI/LevelPicker/dungeon/mage.png" id="8_4o3e5"]
 [ext_resource type="Texture2D" uid="uid://c70pc2aueefx0" path="res://UI/LevelPicker/dungeon/rogue.png" id="9_boq2p"]
 [ext_resource type="Texture2D" uid="uid://6o4tc6xdp1kx" path="res://UI/LevelPicker/dungeon/warrior.png" id="10_jgyi8"]
 [ext_resource type="Texture2D" uid="uid://crb7v2hmhywdv" path="res://UI/LevelPicker/start_button.png" id="11_1510c"]
 [ext_resource type="Texture2D" uid="uid://gqdg4tku1s76" path="res://UI/LevelPicker/start_pressed.png" id="12_157ji"]
 [ext_resource type="Texture2D" uid="uid://cjcjj6dn4unjd" path="res://UI/LevelPicker/start_button_hover.png" id="13_6og1v"]
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="16_d6v5r"]
 
 [sub_resource type="Theme" id="Theme_4mlrj"]
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
@@ -27,6 +31,9 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0fl6w"]
+font_color = Color(0.105882, 0.133333, 0.211765, 1)
 
 [sub_resource type="Animation" id="Animation_onhu2"]
 length = 0.001
@@ -113,7 +120,94 @@ _data = {
 "rarities": SubResource("Animation_tinvx")
 }
 
-[node name="DungeonLevelPicker" type="Control"]
+[sub_resource type="Animation" id="Animation_xbeon"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(162.5, 16.5)]
+}
+
+[sub_resource type="Animation" id="Animation_efb01"]
+resource_name = "despawn"
+length = 0.133
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.133),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(162.5, 16.5), Vector2(129, 16.5), Vector2(550, 16.5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xnb3s"]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-170, 16.5), Vector2(195.5, 16.5), Vector2(162.5, 16.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecwr0"]
+_data = {
+"RESET": SubResource("Animation_xbeon"),
+"despawn": SubResource("Animation_efb01"),
+"spawn": SubResource("Animation_xnb3s")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4l880"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r055o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wx4xl"]
+texture = ExtResource("16_d6v5r")
+region_rect = Rect2(105, 1496, 17, 31)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7fagh"]
+texture = ExtResource("16_d6v5r")
+region_rect = Rect2(57, 1496, 17, 31)
+
+[sub_resource type="Theme" id="Theme_oqnag"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_4l880")
+Button/styles/focus = SubResource("StyleBoxEmpty_r055o")
+Button/styles/hover = SubResource("StyleBoxTexture_wx4xl")
+Button/styles/normal = SubResource("StyleBoxTexture_7fagh")
+Button/styles/pressed = SubResource("StyleBoxTexture_wx4xl")
+
+[node name="DungeonLevelPicker" type="Control" node_paths=PackedStringArray("close_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,7 +218,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_4mlrj")
 script = ExtResource("2_puaox")
-_zone = ExtResource("3_hmeh4")
+_zone = ExtResource("3_cb57f")
+close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/CloseButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_direction = 2
@@ -149,11 +244,41 @@ theme_override_constants/margin_top = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="ZoneName" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 27
+alignment = 2
+
+[node name="ZoneName" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "dungeon"
+text = "Dungeon"
 horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = -20
+
+[node name="CloseButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_6nrvt")
+texture_pressed = ExtResource("6_0u807")
+texture_hover = ExtResource("7_p7k8g")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/CloseButton"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 38.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = -31
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/CloseButton/MarginContainer"]
+layout_mode = 2
+text = "x"
+label_settings = SubResource("LabelSettings_0fl6w")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -284,5 +409,39 @@ texture_normal = ExtResource("11_1510c")
 texture_pressed = ExtResource("12_157ji")
 texture_hover = ExtResource("13_6og1v")
 stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ecwr0")
+}
+autoplay = "spawn"
+
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -15.0
+offset_right = -121.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_oqnag")
+
+[node name="PreviousButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 142.0
+offset_top = -15.5
+offset_right = 159.0
+offset_bottom = 15.5
+grow_vertical = 2
+scale = Vector2(-1, 1)
+theme = SubResource("Theme_oqnag")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer4/StartButton" to="." method="_on_start_button_pressed"]

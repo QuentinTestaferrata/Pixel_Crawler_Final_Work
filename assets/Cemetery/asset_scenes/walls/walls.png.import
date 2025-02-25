@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxb6v00d3mxm"
-path="res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"
+uid="uid://b3ugesqbyh1ui"
+path="res://.godot/imported/walls.png-636fbffb0573824877d69b5b2ea2b9ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/LevelPicker/zone_pictures/dungeon.png"
-dest_files=["res://.godot/imported/dungeon.png-8314f3dbac46f6bde327b4b60d91f13c.ctex"]
+source_file="res://assets/Cemetery/asset_scenes/walls/walls.png"
+dest_files=["res://.godot/imported/walls.png-636fbffb0573824877d69b5b2ea2b9ba.ctex"]
 
 [params]
 

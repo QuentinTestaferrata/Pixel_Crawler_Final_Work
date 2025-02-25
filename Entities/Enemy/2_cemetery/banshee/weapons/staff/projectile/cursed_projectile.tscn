@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbmly6wgbex4s"]
+[gd_scene load_steps=8 format=3 uid="uid://cbmly6wgbex4s"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/enemy_projectile_movement.gd" id="1_qjtjk"]
 [ext_resource type="Resource" uid="uid://dbee05m7kkv05" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_data.tres" id="2_smbdl"]
 [ext_resource type="Texture2D" uid="uid://ceku0ql7jtldx" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_projectile.png" id="3_qwbjg"]
+[ext_resource type="Texture2D" uid="uid://elt4fl3subep" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_particle_texture.png" id="4_mvn0o"]
 
 [sub_resource type="Animation" id="Animation_yedtl"]
 resource_name = "despawn"
@@ -32,7 +33,7 @@ _data = {
 
 [node name="CursedProjectile" type="Area2D"]
 collision_layer = 1024
-collision_mask = 16
+collision_mask = 17
 script = ExtResource("1_qjtjk")
 projectile_data = ExtResource("2_smbdl")
 
@@ -47,3 +48,12 @@ texture = ExtResource("3_qwbjg")
 libraries = {
 "": SubResource("AnimationLibrary_ocfty")
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+local_coords = true
+texture = ExtResource("4_mvn0o")
+direction = Vector2(-1, 0)
+spread = 10.17
+gravity = Vector2(0, 0)
+initial_velocity_min = 90.4
+initial_velocity_max = 90.4

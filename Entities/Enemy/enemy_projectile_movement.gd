@@ -15,7 +15,10 @@ func _ready() -> void:
 		pass
 	else:
 		spawn_animation_player.play("spawn")
+		
 	area_entered.connect(_on_area_entered)
+	body_entered.connect(_on_body_entered)
+	
 	timer = Timer.new()
 	add_child(timer)
 	timer.start(projectile_data.LIFETIME)
@@ -42,7 +45,7 @@ func set_direction(target_position: Vector2) -> Vector2:
 	#return direction
 
 func _on_area_entered(area: Area2D) -> void:
-	#print(area.name)
+	print(area.name)
 	if "PlayerHurtbox" in area.name:
 		queue_free()
 
@@ -52,3 +55,7 @@ func despawn() -> void:
 		pass
 	else:
 		spawn_animation_player.play("despawn")
+
+func _on_body_entered(body: Node2D) -> void:
+	if !body.is_in_group("enemy"):
+		queue_free()
