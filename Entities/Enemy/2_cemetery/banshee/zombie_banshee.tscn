@@ -79,12 +79,16 @@ shape = SubResource("CapsuleShape2D_syp77")
 [node name="LootDrops" parent="." instance=ExtResource("13_d0bj0")]
 drops = Array[ExtResource("14_f3uri")]([SubResource("Resource_sxljv")])
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("17_prtbt")]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range", "pathfind") instance=ExtResource("17_prtbt")]
 initial_state = NodePath("Chase")
 enemy = NodePath("..")
 loot = NodePath("../LootDrops")
 body = NodePath("../Sprite")
 attack_range = NodePath("../AttackRange")
+pathfind = NodePath("../NavigationAgent2D")
 
 [node name="Chase" parent="StateMachine" instance=ExtResource("18_wr55s")]
 

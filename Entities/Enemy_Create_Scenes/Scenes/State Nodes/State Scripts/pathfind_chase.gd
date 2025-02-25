@@ -49,6 +49,7 @@ func enter():
 	state_machine.body.play_run_right_animation()
 
 func exit():
+	set_knockback(0, Vector2(0,0))
 	set_process(false)
 
 func update(_delta: float):
@@ -78,14 +79,14 @@ func _process(_delta):
 			knockback_direction = Vector2.ZERO
 			
 		#sprite flips
-		#if state_machine.enemy.position.x <= state_machine.target.position.x:
-			#state_machine.body.scale.x = 1
-		#else:
-			#state_machine.body.scale.x = -1
-		if state_machine.enemy.velocity.x >= 0:
+		if state_machine.enemy.position.x <= state_machine.target.position.x:
 			state_machine.body.scale.x = 1
 		else:
 			state_machine.body.scale.x = -1
+		#if state_machine.enemy.velocity.x >= 0 and !knockback_direction:
+			#state_machine.body.scale.x = 1
+		#else:
+			#state_machine.body.scale.x = -1
 	state_machine.enemy.move_and_slide()
 
 func weapon_facing_direction(left: bool, right: bool) -> void:
@@ -97,7 +98,9 @@ func weapon_facing_direction(left: bool, right: bool) -> void:
 func _enter_attack_state(body: Node2D) -> void:
 	if body.is_in_group("player") and state_machine.enemy_type == "melee":
 		#print("Entered melee")
+		set_knockback(0, Vector2(0,0))
 		state_machine.change_state(self, "attack")
 	elif body.is_in_group("player") and state_machine.enemy_type == "ranged":
 		#print("entered ranged")
+		set_knockback(0, Vector2(0,0))
 		state_machine.change_state(self, "shootprojectile")

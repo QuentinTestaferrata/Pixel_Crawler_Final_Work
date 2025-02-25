@@ -14,9 +14,6 @@ var attacks: Array = []
 var attack_animations: AnimationPlayer
 var is_animation_finished: bool = true
 var cooldown_timer: Timer
-var nav_agent: NavigationAgent2D
-var direction: Vector2
-var enemy: CharacterBody2D
 
 @onready var attack_range: Area2D = $"../../AttackRange"
 @onready var hitbox_component: HurtboxComponent = $"../../HitboxComponent"
@@ -26,8 +23,6 @@ func _ready() -> void:
 	attack_range.body_exited.connect(_leave_attack_state)
 	hitbox_component.hit.connect(set_knockback)
 	state_machine = get_parent()
-	nav_agent = state_machine.pathfind
-	enemy = state_machine.enemy
 	
 	cooldown_timer = Timer.new()
 	cooldown_timer.timeout.connect(attack)
@@ -36,10 +31,9 @@ func _ready() -> void:
 	set_process(false)
 
 func enter():
-	var chase_state: Node = state_machine.get_node("Chase")
-	set_knockback(0, Vector2(0,0))
 	set_process(true)
 	state_machine.body.play_run_right_animation()
+	
 	if attack_animations == null:
 		attack_animations = state_machine.attack_animations
 	
@@ -78,14 +72,12 @@ func set_knockback(force, dir) -> void:
 func _process(_delta):
 	if state_machine.target:
 		target_position = state_machine.target.global_position
-		nav_agent.target_position = target_position
-		direction = (nav_agent.get_next_path_position() - enemy.global_position).normalized()
-		
+
 		#enemy speed & direction
 		if knockback_direction:
 			state_machine.enemy.velocity = knockback_direction * state_machine.enemy.speed * knockback_force
 		else: 
-			enemy.velocity = enemy.velocity.lerp(direction * enemy.speed, .1)
+			state_machine.enemy.velocity = state_machine.enemy.position.direction_to(target_position) * state_machine.enemy.speed
 		
 		knockback_direction = knockback_direction.lerp(Vector2.ZERO, 0.3)
 		if knockback_direction.length() < 0.1:
@@ -101,7 +93,6 @@ func _process(_delta):
 			angle_to_target = direction_to_target.angle()
 			state_machine.hand_sprites.rotation = lerp_angle(state_machine.hand_sprites.rotation, -(angle_to_target + PI / 2), 15.0 * _delta)
 		
-		#Spriteflip
 		if state_machine.enemy.position.x <= state_machine.target.position.x:
 			state_machine.body.scale.x = 1
 		else:
