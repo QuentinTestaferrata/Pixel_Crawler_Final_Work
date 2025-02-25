@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ah34slmey0s" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager.tscn" id="2_njgom"]
 [ext_resource type="PackedScene" uid="uid://c6g8tsl74w2o6" path="res://Common/spawnpoint/spawn_points.tscn" id="3_ccrfd"]
 [ext_resource type="PackedScene" uid="uid://c6nud04qkgp33" path="res://Entities/Gameplay Managers/Loot Manager/loot_manager.tscn" id="4_a7psr"]
-[ext_resource type="Resource" uid="uid://bmf4q2kbcxp0g" path="res://Entities/EnemySpawnrates/1_dungeon_spawnrates.tres" id="4_oca2p"]
+[ext_resource type="Resource" uid="uid://bmf4q2kbcxp0g" path="res://Entities/WaveData/1_dungeon/dungeon_spawnrates.tres" id="4_oca2p"]
 [ext_resource type="PackedScene" uid="uid://0hfqtdetcfbt" path="res://Common/spawnpoint/points/point.tscn" id="5_74hxw"]
 [ext_resource type="PackedScene" uid="uid://dq3vhr8h3fr2e" path="res://Entities/Gameplay Managers/Mob Manager/Mob Manager.tscn" id="5_e5vnl"]
 [ext_resource type="PackedScene" uid="uid://dmu7q10xuxm76" path="res://Common/spawnpoint/area/Area.tscn" id="6_871kl"]
@@ -7254,9 +7254,8 @@ sources/0 = SubResource("TileSetAtlasSource_xy367")
 [node name="FairyForest" type="Node2D"]
 script = ExtResource("1_dbeo8")
 
-[node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") instance=ExtResource("1_yp4si")]
+[node name="HUDLayer" parent="." instance=ExtResource("1_yp4si")]
 visible = false
-saver_loader = NodePath("")
 
 [node name="WaveManager" parent="." groups=["wave_manager"] instance=ExtResource("2_njgom")]
 enemies_per_wave = 2
@@ -7274,6 +7273,7 @@ speed_multiplyer = 1.02
 unique_name_in_owner = true
 
 [node name="Point" parent="SpawnPoints" node_paths=PackedStringArray("zone") instance=ExtResource("5_74hxw")]
+visible = false
 position = Vector2(-16, 232)
 zone = NodePath("Area")
 
@@ -7284,6 +7284,7 @@ position = Vector2(137, 94)
 shape = SubResource("RectangleShape2D_ob0uk")
 
 [node name="Point2" parent="SpawnPoints" node_paths=PackedStringArray("zone") instance=ExtResource("5_74hxw")]
+visible = false
 position = Vector2(1132, 67)
 zone = NodePath("Area")
 
@@ -7294,16 +7295,19 @@ position = Vector2(-260, -307)
 shape = SubResource("RectangleShape2D_ob0uk")
 
 [node name="Point5" parent="SpawnPoints" node_paths=PackedStringArray("zone") instance=ExtResource("5_74hxw")]
+visible = false
 position = Vector2(296, -104)
 zone = NodePath("Area")
 
 [node name="Area" parent="SpawnPoints/Point5" instance=ExtResource("6_871kl")]
+position = Vector2(48, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point5/Area"]
 position = Vector2(1, -111)
 shape = SubResource("RectangleShape2D_ob0uk")
 
 [node name="Point6" parent="SpawnPoints" node_paths=PackedStringArray("zone") instance=ExtResource("5_74hxw")]
+visible = false
 position = Vector2(-536, -360)
 zone = NodePath("Area")
 
@@ -7314,6 +7318,7 @@ position = Vector2(96, 96)
 shape = SubResource("RectangleShape2D_ob0uk")
 
 [node name="Point4" parent="SpawnPoints" node_paths=PackedStringArray("zone") instance=ExtResource("5_74hxw")]
+visible = false
 position = Vector2(-288, 424)
 zone = NodePath("Area")
 
@@ -7324,6 +7329,7 @@ position = Vector2(-149, -87)
 shape = SubResource("RectangleShape2D_ob0uk")
 
 [node name="Point7" parent="SpawnPoints" node_paths=PackedStringArray("zone") instance=ExtResource("5_74hxw")]
+visible = false
 position = Vector2(1120, 248)
 zone = NodePath("Area")
 
@@ -7356,7 +7362,7 @@ tile_map_data = PackedByteArray("AAAGACQAAAAGAAQAAAAGACUAAAAGAAUAAAAGACYAAAAGAAY
 tile_set = SubResource("TileSet_3sr52")
 
 [node name="Props" type="TileMapLayer" parent="TileMap"]
-tile_map_data = PackedByteArray("AAAAACYAAAAGAA8AAAAAACcAAAAGABAAAAABACUAAAAHAA4AAAABACYAAAAHAA8AAAABACcAAAAHABAAAAACACUAAAAIAA4AAAACACYAAAAIAA8AAAACACcAAAAIABAAAAADACUAAAAJAA4AAAADACYAAAAJAA8AAAADACcAAAAJABAAAAAEACUAAAADAA4AAAAEACYAAAADAA8AAAAEACcAAAADABAAAAAFACUAAAAEAA4AAAAFACYAAAAEAA8AAAAFACcAAAAEABAAAAAGACUAAAAFAA4AAAAGACYAAAAFAA8AAAAGACcAAAAFABAAAAA=")
+tile_map_data = PackedByteArray("AAAAACYAAAAGAA8AAAAAACcAAAAGABAAAAABACUAAAAHAA4AAAABACYAAAAHAA8AAAABACcAAAAHABAAAAACACUAAAAIAA4AAAACACYAAAAIAA8AAAACACcAAAAIABAAAAADACUAAAAJAA4AAAADACYAAAAJAA8AAAADACcAAAAJABAAAAAEACUAAAADAA4AAAAEACYAAAADAA8AAAAEACcAAAADABAAAAAFACUAAAAEAA4AAAAFACYAAAAEAA8AAAAFACcAAAAEABAAAAAGACUAAAAFAA4AAAAGACYAAAAFAA8AAAAGACcAAAAFABAAAADz//L/AAAPAAwAAADy//P/AAAPAAwAAAA=")
 tile_set = SubResource("TileSet_dtvgc")
 
 [node name="Upper_Floor" type="TileMapLayer" parent="TileMap"]
