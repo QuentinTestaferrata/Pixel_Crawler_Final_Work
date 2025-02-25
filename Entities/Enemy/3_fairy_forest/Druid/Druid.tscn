@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="17_hqb0t"]
 [ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="18_4kog2"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="19_0o72l"]
+[ext_resource type="PackedScene" uid="uid://ckv7doqqb4npt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/shoot_projectile.tscn" id="20_63fm5"]
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="20_b72vg"]
-[ext_resource type="PackedScene" uid="uid://c0beno6ugvgka" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/Heal.tscn" id="20_bfes5"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="22_3c6ji"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
@@ -90,7 +90,7 @@ attack_range = NodePath("../AttackRange")
 
 [node name="Surround" parent="StateMachine" instance=ExtResource("20_b72vg")]
 
-[node name="Heal" parent="StateMachine" instance=ExtResource("20_bfes5")]
+[node name="ShootProjectile" parent="StateMachine" instance=ExtResource("20_63fm5")]
 
 [node name="DamageNumberPosition" parent="." instance=ExtResource("22_3c6ji")]
 
