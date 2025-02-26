@@ -16,13 +16,13 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 @export_category("Gear Stats")
 @export var gear_type: gear_types
 @export var gear_rarity: rarity
-@export var damage: int
-@export var defense: int
-@export var speed: int
+@export var damage_multiplier: int
+@export var defense: int #Te zien
+@export var speed_multiplier: int
 @export var extra_health: int
 @export var regenaration: int
-@export var fire_rate: int
-@export var critical_hit: int
+@export var fire_rate_multiplier: int
+@export var critical_hit_multiplier: int
 
 @export_category("Other")
 @export_multiline var description: String
