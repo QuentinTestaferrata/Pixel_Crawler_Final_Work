@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8shn4dvvjueq"
-path="res://.godot/imported/projectile.png-097f00e4013c8d10116fe18cf67338c9.ctex"
+uid="uid://dy60g51pbtju0"
+path="res://.godot/imported/All_Fire_Bullet_Pixel_16x16_02.png-cf0a8095da2861c5f99c2c52110e9a39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Enemy/1_dungeon/mage/Weapon/projectiles/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-097f00e4013c8d10116fe18cf67338c9.ctex"]
+source_file="res://assets/projectile_sheets/All_Fire_Bullet_Pixel_16x16_02.png"
+dest_files=["res://.godot/imported/All_Fire_Bullet_Pixel_16x16_02.png-cf0a8095da2861c5f99c2c52110e9a39.ctex"]
 
 [params]
 

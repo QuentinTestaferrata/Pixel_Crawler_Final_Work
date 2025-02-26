@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihtenlavcqi1"
-path="res://.godot/imported/gold_ruby_upgrade.png-bdc53f06e861780af5881028fb253f86.ctex"
+uid="uid://6bpiy66lgqir"
+path="res://.godot/imported/green_projectiles.png-fba488b14bfbc8788ab6a9806cbcf8de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gear/Rings/gold_ruby_upgrade.png"
-dest_files=["res://.godot/imported/gold_ruby_upgrade.png-bdc53f06e861780af5881028fb253f86.ctex"]
+source_file="res://assets/projectile_sheets/green_projectiles.png"
+dest_files=["res://.godot/imported/green_projectiles.png-fba488b14bfbc8788ab6a9806cbcf8de.ctex"]
 
 [params]
 

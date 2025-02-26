@@ -1,9 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbmly6wgbex4s"]
+[gd_scene load_steps=13 format=3 uid="uid://cbmly6wgbex4s"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/enemy_projectile_movement.gd" id="1_qjtjk"]
 [ext_resource type="Resource" uid="uid://dbee05m7kkv05" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_data.tres" id="2_smbdl"]
-[ext_resource type="Texture2D" uid="uid://ceku0ql7jtldx" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_projectile.png" id="3_qwbjg"]
+[ext_resource type="Texture2D" uid="uid://cmyruncbwtu04" path="res://assets/projectile_sheets/purple_projectiles.png" id="3_fyv10"]
 [ext_resource type="Texture2D" uid="uid://elt4fl3subep" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/projectile/cursed_particle_texture.png" id="4_mvn0o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxyce"]
+atlas = ExtResource("3_fyv10")
+region = Rect2(336, 145, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu5rc"]
+atlas = ExtResource("3_fyv10")
+region = Rect2(352, 145, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8rxc"]
+atlas = ExtResource("3_fyv10")
+region = Rect2(368, 145, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5naqc"]
+atlas = ExtResource("3_fyv10")
+region = Rect2(384, 145, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_583pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxyce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu5rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8rxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5naqc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
 [sub_resource type="Animation" id="Animation_yedtl"]
 resource_name = "despawn"
@@ -40,9 +76,10 @@ projectile_data = ExtResource("2_smbdl")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(2, 1, 0, 3, -2, 3, -2, -3, 0, -3, 2, -1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("3_qwbjg")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_583pi")
+autoplay = "default"
+frame_progress = 0.457521
 
 [node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
 libraries = {
@@ -50,6 +87,7 @@ libraries = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 6
 local_coords = true
 texture = ExtResource("4_mvn0o")
 direction = Vector2(-1, 0)
@@ -57,3 +95,5 @@ spread = 10.17
 gravity = Vector2(0, 0)
 initial_velocity_min = 90.4
 initial_velocity_max = 90.4
+angular_velocity_min = -185.14
+angular_velocity_max = 174.86
