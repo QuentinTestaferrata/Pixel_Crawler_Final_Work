@@ -88,12 +88,16 @@ shape = SubResource("CapsuleShape2D_syp77")
 [node name="LootDrops" parent="." instance=ExtResource("15_np7ia")]
 drops = Array[ExtResource("16_ay5qn")]([SubResource("Resource_pk53b")])
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("19_v5pe8")]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range", "pathfind") instance=ExtResource("19_v5pe8")]
 initial_state = NodePath("Chase")
 enemy = NodePath("..")
 loot = NodePath("../LootDrops")
 body = NodePath("../Sprite")
 attack_range = NodePath("../AttackRange")
+pathfind = NodePath("../NavigationAgent2D")
 
 [node name="Chase" parent="StateMachine" instance=ExtResource("20_bgrb5")]
 
@@ -102,7 +106,7 @@ attack_range = NodePath("../AttackRange")
 [node name="Surround" parent="StateMachine" instance=ExtResource("22_rwebq")]
 
 [node name="Attack" parent="StateMachine" instance=ExtResource("23_oiler")]
-available_attacks = Array[int]([1, 2])
+available_attacks = Array[int]([3, 4])
 attack_cooldown = 2
 
 [node name="DamageNumberPosition" parent="." instance=ExtResource("24_hnhjs")]

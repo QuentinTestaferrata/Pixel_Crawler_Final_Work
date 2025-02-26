@@ -16,9 +16,9 @@ var saver_loader: SaverLoader
 var buy_tab: bool = true
 var ability_cooldowns: PanelContainer
 
+@onready var resources_tab: TextureButton = $HBoxContainer/Items/VBoxContainer/Tabs/Resources
 @onready var consumables: TextureButton = $HBoxContainer/Items/VBoxContainer/Tabs/Consumables
 @onready var weapons: TextureButton = $HBoxContainer/Items/VBoxContainer/Tabs/Weapons
-@onready var idk: TextureButton = $HBoxContainer/Items/VBoxContainer/Tabs/Idk
 @onready var idk_2: TextureButton = $HBoxContainer/Items/VBoxContainer/Tabs/Idk2
 @onready var scroll_container: ScrollContainer = $HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer
 @onready var grid_container: GridContainer = $HBoxContainer/Items/VBoxContainer/ShopItems/ScrollContainer/GridContainer
@@ -64,7 +64,26 @@ func get_shop_items() -> void:
 		
 		temp_item_holder.add_child(sprite)
 		grid_container.add_child(temp_item_holder)
-
+		
+func get_shop_resources() -> void:
+	for i in StatsManager.shop_resources:
+		var temp_item_holder: TextureButton = ITEM_HOLDER.instantiate()
+		var sprite: TextureRect = TextureRect.new()
+		
+		buy_label.text = "Buy"
+		
+		sprite.texture = i.sprite
+		sprite.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+		sprite.size = Vector2(16,14)
+		sprite.position = Vector2(3, 3)
+		
+		temp_item_holder.pressed.connect(get_item_info.bind(i))
+		temp_item_holder.item = i
+		temp_item_holder.weapon = null
+		
+		temp_item_holder.add_child(sprite)
+		grid_container.add_child(temp_item_holder)
+		
 func get_shop_weapons() -> void:
 	for i in StatsManager.shop_weapons:
 		var temp_item_holder: TextureButton = WEAPON_HOLDER.instantiate()
@@ -217,11 +236,17 @@ func _on_weapons_pressed() -> void:
 	clear_shop_items()
 	get_shop_weapons()
 
+func _on_resources_tab_pressed() -> void:
+	buy_tab = true
+	clear_shop_items()
+	get_shop_resources()
+	
+
 func _on_sell_button_pressed() -> void:
 	buy_tab = false
 	consumables.visible = false
 	weapons.visible = false
-	idk.visible = false
+	resources_tab.visible = false
 	idk_2.visible = false
 	clear_shop_items()
 	get_inventory_items()
@@ -230,7 +255,7 @@ func _on_buy_tab_button_pressed() -> void:
 	buy_tab = true
 	consumables.visible = true
 	weapons.visible = true
-	idk.visible = true
+	resources_tab.visible = true
 	idk_2.visible = true
 	clear_shop_items()
 	get_shop_items()
@@ -262,7 +287,7 @@ func _on_buy_button_pressed() -> void:
 			buy_tab = false
 			consumables.visible = false
 			weapons.visible = false
-			idk.visible = false
+			resources_tab.visible = false
 			idk_2.visible = false
 		update_amount()
 		clear_shop_items()

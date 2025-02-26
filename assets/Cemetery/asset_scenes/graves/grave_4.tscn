@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://7oukxkadtj80" path="res://assets/Cemetery/Tiles/Tiles.png" id="1_ddnkv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hste2"]
-size = Vector2(20, 12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7q6v"]
+radius = 5.0
+height = 16.0
 
 [node name="Grave1" type="StaticBody2D"]
 
@@ -14,4 +15,5 @@ region_enabled = true
 region_rect = Rect2(336, 70, 16, 26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hste2")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_x7q6v")

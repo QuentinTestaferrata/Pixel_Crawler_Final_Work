@@ -19,10 +19,10 @@
 [ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="17_pfql0"]
 [ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="18_cuvym"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="19_eqvlc"]
-[ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="20_rn2te"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="21_1rjnu"]
+[ext_resource type="PackedScene" uid="uid://bjapmlee3rbwq" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase_no_pathfind.tscn" id="22_it2fq"]
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="22_jy4gc"]
-[ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="23_8r76w"]
+[ext_resource type="PackedScene" uid="uid://tysy6rrrqpyi" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack_no_pathfind.tscn" id="23_nivt3"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="24_bj6bj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
@@ -107,15 +107,14 @@ loot = NodePath("../LootDrops")
 body = NodePath("../Sprite")
 attack_range = NodePath("../AttackRange")
 
-[node name="Chase" parent="StateMachine" instance=ExtResource("20_rn2te")]
-
 [node name="Die" parent="StateMachine" instance=ExtResource("21_1rjnu")]
 
 [node name="Surround" parent="StateMachine" instance=ExtResource("22_jy4gc")]
 
-[node name="Attack" parent="StateMachine" instance=ExtResource("23_8r76w")]
+[node name="Chase" parent="StateMachine" instance=ExtResource("22_it2fq")]
+
+[node name="Attack" parent="StateMachine" instance=ExtResource("23_nivt3")]
 available_attacks = Array[int]([1])
-attack_cooldown = 1
 rotate_hands = true
 
 [node name="DamageNumberPosition" parent="." instance=ExtResource("24_bj6bj")]

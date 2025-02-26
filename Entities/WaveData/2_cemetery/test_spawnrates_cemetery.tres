@@ -8,14 +8,14 @@
 
 [resource]
 script = ExtResource("5_qriyk")
-enemy_1 = ExtResource("1_r7url")
+enemy_1 = ExtResource("1_0fu0c")
 spawn_rate_1 = 0
-enemy_2 = ExtResource("2_emql3")
+enemy_2 = ExtResource("2_75fmx")
 spawn_rate_2 = 0
-enemy_3 = ExtResource("3_pbeuw")
-spawn_rate_3 = 0
-enemy_4 = ExtResource("4_7dfpi")
-spawn_rate_4 = 100
+enemy_3 = ExtResource("3_mpklc")
+spawn_rate_3 = 100
+enemy_4 = ExtResource("4_7jenx")
+spawn_rate_4 = 0
 spawn_rate_rare = 0
 wave = 0
 wave_2 = 0

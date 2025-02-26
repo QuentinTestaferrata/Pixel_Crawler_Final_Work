@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dxwvp6h2hvfbq"]
+[gd_scene load_steps=34 format=3 uid="uid://dxwvp6h2hvfbq"]
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_1q46w"]
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_ab63m"]
@@ -39,6 +39,10 @@ region = Rect2(19, 229, 10, 11)
 [sub_resource type="AtlasTexture" id="AtlasTexture_27abr"]
 atlas = ExtResource("11_fh3g0")
 region = Rect2(130, 68, 11, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qqxu"]
+atlas = ExtResource("1_1q46w")
+region = Rect2(530, 205, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpjrg"]
 atlas = ExtResource("1_1q46w")
@@ -257,12 +261,28 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_27abr")
 stretch_mode = 3
 
-[node name="Idk" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
+[node name="Resources" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 texture_normal = ExtResource("7_r351t")
 texture_pressed = ExtResource("8_w2m2w")
 texture_hover = ExtResource("9_s4v4f")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Items/VBoxContainer/Tabs/Resources"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_6qqxu")
 stretch_mode = 3
 
 [node name="Idk2" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
@@ -481,6 +501,7 @@ autoplay = "open"
 [connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/BuySellButtons/SellButton" to="." method="_on_sell_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Consumables" to="." method="_on_consumables_pressed"]
 [connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Weapons" to="." method="_on_weapons_pressed"]
+[connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Resources" to="." method="_on_resources_tab_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SubstractButton" to="." method="_on_substract_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
