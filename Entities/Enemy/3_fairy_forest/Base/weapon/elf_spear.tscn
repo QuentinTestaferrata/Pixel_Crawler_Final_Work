@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4ulfylgvs5ai"]
+
+[ext_resource type="Texture2D" uid="uid://by7x15a8da6i1" path="res://Entities/Enemy/3_fairy_forest/Base/weapon/elf_spear.png" id="1_jt4fr"]
+[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_12h4r"]
+[ext_resource type="Resource" uid="uid://81paf7kldrmn" path="res://Entities/Enemy/3_fairy_forest/Base/weapon/elf_spear.tres" id="3_4w2ic"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1rn4"]
+radius = 3.0
+height = 16.0
+
+[node name="BoneSword" type="Sprite2D"]
+texture = ExtResource("1_jt4fr")
+offset = Vector2(1, -9.455)
+script = ExtResource("2_12h4r")
+weapon_data = ExtResource("3_4w2ic")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -25)
+shape = SubResource("CapsuleShape2D_i1rn4")
+
+[node name="DamageCooldown" type="Timer" parent="."]

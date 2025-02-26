@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4a0hrmqt5ykc"]
+
+[ext_resource type="Texture2D" uid="uid://cfii6rhivo6ed" path="res://Entities/Enemy/3_fairy_forest/Hunter/weapon/elf_sword.png" id="1_5y0gg"]
+[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_lvbnj"]
+[ext_resource type="Resource" uid="uid://52gj6f28n4nn" path="res://Entities/Enemy/3_fairy_forest/Hunter/weapon/elf_sword.tres" id="3_35tl8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1rn4"]
+radius = 4.0
+
+[node name="BoneSword" type="Sprite2D"]
+texture = ExtResource("1_5y0gg")
+offset = Vector2(1, -9.455)
+script = ExtResource("2_lvbnj")
+weapon_data = ExtResource("3_35tl8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -16)
+shape = SubResource("CapsuleShape2D_i1rn4")
+
+[node name="DamageCooldown" type="Timer" parent="."]
