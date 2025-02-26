@@ -1,7 +1,7 @@
 extends Resource
 class_name GearData
 
-enum gear_types {HAT, COAT, BOOTS, RING, AMULETTE}
+enum gear_types {HAT, COAT, BOOTS, RING, AMULET}
 enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 
 @export_category("Gear Data")

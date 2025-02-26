@@ -60,7 +60,6 @@ right_hand = ExtResource("6_csk3l")
 right_hand_empty = ExtResource("7_2hogd")
 weapon_type = 1
 left_hand_weapon = ExtResource("8_rjr37")
-right_hand_weapon = ExtResource("8_rjr37")
 body = ExtResource("10_fo001")
 
 [node name="HealthBar" parent="." instance=ExtResource("11_5py45")]
