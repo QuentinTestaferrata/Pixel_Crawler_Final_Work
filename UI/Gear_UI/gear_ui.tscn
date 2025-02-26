@@ -1,0 +1,168 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmhv076kqk1ay"]
+
+[ext_resource type="Texture2D" uid="uid://cthflfmocst75" path="res://UI/Buttons/2_medium/button.png" id="1_ewo7n"]
+[ext_resource type="Texture2D" uid="uid://clgtoso2uh6js" path="res://UI/Buttons/2_medium/button_pressed.png" id="2_4lid7"]
+[ext_resource type="Texture2D" uid="uid://clov3wyoi8kd5" path="res://UI/Buttons/2_medium/button_hover.png" id="3_a34e2"]
+[ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="4_yh50n"]
+[ext_resource type="Texture2D" uid="uid://blc53waw0hj1e" path="res://assets/Castle/Weapons.png" id="5_vi5mr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl7ty"]
+atlas = ExtResource("4_yh50n")
+region = Rect2(19, 229, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lobtb"]
+atlas = ExtResource("5_vi5mr")
+region = Rect2(130, 68, 11, 13)
+
+[node name="GearUi" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 50.0
+offset_right = 400.0
+offset_bottom = 210.0
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Equiped_Gear" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="All_Gear" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/All_Gear"]
+layout_mode = 2
+
+[node name="Tabs" type="HBoxContainer" parent="HBoxContainer/All_Gear/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Hats" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("1_ewo7n")
+texture_pressed = ExtResource("2_4lid7")
+texture_hover = ExtResource("3_a34e2")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Hats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_fl7ty")
+stretch_mode = 3
+
+[node name="Coats" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("1_ewo7n")
+texture_pressed = ExtResource("2_4lid7")
+texture_hover = ExtResource("3_a34e2")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Coats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_lobtb")
+stretch_mode = 3
+
+[node name="Boots" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("1_ewo7n")
+texture_pressed = ExtResource("2_4lid7")
+texture_hover = ExtResource("3_a34e2")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Boots"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_lobtb")
+stretch_mode = 3
+
+[node name="Rings" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("1_ewo7n")
+texture_pressed = ExtResource("2_4lid7")
+texture_hover = ExtResource("3_a34e2")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Rings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_lobtb")
+stretch_mode = 3
+
+[node name="Amulets" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("1_ewo7n")
+texture_pressed = ExtResource("2_4lid7")
+texture_hover = ExtResource("3_a34e2")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Amulets"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_lobtb")
+stretch_mode = 3
