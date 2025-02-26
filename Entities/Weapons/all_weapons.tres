@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AllWeapons" load_steps=9 format=3 uid="uid://ctsxdwheeg3y"]
+[gd_resource type="Resource" script_class="AllWeapons" load_steps=9 format=3 uid="uid://ccacvelu4uk5i"]
 
 [ext_resource type="Resource" uid="uid://4rr2avitfwy4" path="res://Entities/Weapons/bow/Basic Bow/arrow/basic_arrow.tres" id="1_bpox5"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_rvx4m"]
