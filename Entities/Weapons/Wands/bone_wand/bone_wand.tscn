@@ -1,12 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://diocly1nuyxyt"]
+[gd_scene load_steps=29 format=3 uid="uid://diocly1nuyxyt"]
 
 [ext_resource type="Script" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.gd" id="1_k4222"]
 [ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="1_x8qs3"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_1js7s"]
 [ext_resource type="Resource" uid="uid://c4qj5yf413nxr" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.tres" id="2_vpkr1"]
 [ext_resource type="Resource" uid="uid://bg0cxho6xwfde" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/mini_fireball_data.tres" id="3_2xam3"]
-[ext_resource type="Texture2D" uid="uid://dtynyhbn3d0o6" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/small_ball.png" id="4_qjbex"]
 [ext_resource type="Texture2D" uid="uid://c7bpxrji5hsu3" path="res://assets/masks for  particles/20.png" id="5_b1qd0"]
+[ext_resource type="Texture2D" uid="uid://6bpiy66lgqir" path="res://assets/projectile_sheets/green_projectiles.png" id="6_v2val"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vhsve"]
 blend_mode = 1
@@ -14,6 +14,78 @@ blend_mode = 1
 [sub_resource type="Gradient" id="Gradient_163bn"]
 offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
 colors = PackedColorArray(1, 1, 1, 0, 6.37732e-07, 0.393071, 0.246579, 0.501961, 0.431073, 0.810743, 0.326029, 0.552941, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1lbs"]
+atlas = ExtResource("6_v2val")
+region = Rect2(96, 289, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j2fv"]
+atlas = ExtResource("6_v2val")
+region = Rect2(112, 289, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt627"]
+atlas = ExtResource("6_v2val")
+region = Rect2(128, 289, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2i27"]
+atlas = ExtResource("6_v2val")
+region = Rect2(144, 289, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc0st"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1lbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j2fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt627")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2i27")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pfjl"]
+atlas = ExtResource("6_v2val")
+region = Rect2(96, 289, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1sxy"]
+atlas = ExtResource("6_v2val")
+region = Rect2(112, 289, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx8qr"]
+atlas = ExtResource("6_v2val")
+region = Rect2(128, 289, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tse7"]
+atlas = ExtResource("6_v2val")
+region = Rect2(144, 289, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62l8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pfjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1sxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx8qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tse7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xgsqb"]
 blend_mode = 1
@@ -40,38 +112,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
+tracks/1/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
+tracks/2/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
+tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mp1vi"]
@@ -92,38 +164,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
+tracks/1/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
+tracks/2/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
+tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_himdh"]
@@ -144,38 +216,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
+tracks/1/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Markers/Marker2D3/Sprite2D:visible")
+tracks/2/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:visible")
+tracks/3/path = NodePath("Markers/Marker2D4/Sprite2D:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ck6ni"]
@@ -266,16 +338,18 @@ position = Vector2(0, -31)
 [node name="Marker2D3" type="Marker2D" parent="Markers"]
 position = Vector2(0, -8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Markers/Marker2D3"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Markers/Marker2D3"]
 visible = false
-texture = ExtResource("4_qjbex")
+sprite_frames = SubResource("SpriteFrames_wc0st")
+autoplay = "default"
 
 [node name="Marker2D4" type="Marker2D" parent="Markers"]
 position = Vector2(0, 8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Markers/Marker2D4"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Markers/Marker2D4"]
 visible = false
-texture = ExtResource("4_qjbex")
+sprite_frames = SubResource("SpriteFrames_62l8o")
+autoplay = "default"
 
 [node name="FireballSpawner" type="Marker2D" parent="Markers"]
 

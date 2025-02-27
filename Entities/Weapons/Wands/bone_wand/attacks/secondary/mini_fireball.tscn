@@ -1,12 +1,48 @@
-[gd_scene load_steps=15 format=3 uid="uid://23fps8gl55b7"]
+[gd_scene load_steps=20 format=3 uid="uid://23fps8gl55b7"]
 
-[ext_resource type="Texture2D" uid="uid://dtynyhbn3d0o6" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/small_ball.png" id="1_0t7bh"]
 [ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_s1tor"]
 [ext_resource type="Resource" uid="uid://bg0cxho6xwfde" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/mini_fireball_data.tres" id="2_uibmx"]
+[ext_resource type="Texture2D" uid="uid://6bpiy66lgqir" path="res://assets/projectile_sheets/green_projectiles.png" id="3_vn6d7"]
 [ext_resource type="Texture2D" uid="uid://bbp05vsxbyly0" path="res://assets/masks for  particles/31.png" id="4_8efoy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmnwr"]
 radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phh81"]
+atlas = ExtResource("3_vn6d7")
+region = Rect2(176, 129, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2700"]
+atlas = ExtResource("3_vn6d7")
+region = Rect2(192, 129, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voj8v"]
+atlas = ExtResource("3_vn6d7")
+region = Rect2(208, 129, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u6mg"]
+atlas = ExtResource("3_vn6d7")
+region = Rect2(224, 129, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7fb6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phh81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2700")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voj8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u6mg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Animation" id="Animation_28vrl"]
 length = 0.001
@@ -131,8 +167,10 @@ projectile_data = ExtResource("2_uibmx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qmnwr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_0t7bh")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7fb6n")
+autoplay = "default"
+frame_progress = 0.377396
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

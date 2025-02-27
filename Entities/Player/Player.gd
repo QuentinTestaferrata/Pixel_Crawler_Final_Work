@@ -15,6 +15,7 @@ const GAME_OVER_SCREEN = preload("res://UI/game_over_screen/GameOverScreen.tscn"
 @export var HealthPotionCD: int = 30
 @export var SpeedPotionCD: int = 60
 
+
 var inventory: Inventory = Inventory.new()
 var inventory_open: bool = false
 var temp_pause_menu: PanelContainer

@@ -1254,3 +1254,5 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_avel0")
 }
+
+[node name="SpearAttacks" type="AnimationPlayer" parent="Attacks"]

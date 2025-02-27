@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpsta1ce451w1"]
+
+[ext_resource type="Texture2D" uid="uid://dy60g51pbtju0" path="res://assets/projectile_sheets/All_Fire_Bullet_Pixel_16x16_02.png" id="1_1qhsm"]
+[ext_resource type="Texture2D" uid="uid://c7bpxrji5hsu3" path="res://assets/masks for  particles/20.png" id="2_qjdpk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rec4e"]
+atlas = ExtResource("1_1qhsm")
+region = Rect2(448, 227, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy45n"]
+atlas = ExtResource("1_1qhsm")
+region = Rect2(480, 227, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0psd"]
+atlas = ExtResource("1_1qhsm")
+region = Rect2(512, 227, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17q2c"]
+atlas = ExtResource("1_1qhsm")
+region = Rect2(544, 227, 32, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61a6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rec4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy45n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0psd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17q2c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fe66o"]
+radius = 8.0
+height = 26.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cpkfl"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_rxbbm"]
+offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
+colors = PackedColorArray(2.31028e-06, 0.798192, 0.912965, 0, 0.700505, 0.992286, 1, 1, 0.557976, 0.934189, 0.957404, 1, 0.556863, 0.933333, 0.956863, 0)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_61a6a")
+frame_progress = 0.57867
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fe66o")
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_cpkfl")
+amount = 3
+explosiveness = 0.12
+texture = ExtResource("2_qjdpk")
+emission_shape = 1
+emission_sphere_radius = 10.14
+direction = Vector2(-1, 0)
+spread = 10.47
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 20.0
+angular_velocity_min = -35.49
+angular_velocity_max = 35.49
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.02
+scale_amount_max = 0.03
+color = Color(0.78724, 0.974774, 1, 0.682353)
+color_ramp = SubResource("Gradient_rxbbm")
