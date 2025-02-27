@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxk55igwlqg3s"]
+
+[ext_resource type="Texture2D" uid="uid://7oukxkadtj80" path="res://assets/Cemetery/Tiles/Tiles.png" id="1_3wy6l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8muqe"]
+atlas = ExtResource("1_3wy6l")
+region = Rect2(0, 112, 80, 112)
+
+[node name="Mountain" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_8muqe")
+offset = Vector2(0, -22.415)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -21)
+polygon = PackedVector2Array(-32, 24, -15, 48, 14, 48, 33, 26, 33, 13, 16, -5, -17, -5, -32, 11)

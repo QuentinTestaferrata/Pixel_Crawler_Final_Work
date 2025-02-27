@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="5_dkvpm"]
 [ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="6_fq1w8"]
 [ext_resource type="Texture2D" uid="uid://cupd782arpfu7" path="res://UI/Buttons/0_mini_buttons/button_hover.png" id="7_nre8w"]
-[ext_resource type="Texture2D" uid="uid://n61snvgq6qp7" path="res://UI/LevelPicker/zone_pictures/cemetery.png" id="8_rn3t7"]
+[ext_resource type="Texture2D" uid="uid://cr7lf3huxpr4c" path="res://UI/LevelPicker/zone_pictures/forge.png" id="8_yvjtr"]
 [ext_resource type="Texture2D" uid="uid://c4pnctkkh3hbe" path="res://Items and Drops/Drops/cemetery/zombie_eye/zombie_eye.png" id="9_g2i8v"]
 [ext_resource type="Texture2D" uid="uid://ddth51yqheb5q" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.png" id="10_2wxve"]
 [ext_resource type="Texture2D" uid="uid://dgvoomjw81vi6" path="res://Items and Drops/Drops/cemetery/cursed_heart/cursed_heart.png" id="11_nlir5"]
@@ -246,18 +246,18 @@ layout_mode = 2
 
 [node name="MarginContainer5" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = -10
+theme_override_constants/margin_left = -9
 theme_override_constants/margin_right = -5
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer5"]
 layout_mode = 2
-theme_override_constants/separation = 39
+theme_override_constants/separation = 52
 alignment = 2
 
 [node name="ZoneName" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "cemetery"
+text = "Forge"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer2"]
@@ -293,7 +293,7 @@ theme_override_constants/margin_bottom = -5
 
 [node name="DungeonImage" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("8_rn3t7")
+texture = ExtResource("8_yvjtr")
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

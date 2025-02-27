@@ -1,12 +1,55 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1qisr61tg5mo"]
+[gd_scene load_steps=21 format=3 uid="uid://b1qisr61tg5mo"]
 
-[ext_resource type="Texture2D" uid="uid://ck2xtexxlfi6d" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.png" id="1_1mr42"]
 [ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_77r5i"]
 [ext_resource type="Resource" uid="uid://c4qj5yf413nxr" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.tres" id="2_jankh"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_pbec1"]
+[ext_resource type="Texture2D" uid="uid://6bpiy66lgqir" path="res://assets/projectile_sheets/green_projectiles.png" id="3_mxb7l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmnwr"]
 radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fxvt"]
+atlas = ExtResource("3_mxb7l")
+region = Rect2(0, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dm74"]
+atlas = ExtResource("3_mxb7l")
+region = Rect2(16, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6cfw"]
+atlas = ExtResource("3_mxb7l")
+region = Rect2(32, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aydwm"]
+atlas = ExtResource("3_mxb7l")
+region = Rect2(48, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qho6r"]
+atlas = ExtResource("3_mxb7l")
+region = Rect2(64, 17, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyxoa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fxvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dm74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6cfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aydwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qho6r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_poxhx"]
 blend_mode = 1
@@ -131,8 +174,10 @@ projectile_data = ExtResource("2_jankh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qmnwr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1mr42")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gyxoa")
+autoplay = "default"
+frame_progress = 0.21903
 
 [node name="FireParticles" type="CPUParticles2D" parent="."]
 z_as_relative = false

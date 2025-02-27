@@ -36,7 +36,6 @@ func _ready() -> void:
 	set_process(false)
 
 func enter():
-	var chase_state: Node = state_machine.get_node("Chase")
 	set_knockback(0, Vector2(0,0))
 	set_process(true)
 	state_machine.body.play_run_right_animation()

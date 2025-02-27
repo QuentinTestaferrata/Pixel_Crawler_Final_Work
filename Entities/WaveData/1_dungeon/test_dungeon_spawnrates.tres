@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemySpawnRates" load_steps=6 format=3 uid="uid://dw5pcflap23hg"]
+
+[ext_resource type="PackedScene" uid="uid://bhg7b37erk1wy" path="res://Entities/Enemy/1_dungeon/base/skeleton_base.tscn" id="1_cspgf"]
+[ext_resource type="PackedScene" uid="uid://dx7l2qy4imiur" path="res://Entities/Enemy/1_dungeon/rogue/skeleton_rogue.tscn" id="2_sylyp"]
+[ext_resource type="PackedScene" uid="uid://bx4gp00rfwml1" path="res://Entities/Enemy/1_dungeon/mage/skeleton_mage.tscn" id="3_8nsqp"]
+[ext_resource type="PackedScene" uid="uid://duoywsqggejq7" path="res://Entities/Enemy/1_dungeon/knight/skeleton_knight.tscn" id="4_fa15m"]
+[ext_resource type="Script" path="res://Entities/Gameplay Managers/Wave Manager/enemy_spawnrates.gd" id="5_fon43"]
+
+[resource]
+script = ExtResource("5_fon43")
+enemy_1 = ExtResource("1_cspgf")
+spawn_rate_1 = 0
+enemy_2 = ExtResource("2_sylyp")
+spawn_rate_2 = 0
+enemy_3 = ExtResource("3_8nsqp")
+spawn_rate_3 = 100
+enemy_4 = ExtResource("4_fa15m")
+spawn_rate_4 = 0
+spawn_rate_rare = 0
+wave = 0
+wave_2 = 0
