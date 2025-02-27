@@ -1,0 +1,130 @@
+[gd_scene load_steps=31 format=3 uid="uid://cn2d75x201bw"]
+
+[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_npm8n"]
+[ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="2_r70jd"]
+[ext_resource type="PackedScene" uid="uid://dbssskf1fgkqt" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthBar.tscn" id="3_kpgjm"]
+[ext_resource type="PackedScene" uid="uid://cicvwla72mg1e" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthComponent.tscn" id="4_xv1gq"]
+[ext_resource type="PackedScene" uid="uid://c46kqb4qaj0eo" path="res://Entities/Enemy_Create_Scenes/Scenes/enemy_sprite.tscn" id="5_m35d6"]
+[ext_resource type="Texture2D" uid="uid://cnsyjqxygwd64" path="res://Entities/Enemy/3_fairy_forest/hand_sprites/sprites/left_hand.png" id="6_4anhv"]
+[ext_resource type="Texture2D" uid="uid://il5qkv736g8o" path="res://Entities/Enemy/3_fairy_forest/hand_sprites/sprites/left_hand_empty.png" id="7_xrqa7"]
+[ext_resource type="Texture2D" uid="uid://crhlmw4bxmc7c" path="res://Entities/Enemy/3_fairy_forest/hand_sprites/sprites/right_hand.png" id="8_vqcke"]
+[ext_resource type="Texture2D" uid="uid://cvbytwduphyqv" path="res://Entities/Enemy/3_fairy_forest/hand_sprites/sprites/right_hand_empty.png" id="9_7umdm"]
+[ext_resource type="PackedScene" uid="uid://d4a0hrmqt5ykc" path="res://Entities/Enemy/3_fairy_forest/Hunter/weapon/elf_sword.tscn" id="10_l0o2n"]
+[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_wdlsj"]
+[ext_resource type="Texture2D" uid="uid://cfii6rhivo6ed" path="res://Entities/Enemy/3_fairy_forest/Hunter/weapon/elf_sword.png" id="12_346xm"]
+[ext_resource type="Texture2D" uid="uid://n4dcv7jfwt6w" path="res://Entities/Enemy/3_fairy_forest/Hunter/sprites/Hunter_elf.png" id="13_kgc3c"]
+[ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="14_fwutj"]
+[ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="15_jx2vv"]
+[ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="16_wqb3f"]
+[ext_resource type="Resource" uid="uid://dbxv8rkuxisy2" path="res://Items and Drops/Drops/cemetery/zombie_eye/zombie_eye.tres" id="17_etnji"]
+[ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="18_krdl3"]
+[ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="19_82kbs"]
+[ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="20_wl1mk"]
+[ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="21_f4353"]
+[ext_resource type="PackedScene" uid="uid://cwa1hwj7tgalp" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack.tscn" id="22_ry738"]
+[ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="23_5cnp1"]
+[ext_resource type="Script" path="res://Entities/Enemy/label.gd" id="24_gswby"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
+radius = 2.0
+height = 16.0
+
+[sub_resource type="Resource" id="Resource_nrrm3"]
+script = ExtResource("11_wdlsj")
+weapon_name = "Elf Sword"
+scene = ExtResource("10_l0o2n")
+sprite = ExtResource("12_346xm")
+weapon_type = 3
+damage = 10
+knockback_force = 5.0
+defense = 0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syp77"]
+radius = 9.0
+
+[sub_resource type="Resource" id="Resource_4jkif"]
+script = ExtResource("16_wqb3f")
+item = ExtResource("17_etnji")
+probability = 25.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fj3jx"]
+radius = 73.0069
+
+[sub_resource type="LabelSettings" id="LabelSettings_yea2t"]
+font_size = 7
+
+[node name="HunterElf" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_npm8n")
+speed = 80
+enemy_type = "melee"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5goyu")
+
+[node name="EXPComponent" parent="." instance=ExtResource("2_r70jd")]
+exp_amount = 2
+
+[node name="HealthBar" parent="." instance=ExtResource("3_kpgjm")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_xv1gq")]
+max_health = 100
+
+[node name="Sprite" parent="." instance=ExtResource("5_m35d6")]
+left_hand = ExtResource("6_4anhv")
+left_hand_empty = ExtResource("7_xrqa7")
+right_hand = ExtResource("8_vqcke")
+right_hand_empty = ExtResource("9_7umdm")
+weapon_type = 3
+left_hand_weapon = SubResource("Resource_nrrm3")
+body = ExtResource("13_kgc3c")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("14_fwutj")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_syp77")
+
+[node name="LootDrops" parent="." instance=ExtResource("15_jx2vv")]
+drops = Array[ExtResource("16_wqb3f")]([SubResource("Resource_4jkif")])
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range") instance=ExtResource("18_krdl3")]
+initial_state = NodePath("Chase")
+enemy = NodePath("..")
+loot = NodePath("../LootDrops")
+body = NodePath("../Sprite")
+attack_range = NodePath("../AttackRange")
+
+[node name="Chase" parent="StateMachine" instance=ExtResource("19_82kbs")]
+
+[node name="Die" parent="StateMachine" instance=ExtResource("20_wl1mk")]
+
+[node name="Surround" parent="StateMachine" instance=ExtResource("21_f4353")]
+
+[node name="Attack" parent="StateMachine" instance=ExtResource("22_ry738")]
+available_attacks = Array[int]([1])
+attack_cooldown = 2
+
+[node name="DamageNumberPosition" parent="." instance=ExtResource("23_5cnp1")]
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_fj3jx")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -26.0
+offset_top = -61.0
+offset_right = 27.0
+offset_bottom = -47.0
+label_settings = SubResource("LabelSettings_yea2t")
+horizontal_alignment = 1
+script = ExtResource("24_gswby")
