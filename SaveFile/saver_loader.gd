@@ -9,11 +9,13 @@ func save_game():
 	#Inventory
 	saved_game.items = player.inventory.content
 	saved_game.weapons = player.inventory.weapons
+	saved_game.gears = player.inventory.gears
 	
 	#Shop Items
 	saved_game.shop_items = StatsManager.shop_items
 	saved_game.shop_resources = StatsManager.shop_resources
 	saved_game.shop_weapons = StatsManager.shop_weapons
+	saved_game.shop_gears = StatsManager.shop_gears
 	
 	#Active Weapons
 	saved_game.equiped_weapon_1 = player.weapon_manager.equiped_weapon_1
@@ -42,11 +44,13 @@ func load_game() -> void:
 	#Inventory
 	player.inventory.content = saved_game.items
 	player.inventory.weapons = saved_game.weapons
+	player.inventory.gears = saved_game.gears
 	
 	#Shop Items
 	StatsManager.shop_items = saved_game.shop_items
 	StatsManager.shop_resources = saved_game.shop_resources
 	StatsManager.shop_weapons = saved_game.shop_weapons 
+	StatsManager.shop_gears = saved_game.shop_gears 
 	
 	#Active Weapons
 	StatsManager.equiped_weapon_1 = saved_game.equiped_weapon_1

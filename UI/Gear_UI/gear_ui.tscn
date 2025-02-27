@@ -1,131 +1,146 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmhv076kqk1ay"]
+[gd_scene load_steps=28 format=3 uid="uid://bmhv076kqk1ay"]
 
-[ext_resource type="Texture2D" uid="uid://dg50f1t0fk0oy" path="res://UI/Buttons/17px_button/normal.png" id="1_cxso4"]
-[ext_resource type="Texture2D" uid="uid://cthflfmocst75" path="res://UI/Buttons/2_medium/button.png" id="1_ewo7n"]
-[ext_resource type="Texture2D" uid="uid://clgtoso2uh6js" path="res://UI/Buttons/2_medium/button_pressed.png" id="2_4lid7"]
-[ext_resource type="Texture2D" uid="uid://dk21duh5ldwo5" path="res://UI/Buttons/17px_button/pressed.png" id="2_yidxg"]
-[ext_resource type="Texture2D" uid="uid://clov3wyoi8kd5" path="res://UI/Buttons/2_medium/button_hover.png" id="3_a34e2"]
-[ext_resource type="Texture2D" uid="uid://blu3pcai7sgrl" path="res://UI/Buttons/17px_button/hover.png" id="3_tlyhv"]
+[ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_la0mv"]
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_u4v2b"]
+[ext_resource type="Texture2D" uid="uid://d278nse1jha5s" path="res://UI/Buttons/18px_button/normal.png" id="2_hkec5"]
+[ext_resource type="Script" path="res://UI/Gear_UI/gear_ui.gd" id="3_ahvxj"]
+[ext_resource type="Texture2D" uid="uid://bby6u2wl0f5kh" path="res://UI/Buttons/18px_button/pressed.png" id="3_bgjh0"]
+[ext_resource type="Texture2D" uid="uid://bo1cnfm1dfkhh" path="res://UI/Buttons/18px_button/hover.png" id="4_ca1fs"]
 [ext_resource type="Texture2D" uid="uid://dri12651xy31t" path="res://assets/gear/Armor/1_black/hat.png" id="4_kvm8p"]
 [ext_resource type="Texture2D" uid="uid://c5tg704geblxu" path="res://assets/gear/Armor/1_black/robe.png" id="5_1b363"]
 [ext_resource type="Texture2D" uid="uid://c1lnupffgc47m" path="res://assets/gear/Armor/1_black/shoes.png" id="6_iho2u"]
 [ext_resource type="Texture2D" uid="uid://bqw1ca7raau37" path="res://assets/gear/Rings/gold.png" id="7_k0et8"]
 [ext_resource type="Texture2D" uid="uid://dp4r6e46c0hxx" path="res://assets/gear/Amulets/Ruby_amulet.png" id="8_3jwt0"]
+[ext_resource type="Texture2D" uid="uid://6sxqwc3ls8wq" path="res://UI/Gear_UI/Throne.png" id="9_gfqig"]
+[ext_resource type="Texture2D" uid="uid://dibytxj0s4gdi" path="res://assets/1_Heroes/Wizzard/Player/Idle-Player.png" id="10_j5vt3"]
+[ext_resource type="PackedScene" uid="uid://cgs8cecmhubv" path="res://UI/Dialog/Scenes/Option_Button.tscn" id="14_rct85"]
 
-[node name="GearUi" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[sub_resource type="Theme" id="Theme_gagk2"]
+Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+Label/font_sizes/font_size = 10
+Label/fonts/font = ExtResource("1_la0mv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mf23w"]
+texture = ExtResource("1_u4v2b")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(32, 1120, 183, 280)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0kp5"]
+texture = ExtResource("9_gfqig")
+expand_margin_bottom = 85.0
+region_rect = Rect2(0, 50, 253, 303)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofdlx"]
+atlas = ExtResource("10_j5vt3")
+region = Rect2(0, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyd2m"]
+atlas = ExtResource("10_j5vt3")
+region = Rect2(32, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy5ry"]
+atlas = ExtResource("10_j5vt3")
+region = Rect2(64, 0, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yt41"]
+atlas = ExtResource("10_j5vt3")
+region = Rect2(96, 0, 32, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ole8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofdlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyd2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy5ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yt41")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6o6mn"]
+texture = ExtResource("1_u4v2b")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(282, 1463, 173, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as3x7"]
+atlas = ExtResource("1_u4v2b")
+region = Rect2(147, 862, 69, 9)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4m8l8"]
+texture = ExtResource("1_u4v2b")
+texture_margin_left = 7.0
+texture_margin_top = 6.0
+texture_margin_right = 7.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(368, 144, 81, 80)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1pcgs"]
+content_margin_left = 2.0
+color = Color(0, 0, 0, 0.807843)
+
+[sub_resource type="Theme" id="Theme_ojrcb"]
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_1pcgs")
+
+[node name="GearUi" type="PanelContainer"]
 offset_left = 80.0
 offset_top = 50.0
-offset_right = 400.0
-offset_bottom = 210.0
+offset_right = 410.0
+offset_bottom = 230.0
 size_flags_horizontal = 4
+theme = SubResource("Theme_gagk2")
+theme_override_styles/panel = SubResource("StyleBoxTexture_mf23w")
+script = ExtResource("3_ahvxj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Equiped_Gear" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 3
 
-[node name="All_Gear" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Equiped_Gear"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/All_Gear"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Equiped_Gear/MarginContainer"]
 layout_mode = 2
 
-[node name="Tabs" type="HBoxContainer" parent="HBoxContainer/All_Gear/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 13
-alignment = 1
 
-[node name="Hats" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
+[node name="EquipedJewelry" type="VBoxContainer" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Equiped_ring" type="TextureButton" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-texture_normal = ExtResource("1_cxso4")
-texture_pressed = ExtResource("2_yidxg")
-texture_hover = ExtResource("3_tlyhv")
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
 stretch_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Hats"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_kvm8p")
-stretch_mode = 3
-
-[node name="Coats" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-texture_normal = ExtResource("1_cxso4")
-texture_pressed = ExtResource("3_tlyhv")
-texture_hover = ExtResource("2_yidxg")
-stretch_mode = 3
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Coats"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -9.0
-offset_right = 8.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_1b363")
-stretch_mode = 3
-
-[node name="Boots" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-texture_normal = ExtResource("1_ewo7n")
-texture_pressed = ExtResource("2_4lid7")
-texture_hover = ExtResource("3_a34e2")
-stretch_mode = 3
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Boots"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_iho2u")
-stretch_mode = 3
-
-[node name="Rings" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-texture_normal = ExtResource("1_ewo7n")
-texture_pressed = ExtResource("2_4lid7")
-texture_hover = ExtResource("3_a34e2")
-stretch_mode = 3
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Rings"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry/Equiped_ring"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -141,15 +156,15 @@ grow_vertical = 2
 texture = ExtResource("7_k0et8")
 stretch_mode = 3
 
-[node name="Amulets" type="TextureButton" parent="HBoxContainer/All_Gear/MarginContainer/Tabs"]
+[node name="Equiped_Amulets" type="TextureButton" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-texture_normal = ExtResource("1_ewo7n")
-texture_pressed = ExtResource("2_4lid7")
-texture_hover = ExtResource("3_a34e2")
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
 stretch_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/MarginContainer/Tabs/Amulets"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry/Equiped_Amulets"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,3 +179,270 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_3jwt0")
 stretch_mode = 3
+
+[node name="Player_decor" type="VBoxContainer" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/Player_decor"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t0kp5")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/Player_decor/PanelContainer"]
+position = Vector2(43, 64)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_2ole8")
+autoplay = "default"
+frame_progress = 0.428064
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="EquipedHats" type="TextureButton" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer3/EquipedHats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kvm8p")
+stretch_mode = 3
+
+[node name="EquipedCoats" type="TextureButton" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer3/EquipedCoats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 8.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_1b363")
+stretch_mode = 3
+
+[node name="EquipedBoots" type="TextureButton" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer3/EquipedBoots"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_iho2u")
+stretch_mode = 3
+
+[node name="BonusStatsPanel" type="PanelContainer" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_6o6mn")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+color = Color(0.105882, 0.133333, 0.211765, 1)
+
+[node name="All_Gear" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Vbox" type="VBoxContainer" parent="HBoxContainer/All_Gear"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Tabs" type="HBoxContainer" parent="HBoxContainer/All_Gear/Vbox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Hats" type="TextureButton" parent="HBoxContainer/All_Gear/Vbox/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/Vbox/Tabs/Hats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kvm8p")
+stretch_mode = 3
+
+[node name="Coats" type="TextureButton" parent="HBoxContainer/All_Gear/Vbox/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/Vbox/Tabs/Coats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 8.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_1b363")
+stretch_mode = 3
+
+[node name="Boots" type="TextureButton" parent="HBoxContainer/All_Gear/Vbox/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/Vbox/Tabs/Boots"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_iho2u")
+stretch_mode = 3
+
+[node name="Rings" type="TextureButton" parent="HBoxContainer/All_Gear/Vbox/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/Vbox/Tabs/Rings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_k0et8")
+stretch_mode = 3
+
+[node name="Amulets" type="TextureButton" parent="HBoxContainer/All_Gear/Vbox/Tabs"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_hkec5")
+texture_pressed = ExtResource("3_bgjh0")
+texture_hover = ExtResource("4_ca1fs")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/All_Gear/Vbox/Tabs/Amulets"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_3jwt0")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/All_Gear/Vbox"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_as3x7")
+stretch_mode = 3
+
+[node name="ShopItems" type="PanelContainer" parent="HBoxContainer/All_Gear/Vbox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4m8l8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/All_Gear/Vbox/ShopItems"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = SubResource("Theme_ojrcb")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/All_Gear/Vbox/ShopItems/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="EquipeButton" type="VBoxContainer" parent="HBoxContainer/All_Gear/Vbox"]
+layout_mode = 2
+
+[node name="Option_button" parent="HBoxContainer/All_Gear/Vbox/EquipeButton" instance=ExtResource("14_rct85")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+theme_override_fonts/font = ExtResource("1_la0mv")
+theme_override_font_sizes/font_size = 20
+text = "Equipe"

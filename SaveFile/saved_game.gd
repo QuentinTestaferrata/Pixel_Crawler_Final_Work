@@ -4,11 +4,13 @@ extends Resource
 @export_category("Player Inventory")
 @export var items : Array[Item]
 @export var weapons: Array[WeaponData]
+@export var gears: Array[GearData]
 
 @export_category("Shop Items")
 @export var shop_items: Array[Item]
 @export var shop_resources: Array[Item]
 @export var shop_weapons: Array[WeaponData]
+@export var shop_gears: Array[GearData]
 
 @export_category("Equipped Weapons")
 @export var equiped_weapon_1: WeaponData
