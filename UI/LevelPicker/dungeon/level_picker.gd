@@ -25,7 +25,7 @@ func _ready() -> void:
 func _on_start_button_pressed() -> void:
 	_hud = get_parent()
 	_hud.saver_loader.save_game()
-	ability_cooldowns.visible = true
+	#ability_cooldowns.visible = true
 	get_tree().change_scene_to_file(_zone.resource_path)
 	AttackCooldowns.reset_cooldowns()
 

@@ -41,3 +41,17 @@ func _instantiate_projectile(attack: PackedScene, pos: Marker2D) -> void:
 	temp_attack.rotation = angle
 	
 	projectile_holder.add_child(temp_attack)
+
+func instantiate_multiple_projectiles(attack: PackedScene, spread_array: Array[int], pos: Marker2D) -> void:
+	for spread in spread_array:
+		print(spread)
+		var _temp_attack = attack.instantiate()
+		_temp_attack.global_position = pos.global_position
+		
+		var _dir = _temp_attack.set_direction_with_spread(get_global_mouse_position(), spread)
+		print(_dir)
+		#var angle = Vector2.RIGHT.angle_to(_dir)
+		#_temp_attack.rotation = angle
+		
+		projectile_holder.add_child(_temp_attack)
+	

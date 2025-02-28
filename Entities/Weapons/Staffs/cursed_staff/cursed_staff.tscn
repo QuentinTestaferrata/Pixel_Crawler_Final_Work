@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bprkkys8eavdb"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.gd" id="1_4fj60"]
+[ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="2_wwfka"]
+[ext_resource type="Texture2D" uid="uid://dkd3qbopqutae" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.png" id="3_4aqu0"]
+[ext_resource type="Resource" uid="uid://dwiqf7ef586rv" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/thorn_bomb.tres" id="3_cn81s"]
+[ext_resource type="PackedScene" uid="uid://c67jd7w4o46c7" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tscn" id="5_1t1vg"]
+[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Basic Staff/projectile_instantiater.gd" id="5_5tw08"]
+[ext_resource type="PackedScene" uid="uid://builvgg03mv3y" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/thorn_bomb.tscn" id="7_er03e"]
+
+[node name="CursedStaff" type="Node2D" node_paths=PackedStringArray("projectile_instantiater")]
+script = ExtResource("1_4fj60")
+projectile_instantiater = NodePath("ProjectileInstantiater")
+attack_resource_1 = ExtResource("2_wwfka")
+primary_attack_scene = ExtResource("5_1t1vg")
+primary_projectile_amount = 3
+spread_array = Array[int]([16, 8, 0, -8, -16])
+secondary_attack_scene = ExtResource("5_1t1vg")
+projectile_amount = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_4aqu0")
+offset = Vector2(0, -5.935)
+region_rect = Rect2(99.1578, 20.7489, 10.8422, 40.2511)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -29)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(0, -29)
+
+[node name="ProjectileInstantiater" type="Node2D" parent="." node_paths=PackedStringArray("primary_spawn_position", "secondary_spawn_position")]
+script = ExtResource("5_5tw08")
+primary_attack_scene = ExtResource("5_1t1vg")
+primary_attack_data = ExtResource("2_wwfka")
+secondary_attack_scene = ExtResource("7_er03e")
+secondary_attack_data = ExtResource("3_cn81s")
+primary_spawn_position = NodePath("../Marker2D")
+secondary_spawn_position = NodePath("../Marker2D2")
