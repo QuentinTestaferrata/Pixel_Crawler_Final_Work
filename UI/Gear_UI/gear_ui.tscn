@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bmhv076kqk1ay"]
+[gd_scene load_steps=34 format=3 uid="uid://bmhv076kqk1ay"]
 
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_la0mv"]
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_u4v2b"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://6sxqwc3ls8wq" path="res://UI/Gear_UI/Throne.png" id="9_gfqig"]
 [ext_resource type="Texture2D" uid="uid://dibytxj0s4gdi" path="res://assets/1_Heroes/Wizzard/Player/Idle-Player.png" id="10_j5vt3"]
 [ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="14_my5e3"]
-[ext_resource type="PackedScene" uid="uid://cgs8cecmhubv" path="res://UI/Dialog/Scenes/Option_Button.tscn" id="14_rct85"]
 [ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="15_ov724"]
 [ext_resource type="Texture2D" uid="uid://cupd782arpfu7" path="res://UI/Buttons/0_mini_buttons/button_hover.png" id="16_ugqg2"]
 
@@ -532,10 +531,6 @@ columns = 4
 
 [node name="EquipeButton" type="VBoxContainer" parent="HBoxContainer/All_Gear/Vbox"]
 layout_mode = 2
-
-[node name="Option_button" parent="HBoxContainer/All_Gear/Vbox/EquipeButton" instance=ExtResource("14_rct85")]
-layout_mode = 2
-text = "Equipe"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

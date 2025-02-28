@@ -3,7 +3,7 @@ extends TextureButton
 const GEAR_HOVER_INFO = preload("res://UI/Gear_UI/gear_hover_info.tscn")
 var hud_layer: CanvasLayer
 
-var gear: WeaponData
+var gear: GearData
 var temp_hover_info: PanelContainer
 var gear_name
 
@@ -16,7 +16,7 @@ func _on_mouse_entered() -> void:
 	 
 	
 	if gear:
-		temp_hover_info.item_name = gear.gear_name
+		temp_hover_info._item_name = gear.gear_name
 		temp_hover_info.description = gear.description
 		temp_hover_info.value = gear.price
 		

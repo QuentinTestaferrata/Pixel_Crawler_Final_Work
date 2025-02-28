@@ -5,20 +5,13 @@ const OPTION_BUTTON = preload("res://UI/Dialog/Scenes/Option_Button.tscn")
 
 var player: CharacterBody2D
 var selected_gear
-var saver_loader: SaverLoader
 var ability_cooldowns: PanelContainer
 var gear_inventory: Array[GearData]
 var gear_manager: Node2D
 
 var stat_labels := {}
 var temp_equipe_gear_button 
-
-#Base stats before adding the gear bonus
-var base_health: int
-var base_speed: float
-var base_damage: float
-var base_fire_rate: float
-var base_critical_hit: float
+var base_speed:int
 
 @onready var equiped_jewelry: VBoxContainer = $HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry
 @onready var equiped_ring: TextureButton = $HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry/Equiped_ring
@@ -55,7 +48,6 @@ func _ready() -> void:
 	ability_cooldowns = get_tree().get_first_node_in_group("ability_cooldown_container")
 	ability_cooldowns.visible = false
 	player = get_tree().get_first_node_in_group("player")
-	saver_loader = get_tree().get_first_node_in_group("saver_loader")
 	gear_inventory = player.inventory.gears
 	
 	
@@ -68,9 +60,8 @@ func _ready() -> void:
 	
 	create_stat_labels()
 	get_gear_items()
-	update_bonus_stats()
 	load_equipped_gear()  
-	hide_equipped_gear()
+	update_inventory_visibility()
 	base_speed = 100
 	#base_damage = StatsManager.equiped_weapon_1.damage if StatsManager.equiped_weapon_1 else 1.0 TODO
 	#base_fire_rate = StatsManager.equiped_weapon_1.fire_rate_multiplier if StatsManager.equiped_weapon_1 else 1.0 TODO
@@ -87,63 +78,66 @@ func get_gear_items() -> void:
 		sprite.position = Vector2(3, 3)
 		
 		temp_gear_holder.pressed.connect(get_gear_info.bind(i))
-		#temp_gear_holder.gear = i
 		
 		temp_gear_holder.add_child(sprite)
+		#temp_gear_holder.gear = i
+		temp_gear_holder.visible = (i.equip_slot == 0)
 		grid_container.add_child(temp_gear_holder)
-	
+
+func set_font_style(label: Control) -> void:
+	var font = FontFile.new()
+	font.font_data = load("res://Common/Poco.ttf")
+	label.add_theme_font_override("font", font)
+	label.add_theme_font_size_override("font_size", 10)
+	label.add_theme_color_override("font_color", Color8(0x1B, 0x22, 0x36))
 
 func show_equipe_button():
-	
 	for child in equipe_button.get_children():
 		equipe_button.remove_child(child)
 		child.queue_free()
 	
 	temp_equipe_gear_button = OPTION_BUTTON.instantiate()
-	
 	temp_equipe_gear_button.text = "Equip"
-	var font = FontFile.new()
-	font.font_data = load("res://Common/Poco.ttf")
-		
-	temp_equipe_gear_button.add_theme_font_override("font", font)
-	temp_equipe_gear_button.add_theme_font_size_override("font_size", 10)
-		
-	temp_equipe_gear_button.add_theme_color_override("font_color", Color8(0x1B, 0x22, 0x36))
-	temp_equipe_gear_button.add_theme_constant_override("content_margin_top", 5)
-		
+	
+	set_font_style(temp_equipe_gear_button)  # ✅ Appelle la fonction au lieu de répéter 3 lignes
+	
 	temp_equipe_gear_button.pressed.connect(_on_temp_equipe_gear_button_pressed.bind(selected_gear))
-	equipe_button.add_child(temp_equipe_gear_button )
+	equipe_button.add_child(temp_equipe_gear_button)
+
 
 func get_gear_info(i: GearData) -> void:
 	selected_gear = i
 	show_equipe_button()
 
 func _on_temp_equipe_gear_button_pressed(gear: GearData):
-	if selected_gear.gear_type == 0: #0 = HAT
-		StatsManager.equiped_hat = gear
-		equiped_hats_sprite.texture = gear.sprite
-		
-	elif selected_gear.gear_type == 1: #1 = COAT
-		StatsManager.equiped_coat = gear
-		equiped_coats_sprite.texture = gear.sprite
-		
-	elif selected_gear.gear_type == 2: #2 = BOOTS
-		StatsManager.equiped_boots = gear
-		equiped_boots_sprite.texture = gear.sprite   
-		
-	elif selected_gear.gear_type == 3: #3 = RING
-		StatsManager.equiped_ring = gear
-		equiped_ring_sprite.texture = gear.sprite
-		
-	elif selected_gear.gear_type == 4: #4 = BOOTS
-		StatsManager.equiped_amulet = gear
-		equiped_amulets_sprite.texture = gear.sprite
-		
+	if gear in [StatsManager.equiped_hat, StatsManager.equiped_coat, StatsManager.equiped_boots, StatsManager.equiped_ring, StatsManager.equiped_amulet]:
+		return  
+	var gear_slots = {
+		0: ["equiped_hat", equiped_hats_sprite],
+		1: ["equiped_coat", equiped_coats_sprite],
+		2: ["equiped_boots", equiped_boots_sprite],
+		3: ["equiped_ring", equiped_ring_sprite],
+		4: ["equiped_amulet", equiped_amulets_sprite]
+	}
+	
+	if gear.gear_type in gear_slots:
+		var slot_name = gear_slots[gear.gear_type][0]
+		var slot_sprite = gear_slots[gear.gear_type][1]
+		StatsManager[slot_name] = gear
+		slot_sprite.texture = gear.sprite
+	
+	gear.equip_slot = 1
+	
 	load_equipped_gear()
 	update_bonus_stats()
-	hide_equipped_gear()
+	update_inventory_visibility()
+	update_equiped_gear()
+	get_gear_items()
+
+
 
 func update_bonus_stats() -> void:
+	
 	var total_damage_multiplier = 0
 	var total_speed_multiplier = 0
 	var total_extra_health = 0
@@ -160,7 +154,8 @@ func update_bonus_stats() -> void:
 			total_fire_rate_multiplier += gear.fire_rate_multiplier
 			total_critical_hit_multiplier += gear.critical_hit_multiplier
 	
-	#StatsManager.max_health = StatsManager.max_health + total_extra_health  # Adding bonus hp TODO
+	StatsManager.max_health = StatsManager.max_health + total_extra_health  # Adding bonus hp TODO
+	StatsManager.health_changed.emit()
 	#player.current_health = min(player.current_health, player.max_health)  # Check to not regen more than max health TODO
 	player.speed = base_speed * (1 + total_speed_multiplier / 100.0)  # Multiplication par le % total
 	
@@ -237,54 +232,34 @@ func load_equipped_gear():
 		else:
 			gear_slots[gear_type].texture = null 
 
-func hide_equipped_gear():
-	for child in grid_container.get_children():
-		if child is TextureButton and child.gear:
-			if child.gear == StatsManager.equiped_hat or \
-				child.gear == StatsManager.equiped_coat or \
-				child.gear == StatsManager.equiped_boots or \
-				child.gear == StatsManager.equiped_ring or \
-				child.gear == StatsManager.equiped_amulet:
-				child.visible = false  
-			else:
-				child.visible = true   
-
 func _on_unequip_button_pressed(gear_type: String):
-	match gear_type:
-		"HAT":
-			if StatsManager.equiped_hat:
-				reset_stats(StatsManager.equiped_hat)
-				StatsManager.equiped_hat = null
-		
-		"COAT":
-			if StatsManager.equiped_coat:
-				reset_stats(StatsManager.equiped_coat)
-				StatsManager.equiped_coat = null
-		
-		"BOOTS":
-			if StatsManager.equiped_boots:
-				reset_stats(StatsManager.equiped_boots)
-				StatsManager.equiped_boots = null
-		
-		"RING":
-			if StatsManager.equiped_ring:
-				reset_stats(StatsManager.equiped_ring)
-				StatsManager.equiped_ring = null
-		"AMULET":
-			if StatsManager.equiped_amulet:
-				reset_stats(StatsManager.equiped_amulet)
-				StatsManager.equiped_amulet = null
-	
+	var gear_map = {
+		"HAT": "equiped_hat",
+		"COAT": "equiped_coat",
+		"BOOTS": "equiped_boots",
+		"RING": "equiped_ring",
+		"AMULET": "equiped_amulet"
+	}
+	if gear_type in gear_map:
+		var gear_ref = StatsManager[gear_map[gear_type]]
+		if gear_ref:
+			reset_stats(gear_ref)
+			gear_ref.equip_slot = 0
+			StatsManager[gear_map[gear_type]] = null
 	
 	update_equiped_gear()
 	update_bonus_stats()
+	get_gear_items()
+
 
 func reset_stats(gear: GearData):
 	if gear == null:
 		return
 	
-	
-	#StatsManager.max_health -= gear.extra_health TODO
+	StatsManager.max_health -= gear.extra_health
+	StatsManager.current_health -= gear.extra_health
+	StatsManager.current_health = StatsManager.max_health
+	StatsManager.health_changed.emit()
 	#player.regeneration -= gear.regenaration
 	player.speed /= (1 + gear.speed_multiplier / 100.0)
 	
@@ -311,3 +286,8 @@ func update_equiped_gear():
 			gear_button.visible = false  
 		else:
 			gear_button.visible = true   #
+
+func update_inventory_visibility():
+	for child in grid_container.get_children():
+		if child is TextureButton and child.gear:
+			child.visible = (child.gear.equip_slot == 0)  # Visible si non équipé

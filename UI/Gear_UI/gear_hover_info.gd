@@ -1,8 +1,5 @@
 extends PanelContainer
 
-@onready var _gear_hover_info: PanelContainer = $"."
-@onready var _margin_container: MarginContainer = $MarginContainer
-@onready var _v_box_container: VBoxContainer = $MarginContainer/VBoxContainer
 @onready var _item_name: Label = $MarginContainer/VBoxContainer/ItemName
 @onready var _stat_list: VBoxContainer = $MarginContainer/VBoxContainer/StatList
 
