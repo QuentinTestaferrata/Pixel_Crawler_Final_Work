@@ -3,7 +3,9 @@ extends Area2D
 @export var projectile_data: PROJECTILE
 @export var hittable: bool = true
 @export var destroy_on_hit: bool = true
+@export var max_hit_before_destroyed: int = 1
 
+var current_targets_hit
 var direction: Vector2
 var timer: Timer
 
@@ -37,6 +39,11 @@ func set_direction(target_position: Vector2) -> Vector2:
 	direction = (target_position - global_position).normalized()
 	direction = direction.rotated(deg_to_rad(randf_range(-(projectile_data.SPREAD / 2),(projectile_data.SPREAD / 2))))
 
+	return direction
+
+func set_direction_with_spread(target_position: Vector2, spread: int) -> Vector2:
+	direction = (target_position - global_position).normalized()
+	direction = direction.rotated(deg_to_rad(spread))
 	return direction
 
 func set_direction_no_spread(target_position: Vector2) -> Vector2:
@@ -90,6 +97,10 @@ func _area_entered(area: Area2D) -> void:
 		area.take_damage(projectile_data, direction)
 		if destroy_on_hit:
 			queue_free()
+		elif !destroy_on_hit && max_hit_before_destroyed != 1:
+			current_targets_hit += 1
+			if current_targets_hit >= max_hit_before_destroyed:
+				queue_free()
 
 func despawn() -> void:
 	if !spawn_animation_player:

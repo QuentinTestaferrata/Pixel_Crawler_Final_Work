@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://dbcytbasqv38y"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_l5hrx"]
+
+[resource]
+script = ExtResource("1_l5hrx")
+NAME = "Cursed Disc"
+TYPE = 0
+SPREAD = 10
+DAMAGE = 20
+MANA_COST = 0
+SPEED = 300
+FIRERATE = 1.0
+LIFETIME = 5.0
+COOLDOWN = 1.0
+KNOCKBACK_FORCE = 4.0
+CRIT_CHANCE = 25
+CRIT_MULTIPLYER = 1.5
