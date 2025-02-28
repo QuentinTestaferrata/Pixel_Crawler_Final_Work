@@ -6,6 +6,7 @@ const SLOT_COUNT: int = 40
 
 var content: Array[Item]
 var weapons: Array[WeaponData]
+var gears: Array[GearData]
 
 func add_item(item: Item, amount: int = 1):
 	print(item.name)
@@ -63,3 +64,15 @@ func clear_items() -> void:
 	
 	for item in items_to_remove:
 		content.erase(item)
+
+func add_gear(gear: GearData):
+	new_item_obtained.emit()
+	var new_gear: GearData = gear.duplicate()
+	new_gear.obtained = true
+	gears.append(new_gear)
+
+func find_matching_gear(gear: GearData) -> GearData:
+	for content_item in gears:
+		if content_item.gear_name == gear.gear_name:
+			return content_item
+	return null
