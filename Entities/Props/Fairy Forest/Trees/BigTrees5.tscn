@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://nnybv7ou3nai"]
+[gd_scene load_steps=3 format=3 uid="uid://dym4ngkn0udnl"]
 
-[ext_resource type="Texture2D" uid="uid://c4kyb4vjai1d" path="res://assets/Fairy Forest/Assets/Tree.png" id="1_hsusl"]
+[ext_resource type="Texture2D" uid="uid://c4kyb4vjai1d" path="res://assets/Fairy Forest/Assets/Tree.png" id="1_5d6nb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hupru"]
 radius = 16.0
@@ -9,12 +9,13 @@ height = 58.0
 [node name="BigTrees" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, -40)
-texture = ExtResource("1_hsusl")
+position = Vector2(4, -32)
+texture = ExtResource("1_5d6nb")
 offset = Vector2(0, -40)
 region_enabled = true
-region_rect = Rect2(820, 1145, 137, 206)
+region_rect = Rect2(820, 696, 138, 214)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_hupru")

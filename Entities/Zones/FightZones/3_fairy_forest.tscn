@@ -26,8 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://ceelhgsjrbrsf" path="res://Entities/Props/Fairy Forest/Trees/LittleTree2.tscn" id="17_alswo"]
 [ext_resource type="PackedScene" uid="uid://tmmn060x8qnw" path="res://Entities/Props/Fairy Forest/Trees/FairyForestTree.tscn" id="17_tgbfp"]
 [ext_resource type="PackedScene" uid="uid://cx3ya5pyt5ne3" path="res://Entities/Props/Fairy Forest/Trees/LittleTree.tscn" id="18_34fhj"]
-[ext_resource type="PackedScene" uid="uid://cgrpnuhv6m0te" path="res://Entities/Props/Fairy Forest/Trees/BigTree3.tscn" id="20_knv3b"]
-[ext_resource type="PackedScene" uid="uid://ch2ncb11pg1l7" path="res://Entities/Props/Fairy Forest/Trees/BigTree2.tscn" id="26_dungr"]
+[ext_resource type="PackedScene" uid="uid://cu260p56qspe" path="res://Entities/Props/Fairy Forest/Trees/BigTree3.tscn" id="20_knv3b"]
+[ext_resource type="PackedScene" uid="uid://nnybv7ou3nai" path="res://Entities/Props/Fairy Forest/Trees/BigTree2.tscn" id="26_dungr"]
 [ext_resource type="PackedScene" uid="uid://dc1a8gjv688xn" path="res://Entities/Props/Fairy Forest/Trees/MiniTree.tscn" id="27_jdkk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ob0uk"]

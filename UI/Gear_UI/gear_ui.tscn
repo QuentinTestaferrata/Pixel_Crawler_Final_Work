@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bmhv076kqk1ay"]
+[gd_scene load_steps=35 format=3 uid="uid://bmhv076kqk1ay"]
 
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_la0mv"]
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_u4v2b"]
@@ -9,11 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://dri12651xy31t" path="res://assets/gear/Armor/1_black/hat.png" id="4_kvm8p"]
 [ext_resource type="Texture2D" uid="uid://c5tg704geblxu" path="res://assets/gear/Armor/1_black/robe.png" id="5_1b363"]
 [ext_resource type="Texture2D" uid="uid://c1lnupffgc47m" path="res://assets/gear/Armor/1_black/shoes.png" id="6_iho2u"]
-[ext_resource type="Texture2D" uid="uid://bqw1ca7raau37" path="res://assets/gear/Rings/gold.png" id="7_k0et8"]
+[ext_resource type="Texture2D" uid="uid://bqw1ca7raau37" path="res://assets/gear/Rings/gold/gold.png" id="7_k0et8"]
 [ext_resource type="Texture2D" uid="uid://dp4r6e46c0hxx" path="res://assets/gear/Amulets/Ruby_amulet.png" id="8_3jwt0"]
 [ext_resource type="Texture2D" uid="uid://6sxqwc3ls8wq" path="res://UI/Gear_UI/Throne.png" id="9_gfqig"]
 [ext_resource type="Texture2D" uid="uid://dibytxj0s4gdi" path="res://assets/1_Heroes/Wizzard/Player/Idle-Player.png" id="10_j5vt3"]
+[ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="14_my5e3"]
 [ext_resource type="PackedScene" uid="uid://cgs8cecmhubv" path="res://UI/Dialog/Scenes/Option_Button.tscn" id="14_rct85"]
+[ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="15_ov724"]
+[ext_resource type="Texture2D" uid="uid://cupd782arpfu7" path="res://UI/Buttons/0_mini_buttons/button_hover.png" id="16_ugqg2"]
 
 [sub_resource type="Theme" id="Theme_gagk2"]
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
@@ -95,6 +98,75 @@ color = Color(0, 0, 0, 0.807843)
 
 [sub_resource type="Theme" id="Theme_ojrcb"]
 VScrollBar/styles/scroll = SubResource("StyleBoxLine_1pcgs")
+
+[sub_resource type="Animation" id="Animation_fujow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_toqst"]
+resource_name = "close"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_86ojw"]
+resource_name = "open"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufyef"]
+_data = {
+"RESET": SubResource("Animation_fujow"),
+"close": SubResource("Animation_toqst"),
+"open": SubResource("Animation_86ojw")
+}
 
 [node name="GearUi" type="PanelContainer"]
 offset_left = 80.0
@@ -275,6 +347,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_6o6mn")
 
+[node name="StatList" type="VBoxContainer" parent="HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/BonusStatsPanel"]
+layout_mode = 2
+
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
@@ -416,6 +491,24 @@ grow_vertical = 2
 texture = ExtResource("8_3jwt0")
 stretch_mode = 3
 
+[node name="CloseButton" type="TextureButton" parent="HBoxContainer/All_Gear/Vbox/Tabs"]
+layout_mode = 2
+texture_normal = ExtResource("14_my5e3")
+texture_pressed = ExtResource("15_ov724")
+texture_hover = ExtResource("16_ugqg2")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/All_Gear/Vbox/Tabs/CloseButton"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 38.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = -31
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/All_Gear/Vbox/Tabs/CloseButton/MarginContainer"]
+layout_mode = 2
+text = "x"
+
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer/All_Gear/Vbox"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_as3x7")
@@ -442,7 +535,12 @@ layout_mode = 2
 
 [node name="Option_button" parent="HBoxContainer/All_Gear/Vbox/EquipeButton" instance=ExtResource("14_rct85")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
-theme_override_fonts/font = ExtResource("1_la0mv")
-theme_override_font_sizes/font_size = 20
 text = "Equipe"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ufyef")
+}
+autoplay = "open"
+
+[connection signal="pressed" from="HBoxContainer/All_Gear/Vbox/Tabs/CloseButton" to="." method="_on_close_button_pressed"]
