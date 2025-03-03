@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=6 format=3 uid="uid://beqrvu62hwvis"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=8 format=3 uid="uid://beqrvu62hwvis"]
 
 [ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="1_aya47"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_k1w1e"]
 [ext_resource type="Texture2D" uid="uid://by6mmgaq0i51o" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/disc.png" id="2_nj7wn"]
 [ext_resource type="PackedScene" uid="uid://bprkkys8eavdb" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.tscn" id="3_coyk2"]
 [ext_resource type="Texture2D" uid="uid://dkd3qbopqutae" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.png" id="4_h8st6"]
+[ext_resource type="Resource" uid="uid://dv84ero8143xd" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/CurseMissile.tres" id="5_e2vuq"]
+[ext_resource type="Texture2D" uid="uid://bo81c53wm3ati" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/cursed_missile.png" id="6_5hpcw"]
 
 [resource]
 script = ExtResource("1_k1w1e")
@@ -18,8 +20,8 @@ obtained = false
 equip_slot = 0
 primary_attack = ExtResource("1_aya47")
 primary_attack_sprite = ExtResource("2_nj7wn")
-secondary_attack = ExtResource("1_aya47")
-secondary_attack_sprite = ExtResource("2_nj7wn")
+secondary_attack = ExtResource("5_e2vuq")
+secondary_attack_sprite = ExtResource("6_5hpcw")
 weapon_type = 0
 weapon_rarity = 2
 damage = 999

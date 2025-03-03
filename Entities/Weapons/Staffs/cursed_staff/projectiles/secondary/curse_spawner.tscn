@@ -1,0 +1,158 @@
+[gd_scene load_steps=15 format=3 uid="uid://dnxekyyjdqm5c"]
+
+[ext_resource type="Texture2D" uid="uid://cmyruncbwtu04" path="res://assets/projectile_sheets/purple_projectiles.png" id="1_hxywq"]
+[ext_resource type="Script" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/curse_spawner.gd" id="2_uccmi"]
+[ext_resource type="Texture2D" uid="uid://70da5vswqbs8" path="res://assets/masks for  particles/13(for particle trails).png" id="3_u7oxk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tslh7"]
+atlas = ExtResource("1_hxywq")
+region = Rect2(256, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stpi8"]
+atlas = ExtResource("1_hxywq")
+region = Rect2(272, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uielg"]
+atlas = ExtResource("1_hxywq")
+region = Rect2(288, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3odq"]
+atlas = ExtResource("1_hxywq")
+region = Rect2(304, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8atfi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tslh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stpi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uielg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3odq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_k7hri"]
+resource_name = "spawn"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mfld0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7yyvu"]
+resource_name = "despawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abrt8"]
+_data = {
+"RESET": SubResource("Animation_mfld0"),
+"despawn": SubResource("Animation_7yyvu"),
+"spawn": SubResource("Animation_k7hri")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ay2lq"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_7yyhv"]
+offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
+colors = PackedColorArray(0.132576, 0.969321, 0.927614, 0, 0.741176, 0.796078, 0.909804, 1, 0.804294, 0.242551, 0.860976, 1, 0.415261, 4.05983e-05, 0.359559, 0)
+
+[node name="CurseSpawner" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8atfi")
+autoplay = "default"
+frame_progress = 0.409271
+script = ExtResource("2_uccmi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_abrt8")
+}
+autoplay = "spawn"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ay2lq")
+amount = 9
+explosiveness = 0.12
+texture = ExtResource("3_u7oxk")
+emission_shape = 3
+emission_rect_extents = Vector2(-5.79, 1)
+direction = Vector2(0, -1)
+spread = 5.78
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = -44.54
+angular_velocity_max = 35.49
+angle_min = -25.4
+angle_max = 30.4
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color_ramp = SubResource("Gradient_7yyhv")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

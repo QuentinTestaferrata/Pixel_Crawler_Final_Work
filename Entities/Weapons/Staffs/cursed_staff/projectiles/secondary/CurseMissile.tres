@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://dv84ero8143xd"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_1oh2v"]
+
+[resource]
+script = ExtResource("1_1oh2v")
+NAME = "CurseMissile"
+TYPE = 3
+SPREAD = 1
+DAMAGE = 20
+MANA_COST = 0
+SPEED = 495
+FIRERATE = 1.0
+LIFETIME = 5.0
+COOLDOWN = 25.0
+KNOCKBACK_FORCE = 4.0
+CRIT_CHANCE = 35
+CRIT_MULTIPLYER = 1.2
