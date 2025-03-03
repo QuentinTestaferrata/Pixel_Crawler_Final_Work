@@ -11,8 +11,9 @@ var gear_manager: Node2D
 
 var stat_labels := {}
 var temp_equipe_gear_button 
-var base_speed:int
 
+var base_speed:int
+var base_health: int
 @onready var equiped_jewelry: VBoxContainer = $HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry
 @onready var equiped_ring: TextureButton = $HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry/Equiped_ring
 @onready var equiped_ring_sprite: TextureRect = $HBoxContainer/Equiped_Gear/MarginContainer/VBoxContainer2/VBoxContainer/EquipedJewelry/Equiped_ring/TextureRect
@@ -57,12 +58,19 @@ func _ready() -> void:
 	equiped_ring.pressed.connect(_on_unequip_button_pressed.bind("RING"))
 	equiped_amulets.pressed.connect(_on_unequip_button_pressed.bind("AMULET"))
 	
+	hats.pressed.connect(_on_filter_button_pressed.bind(0))  # HAT = 0
+	coats.pressed.connect(_on_filter_button_pressed.bind(1)) # COAT = 1
+	boots.pressed.connect(_on_filter_button_pressed.bind(2)) # BOOTS = 2
+	rings.pressed.connect(_on_filter_button_pressed.bind(3)) # RING = 3
+	amulets.pressed.connect(_on_filter_button_pressed.bind(4)) # AMULET = 4
+	
 	
 	create_stat_labels()
 	get_gear_items()
 	load_equipped_gear()  
 	update_inventory_visibility()
 	base_speed = 100
+	base_health = 45+(StatsManager.level * 5)
 	#base_damage = StatsManager.equiped_weapon_1.damage if StatsManager.equiped_weapon_1 else 1.0 TODO
 	#base_fire_rate = StatsManager.equiped_weapon_1.fire_rate_multiplier if StatsManager.equiped_weapon_1 else 1.0 TODO
 	#base_critical_hit = StatsManager.equiped_weapon_1.critical_hit_multiplier if StatsManager.equiped_weapon_1 else 1.0 TODO
@@ -71,6 +79,8 @@ func get_gear_items() -> void:
 	for i in player.inventory.gears:
 		var temp_gear_holder: TextureButton = GEAR_HOLDER.instantiate()
 		var sprite: TextureRect = TextureRect.new()
+		temp_gear_holder.set_meta("gear", i)  
+		temp_gear_holder.set_meta("gear_type", i.gear_type)
 		
 		sprite.texture = i.sprite
 		sprite.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
@@ -99,7 +109,7 @@ func show_equipe_button():
 	temp_equipe_gear_button = OPTION_BUTTON.instantiate()
 	temp_equipe_gear_button.text = "Equip"
 	
-	set_font_style(temp_equipe_gear_button)  # ✅ Appelle la fonction au lieu de répéter 3 lignes
+	set_font_style(temp_equipe_gear_button)
 	
 	temp_equipe_gear_button.pressed.connect(_on_temp_equipe_gear_button_pressed.bind(selected_gear))
 	equipe_button.add_child(temp_equipe_gear_button)
@@ -137,6 +147,11 @@ func _on_temp_equipe_gear_button_pressed(gear: GearData):
 
 
 func update_bonus_stats() -> void:
+	
+	StatsManager.max_health = 45+(StatsManager.level * 5)
+	StatsManager.current_health = 45+(StatsManager.level * 5)
+	StatsManager.health_changed.emit()
+	player.speed = base_speed
 	
 	var total_damage_multiplier = 0
 	var total_speed_multiplier = 0
@@ -287,7 +302,12 @@ func update_equiped_gear():
 		else:
 			gear_button.visible = true   #
 
-func update_inventory_visibility():
+func update_inventory_visibility(gear_type_filter: int = -1):
 	for child in grid_container.get_children():
-		if child is TextureButton and child.gear:
-			child.visible = (child.gear.equip_slot == 0)  # Visible si non équipé
+		if child is TextureButton and child.has_meta("gear_type"):
+			var matches_filter = (gear_type_filter == -1 or child.get_meta("gear_type") == gear_type_filter)
+			child.visible = (child.get_meta("gear").equip_slot == 0) and matches_filter
+
+
+func _on_filter_button_pressed(gear_type: int):
+	update_inventory_visibility(gear_type)
