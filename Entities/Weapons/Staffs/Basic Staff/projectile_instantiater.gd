@@ -42,7 +42,7 @@ func _instantiate_projectile(attack: PackedScene, pos: Marker2D) -> void:
 	
 	projectile_holder.add_child(temp_attack)
 
-func instantiate_projectiles_different_locations(attack: PackedScene, locations: Array[Vector2]) -> void:
+func instantiate_projectiles_different_locations(attack: PackedScene) -> void:
 	var staff = get_parent()
 	var positions = staff.current_spawners
 	

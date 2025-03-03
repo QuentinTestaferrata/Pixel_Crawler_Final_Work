@@ -50,9 +50,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Animation" id="Animation_bj7gl"]
-resource_name = "spawn"
-
 [sub_resource type="Animation" id="Animation_ftelf"]
 resource_name = "despawn"
 length = 0.2
@@ -70,6 +67,9 @@ tracks/0/keys = {
 "method": &"queue_free"
 }]
 }
+
+[sub_resource type="Animation" id="Animation_bj7gl"]
+resource_name = "spawn"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vsg0"]
 _data = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://cle5f2ytjueb"]
+[gd_scene load_steps=55 format=4 uid="uid://cle5f2ytjueb"]
 
 [ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="1_cnopv"]
 [ext_resource type="Script" path="res://Entities/Zones/FightZones/zone.gd" id="1_crenx"]
@@ -1953,13 +1953,108 @@ sources/4 = SubResource("TileSetAtlasSource_nf6up")
 atlas = ExtResource("6_t0v0o")
 region = Rect2(107, 297, 24, 39)
 
+[sub_resource type="Animation" id="Animation_p8mg1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUDLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUDLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_thcql"]
+resource_name = "change_scene"
+length = 0.6333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUDLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUDLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2ou7d"]
+resource_name = "load"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUDLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUDLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0es1"]
+_data = {
+"RESET": SubResource("Animation_p8mg1"),
+"change_scene": SubResource("Animation_thcql"),
+"load": SubResource("Animation_2ou7d")
+}
+
 [node name="Cemetery" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_crenx")
 
 [node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") instance=ExtResource("1_cnopv")]
-visible = false
 saver_loader = NodePath("../SaverLoader")
+
+[node name="ColorRect" type="ColorRect" parent="HUDLayer"]
+z_index = 15
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(11.9992, 6.75006)
+color = Color(0, 0, 0, 1)
 
 [node name="WaveManager" parent="." groups=["wave_manager"] instance=ExtResource("2_gpp58")]
 enemies_per_wave = 3
@@ -2631,7 +2726,12 @@ script = ExtResource("10_uocvm")
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("6_c6j50")]
-position = Vector2(368, 955)
+position = Vector2(1440, 660)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("16_c8jr6")]
 position = Vector2(2129, 1182)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d0es1")
+}

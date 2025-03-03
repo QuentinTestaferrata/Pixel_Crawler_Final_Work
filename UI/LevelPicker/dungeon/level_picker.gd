@@ -8,6 +8,7 @@ signal prev_pressed
 
 var _hud: CanvasLayer
 var ability_cooldowns: PanelContainer
+var zone: Node2D
 
 @onready var dungeon_image: TextureRect = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/DungeonImage
 @onready var available_loot: Label = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/AvailableLoot
@@ -18,6 +19,9 @@ var ability_cooldowns: PanelContainer
 func _ready() -> void:
 	ability_cooldowns = get_tree().get_first_node_in_group("ability_cooldown_container")
 	ability_cooldowns.visible = false
+	
+	zone = get_parent().get_parent()
+	
 	next_button.connect("pressed", _next_pressed)
 	close_button.pressed.connect(close_window)
 	previous_button.pressed.connect(_previous_pressed)
@@ -26,6 +30,8 @@ func _on_start_button_pressed() -> void:
 	_hud = get_parent()
 	_hud.saver_loader.save_game()
 	#ability_cooldowns.visible = true
+	zone.play_unload_animation()
+	await get_tree().create_timer(.6).timeout
 	get_tree().change_scene_to_file(_zone.resource_path)
 	AttackCooldowns.reset_cooldowns()
 

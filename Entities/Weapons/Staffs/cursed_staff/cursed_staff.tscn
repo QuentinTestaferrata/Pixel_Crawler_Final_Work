@@ -21,7 +21,7 @@ projectile_amount = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_4aqu0")
-offset = Vector2(0, -5.935)
+offset = Vector2(0, -6)
 region_rect = Rect2(99.1578, 20.7489, 10.8422, 40.2511)
 
 [node name="Marker2D" type="Marker2D" parent="."]

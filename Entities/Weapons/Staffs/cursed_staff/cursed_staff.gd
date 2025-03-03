@@ -36,15 +36,14 @@ func _input(event: InputEvent) -> void:
 		AttackCooldowns.start_cd(2)
 
 func activate_spawners() -> void:
-	
 	spawner_node2D = Node2D.new()
 	spawner_node2D.position = Vector2(0, -30)
 	
 	player.add_child(spawner_node2D)
 	for i in spawner_locations:
 		var temp_curse_spawner = CURSE_SPAWNER.instantiate()
-		
 		temp_curse_spawner.position = i
+	
 		current_spawners.append(temp_curse_spawner)
 		spawner_node2D.add_child(temp_curse_spawner)
 		

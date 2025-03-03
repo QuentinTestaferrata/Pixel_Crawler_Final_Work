@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=8 format=3 uid="uid://beqrvu62hwvis"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=10 format=3 uid="uid://beqrvu62hwvis"]
 
 [ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="1_aya47"]
 [ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_k1w1e"]
@@ -7,14 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://dkd3qbopqutae" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.png" id="4_h8st6"]
 [ext_resource type="Resource" uid="uid://dv84ero8143xd" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/CurseMissile.tres" id="5_e2vuq"]
 [ext_resource type="Texture2D" uid="uid://bo81c53wm3ati" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/cursed_missile.png" id="6_5hpcw"]
+[ext_resource type="Texture2D" uid="uid://ctfxj3c5kgkr2" path="res://Entities/Weapons/Staffs/cursed_staff/bone_staff_shop_sprite.png" id="7_2ijmr"]
+[ext_resource type="Texture2D" uid="uid://cjlss5kwdgnx2" path="res://Entities/Weapons/Staffs/cursed_staff/bone_staff_showcase.png" id="8_8vjq7"]
 
 [resource]
 script = ExtResource("1_k1w1e")
 weapon_name = "Cursed Staff"
 scene = ExtResource("3_coyk2")
 sprite = ExtResource("4_h8st6")
-shop_sprite = ExtResource("4_h8st6")
-showcase_sprite = ExtResource("4_h8st6")
+shop_sprite = ExtResource("7_2ijmr")
+showcase_sprite = ExtResource("8_8vjq7")
 price = 10000
 obtained = false
 equip_slot = 0
