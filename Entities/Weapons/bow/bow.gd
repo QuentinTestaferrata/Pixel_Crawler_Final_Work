@@ -49,7 +49,7 @@ func spread_shot() -> void:
 		temp_arrow = BONE_ARROW.instantiate()
 	if bow == "cursed":
 		temp_arrow = CURSED_ARROW.instantiate()
-		
+	
 	add_child(temp_arrow)
 	temp_arrow.reparent(projectile_holder)
 	

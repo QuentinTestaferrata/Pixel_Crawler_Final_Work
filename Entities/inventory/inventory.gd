@@ -8,7 +8,6 @@ var content: Array[Item]
 var weapons: Array[WeaponData]
 
 func add_item(item: Item, amount: int = 1):
-	print(item.name)
 	new_item_obtained.emit()
 	var existing_item = find_matching_item(item)
 	if existing_item:

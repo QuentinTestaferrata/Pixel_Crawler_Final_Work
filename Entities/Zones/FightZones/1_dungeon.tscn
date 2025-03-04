@@ -2759,9 +2759,10 @@ _data = {
 "load": SubResource("Animation_2ou7d")
 }
 
-[node name="Dungeon" type="Node2D"]
+[node name="Dungeon" type="Node2D" node_paths=PackedStringArray("player")]
 y_sort_enabled = true
 script = ExtResource("1_7b7bi")
+player = NodePath("Player")
 
 [node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") instance=ExtResource("2_04jl3")]
 visible = false

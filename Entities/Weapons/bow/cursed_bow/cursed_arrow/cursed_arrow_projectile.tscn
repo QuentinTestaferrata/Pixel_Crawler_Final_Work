@@ -67,6 +67,7 @@ collision_layer = 2
 collision_mask = 64
 script = ExtResource("1_qagkn")
 projectile_data = ExtResource("2_62tu2")
+destroy_on_hit = false
 max_hit_before_destroyed = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

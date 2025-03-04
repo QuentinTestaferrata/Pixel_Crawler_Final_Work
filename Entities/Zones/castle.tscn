@@ -891,10 +891,11 @@ _data = {
 "load": SubResource("Animation_2ou7d")
 }
 
-[node name="Castle" type="Node2D" node_paths=PackedStringArray("animations")]
+[node name="Castle" type="Node2D" node_paths=PackedStringArray("animations", "player")]
 y_sort_enabled = true
 script = ExtResource("1_ry380")
 animations = NodePath("AnimationPlayer")
+player = NodePath("Player")
 
 [node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("15_iyl6u")]
 saver_loader = NodePath("../SaverLoader")
@@ -907,7 +908,7 @@ scale = Vector2(11.9992, 6.75006)
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_57tk4")]
-position = Vector2(-178, 196)
+position = Vector2(-165, 221)
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 y_sort_enabled = true
