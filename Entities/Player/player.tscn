@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://uqj3ijcufn81"]
+[gd_scene load_steps=51 format=3 uid="uid://uqj3ijcufn81"]
 
 [ext_resource type="Script" uid="uid://cr28lerl10axl" path="res://Entities/Player/Player.gd" id="1_xgmka"]
 [ext_resource type="Script" uid="uid://ci0hhm8iavjls" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
@@ -225,9 +225,6 @@ resource_local_to_scene = true
 offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
 colors = PackedColorArray(0, 0.837181, 0.826971, 0, 0.635294, 0.823529, 1, 1, 6.35326e-06, 0.681541, 0.938241, 1, 0, 0.542099, 0.872564, 0)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p5c15"]
-radius = 27.0
-
 [sub_resource type="Gradient" id="Gradient_famnn"]
 colors = PackedColorArray(1, 0.694118, 0.596078, 0.945098, 0, 0, 0, 1)
 
@@ -399,13 +396,6 @@ scale = Vector2(0.02, 0.02)
 texture = ExtResource("18_k1fmk")
 
 [node name="QuestManager" parent="." instance=ExtResource("19_lgj0m")]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 0
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_p5c15")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

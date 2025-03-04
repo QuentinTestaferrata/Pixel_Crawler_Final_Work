@@ -2,7 +2,7 @@ extends PointLight2D
 
 @export_range(.1, 10, .1) var glow_scale: float
 @export_range(.1, 4, .1) var breath_effect: float
-@export_range(.5, 2.5, .05) var _energy: float = 1
+@export_range(.1, 2.5, .05) var _energy: float = 1
 @export var breathing_effect: bool
 var light_tween: Tween
 

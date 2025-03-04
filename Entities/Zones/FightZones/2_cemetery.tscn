@@ -2062,10 +2062,10 @@ scale = Vector2(11.9992, 6.75006)
 color = Color(0, 0, 0, 1)
 
 [node name="WaveManager" parent="." groups=["wave_manager"] instance=ExtResource("2_gpp58")]
-enemies_per_wave = 3
+enemies_per_wave = 50
 enemies_multiplyer = 1.0
 spawn_rates = ExtResource("4_72e04")
-max_percentage_enemies_alive = 100.0
+max_percentage_enemies_alive = 40.0
 EXP_per_wave = 100
 EXP_multiplyer = 1.5
 gold_per_wave = 50
@@ -2079,11 +2079,110 @@ spawn_interval_multiplyer = 1.0
 unique_name_in_owner = true
 
 [node name="Point" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
-position = Vector2(653, 864)
+position = Vector2(888, 863)
 
 [node name="Area" parent="SpawnPoints/Point" instance=ExtResource("6_rmefr")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point2" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(712, 777)
+
+[node name="Area" parent="SpawnPoints/Point2" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point2/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point3" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(679, 701)
+
+[node name="Area" parent="SpawnPoints/Point3" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point3/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point4" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(601, 669)
+
+[node name="Area" parent="SpawnPoints/Point4" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point4/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point5" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(712, 557)
+
+[node name="Area" parent="SpawnPoints/Point5" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point5/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point6" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(343, 545)
+
+[node name="Area" parent="SpawnPoints/Point6" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point6/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point12" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(1049, 496)
+
+[node name="Area" parent="SpawnPoints/Point12" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point12/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point7" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(263, 592)
+
+[node name="Area" parent="SpawnPoints/Point7" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point7/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point8" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(216, 476)
+
+[node name="Area" parent="SpawnPoints/Point8" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point8/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point9" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(280, 476)
+
+[node name="Area" parent="SpawnPoints/Point9" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point9/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point10" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(281, 701)
+
+[node name="Area" parent="SpawnPoints/Point10" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point10/Area"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_laxdg")
+
+[node name="Point11" parent="SpawnPoints" instance=ExtResource("5_8m4yt")]
+position = Vector2(232, 718)
+
+[node name="Area" parent="SpawnPoints/Point11" instance=ExtResource("6_rmefr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoints/Point11/Area"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_laxdg")
 
@@ -4679,7 +4778,7 @@ script = ExtResource("10_uocvm")
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("6_c6j50")]
-position = Vector2(84, 549)
+position = Vector2(1461, 658)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

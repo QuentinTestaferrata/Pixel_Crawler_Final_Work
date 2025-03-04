@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bprkkys8eavdb"]
+[gd_scene load_steps=11 format=3 uid="uid://bprkkys8eavdb"]
 
 [ext_resource type="Script" uid="uid://bhfqbwhlorwe3" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.gd" id="1_4fj60"]
 [ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="2_wwfka"]
@@ -7,6 +7,16 @@
 [ext_resource type="Script" uid="uid://bsgolsh4woc4s" path="res://Entities/Weapons/Staffs/Basic Staff/projectile_instantiater.gd" id="5_5tw08"]
 [ext_resource type="PackedScene" uid="uid://cqipbphdonfe4" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/cursed_projectile_spawner.tscn" id="6_c5s65"]
 [ext_resource type="Resource" uid="uid://dv84ero8143xd" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/CurseMissile.tres" id="7_3ynn1"]
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="8_u02y7"]
+
+[sub_resource type="Gradient" id="Gradient_acugj"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x0tix"]
+gradient = SubResource("Gradient_acugj")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.893162, 0.230769)
 
 [node name="CursedStaff" type="Node2D" node_paths=PackedStringArray("projectile_instantiater")]
 script = ExtResource("1_4fj60")
@@ -38,3 +48,15 @@ secondary_attack_scene = ExtResource("6_c5s65")
 secondary_attack_data = ExtResource("7_3ynn1")
 primary_spawn_position = NodePath("../Marker2D")
 secondary_spawn_position = NodePath("../Marker2D2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -15)
+scale = Vector2(2.75, 2.625)
+color = Color(1, 0.539059, 0.861117, 1)
+energy = 2.02
+texture = SubResource("GradientTexture2D_x0tix")
+script = ExtResource("8_u02y7")
+glow_scale = 4.0
+breath_effect = 0.3
+_energy = 0.45
+breathing_effect = true

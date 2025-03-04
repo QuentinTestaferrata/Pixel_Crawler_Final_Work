@@ -14,5 +14,6 @@ value = 149
 price = 349
 consumable = false
 rarity = 3
+rarity_string = "Epic"
 stackable = true
 amount = 0

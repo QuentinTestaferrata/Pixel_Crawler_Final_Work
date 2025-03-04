@@ -9,6 +9,7 @@ const ITEM_HOVER_INFO = preload("res://UI/item_hover_info/item_hover_info.tscn")
 var temp_hover_info: PanelContainer
 var item_name: String
 var description: String
+var rarity: String
 var value: int
 
 
@@ -30,6 +31,7 @@ func _on_mouse_entered() -> void:
 		temp_hover_info.item_name = item_name
 		temp_hover_info.description = description
 		temp_hover_info.value = value
+		temp_hover_info.rarity = rarity
 		
 		print(item_name)
 		

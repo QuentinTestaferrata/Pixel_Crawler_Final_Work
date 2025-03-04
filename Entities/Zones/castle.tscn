@@ -1082,4 +1082,4 @@ libraries = {
 }
 
 [node name="Shadow" type="CanvasModulate" parent="."]
-color = Color(0.973535, 0.973535, 0.973535, 1)
+color = Color(0.860368, 0.86037, 0.860369, 1)
