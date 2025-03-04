@@ -10,7 +10,7 @@ enum DAMAGE_TYPE {WATER, UNDEAD, FIRE, MAGIC, WIND, STONE}
 @export var DAMAGE: int
 @export var MANA_COST: int
 @export var SPEED: int
-@export_range(0, 5, 0.1) var FIRERATE: float
+@export_range(0, 5, 0.01) var FIRERATE: float
 @export var LIFETIME: float
 @export var COOLDOWN: float
 @export var KNOCKBACK_FORCE: float

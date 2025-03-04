@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1gtjhiev0mhc"]
+[gd_scene load_steps=11 format=3 uid="uid://b1gtjhiev0mhc"]
 
 [ext_resource type="Script" uid="uid://dt302w5t1rvk" path="res://Entities/Weapons/bow/bow.gd" id="1_oknub"]
 [ext_resource type="Resource" uid="uid://pcddpclw1nd8" path="res://Entities/Weapons/bow/cursed_bow/cursed_arrow/cursed_arrow.tres" id="2_reiii"]
 [ext_resource type="Texture2D" uid="uid://bfwq5ua6wr60g" path="res://Entities/Weapons/bow/cursed_bow/sprites/bow.png" id="3_adp5o"]
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="4_xsoko"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_774ee"]
 atlas = ExtResource("3_adp5o")
@@ -33,6 +34,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_xsoko"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f4imw"]
+gradient = SubResource("Gradient_xsoko")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.893162, 0.230769)
+
 [node name="Cursed" type="Node2D"]
 script = ExtResource("1_oknub")
 bow = "cursed"
@@ -48,3 +58,14 @@ position = Vector2(20, 0)
 
 [node name="ArrowSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(20, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(2.75, 2.625)
+color = Color(0.999999, 0.327605, 0.827731, 1)
+energy = 2.02
+texture = SubResource("GradientTexture2D_f4imw")
+script = ExtResource("4_xsoko")
+glow_scale = 5.0
+breath_effect = 1.0
+breathing_effect = true

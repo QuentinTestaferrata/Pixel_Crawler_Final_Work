@@ -8,7 +8,7 @@
 script = ExtResource("1_equ8e")
 sprite = ExtResource("2_ytgnr")
 scene = ExtResource("1_7a1nd")
-damage = 25
+damage = 35
 crit_chance = 20
 crit_multiplyer = 1.6
 speed = 400

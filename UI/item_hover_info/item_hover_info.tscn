@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cq2d6xda8ilnp"]
+[gd_scene load_steps=10 format=3 uid="uid://cq2d6xda8ilnp"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_5migk"]
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_hd4w1"]
@@ -29,6 +29,10 @@ region_rect = Rect2(282, 1462.97, 173.032, 49.5542)
 [sub_resource type="Theme" id="Theme_42o5o"]
 Label/font_sizes/font_size = 9
 RichTextLabel/font_sizes/normal_font_size = 15
+
+[sub_resource type="Theme" id="Theme_defvn"]
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 3
 
 [node name="ItemHoverInfo" type="PanelContainer"]
 offset_right = 158.0
@@ -102,6 +106,7 @@ autowrap_mode = 0
 
 [node name="RarityLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Rare"
+theme = SubResource("Theme_defvn")
+text = " Rare "
 fit_content = true
 autowrap_mode = 0

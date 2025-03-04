@@ -13,7 +13,20 @@ var value: int
 func _ready() -> void:
 	_item_name.text = item_name
 	_description.text = str(description)
-	_rarity_label.text = rarity
+	_rarity_label.text = str(" ", rarity, " ")
+	match rarity:
+		"Common":
+			_rarity_label.add_theme_color_override("default_color", Color.DARK_GRAY)
+		"Uncommon":
+			_rarity_label.add_theme_color_override("default_color", Color.CHARTREUSE)
+		"Rare":
+			_rarity_label.add_theme_color_override("default_color", Color.DODGER_BLUE)
+		"Epic":
+			_rarity_label.add_theme_color_override("default_color", Color.DARK_VIOLET)
+		"Legendary":
+			_rarity_label.add_theme_color_override("default_color", Color.GOLD)
+		"Mythical":
+			_rarity_label.add_theme_color_override("default_color", Color.CRIMSON)
 	if value != 0:
 		_value.text = str(": ", value)
 

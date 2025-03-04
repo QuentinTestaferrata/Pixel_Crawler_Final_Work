@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://uqj3ijcufn81"]
+[gd_scene load_steps=52 format=3 uid="uid://uqj3ijcufn81"]
 
 [ext_resource type="Script" uid="uid://cr28lerl10axl" path="res://Entities/Player/Player.gd" id="1_xgmka"]
 [ext_resource type="Script" uid="uid://ci0hhm8iavjls" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="17_icsdk"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="18_k1fmk"]
 [ext_resource type="PackedScene" uid="uid://bu1oqu1abj5an" path="res://UI/Quests/Scene/QuestManager.tscn" id="19_lgj0m"]
+[ext_resource type="PackedScene" uid="uid://dbssskf1fgkqt" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthBar.tscn" id="20_ppdlg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tossq"]
 atlas = ExtResource("2_sw8de")
@@ -405,6 +406,8 @@ scale = Vector2(5.59375, 5.03125)
 color = Color(1, 0.69871, 0.555169, 1)
 energy = 1.75
 texture = SubResource("GradientTexture2D_0poeq")
+
+[node name="HealthBar" parent="." instance=ExtResource("20_ppdlg")]
 
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_timer_timeout"]
