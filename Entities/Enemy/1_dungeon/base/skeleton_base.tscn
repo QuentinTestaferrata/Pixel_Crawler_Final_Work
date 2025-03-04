@@ -79,6 +79,7 @@ exp_amount = 2
 [node name="HealthBar" parent="." instance=ExtResource("2_0pn8r")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_3rpi4")]
+base_health = 100
 max_health = 100
 
 [node name="Sprite" parent="." instance=ExtResource("4_13gjm")]

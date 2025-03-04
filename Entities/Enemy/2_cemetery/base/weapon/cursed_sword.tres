@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_0v6so")
-damage = 0
+damage = 15
 knockback_force = 5.0
 defense = 0

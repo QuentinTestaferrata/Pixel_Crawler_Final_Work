@@ -37,6 +37,7 @@ var rng = RandomNumberGenerator.new()
 var player: CharacterBody2D
 var total_enemies_alive: int
 var max_enemies_alive: float
+var current_health_multiplyer = 1
 
 @onready var enemies: Node2D = $"../Enemies"
 @onready var dungeon: Node2D = $".."
@@ -56,7 +57,7 @@ func _ready() -> void:
 	max_enemies_alive = (max_percentage_enemies_alive / 100) * enemies_per_wave
 
 func _on_spawn_interval_timeout() -> void:
-	var enemy
+	var enemy: CharacterBody2D
 	var spawn_point: Vector2 = spawn_points.get_random_valid_spawnpoint()
 	var random_number: int = rng.randi_range(1, 100)
 	var spawn_rate: int = 0
@@ -84,7 +85,11 @@ func _on_spawn_interval_timeout() -> void:
 			if random_number <= spawn_rate:
 				enemy =spawn_rates.enemy_4.instantiate()
 				break
-			
+		#setting the enemies health with the health multiplyer
+		var enemy_health_component: HealthComponent
+		enemy_health_component = enemy.get_node("HealthComponent")
+		enemy_health_component.multiply_health(current_health_multiplyer)
+		
 		enemy.global_position = spawn_point
 		enemies.add_child(enemy)
 		spawned_enemies += 1
@@ -96,6 +101,8 @@ func _on_spawn_interval_timeout() -> void:
 
 func _init_next_wave() -> void:
 	current_wave += 1
+	current_health_multiplyer += health_multiplyer
+	
 	StatsManager.gain_gold(gold_per_wave)
 	StatsManager.gain_exp(EXP_per_wave)
 	
