@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0v3mfcb7httg"]
 
-[ext_resource type="Script" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.gd" id="1_7e453"]
+[ext_resource type="Script" uid="uid://byhuprjyaex8y" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.gd" id="1_7e453"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="2_p7kw8"]
 [ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_auhsq"]
 

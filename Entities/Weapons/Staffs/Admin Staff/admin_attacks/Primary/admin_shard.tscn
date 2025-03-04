@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cu0132ialvb02"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_lntg3"]
+[ext_resource type="Script" uid="uid://di3478omxpyf7" path="res://Entities/Weapons/shoot_projectile.gd" id="1_lntg3"]
 [ext_resource type="Resource" uid="uid://d3efsil8oglg6" path="res://Entities/Weapons/Staffs/Admin Staff/admin_attacks/Primary/admin_shard.tres" id="2_t32cg"]
 [ext_resource type="Texture2D" uid="uid://jpehaqol6hjq" path="res://Entities/Weapons/Staffs/Admin Staff/admin_attacks/Primary/admin_shard.png" id="3_newfd"]
 
@@ -57,9 +57,9 @@ resource_name = "spawn"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0v15i"]
 _data = {
-"RESET": SubResource("Animation_0m2yt"),
-"despawn": SubResource("Animation_rdc4r"),
-"spawn": SubResource("Animation_gs2ru")
+&"RESET": SubResource("Animation_0m2yt"),
+&"despawn": SubResource("Animation_rdc4r"),
+&"spawn": SubResource("Animation_gs2ru")
 }
 
 [node name="BoneShard" type="Area2D"]

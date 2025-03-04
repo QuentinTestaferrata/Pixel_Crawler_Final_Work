@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cwuhhknf21qfo"]
 
-[ext_resource type="Script" path="res://Common/StateMachine/Player State/State Nodes/State Scripts/interact.gd" id="1_xpvfw"]
+[ext_resource type="Script" uid="uid://svxoud3hqkw6" path="res://Common/StateMachine/Player State/State Nodes/State Scripts/interact.gd" id="1_xpvfw"]
 
 [node name="Interacting" type="Node"]
 script = ExtResource("1_xpvfw")

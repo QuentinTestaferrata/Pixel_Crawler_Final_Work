@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dnxekyyjdqm5c"]
 
 [ext_resource type="Texture2D" uid="uid://cmyruncbwtu04" path="res://assets/projectile_sheets/purple_projectiles.png" id="1_hxywq"]
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/curse_spawner.gd" id="2_uccmi"]
+[ext_resource type="Script" uid="uid://b05elmymdfjna" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/curse_spawner.gd" id="2_uccmi"]
 [ext_resource type="Texture2D" uid="uid://70da5vswqbs8" path="res://assets/masks for  particles/13(for particle trails).png" id="3_u7oxk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tslh7"]
@@ -103,9 +103,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_abrt8"]
 _data = {
-"RESET": SubResource("Animation_mfld0"),
-"despawn": SubResource("Animation_7yyvu"),
-"spawn": SubResource("Animation_k7hri")
+&"RESET": SubResource("Animation_mfld0"),
+&"despawn": SubResource("Animation_7yyvu"),
+&"spawn": SubResource("Animation_k7hri")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ay2lq"]

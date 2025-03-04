@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=4 uid="uid://bbuvfkubnoqik"]
 
-[ext_resource type="Script" path="res://Entities/Zones/castle.gd" id="1_p54q5"]
+[ext_resource type="Script" uid="uid://dseaa51l4y374" path="res://Entities/Zones/castle.gd" id="1_p54q5"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_swigx"]
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="2_cc76t"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="3_76m41"]
 [ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="5_86fij"]
 [ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="6_5hqvt"]
-[ext_resource type="Script" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="7_15oad"]
+[ext_resource type="Script" uid="uid://b2qjfxx5mnmhq" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="7_15oad"]
 [ext_resource type="PackedScene" uid="uid://bhg7b37erk1wy" path="res://Entities/Enemy/1_dungeon/base/skeleton_base.tscn" id="8_y3hiu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s27pb"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=57 format=4 uid="uid://cle5f2ytjueb"]
 
 [ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="1_cnopv"]
-[ext_resource type="Script" path="res://Entities/Zones/FightZones/zone.gd" id="1_crenx"]
+[ext_resource type="Script" uid="uid://bv2rtdxvv62v0" path="res://Entities/Zones/FightZones/zone.gd" id="1_crenx"]
 [ext_resource type="PackedScene" uid="uid://c5ah34slmey0s" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager.tscn" id="2_gpp58"]
 [ext_resource type="PackedScene" uid="uid://c6g8tsl74w2o6" path="res://Common/spawnpoint/spawn_points.tscn" id="3_3je2y"]
 [ext_resource type="Resource" uid="uid://dy2j7f37fr364" path="res://Entities/WaveData/2_cemetery/spawnrates_cemetery.tres" id="4_72e04"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://6itgn8nhwsnf" path="res://assets/Sewer/Tiles/Props.png" id="8_l6g86"]
 [ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="8_ph4jo"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="9_chvlr"]
-[ext_resource type="Script" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="10_uocvm"]
+[ext_resource type="Script" uid="uid://b2qjfxx5mnmhq" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="10_uocvm"]
 [ext_resource type="Texture2D" uid="uid://crtph6iktr0q0" path="res://assets/Fairy Forest/Assets/Tiles.png" id="14_4rgjn"]
 [ext_resource type="PackedScene" uid="uid://b2xuy2703k1bk" path="res://assets/Cemetery/asset_scenes/big_cross.tscn" id="14_5d5kc"]
 [ext_resource type="PackedScene" uid="uid://buyk3myyth18j" path="res://assets/Cemetery/asset_scenes/trees/leaves_big.tscn" id="15_xi6u8"]
@@ -2038,9 +2038,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d0es1"]
 _data = {
-"RESET": SubResource("Animation_p8mg1"),
-"change_scene": SubResource("Animation_thcql"),
-"load": SubResource("Animation_2ou7d")
+&"RESET": SubResource("Animation_p8mg1"),
+&"change_scene": SubResource("Animation_thcql"),
+&"load": SubResource("Animation_2ou7d")
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sd3pn"]
@@ -4683,7 +4683,7 @@ position = Vector2(84, 549)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_d0es1")
+&"": SubResource("AnimationLibrary_d0es1")
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

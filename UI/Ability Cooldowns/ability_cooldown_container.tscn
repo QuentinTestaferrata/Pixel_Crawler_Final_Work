@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://de54ajsmnaq7a"]
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_vlm2h"]
-[ext_resource type="Script" path="res://UI/Ability Cooldowns/ability_cooldown_container.gd" id="2_6fwv4"]
+[ext_resource type="Script" uid="uid://c1e1qqbu5gnns" path="res://UI/Ability Cooldowns/ability_cooldown_container.gd" id="2_6fwv4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6elh"]
 texture = ExtResource("1_vlm2h")

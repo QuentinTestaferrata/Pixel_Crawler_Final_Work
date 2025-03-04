@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://c67jd7w4o46c7"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_m67bv"]
+[ext_resource type="Script" uid="uid://di3478omxpyf7" path="res://Entities/Weapons/shoot_projectile.gd" id="1_m67bv"]
 [ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="2_051lx"]
 [ext_resource type="Texture2D" uid="uid://cmyruncbwtu04" path="res://assets/projectile_sheets/purple_projectiles.png" id="3_wiqp3"]
 
@@ -103,9 +103,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qqjnu"]
 _data = {
-"RESET": SubResource("Animation_imct2"),
-"despawn": SubResource("Animation_l65e8"),
-"spawn": SubResource("Animation_g5dag")
+&"RESET": SubResource("Animation_imct2"),
+&"despawn": SubResource("Animation_l65e8"),
+&"spawn": SubResource("Animation_g5dag")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_42r85"]
@@ -157,8 +157,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yoi4y"]
 _data = {
-"RESET": SubResource("Animation_d3mmq"),
-"new_animation": SubResource("Animation_sit5p")
+&"RESET": SubResource("Animation_d3mmq"),
+&"new_animation": SubResource("Animation_sit5p")
 }
 
 [node name="CursedDisc" type="Area2D"]

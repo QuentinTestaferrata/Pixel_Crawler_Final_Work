@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4ulfylgvs5ai"]
 
 [ext_resource type="Texture2D" uid="uid://by7x15a8da6i1" path="res://Entities/Enemy/3_fairy_forest/Base/weapon/elf_spear.png" id="1_jt4fr"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_12h4r"]
+[ext_resource type="Script" uid="uid://bfqqmsbh27o5w" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_12h4r"]
 [ext_resource type="Resource" uid="uid://81paf7kldrmn" path="res://Entities/Enemy/3_fairy_forest/Base/weapon/elf_spear.tres" id="3_4w2ic"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1rn4"]

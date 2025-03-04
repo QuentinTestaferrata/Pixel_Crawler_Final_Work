@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpbrcrvkr73f4"]
 
 [ext_resource type="Texture2D" uid="uid://cnt6i55x30776" path="res://Entities/Enemy/2_cemetery/base/weapon/cursed_sword.png" id="1_sks4x"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_h3fep"]
+[ext_resource type="Script" uid="uid://bfqqmsbh27o5w" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_h3fep"]
 [ext_resource type="Resource" uid="uid://dlxqf2mgekdb" path="res://Entities/Enemy/2_cemetery/base/weapon/cursed_sword.tres" id="3_7rc83"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1rn4"]

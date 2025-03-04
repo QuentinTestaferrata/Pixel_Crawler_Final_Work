@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://18twpagpx1rg"]
 
-[ext_resource type="Script" path="res://UI/Dialog/Script/DialogManager.gd" id="1_nnb8d"]
+[ext_resource type="Script" uid="uid://usi3wa7vtlhn" path="res://UI/Dialog/Script/DialogManager.gd" id="1_nnb8d"]
 [ext_resource type="PackedScene" uid="uid://blhv4s2jngf81" path="res://UI/Dialog/Scenes/DialogUI.tscn" id="2_hhxa5"]
 
 [node name="DialogManager" type="Node2D"]

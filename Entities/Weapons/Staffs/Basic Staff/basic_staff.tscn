@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ddnx3vhvtvilc"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Basic Staff/basic_staff.gd" id="1_51ww5"]
+[ext_resource type="Script" uid="uid://dy2lpb3bcg0hc" path="res://Entities/Weapons/Staffs/Basic Staff/basic_staff.gd" id="1_51ww5"]
 [ext_resource type="Texture2D" uid="uid://dewb2h0v4y7kb" path="res://assets/Forest/Weapons_Wood.png" id="1_kurfh"]
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Basic Staff/projectile_instantiater.gd" id="2_y7gja"]
+[ext_resource type="Script" uid="uid://bsgolsh4woc4s" path="res://Entities/Weapons/Staffs/Basic Staff/projectile_instantiater.gd" id="2_y7gja"]
 [ext_resource type="Resource" uid="uid://dwiqf7ef586rv" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/thorn_bomb.tres" id="3_x6iwo"]
 [ext_resource type="PackedScene" uid="uid://csfa6tvlodtrm" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/primary/thorn.tscn" id="4_lnllq"]
 [ext_resource type="Resource" uid="uid://cr6q6fs7pvxeq" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/primary/thorn.tres" id="5_7wt6m"]

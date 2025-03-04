@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b6fyj3w7nlryd"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/exp_component.gd" id="1_mhdlr"]
+[ext_resource type="Script" uid="uid://cu8u83g2oh1us" path="res://Entities/Enemy_Create_Scenes/Scripts/exp_component.gd" id="1_mhdlr"]
 
 [node name="EXPComponent" type="Node"]
 script = ExtResource("1_mhdlr")

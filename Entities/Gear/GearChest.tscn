@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1ae55sorct1m"]
 
-[ext_resource type="Script" path="res://Entities/Gear/gear_chest.gd" id="1_df0k1"]
+[ext_resource type="Script" uid="uid://brpts05xkngsb" path="res://Entities/Gear/gear_chest.gd" id="1_df0k1"]
 [ext_resource type="Texture2D" uid="uid://cepbk6mktx3to" path="res://assets/Library/Tiles.png" id="2_htkvm"]
 [ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_s513h"]
 

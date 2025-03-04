@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://j33qsvupkdvo"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/bow/bow.gd" id="1_ooy6x"]
+[ext_resource type="Script" uid="uid://dt302w5t1rvk" path="res://Entities/Weapons/bow/bow.gd" id="1_ooy6x"]
 [ext_resource type="Resource" uid="uid://4rr2avitfwy4" path="res://Entities/Weapons/bow/Basic Bow/arrow/basic_arrow.tres" id="2_0a1ys"]
 [ext_resource type="Texture2D" uid="uid://dewb2h0v4y7kb" path="res://assets/Forest/Weapons_Wood.png" id="3_nkvey"]
 

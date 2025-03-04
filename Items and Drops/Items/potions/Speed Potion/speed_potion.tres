@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://batcoigiqsdiw"]
 
-[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_jgkfa"]
+[ext_resource type="Script" uid="uid://djcrp262gcohd" path="res://Items and Drops/Items/item.gd" id="1_jgkfa"]
 [ext_resource type="Texture2D" uid="uid://bqbleueonuv46" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.png" id="2_fbf02"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://diocly1nuyxyt"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.gd" id="1_k4222"]
+[ext_resource type="Script" uid="uid://b0lommb214jry" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.gd" id="1_k4222"]
 [ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="1_x8qs3"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_1js7s"]
 [ext_resource type="Resource" uid="uid://c4qj5yf413nxr" path="res://Entities/Weapons/Wands/bone_wand/attacks/primary/fireball.tres" id="2_vpkr1"]
@@ -252,9 +252,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ck6ni"]
 _data = {
-"RESET": SubResource("Animation_xu72r"),
-"hide": SubResource("Animation_mp1vi"),
-"show": SubResource("Animation_himdh")
+&"RESET": SubResource("Animation_xu72r"),
+&"hide": SubResource("Animation_mp1vi"),
+&"show": SubResource("Animation_himdh")
 }
 
 [sub_resource type="Animation" id="Animation_hd2ow"]
@@ -291,8 +291,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_763yq"]
 _data = {
-"RESET": SubResource("Animation_hd2ow"),
-"rotate": SubResource("Animation_gsa1s")
+&"RESET": SubResource("Animation_hd2ow"),
+&"rotate": SubResource("Animation_gsa1s")
 }
 
 [node name="BoneWand" type="Node2D"]

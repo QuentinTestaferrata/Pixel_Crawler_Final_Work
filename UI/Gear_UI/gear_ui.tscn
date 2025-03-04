@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_la0mv"]
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_u4v2b"]
 [ext_resource type="Texture2D" uid="uid://d278nse1jha5s" path="res://UI/Buttons/18px_button/normal.png" id="2_hkec5"]
-[ext_resource type="Script" path="res://UI/Gear_UI/gear_ui.gd" id="3_ahvxj"]
+[ext_resource type="Script" uid="uid://xsyvh6pd5x2h" path="res://UI/Gear_UI/gear_ui.gd" id="3_ahvxj"]
 [ext_resource type="Texture2D" uid="uid://bby6u2wl0f5kh" path="res://UI/Buttons/18px_button/pressed.png" id="3_bgjh0"]
 [ext_resource type="Texture2D" uid="uid://bo1cnfm1dfkhh" path="res://UI/Buttons/18px_button/hover.png" id="4_ca1fs"]
 [ext_resource type="Texture2D" uid="uid://dri12651xy31t" path="res://assets/gear/Armor/1_black/hat.png" id="4_kvm8p"]
@@ -162,9 +162,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ufyef"]
 _data = {
-"RESET": SubResource("Animation_fujow"),
-"close": SubResource("Animation_toqst"),
-"open": SubResource("Animation_86ojw")
+&"RESET": SubResource("Animation_fujow"),
+&"close": SubResource("Animation_toqst"),
+&"open": SubResource("Animation_86ojw")
 }
 
 [node name="GearUi" type="PanelContainer"]

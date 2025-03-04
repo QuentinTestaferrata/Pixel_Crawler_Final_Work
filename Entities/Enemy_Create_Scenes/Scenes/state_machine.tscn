@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6ikhk0pdyduy"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_state_machine.gd" id="1_t6qx1"]
+[ext_resource type="Script" uid="uid://ofdmwtc4i3ef" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_state_machine.gd" id="1_t6qx1"]
 
 [node name="StateMachine" type="Node"]
 script = ExtResource("1_t6qx1")

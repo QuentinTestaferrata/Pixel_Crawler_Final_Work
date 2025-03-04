@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ibo0osd8omxs"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/wooden_staff/wooden_staff.gd" id="1_l1slk"]
+[ext_resource type="Script" uid="uid://cjjen75ya8ut4" path="res://Entities/Weapons/Staffs/wooden_staff/wooden_staff.gd" id="1_l1slk"]
 [ext_resource type="Resource" uid="uid://cignphwpm38gj" path="res://Entities/Weapons/Staffs/wooden_staff/wooden_staff.tres" id="2_o6aam"]
 [ext_resource type="Resource" uid="uid://bgkgrrankh823" path="res://Entities/Weapons/Projectiles/Water/droplet/droplet.tres" id="3_62oju"]
 [ext_resource type="Resource" uid="uid://cpm6jn4cwti5u" path="res://Entities/Weapons/Projectiles/Water/Waterball/Waterball.tres" id="4_64dwc"]

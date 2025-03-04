@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="WEAPON" load_steps=2 format=3 uid="uid://cignphwpm38gj"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://cignphwpm38gj"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_nsn5k"]
+[ext_resource type="Script" uid="uid://do3p7f8wcmcpe" path="res://Entities/Weapons/weapon_resource.gd" id="1_nsn5k"]
 
 [resource]
 script = ExtResource("1_nsn5k")
 weapon_name = "wooden_staff"
+price = 0
+obtained = false
+equip_slot = 0
 weapon_type = 0
 weapon_rarity = 0
 damage = 10
+knockback_force = 0.0
 defense = 5
-hover_text = "Noobie staff"
-float_speed = 1.0
+description = ""
+two_handed = false

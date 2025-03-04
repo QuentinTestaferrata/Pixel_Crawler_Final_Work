@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bh6q1fus3cjnv"]
 
 [ext_resource type="Texture2D" uid="uid://1btlq55j4lqo" path="res://Entities/Enemy/3_fairy_forest/Ranger/weapon/elf_dagger.png" id="1_io2kk"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_bhrv0"]
+[ext_resource type="Script" uid="uid://bfqqmsbh27o5w" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_bhrv0"]
 [ext_resource type="Resource" uid="uid://kufu55fcadnu" path="res://Entities/Enemy/3_fairy_forest/Ranger/weapon/elf_dagger.tres" id="3_4vtsb"]
 
 [node name="BoneDagger" type="Sprite2D"]

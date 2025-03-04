@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cwa1hwj7tgalp"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/attack.gd" id="1_fkrje"]
+[ext_resource type="Script" uid="uid://b7x2p0ta2xm4s" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/attack.gd" id="1_fkrje"]
 
 [node name="Attack" type="Node"]
 script = ExtResource("1_fkrje")

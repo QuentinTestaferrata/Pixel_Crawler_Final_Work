@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b146xhckjgvnd"]
 
-[ext_resource type="Script" path="res://UI/Gear_UI/gear_hover_info.gd" id="1_5udfg"]
+[ext_resource type="Script" uid="uid://cnrk8ynefouuf" path="res://UI/Gear_UI/gear_hover_info.gd" id="1_5udfg"]
 
 [sub_resource type="Theme" id="Theme_4unfp"]
 Label/font_sizes/font_size = 7

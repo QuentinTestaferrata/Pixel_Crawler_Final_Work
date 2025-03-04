@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponData" load_steps=10 format=3 uid="uid://beqrvu62hwvis"]
 
 [ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="1_aya47"]
-[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_k1w1e"]
+[ext_resource type="Script" uid="uid://do3p7f8wcmcpe" path="res://Entities/Weapons/weapon_resource.gd" id="1_k1w1e"]
 [ext_resource type="Texture2D" uid="uid://by6mmgaq0i51o" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/disc.png" id="2_nj7wn"]
 [ext_resource type="PackedScene" uid="uid://bprkkys8eavdb" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.tscn" id="3_coyk2"]
 [ext_resource type="Texture2D" uid="uid://dkd3qbopqutae" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.png" id="4_h8st6"]

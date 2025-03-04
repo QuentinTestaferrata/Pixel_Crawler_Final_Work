@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckv7doqqb4npt"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/shoot_projectile.gd" id="1_b64a0"]
+[ext_resource type="Script" uid="uid://cg27e1qx43pm2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/shoot_projectile.gd" id="1_b64a0"]
 
 [node name="ShootProjectile" type="Node"]
 script = ExtResource("1_b64a0")

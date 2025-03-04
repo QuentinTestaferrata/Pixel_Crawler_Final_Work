@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponData" load_steps=7 format=3 uid="uid://bwo60lbbcbivp"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_ih1sx"]
+[ext_resource type="Script" uid="uid://do3p7f8wcmcpe" path="res://Entities/Weapons/weapon_resource.gd" id="1_ih1sx"]
 [ext_resource type="Resource" uid="uid://ch6txcx2tkb6i" path="res://Entities/Weapons/bow/cursed_bow/cursed_arrow/cursed_arrow_projectile.tres" id="1_moe4t"]
 [ext_resource type="Texture2D" uid="uid://d0xil6pqfpjlo" path="res://Entities/Weapons/bow/cursed_bow/sprites/cursed_arrow.png" id="2_xa2ym"]
 [ext_resource type="PackedScene" uid="uid://b1gtjhiev0mhc" path="res://Entities/Weapons/bow/cursed_bow/cursed_bow.tscn" id="3_pgk3s"]

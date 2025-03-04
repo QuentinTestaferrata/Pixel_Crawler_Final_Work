@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq0s824265g2t"]
 
-[ext_resource type="Script" path="res://Common/Interaction/interaction_manager.gd" id="1_dso48"]
+[ext_resource type="Script" uid="uid://b4q0djvf851ax" path="res://Common/Interaction/interaction_manager.gd" id="1_dso48"]
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="2_o6ehk"]
 
 [node name="InteractionManager" type="Node2D"]

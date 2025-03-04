@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_bacxd"]
 [ext_resource type="Texture2D" uid="uid://bbxpxqw7aq7eu" path="res://UI/active_weapons/holder.png" id="1_bia6r"]
-[ext_resource type="Script" path="res://UI/active_weapons/active_weapon_hud.gd" id="2_6m75b"]
+[ext_resource type="Script" uid="uid://d21laud23sigc" path="res://UI/active_weapons/active_weapon_hud.gd" id="2_6m75b"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6eoad"]
 texture = ExtResource("1_bacxd")
