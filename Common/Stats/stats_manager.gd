@@ -2,6 +2,7 @@ extends Node
 class_name PlayerStats
 
 const SHOP_ITEMS = preload("res://Common/Shop/shop_items.tres")
+#const GearItems = preload("res://UI/Gear_UI/gear_items.gd")
 
 signal health_changed
 signal exp_changed
@@ -34,10 +35,19 @@ var current_potions: int = 10
 @export var shop_items: Array[Item]
 @export var shop_resources: Array[Item]
 @export var shop_weapons: Array[WeaponData]
+@export var shop_gears: Array[GearData]
 
 # Quests
 var quests : Array[Quest]
 var player_quests : Array[Quest]
+
+
+#Equiped gear
+@export var equiped_hat: GearData
+@export var equiped_coat: GearData
+@export var equiped_boots: GearData
+@export var equiped_ring: GearData
+@export var equiped_amulet: GearData
 
 var player: CharacterBody2D
 var saver_loader: SaverLoader

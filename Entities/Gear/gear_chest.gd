@@ -1,0 +1,17 @@
+extends StaticBody2D
+
+
+const GEAR_UI = preload("res://UI/Gear_UI/gear_ui.tscn")
+
+var hud_layer: CanvasLayer
+var temp_gear_ui
+@onready var interaction_area: InteractionArea = $InteractionArea
+
+func _ready() -> void:
+	interaction_area.interact = Callable(self, "on_interact")
+	hud_layer = get_tree().get_first_node_in_group("hud")
+
+func on_interact():
+	if temp_gear_ui == null:
+		temp_gear_ui = GEAR_UI.instantiate()
+		hud_layer.add_child(temp_gear_ui)
