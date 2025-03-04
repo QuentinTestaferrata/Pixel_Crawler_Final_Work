@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c16kgaufr7x48"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/Water/Waterball/waterball.gd" id="1_p3hwd"]
+[ext_resource type="Script" uid="uid://g2gtvh6c5pxh" path="res://Entities/Weapons/Projectiles/Water/Waterball/waterball.gd" id="1_p3hwd"]
 [ext_resource type="Texture2D" uid="uid://gprwlcpb5lpt" path="res://assets/projectiles.png" id="1_sh0r1"]
 [ext_resource type="Resource" uid="uid://cpm6jn4cwti5u" path="res://Entities/Weapons/Projectiles/Water/Waterball/Waterball.tres" id="2_qua1c"]
 [ext_resource type="Texture2D" uid="uid://dqv3uhx17nvfo" path="res://assets/water_particles.png" id="4_ev13x"]

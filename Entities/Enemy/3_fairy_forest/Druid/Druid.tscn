@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://cgyc7mvsalqfx"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_th15j"]
+[ext_resource type="Script" uid="uid://d2qbbnq6ygeq8" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_th15j"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="2_p8jgy"]
 [ext_resource type="PackedScene" uid="uid://c46kqb4qaj0eo" path="res://Entities/Enemy_Create_Scenes/Scenes/enemy_sprite.tscn" id="3_ormag"]
 [ext_resource type="Texture2D" uid="uid://cnsyjqxygwd64" path="res://Entities/Enemy/3_fairy_forest/hand_sprites/sprites/left_hand.png" id="4_5eshs"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cicvwla72mg1e" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthComponent.tscn" id="12_u3k6u"]
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="13_b1tm1"]
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="14_ehgsx"]
-[ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="15_0f73w"]
+[ext_resource type="Script" uid="uid://b54w6dqbd08kn" path="res://Items and Drops/Drops/drop_data.gd" id="15_0f73w"]
 [ext_resource type="Resource" uid="uid://buhigwa7ovvbp" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.tres" id="16_nyics"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="17_hqb0t"]
 [ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="18_4kog2"]

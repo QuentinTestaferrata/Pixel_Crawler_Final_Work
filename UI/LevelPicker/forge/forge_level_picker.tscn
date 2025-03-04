@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://4w2bwfapwmjl"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_q04f5"]
-[ext_resource type="Script" path="res://UI/LevelPicker/dungeon/level_picker.gd" id="2_tj1a1"]
+[ext_resource type="Script" uid="uid://devoi70ljtugw" path="res://UI/LevelPicker/dungeon/level_picker.gd" id="2_tj1a1"]
 [ext_resource type="PackedScene" uid="uid://cle5f2ytjueb" path="res://Entities/Zones/FightZones/2_cemetery.tscn" id="3_lna5y"]
 [ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="4_g36td"]
 [ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="5_dkvpm"]
@@ -116,8 +116,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ibt6g"]
 _data = {
-"RESET": SubResource("Animation_onhu2"),
-"rarities": SubResource("Animation_tinvx")
+&"RESET": SubResource("Animation_onhu2"),
+&"rarities": SubResource("Animation_tinvx")
 }
 
 [sub_resource type="Animation" id="Animation_xbeon"]
@@ -183,9 +183,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ecwr0"]
 _data = {
-"RESET": SubResource("Animation_xbeon"),
-"despawn": SubResource("Animation_efb01"),
-"spawn": SubResource("Animation_xnb3s")
+&"RESET": SubResource("Animation_xbeon"),
+&"despawn": SubResource("Animation_efb01"),
+&"spawn": SubResource("Animation_xnb3s")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f53xv"]

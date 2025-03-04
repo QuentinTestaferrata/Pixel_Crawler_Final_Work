@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b62a261ut4li7"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/bow/arrow_script.gd" id="1_xwghe"]
+[ext_resource type="Script" uid="uid://dhh23j7k3i0dj" path="res://Entities/Weapons/bow/arrow_script.gd" id="1_xwghe"]
 [ext_resource type="Texture2D" uid="uid://d0xil6pqfpjlo" path="res://Entities/Weapons/bow/cursed_bow/sprites/cursed_arrow.png" id="2_jn1ap"]
 [ext_resource type="Texture2D" uid="uid://nuev4ekmjq6x" path="res://Entities/Weapons/bow/Basic Bow/arrow/arrow.png" id="3_0tisp"]
 
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmipo"]
 _data = {
-"RESET": SubResource("Animation_va6fw"),
-"new_animation": SubResource("Animation_v1e8i")
+&"RESET": SubResource("Animation_va6fw"),
+&"new_animation": SubResource("Animation_v1e8i")
 }
 
 [node name="CursedArrow" type="Area2D"]

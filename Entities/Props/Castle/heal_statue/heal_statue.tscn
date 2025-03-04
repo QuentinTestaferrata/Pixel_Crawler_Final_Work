@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://u3t3kgp73be8"]
 
-[ext_resource type="Script" path="res://Entities/Props/Castle/heal_statue/heal_statue.gd" id="1_n76x3"]
+[ext_resource type="Script" uid="uid://b0jmtcmkmccra" path="res://Entities/Props/Castle/heal_statue/heal_statue.gd" id="1_n76x3"]
 [ext_resource type="Texture2D" uid="uid://bne3l786qajo2" path="res://Entities/Props/Castle/heal_statue/heal_stone.png" id="2_cq1op"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="2_f6uw4"]
 [ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_ap8la"]

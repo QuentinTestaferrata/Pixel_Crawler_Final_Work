@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponData" load_steps=10 format=3 uid="uid://cl85ihssq8jjq"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_ibryx"]
+[ext_resource type="Script" uid="uid://do3p7f8wcmcpe" path="res://Entities/Weapons/weapon_resource.gd" id="1_ibryx"]
 [ext_resource type="Resource" uid="uid://cr6q6fs7pvxeq" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/primary/thorn.tres" id="1_jm6o8"]
 [ext_resource type="PackedScene" uid="uid://ddnx3vhvtvilc" path="res://Entities/Weapons/Staffs/Basic Staff/basic_staff.tscn" id="1_nrnkx"]
 [ext_resource type="Texture2D" uid="uid://b4dd26y4srxpm" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/primary/thorn.png" id="2_yy81s"]

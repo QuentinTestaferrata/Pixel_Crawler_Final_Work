@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqtxxwxrnn0sc"]
 
 [ext_resource type="Texture2D" uid="uid://moovslliujq2" path="res://UI/Ability Cooldowns/button.png" id="1_ls7e8"]
-[ext_resource type="Script" path="res://UI/Ability Cooldowns/ability_button.gd" id="2_cv1ph"]
+[ext_resource type="Script" uid="uid://bewlcd4amv4xf" path="res://UI/Ability Cooldowns/ability_button.gd" id="2_cv1ph"]
 [ext_resource type="Texture2D" uid="uid://80wnsugbxsb1" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone.png" id="3_h3wjg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckl5x"]

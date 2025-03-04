@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://bhg7b37erk1wy"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_nkq2n"]
+[ext_resource type="Script" uid="uid://d2qbbnq6ygeq8" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_nkq2n"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="1_xe4x4"]
 [ext_resource type="PackedScene" uid="uid://dbssskf1fgkqt" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthBar.tscn" id="2_0pn8r"]
 [ext_resource type="PackedScene" uid="uid://cicvwla72mg1e" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthComponent.tscn" id="3_3rpi4"]
@@ -16,15 +16,15 @@
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="10_bwek2"]
 [ext_resource type="PackedScene" uid="uid://cjsretkoxtvse" path="res://Entities/Enemy/1_dungeon/base/weapon/bone_sword.tscn" id="10_df557"]
 [ext_resource type="Texture2D" uid="uid://cfvkq2yjcxsas" path="res://assets/Dungeon/Hands/right_empty.png" id="10_qqbca"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_4ttr6"]
+[ext_resource type="Script" uid="uid://vlei0451k3ra" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_4ttr6"]
 [ext_resource type="Texture2D" uid="uid://bffvrjjv7pjmh" path="res://Entities/Enemy/1_dungeon/base/weapon/bone_sword.png" id="12_62ffq"]
-[ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="13_nvcni"]
+[ext_resource type="Script" uid="uid://b54w6dqbd08kn" path="res://Items and Drops/Drops/drop_data.gd" id="13_nvcni"]
 [ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="14_dkbe6"]
 [ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="18_xckw3"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="19_tee5k"]
 [ext_resource type="PackedScene" uid="uid://tysy6rrrqpyi" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack_no_pathfind.tscn" id="23_5u4cd"]
 [ext_resource type="PackedScene" uid="uid://bjapmlee3rbwq" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase_no_pathfind.tscn" id="23_fs0rj"]
-[ext_resource type="Script" path="res://Entities/Enemy/label.gd" id="25_futpx"]
+[ext_resource type="Script" uid="uid://b6s1chn5tvpvm" path="res://Entities/Enemy/label.gd" id="25_futpx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
 radius = 2.0

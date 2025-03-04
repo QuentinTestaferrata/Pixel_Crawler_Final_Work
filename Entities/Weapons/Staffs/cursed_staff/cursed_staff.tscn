@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bprkkys8eavdb"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.gd" id="1_4fj60"]
+[ext_resource type="Script" uid="uid://bhfqbwhlorwe3" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.gd" id="1_4fj60"]
 [ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="2_wwfka"]
 [ext_resource type="Texture2D" uid="uid://dkd3qbopqutae" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.png" id="3_4aqu0"]
 [ext_resource type="PackedScene" uid="uid://c67jd7w4o46c7" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tscn" id="5_1t1vg"]
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Basic Staff/projectile_instantiater.gd" id="5_5tw08"]
+[ext_resource type="Script" uid="uid://bsgolsh4woc4s" path="res://Entities/Weapons/Staffs/Basic Staff/projectile_instantiater.gd" id="5_5tw08"]
 [ext_resource type="PackedScene" uid="uid://cqipbphdonfe4" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/cursed_projectile_spawner.tscn" id="6_c5s65"]
 [ext_resource type="Resource" uid="uid://dv84ero8143xd" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/CurseMissile.tres" id="7_3ynn1"]
 

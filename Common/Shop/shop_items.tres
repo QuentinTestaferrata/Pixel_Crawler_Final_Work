@@ -1,10 +1,8 @@
 [gd_resource type="Resource" script_class="ShopItems" load_steps=9 format=3 uid="uid://do5j7e4l2yp5g"]
 
-
-[ext_resource type="Script" path="res://Common/Shop/shop_items.gd" id="1_03si4"]
-[ext_resource type="Script" path="res://Entities/Gear/gear_resource.gd" id="2_1hoxj"]
-[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="2_v0rmw"]
-
+[ext_resource type="Script" uid="uid://ccunwdkysbq64" path="res://Common/Shop/shop_items.gd" id="1_03si4"]
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="2_1hoxj"]
+[ext_resource type="Script" uid="uid://djcrp262gcohd" path="res://Items and Drops/Items/item.gd" id="2_v0rmw"]
 [ext_resource type="Resource" uid="uid://ddrp3yoakbhfl" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="3_rquv6"]
 [ext_resource type="Resource" uid="uid://batcoigiqsdiw" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.tres" id="4_jqp5m"]
 [ext_resource type="Script" uid="uid://do3p7f8wcmcpe" path="res://Entities/Weapons/weapon_resource.gd" id="5_7i7k4"]

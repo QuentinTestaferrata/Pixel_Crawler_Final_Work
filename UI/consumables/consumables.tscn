@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://byg0io75dodc1"]
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_44qd0"]
-[ext_resource type="Texture2D" uid="uid://u7p1d34mie11" path="res://UI/Buttons/small/button_normal.png" id="2_e0r7j"]
-[ext_resource type="Texture2D" uid="uid://drlw8rtgn1gv3" path="res://UI/Buttons/small/button_pressed.png" id="3_aw1ur"]
+[ext_resource type="Texture2D" uid="uid://u7p1d34mie11" path="res://UI/Buttons/1_small/button_normal.png" id="2_e0r7j"]
+[ext_resource type="Texture2D" uid="uid://drlw8rtgn1gv3" path="res://UI/Buttons/1_small/button_pressed.png" id="3_aw1ur"]
 [ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="3_qljo1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6mb2"]

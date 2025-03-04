@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4j5awwmyad0s"]
 
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_kd63x"]
-[ext_resource type="Script" path="res://UI/Quests/QuestHUD/QuestTracker.gd" id="2_dd3g7"]
+[ext_resource type="Script" uid="uid://dx0ofxyux5by" path="res://UI/Quests/QuestHUD/QuestTracker.gd" id="2_dd3g7"]
 
 [sub_resource type="Theme" id="Theme_1n3jw"]
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
@@ -55,8 +55,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_36pss"]
 _data = {
-"RESET": SubResource("Animation_xyo5h"),
-"new_animation": SubResource("Animation_bi2p1")
+&"RESET": SubResource("Animation_xyo5h"),
+&"new_animation": SubResource("Animation_bi2p1")
 }
 
 [node name="QuestTracker" type="Control"]

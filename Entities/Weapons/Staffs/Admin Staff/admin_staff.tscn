@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfldwvy7fkcww"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Admin Staff/admin_staff.gd" id="1_ce00e"]
+[ext_resource type="Script" uid="uid://c4fdfhc58ckdt" path="res://Entities/Weapons/Staffs/Admin Staff/admin_staff.gd" id="1_ce00e"]
 [ext_resource type="Resource" uid="uid://d3efsil8oglg6" path="res://Entities/Weapons/Staffs/Admin Staff/admin_attacks/Primary/admin_shard.tres" id="2_4ejg2"]
 [ext_resource type="Texture2D" uid="uid://meffw82o7oj1" path="res://Entities/Weapons/Staffs/Admin Staff/sprite.png" id="3_aljvl"]
 [ext_resource type="Resource" uid="uid://dn6lvq846lx5m" path="res://Entities/Weapons/Staffs/Admin Staff/admin_attacks/Secondary/admin_shield.tres" id="3_lcl2m"]

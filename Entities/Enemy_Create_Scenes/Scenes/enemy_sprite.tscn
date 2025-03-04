@@ -1,6 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://c46kqb4qaj0eo"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_sprite.gd" id="1_df4ns"]
+[ext_resource type="Script" uid="uid://ceigpuu6spkgd" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_sprite.gd" id="1_df4ns"]
 [ext_resource type="Shader" uid="uid://dqdxcay1lpomt" path="res://Common/hit_flash.tres" id="2_1us2u"]
 [ext_resource type="Texture2D" uid="uid://be2emdb6tihpo" path="res://Entities/Enemy/2_cemetery/base/sprites/base_zombie_spritesheet.png" id="3_k1fl1"]
 [ext_resource type="Texture2D" uid="uid://bf8gma86fnfj" path="res://Entities/Enemy/2_cemetery/hand_sprites/green_hands/left_hand.png" id="4_62vaq"]
@@ -291,12 +291,12 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gq5kp"]
 _data = {
-"RESET": SubResource("Animation_sjlpl"),
-"die": SubResource("Animation_j15pf"),
-"hit": SubResource("Animation_1inws"),
-"idle_right": SubResource("Animation_q0hg5"),
-"run_left": SubResource("Animation_ge4sy"),
-"run_right": SubResource("Animation_04o5m")
+&"RESET": SubResource("Animation_sjlpl"),
+&"die": SubResource("Animation_j15pf"),
+&"hit": SubResource("Animation_1inws"),
+&"idle_right": SubResource("Animation_q0hg5"),
+&"run_left": SubResource("Animation_ge4sy"),
+&"run_right": SubResource("Animation_04o5m")
 }
 
 [sub_resource type="Animation" id="Animation_udkjs"]
@@ -490,11 +490,11 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_768nl"]
 _data = {
-"RESET": SubResource("Animation_udkjs"),
-"attack": SubResource("Animation_fn05g"),
-"idle_right": SubResource("Animation_u0c4s"),
-"run_left": SubResource("Animation_r0se2"),
-"run_right": SubResource("Animation_qg46l")
+&"RESET": SubResource("Animation_udkjs"),
+&"attack": SubResource("Animation_fn05g"),
+&"idle_right": SubResource("Animation_u0c4s"),
+&"run_left": SubResource("Animation_r0se2"),
+&"run_right": SubResource("Animation_qg46l")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x3yyr"]
@@ -624,9 +624,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uvhfa"]
 _data = {
-"RESET": SubResource("Animation_ycqd5"),
-"hit_flash": SubResource("Animation_xmh3e"),
-"test": SubResource("Animation_cu4t5")
+&"RESET": SubResource("Animation_ycqd5"),
+&"hit_flash": SubResource("Animation_xmh3e"),
+&"test": SubResource("Animation_cu4t5")
 }
 
 [sub_resource type="Animation" id="Animation_kxpk7"]
@@ -773,11 +773,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0nacl"]
 _data = {
-"RESET": SubResource("Animation_kxpk7"),
-"attack_1": SubResource("Animation_040g3"),
-"attack_2": SubResource("Animation_2bdtt"),
-"attack_3": SubResource("Animation_bev5i"),
-"attack_4": SubResource("Animation_ws62n")
+&"RESET": SubResource("Animation_kxpk7"),
+&"attack_1": SubResource("Animation_040g3"),
+&"attack_2": SubResource("Animation_2bdtt"),
+&"attack_3": SubResource("Animation_bev5i"),
+&"attack_4": SubResource("Animation_ws62n")
 }
 
 [sub_resource type="Animation" id="Animation_1dekj"]
@@ -867,9 +867,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d3wxc"]
 _data = {
-"RESET": SubResource("Animation_1dekj"),
-"axe_attack_1": SubResource("Animation_e25cf"),
-"axe_attack_2": SubResource("Animation_01fpr")
+&"RESET": SubResource("Animation_1dekj"),
+&"axe_attack_1": SubResource("Animation_e25cf"),
+&"axe_attack_2": SubResource("Animation_01fpr")
 }
 
 [sub_resource type="Animation" id="Animation_ggbyo"]
@@ -978,8 +978,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ekpga"]
 _data = {
-"RESET": SubResource("Animation_ggbyo"),
-"slash_forward": SubResource("Animation_7nwmb")
+&"RESET": SubResource("Animation_ggbyo"),
+&"slash_forward": SubResource("Animation_7nwmb")
 }
 
 [sub_resource type="Animation" id="Animation_rhdig"]
@@ -1184,9 +1184,9 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_avel0"]
 _data = {
-"RESET": SubResource("Animation_rhdig"),
-"cast_spell_1": SubResource("Animation_gx8ud"),
-"cast_spell_2": SubResource("Animation_3fhaw")
+&"RESET": SubResource("Animation_rhdig"),
+&"cast_spell_1": SubResource("Animation_gx8ud"),
+&"cast_spell_2": SubResource("Animation_3fhaw")
 }
 
 [node name="Sprite" type="Node2D"]

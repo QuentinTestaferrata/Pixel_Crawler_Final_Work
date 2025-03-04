@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d4mg7i4cyw3il"]
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_o56gd"]
-[ext_resource type="Script" path="res://UI/wave_finished_dialog/wave_finished_dialog.gd" id="1_slpd4"]
+[ext_resource type="Script" uid="uid://bvv5lobakr0ip" path="res://UI/wave_finished_dialog/wave_finished_dialog.gd" id="1_slpd4"]
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="3_maojm"]
 [ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/4_long/button.png" id="4_00hk3"]
 [ext_resource type="Texture2D" uid="uid://cs4m8p4hrxg7v" path="res://UI/Buttons/4_long/pressed_button.png" id="5_jjsec"]
@@ -107,9 +107,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7y1x3"]
 _data = {
-"RESET": SubResource("Animation_uof4r"),
-"ease-in": SubResource("Animation_oxy83"),
-"next_wave": SubResource("Animation_to77x")
+&"RESET": SubResource("Animation_uof4r"),
+&"ease-in": SubResource("Animation_oxy83"),
+&"next_wave": SubResource("Animation_to77x")
 }
 
 [node name="WaveFinishedDialog" type="PanelContainer"]

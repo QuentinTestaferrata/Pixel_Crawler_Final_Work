@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_1q46w"]
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_ab63m"]
-[ext_resource type="Script" path="res://UI/Shop/shop_dialog.gd" id="3_3pdrx"]
+[ext_resource type="Script" uid="uid://27wbvasni2vj" path="res://UI/Shop/shop_dialog.gd" id="3_3pdrx"]
 [ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/4_long/button.png" id="4_mnefa"]
 [ext_resource type="Texture2D" uid="uid://cs4m8p4hrxg7v" path="res://UI/Buttons/4_long/pressed_button.png" id="5_n3phx"]
 [ext_resource type="Texture2D" uid="uid://ox6g8eumw3rb" path="res://UI/Buttons/4_long/hover_button.png" id="6_yrl7g"]
@@ -136,9 +136,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ufyef"]
 _data = {
-"RESET": SubResource("Animation_fujow"),
-"close": SubResource("Animation_toqst"),
-"open": SubResource("Animation_86ojw")
+&"RESET": SubResource("Animation_fujow"),
+&"close": SubResource("Animation_toqst"),
+&"open": SubResource("Animation_86ojw")
 }
 
 [node name="ShopDialog" type="PanelContainer"]

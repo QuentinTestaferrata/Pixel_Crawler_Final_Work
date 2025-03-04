@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dga215obadcv1"]
 
 [ext_resource type="Texture2D" uid="uid://dlfjulit7jvsa" path="res://Entities/Enemy/2_cemetery/overweight/weapon/cursed_hammer.png" id="1_fro5a"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_kmett"]
+[ext_resource type="Script" uid="uid://bfqqmsbh27o5w" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_kmett"]
 [ext_resource type="Resource" uid="uid://dtne7wfhilbpd" path="res://Entities/Enemy/2_cemetery/overweight/weapon/cursed_hammer_data.tres" id="3_85j7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7rn7"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dum6xe8iwt7ls"]
 
 [ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_sprite.png" id="1_43tmv"]
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.gd" id="1_y05u8"]
+[ext_resource type="Script" uid="uid://c34co2hfh6inf" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.gd" id="1_y05u8"]
 [ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="2_da7tf"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_naveh"]
 [ext_resource type="Resource" uid="uid://c2r3v3rrk2630" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.tres" id="3_myx6a"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://nufbe7xjhtwv"]
 
 [ext_resource type="Texture2D" uid="uid://cjqf1esb1gmx6" path="res://Entities/Enemy/1_dungeon/rogue/weapon/bone_dagger.png" id="1_n6vel"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_nkt8t"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_data.gd" id="3_r5spt"]
+[ext_resource type="Script" uid="uid://bfqqmsbh27o5w" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_nkt8t"]
+[ext_resource type="Script" uid="uid://djhufq3rl7c6p" path="res://Entities/EnemyWeapon/enemy_weapon_data.gd" id="3_r5spt"]
 
 [sub_resource type="Resource" id="Resource_jo6w5"]
 script = ExtResource("3_r5spt")

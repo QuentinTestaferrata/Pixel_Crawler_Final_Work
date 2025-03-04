@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbseuylt2bcdu"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/bow/arrow_script.gd" id="1_p0fy4"]
+[ext_resource type="Script" uid="uid://dhh23j7k3i0dj" path="res://Entities/Weapons/bow/arrow_script.gd" id="1_p0fy4"]
 [ext_resource type="Texture2D" uid="uid://nuev4ekmjq6x" path="res://Entities/Weapons/bow/Basic Bow/arrow/arrow.png" id="1_pxnh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nf3pq"]
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmipo"]
 _data = {
-"RESET": SubResource("Animation_va6fw"),
-"new_animation": SubResource("Animation_v1e8i")
+&"RESET": SubResource("Animation_va6fw"),
+&"new_animation": SubResource("Animation_v1e8i")
 }
 
 [node name="Area2D" type="Area2D"]

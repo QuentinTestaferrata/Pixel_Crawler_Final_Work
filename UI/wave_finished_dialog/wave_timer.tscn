@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://85garvjeysqm"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_xkvia"]
-[ext_resource type="Script" path="res://UI/wave_finished_dialog/wave_timer.gd" id="2_wcoj5"]
+[ext_resource type="Script" uid="uid://4if5tfrhsb75" path="res://UI/wave_finished_dialog/wave_timer.gd" id="2_wcoj5"]
 
 [sub_resource type="Theme" id="Theme_jx85v"]
 Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
@@ -56,8 +56,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1pier"]
 _data = {
-"RESET": SubResource("Animation_udavt"),
-"start_wave": SubResource("Animation_j0agv")
+&"RESET": SubResource("Animation_udavt"),
+&"start_wave": SubResource("Animation_j0agv")
 }
 
 [node name="WaveTimer" type="PanelContainer"]

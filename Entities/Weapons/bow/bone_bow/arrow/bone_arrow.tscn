@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2uaea40g786k"]
 
 [ext_resource type="Texture2D" uid="uid://nuev4ekmjq6x" path="res://Entities/Weapons/bow/Basic Bow/arrow/arrow.png" id="1_fcy1d"]
-[ext_resource type="Script" path="res://Entities/Weapons/bow/arrow_script.gd" id="1_psuhl"]
+[ext_resource type="Script" uid="uid://dhh23j7k3i0dj" path="res://Entities/Weapons/bow/arrow_script.gd" id="1_psuhl"]
 [ext_resource type="Texture2D" uid="uid://bv0k4myvt4d08" path="res://Entities/Weapons/bow/bone_bow/arrow/arrow.png" id="2_7rpi1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nf3pq"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmipo"]
 _data = {
-"RESET": SubResource("Animation_va6fw"),
-"new_animation": SubResource("Animation_v1e8i")
+&"RESET": SubResource("Animation_va6fw"),
+&"new_animation": SubResource("Animation_v1e8i")
 }
 
 [node name="BoneArrow" type="Area2D"]

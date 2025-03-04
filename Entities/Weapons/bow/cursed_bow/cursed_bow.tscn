@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b1gtjhiev0mhc"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/bow/bow.gd" id="1_oknub"]
+[ext_resource type="Script" uid="uid://dt302w5t1rvk" path="res://Entities/Weapons/bow/bow.gd" id="1_oknub"]
 [ext_resource type="Resource" uid="uid://pcddpclw1nd8" path="res://Entities/Weapons/bow/cursed_bow/cursed_arrow/cursed_arrow.tres" id="2_reiii"]
 [ext_resource type="Texture2D" uid="uid://bfwq5ua6wr60g" path="res://Entities/Weapons/bow/cursed_bow/sprites/bow.png" id="3_adp5o"]
 

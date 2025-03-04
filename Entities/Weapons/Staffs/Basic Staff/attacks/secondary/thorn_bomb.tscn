@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://builvgg03mv3y"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_pyijj"]
+[ext_resource type="Script" uid="uid://di3478omxpyf7" path="res://Entities/Weapons/shoot_projectile.gd" id="1_pyijj"]
 [ext_resource type="Resource" uid="uid://dwiqf7ef586rv" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/thorn_bomb.tres" id="2_prw5n"]
 [ext_resource type="Texture2D" uid="uid://5f3nrt4ivb6j" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/spike_bomb.png" id="3_nt7mr"]
-[ext_resource type="Script" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/thorn_mechanic.gd" id="4_vyqss"]
+[ext_resource type="Script" uid="uid://dr546yks01e34" path="res://Entities/Weapons/Staffs/Basic Staff/attacks/secondary/thorn_mechanic.gd" id="4_vyqss"]
 
 [sub_resource type="Animation" id="Animation_imct2"]
 length = 0.001
@@ -68,9 +68,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qqjnu"]
 _data = {
-"RESET": SubResource("Animation_imct2"),
-"despawn": SubResource("Animation_l65e8"),
-"spawn": SubResource("Animation_g5dag")
+&"RESET": SubResource("Animation_imct2"),
+&"despawn": SubResource("Animation_l65e8"),
+&"spawn": SubResource("Animation_g5dag")
 }
 
 [sub_resource type="Animation" id="Animation_tdyup"]
@@ -106,8 +106,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1cdmk"]
 _data = {
-"RESET": SubResource("Animation_tdyup"),
-"rotate": SubResource("Animation_i2n3n")
+&"RESET": SubResource("Animation_tdyup"),
+&"rotate": SubResource("Animation_i2n3n")
 }
 
 [node name="ThornBomb" type="Area2D"]

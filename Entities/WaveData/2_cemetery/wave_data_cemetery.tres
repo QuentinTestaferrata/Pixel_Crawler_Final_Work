@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WaveManagerData" load_steps=3 format=3 uid="uid://cva11m0q523mw"]
 
-[ext_resource type="Script" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager_data.gd" id="1_q5u0j"]
+[ext_resource type="Script" uid="uid://ss3ycbfmx6xa" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager_data.gd" id="1_q5u0j"]
 [ext_resource type="Resource" uid="uid://dy2j7f37fr364" path="res://Entities/WaveData/2_cemetery/spawnrates_cemetery.tres" id="2_3c7bj"]
 
 [resource]

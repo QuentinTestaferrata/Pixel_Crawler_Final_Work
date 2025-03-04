@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Sword" load_steps=3 format=3 uid="uid://byvsmuaeq6q7q"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/sword_resource.gd" id="1_lulpk"]
+[ext_resource type="Script" uid="uid://di05l6ah06llu" path="res://Entities/Weapons/sword_resource.gd" id="1_lulpk"]
 [ext_resource type="PackedScene" uid="uid://cp7fjfnwmsfp8" path="res://Entities/Weapons/Swords/Bone Sword/bone_sword.tscn" id="1_wrmv5"]
 
 [resource]

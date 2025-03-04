@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvg64fbkjarlt"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/die.gd" id="1_1s36f"]
+[ext_resource type="Script" uid="uid://77r8d1ej2por" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/die.gd" id="1_1s36f"]
 
 [node name="Die" type="Node"]
 script = ExtResource("1_1s36f")

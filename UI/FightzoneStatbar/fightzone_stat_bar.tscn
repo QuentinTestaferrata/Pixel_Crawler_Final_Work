@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bn1aggu7548os" path="res://UI/FightzoneStatbar/box.png" id="1_l6ghy"]
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_sr737"]
-[ext_resource type="Script" path="res://UI/FightzoneStatbar/fightzone_stat_bar.gd" id="2_41308"]
+[ext_resource type="Script" uid="uid://c5sosfnarmkwt" path="res://UI/FightzoneStatbar/fightzone_stat_bar.gd" id="2_41308"]
 [ext_resource type="Texture2D" uid="uid://1b21nf441u83" path="res://UI/FightzoneStatbar/kills.png" id="3_uuckf"]
 [ext_resource type="Texture2D" uid="uid://nitrmcam5i1i" path="res://UI/FightzoneStatbar/timer.png" id="4_bxek2"]
 [ext_resource type="Texture2D" uid="uid://c6itsxko64lua" path="res://UI/FightzoneStatbar/kills_left.png" id="4_fndpe"]
 [ext_resource type="Texture2D" uid="uid://crhsl2spr7x8i" path="res://UI/coin.png" id="5_wiytn"]
-[ext_resource type="Script" path="res://UI/FightzoneStatbar/time.gd" id="5_yr7qo"]
+[ext_resource type="Script" uid="uid://dm5vxe380imll" path="res://UI/FightzoneStatbar/time.gd" id="5_yr7qo"]
 
 [sub_resource type="Theme" id="Theme_pbkib"]
 default_font = ExtResource("1_sr737")
