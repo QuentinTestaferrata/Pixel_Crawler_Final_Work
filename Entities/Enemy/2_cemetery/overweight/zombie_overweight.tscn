@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://cmyacaa62f8jf"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_1htee"]
+[ext_resource type="Script" uid="uid://d2qbbnq6ygeq8" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_1htee"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="2_s7fcf"]
 [ext_resource type="PackedScene" uid="uid://dbssskf1fgkqt" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthBar.tscn" id="3_1tcia"]
 [ext_resource type="PackedScene" uid="uid://cicvwla72mg1e" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthComponent.tscn" id="4_2bgag"]
@@ -10,12 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dwv8ngjijdo4b" path="res://Entities/Enemy/2_cemetery/hand_sprites/kaki_hands/right_hand.png" id="8_4le5x"]
 [ext_resource type="Texture2D" uid="uid://cd1kstevcynwy" path="res://Entities/Enemy/2_cemetery/hand_sprites/kaki_hands/right_hand_empty.png" id="9_uyd16"]
 [ext_resource type="PackedScene" uid="uid://dga215obadcv1" path="res://Entities/Enemy/2_cemetery/overweight/weapon/cursed_hammer.tscn" id="10_2dgcn"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_f0mbb"]
+[ext_resource type="Script" uid="uid://vlei0451k3ra" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_f0mbb"]
 [ext_resource type="Texture2D" uid="uid://dlfjulit7jvsa" path="res://Entities/Enemy/2_cemetery/overweight/weapon/cursed_hammer.png" id="12_edbsj"]
 [ext_resource type="Texture2D" uid="uid://crmlvdiae88ub" path="res://Entities/Enemy/2_cemetery/overweight/zombie_overweight_spritesheet.png" id="13_8ng0x"]
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="14_pyfop"]
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="15_okvdm"]
-[ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="16_ds00f"]
+[ext_resource type="Script" uid="uid://b54w6dqbd08kn" path="res://Items and Drops/Drops/drop_data.gd" id="16_ds00f"]
 [ext_resource type="Resource" uid="uid://b6207h7rxyb0y" path="res://Items and Drops/Drops/cemetery/cursed_heart/cursed_heart.tres" id="18_7wyim"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="19_fwcb0"]
 [ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="20_44jvy"]
@@ -63,12 +63,13 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5goyu")
 
 [node name="EXPComponent" parent="." instance=ExtResource("2_s7fcf")]
-exp_amount = 25
+exp_amount = 40
 
 [node name="HealthBar" parent="." instance=ExtResource("3_1tcia")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_2bgag")]
-max_health = 550
+base_health = 700
+max_health = 700
 
 [node name="Sprite" parent="." instance=ExtResource("5_nyb05")]
 left_hand = ExtResource("6_330n8")

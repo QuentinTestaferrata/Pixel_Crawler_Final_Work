@@ -55,3 +55,6 @@ func setup_staff(weapon_1) -> Tween:
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_loops()
 	return tween
+
+func _exit_tree() -> void:
+	tween.kill()

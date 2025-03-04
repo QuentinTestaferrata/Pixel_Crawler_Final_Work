@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bu1oqu1abj5an"]
 
-[ext_resource type="Script" path="res://UI/Quests/Script/QuestManager.gd" id="1_bo5u5"]
+[ext_resource type="Script" uid="uid://djwk6jvbo6car" path="res://UI/Quests/Script/QuestManager.gd" id="1_bo5u5"]
 [ext_resource type="PackedScene" uid="uid://46rlbmj6naga" path="res://UI/Quests/Scene/QuestUI.tscn" id="2_utb77"]
 
 [node name="QuestManager" type="Node2D"]

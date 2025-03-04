@@ -1,21 +1,21 @@
-[gd_scene load_steps=49 format=3 uid="uid://uqj3ijcufn81"]
+[gd_scene load_steps=50 format=3 uid="uid://uqj3ijcufn81"]
 
-[ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_xgmka"]
-[ext_resource type="Script" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
+[ext_resource type="Script" uid="uid://cr28lerl10axl" path="res://Entities/Player/Player.gd" id="1_xgmka"]
+[ext_resource type="Script" uid="uid://ci0hhm8iavjls" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
 [ext_resource type="Texture2D" uid="uid://dibytxj0s4gdi" path="res://assets/1_Heroes/Wizzard/Player/Idle-Player.png" id="2_6luqa"]
 [ext_resource type="Texture2D" uid="uid://c1i7sp6oova7f" path="res://assets/1_Heroes/Wizzard/Player/Death-player.png" id="2_sw8de"]
 [ext_resource type="Texture2D" uid="uid://cw0p6tywwx5rv" path="res://assets/1_Heroes/Wizzard/Player/Run-player.png" id="3_gruvd"]
 [ext_resource type="PackedScene" uid="uid://ca80cecald6li" path="res://Entities/Weapons/0_Weapon Manager/weapon_manager.tscn" id="5_tsom6"]
-[ext_resource type="Script" path="res://Common/StateMachine/Player State/player_state_machine.gd" id="8_ef4o5"]
-[ext_resource type="Script" path="res://Entities/Player/text.gd" id="8_ncmvf"]
+[ext_resource type="Script" uid="uid://2xsnup7h6ekh" path="res://Common/StateMachine/Player State/player_state_machine.gd" id="8_ef4o5"]
+[ext_resource type="Script" uid="uid://s2781dathds6" path="res://Entities/Player/text.gd" id="8_ncmvf"]
 [ext_resource type="PackedScene" uid="uid://cstl2k64c4g40" path="res://Common/StateMachine/Player State/State Nodes/Idle.tscn" id="9_5kk5u"]
 [ext_resource type="PackedScene" uid="uid://dnke8nei33p4k" path="res://Common/StateMachine/Player State/State Nodes/Die.tscn" id="10_85js6"]
 [ext_resource type="PackedScene" uid="uid://dwbmfxeomm7j3" path="res://Common/StateMachine/Player State/State Nodes/Dash.tscn" id="11_licbv"]
-[ext_resource type="Script" path="res://Common/StateMachine/Player State/State Nodes/State Scripts/die.gd" id="11_njwia"]
+[ext_resource type="Script" uid="uid://qp4wbwu0i5aa" path="res://Common/StateMachine/Player State/State Nodes/State Scripts/die.gd" id="11_njwia"]
 [ext_resource type="PackedScene" uid="uid://cwuhhknf21qfo" path="res://Common/StateMachine/Player State/State Nodes/Interact.tscn" id="12_0374i"]
 [ext_resource type="PackedScene" uid="uid://invb5wqoqvhd" path="res://Common/StateMachine/Player State/State Nodes/Run.tscn" id="13_uairg"]
-[ext_resource type="Script" path="res://Entities/Player/player_health_component.gd" id="14_gnrcj"]
-[ext_resource type="Script" path="res://Entities/Player/player_hurtbox.gd" id="14_xq40c"]
+[ext_resource type="Script" uid="uid://b6wjulr4eoknm" path="res://Entities/Player/player_health_component.gd" id="14_gnrcj"]
+[ext_resource type="Script" uid="uid://bhbg8orsydy17" path="res://Entities/Player/player_hurtbox.gd" id="14_xq40c"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="17_icsdk"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="18_k1fmk"]
 [ext_resource type="PackedScene" uid="uid://bu1oqu1abj5an" path="res://UI/Quests/Scene/QuestManager.tscn" id="19_lgj0m"]
@@ -225,12 +225,16 @@ resource_local_to_scene = true
 offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
 colors = PackedColorArray(0, 0.837181, 0.826971, 0, 0.635294, 0.823529, 1, 1, 6.35326e-06, 0.681541, 0.938241, 1, 0, 0.542099, 0.872564, 0)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5c15"]
+radius = 27.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 792
 collision_mask = 549
 script = ExtResource("1_xgmka")
 
 [node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 rotation_smoothing_enabled = true
@@ -323,9 +327,9 @@ one_shot = true
 material = SubResource("ShaderMaterial_m2ckg")
 emitting = false
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_ickx1")
 texture = ExtResource("3_gruvd")
 lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_ickx1")
 
 [node name="HealParticles" type="CPUParticles2D" parent="Particles"]
 z_as_relative = false
@@ -333,11 +337,11 @@ material = SubResource("CanvasItemMaterial_aaslo")
 position = Vector2(0, -4)
 emitting = false
 amount = 20
+texture = SubResource("CompressedTexture2D_2lmkp")
 lifetime = 1.5
 one_shot = true
 explosiveness = 0.5
 local_coords = true
-texture = SubResource("CompressedTexture2D_2lmkp")
 emission_shape = 1
 emission_sphere_radius = 8.48
 direction = Vector2(0, -1)
@@ -359,8 +363,8 @@ material = SubResource("CanvasItemMaterial_0n62x")
 position = Vector2(0, -4)
 emitting = false
 amount = 11
-lifetime = 0.4
 texture = ExtResource("17_icsdk")
+lifetime = 0.4
 emission_shape = 4
 emission_points = PackedVector2Array(-5, 4, -2, 4, 0, 4, 2, 4, 5, 4, -7, 4, 7, 4)
 emission_colors = PackedColorArray()
@@ -386,6 +390,13 @@ scale = Vector2(0.02, 0.02)
 texture = ExtResource("18_k1fmk")
 
 [node name="QuestManager" parent="." instance=ExtResource("19_lgj0m")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_p5c15")
 
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_timer_timeout"]

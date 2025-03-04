@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c56oxsb8a2qqk"]
 
 [ext_resource type="Texture2D" uid="uid://c6nqtd6iywbjq" path="res://UI/inventory.png" id="1_ipcyk"]
-[ext_resource type="Script" path="res://UI/inventory/inventory_&_profile.gd" id="1_uqkic"]
+[ext_resource type="Script" uid="uid://v4ajlxi2uq7j" path="res://UI/inventory/inventory_&_profile.gd" id="1_uqkic"]
 
 [sub_resource type="Animation" id="Animation_p3t5b"]
 length = 0.001
@@ -67,9 +67,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hkrh7"]
 _data = {
-"RESET": SubResource("Animation_p3t5b"),
-"close": SubResource("Animation_2s8ud"),
-"open": SubResource("Animation_p13d6")
+&"RESET": SubResource("Animation_p3t5b"),
+&"close": SubResource("Animation_2s8ud"),
+&"open": SubResource("Animation_p13d6")
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60owt"]

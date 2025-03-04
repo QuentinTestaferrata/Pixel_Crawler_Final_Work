@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://8t27f0rdh08d"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/pathfind_chase.gd" id="1_6gxhs"]
+[ext_resource type="Script" uid="uid://ct47clsch45a5" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/State Scripts/pathfind_chase.gd" id="1_6gxhs"]
 
 [node name="Chase" type="Node"]
 script = ExtResource("1_6gxhs")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://ba6l2mcsnails"]
 
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="1_ptfrc"]
-[ext_resource type="Script" path="res://UI/game_over_screen/game_over_screen.gd" id="2_cy0e5"]
+[ext_resource type="Script" uid="uid://dpenmxapnq5hx" path="res://UI/game_over_screen/game_over_screen.gd" id="2_cy0e5"]
 [ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/4_long/button.png" id="3_t7dgf"]
-[ext_resource type="Shader" path="res://UI/game_over_screen/GameOverScreen.gdshader" id="3_uqatf"]
+[ext_resource type="Shader" uid="uid://dymdn1e3wiv4c" path="res://UI/game_over_screen/GameOverScreen.gdshader" id="3_uqatf"]
 [ext_resource type="Texture2D" uid="uid://cs4m8p4hrxg7v" path="res://UI/Buttons/4_long/pressed_button.png" id="4_opdj2"]
 [ext_resource type="Texture2D" uid="uid://ox6g8eumw3rb" path="res://UI/Buttons/4_long/hover_button.png" id="5_q8mf1"]
 [ext_resource type="Texture2D" uid="uid://c1i7sp6oova7f" path="res://assets/1_Heroes/Wizzard/Player/Death-player.png" id="7_fuxvp"]
@@ -364,9 +364,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_alkfq"]
 _data = {
-"RESET": SubResource("Animation_m3n36"),
-"fade_to_black": SubResource("Animation_1qkmp"),
-"fade_to_normal": SubResource("Animation_tu41h")
+&"RESET": SubResource("Animation_m3n36"),
+&"fade_to_black": SubResource("Animation_1qkmp"),
+&"fade_to_normal": SubResource("Animation_tu41h")
 }
 
 [node name="GameOverScreen" type="Control"]

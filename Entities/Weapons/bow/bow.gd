@@ -2,8 +2,9 @@ extends Node2D
 class_name Bow
 
 const BONE_ARROW = preload("res://Entities/Weapons/bow/bone_bow/secondary/bone_arrow_projectile.tscn")
+const CURSED_ARROW = preload("res://Entities/Weapons/bow/cursed_bow/cursed_arrow/cursed_arrow_projectile.tscn")
 
-@export_enum("basic", "bone") var bow: String
+@export_enum("basic", "bone", "cursed") var bow: String
 @export var arrow: Arrow
 @export var bow_frames: SpriteFrames
 @export var multishot_arrows: int
@@ -27,24 +28,28 @@ func _ready() -> void:
 	bow_sprite.sprite_frames = bow_frames
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("primary_attack") and !cooldown and (bow == "basic" or bow == "bone"):
+	if event.is_action_pressed("primary_attack") and !cooldown: #and (bow == "basic" or bow == "bone"):
 		cooldown = true
 		var temp_arrow: Area2D = arrow.scene.instantiate()
 		temp_arrow.position = arrow_spawn_point.position
 		current_arrow = temp_arrow
 		add_child(temp_arrow)
 		bow_sprite.play()
-	if event.is_action_pressed("secondary_attack") and bow == "bone" and AttackCooldowns.check_cd(2):
+	if event.is_action_pressed("secondary_attack") and bow != "basic" and AttackCooldowns.check_cd(2):
 		spread_shot()
 		AttackCooldowns.start_cd(2)
 
 func _process(_delta: float) -> void:
 	rotation = lerp_angle(rotation, rotation + get_angle_to(get_global_mouse_position()), .15)
-	#lerp_angle()
-	#look_at(get_global_mouse_position())
+
 
 func spread_shot() -> void:
-	var temp_arrow = BONE_ARROW.instantiate()
+	var temp_arrow 
+	if bow == "bone":
+		temp_arrow = BONE_ARROW.instantiate()
+	if bow == "cursed":
+		temp_arrow = CURSED_ARROW.instantiate()
+	
 	add_child(temp_arrow)
 	temp_arrow.reparent(projectile_holder)
 	
@@ -53,7 +58,11 @@ func spread_shot() -> void:
 
 	temp_arrow.rotation = angle
 	for i in multishot_arrows - 1:
-		var _temp_arrow = BONE_ARROW.instantiate()
+		var _temp_arrow 
+		if bow == "bone":
+			_temp_arrow = BONE_ARROW.instantiate()
+		if bow == "cursed":
+			_temp_arrow = CURSED_ARROW.instantiate()
 		add_child(_temp_arrow)
 		_temp_arrow.set_direction(get_global_mouse_position())
 		_temp_arrow.reparent(projectile_holder)

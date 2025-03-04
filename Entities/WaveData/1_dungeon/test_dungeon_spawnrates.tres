@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dx7l2qy4imiur" path="res://Entities/Enemy/1_dungeon/rogue/skeleton_rogue.tscn" id="2_sylyp"]
 [ext_resource type="PackedScene" uid="uid://bx4gp00rfwml1" path="res://Entities/Enemy/1_dungeon/mage/skeleton_mage.tscn" id="3_8nsqp"]
 [ext_resource type="PackedScene" uid="uid://duoywsqggejq7" path="res://Entities/Enemy/1_dungeon/knight/skeleton_knight.tscn" id="4_fa15m"]
-[ext_resource type="Script" path="res://Entities/Gameplay Managers/Wave Manager/enemy_spawnrates.gd" id="5_fon43"]
+[ext_resource type="Script" uid="uid://cl5nut8y4b1bl" path="res://Entities/Gameplay Managers/Wave Manager/enemy_spawnrates.gd" id="5_fon43"]
 
 [resource]
 script = ExtResource("5_fon43")

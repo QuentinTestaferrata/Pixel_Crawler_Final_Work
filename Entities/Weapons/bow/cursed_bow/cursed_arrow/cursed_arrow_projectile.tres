@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://ch6txcx2tkb6i"]
+
+[ext_resource type="Script" uid="uid://cvnecarof554r" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_0j15e"]
+
+[resource]
+script = ExtResource("1_0j15e")
+NAME = "Cursed Arrow"
+TYPE = 0
+SPREAD = 20
+DAMAGE = 20
+MANA_COST = 0
+SPEED = 400
+FIRERATE = 4.0
+LIFETIME = 3.0
+COOLDOWN = 4.0
+KNOCKBACK_FORCE = 5.0
+CRIT_CHANCE = 20
+CRIT_MULTIPLYER = 1.6

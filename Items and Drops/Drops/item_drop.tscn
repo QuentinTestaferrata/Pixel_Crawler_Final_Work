@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://blotvn2ptnsgj"]
 
-[ext_resource type="Script" path="res://Items and Drops/Drops/item_drop.gd" id="1_t2vx4"]
+[ext_resource type="Script" uid="uid://bq5cw7dq1gwns" path="res://Items and Drops/Drops/item_drop.gd" id="1_t2vx4"]
 [ext_resource type="Texture2D" uid="uid://ce3f0vy04prrs" path="res://assets/Dungeon/items and drops/bone.png" id="2_g0ln4"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="3_mdfhm"]
 
@@ -147,9 +147,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_00sx4"]
 _data = {
-"RESET": SubResource("Animation_dmbm5"),
-"idle": SubResource("Animation_05yao"),
-"picked_up": SubResource("Animation_234ux")
+&"RESET": SubResource("Animation_dmbm5"),
+&"idle": SubResource("Animation_05yao"),
+&"picked_up": SubResource("Animation_234ux")
 }
 
 [node name="ItemDrop" type="CharacterBody2D"]

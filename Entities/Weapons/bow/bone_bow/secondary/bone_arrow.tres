@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://c2smecfjrtw4i"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_bcv47"]
+[ext_resource type="Script" uid="uid://cvnecarof554r" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_bcv47"]
 
 [resource]
 script = ExtResource("1_bcv47")
@@ -12,7 +12,7 @@ MANA_COST = 0
 SPEED = 350
 FIRERATE = 0.0
 LIFETIME = 4.0
-COOLDOWN = 4.0
+COOLDOWN = 3.0
 KNOCKBACK_FORCE = 4.0
 CRIT_CHANCE = 15
 CRIT_MULTIPLYER = 1.3

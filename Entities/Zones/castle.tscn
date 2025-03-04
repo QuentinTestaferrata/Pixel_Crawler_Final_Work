@@ -1,8 +1,8 @@
-[gd_scene load_steps=38 format=4 uid="uid://qbrbdv7v08pg"]
+[gd_scene load_steps=41 format=4 uid="uid://bwbvt76sg135p"]
 
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="1_57tk4"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_cgcdv"]
-[ext_resource type="Script" path="res://Entities/Zones/castle.gd" id="1_ry380"]
+[ext_resource type="Script" uid="uid://dseaa51l4y374" path="res://Entities/Zones/castle.gd" id="1_ry380"]
 [ext_resource type="PackedScene" uid="uid://cllgrrvw6gtc5" path="res://Entities/Props/Castle/plant.tscn" id="2_47dc5"]
 [ext_resource type="PackedScene" uid="uid://do0dom6f7a16f" path="res://Entities/Props/Castle/Weapon Racks/weapon_rack_1.tscn" id="2_fjayh"]
 [ext_resource type="PackedScene" uid="uid://bmgmvy8wb5p67" path="res://Entities/Props/Forest/barrels_boxes/box.tscn" id="4_de8fg"]
@@ -20,13 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://pld51fydlb1l" path="res://Entities/NPC/Castle_questNPC/Quest_NPC.tscn" id="15_023g8"]
 [ext_resource type="PackedScene" uid="uid://bpr0j8g5xg1bp" path="res://UI/HUD_restzone.tscn" id="15_iyl6u"]
 [ext_resource type="PackedScene" uid="uid://c0v3mfcb7httg" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.tscn" id="16_15evs"]
-[ext_resource type="Script" path="res://Common/Dialog/Quests/Quest.gd" id="16_o0br0"]
+[ext_resource type="Script" uid="uid://c7mim5td8sdx2" path="res://Common/Dialog/Quests/Quest.gd" id="16_o0br0"]
 [ext_resource type="PackedScene" uid="uid://bqwj3c4pycffx" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.tscn" id="16_sq1y7"]
-[ext_resource type="Script" path="res://Common/Dialog/Quests/Objectives.gd" id="17_4ksk0"]
+[ext_resource type="Script" uid="uid://bj2lvgie67pkr" path="res://Common/Dialog/Quests/Objectives.gd" id="17_4ksk0"]
 [ext_resource type="PackedScene" uid="uid://dl24dxrinjlw0" path="res://UI/LevelPicker/cemetery/cemetery_level_picker.tscn" id="17_g4dqj"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="17_ll0mv"]
-[ext_resource type="Script" path="res://Common/Dialog/Quests/Rewards.gd" id="18_bdwwv"]
-[ext_resource type="PackedScene" uid="uid://25wqo1rfrvxw" path="res://UI/LevelPicker/fairy_forest/fairy_forest_level_picker.tscn" id="18_xab7q"]
+[ext_resource type="Script" uid="uid://cswvdhytyld8j" path="res://Common/Dialog/Quests/Rewards.gd" id="18_bdwwv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erg28"]
 texture = ExtResource("1_cgcdv")
@@ -803,15 +802,113 @@ unlock_id = "npc1_2"
 objectives = Array[ExtResource("17_4ksk0")]([SubResource("Resource_anxjg")])
 rewards = Array[ExtResource("18_bdwwv")]([SubResource("Resource_0cpqf"), SubResource("Resource_4ybjw")])
 
-[node name="Castle" type="Node2D"]
+[sub_resource type="Animation" id="Animation_p8mg1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUDLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUDLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_thcql"]
+resource_name = "change_scene"
+length = 0.6333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUDLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUDLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2ou7d"]
+resource_name = "load"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUDLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUDLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0es1"]
+_data = {
+&"RESET": SubResource("Animation_p8mg1"),
+&"change_scene": SubResource("Animation_thcql"),
+&"load": SubResource("Animation_2ou7d")
+}
+
+[node name="Castle" type="Node2D" node_paths=PackedStringArray("animations", "player")]
 y_sort_enabled = true
 script = ExtResource("1_ry380")
+animations = NodePath("AnimationPlayer")
+player = NodePath("Player")
 
 [node name="HUDLayer" parent="." node_paths=PackedStringArray("saver_loader") groups=["hud"] instance=ExtResource("15_iyl6u")]
 saver_loader = NodePath("../SaverLoader")
 
+[node name="ColorRect" type="ColorRect" parent="HUDLayer"]
+z_index = 15
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(11.9992, 6.75006)
+color = Color(0, 0, 0, 1)
+
 [node name="Player" parent="." instance=ExtResource("1_57tk4")]
-position = Vector2(-152, 234)
+position = Vector2(-165, 221)
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -957,7 +1054,7 @@ position = Vector2(-16, 309)
 
 [node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
 position = Vector2(-176, 147)
-all_zones = Array[PackedScene]([ExtResource("16_sq1y7"), ExtResource("17_g4dqj"), ExtResource("18_xab7q")])
+all_zones = Array[PackedScene]([ExtResource("16_sq1y7"), ExtResource("17_g4dqj")])
 
 [node name="HealStatue" parent="." instance=ExtResource("14_qakhh")]
 y_sort_enabled = true
@@ -978,3 +1075,8 @@ y_sort_enabled = true
 [node name="SaverLoader" parent="." node_paths=PackedStringArray("player") groups=["saver_loader"] instance=ExtResource("17_ll0mv")]
 unique_name_in_owner = true
 player = NodePath("../Player")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_d0es1")
+}

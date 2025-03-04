@@ -1,13 +1,13 @@
 [gd_scene load_steps=20 format=3 uid="uid://pld51fydlb1l"]
 
-[ext_resource type="Script" path="res://Entities/NPC/Castle_questNPC/quest_NPC.gd" id="1_bnyew"]
+[ext_resource type="Script" uid="uid://dangq8le6dhnp" path="res://Entities/NPC/Castle_questNPC/quest_NPC.gd" id="1_bnyew"]
 [ext_resource type="Texture2D" uid="uid://b06866e6e7mk3" path="res://assets/Castle/Enemies (Royal Crew)/Soldier/Idle-Sheet.png" id="2_bgmn1"]
-[ext_resource type="Script" path="res://Common/Dialog/Dialogs/Dialog.gd" id="2_rbnxq"]
+[ext_resource type="Script" uid="uid://c81bmv6jr3d6c" path="res://Common/Dialog/Dialogs/Dialog.gd" id="2_rbnxq"]
 [ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="3_3eivg"]
-[ext_resource type="Script" path="res://Common/Dialog/Quests/Quest.gd" id="3_3tbl6"]
-[ext_resource type="Script" path="res://Common/Dialog/Quests/Objectives.gd" id="4_3mhei"]
+[ext_resource type="Script" uid="uid://c7mim5td8sdx2" path="res://Common/Dialog/Quests/Quest.gd" id="3_3tbl6"]
+[ext_resource type="Script" uid="uid://bj2lvgie67pkr" path="res://Common/Dialog/Quests/Objectives.gd" id="4_3mhei"]
 [ext_resource type="PackedScene" uid="uid://18twpagpx1rg" path="res://UI/Dialog/Scenes/DialogManager.tscn" id="5_a4sa8"]
-[ext_resource type="Script" path="res://Common/Dialog/Quests/Rewards.gd" id="5_qf0yc"]
+[ext_resource type="Script" uid="uid://cswvdhytyld8j" path="res://Common/Dialog/Quests/Rewards.gd" id="5_qf0yc"]
 
 [sub_resource type="Resource" id="Resource_7ibn4"]
 script = ExtResource("2_rbnxq")

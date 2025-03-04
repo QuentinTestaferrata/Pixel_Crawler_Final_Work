@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://blhv4s2jngf81"]
 
-[ext_resource type="Script" path="res://UI/Dialog/Script/DialogUI.gd" id="1_cqhgg"]
+[ext_resource type="Script" uid="uid://weqte4k6sed3" path="res://UI/Dialog/Script/DialogUI.gd" id="1_cqhgg"]
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="2_7k56d"]
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="3_tn86x"]
 
@@ -67,8 +67,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_36pss"]
 _data = {
-"RESET": SubResource("Animation_xyo5h"),
-"new_animation": SubResource("Animation_bi2p1")
+&"RESET": SubResource("Animation_xyo5h"),
+&"new_animation": SubResource("Animation_bi2p1")
 }
 
 [node name="DialogUi" type="Control"]

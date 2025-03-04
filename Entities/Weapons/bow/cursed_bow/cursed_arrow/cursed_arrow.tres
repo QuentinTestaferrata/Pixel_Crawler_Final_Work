@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Arrow" load_steps=4 format=3 uid="uid://pcddpclw1nd8"]
+
+[ext_resource type="PackedScene" uid="uid://b62a261ut4li7" path="res://Entities/Weapons/bow/cursed_bow/cursed_arrow/cursed_arrow.tscn" id="1_7a1nd"]
+[ext_resource type="Script" uid="uid://cvamorc8q5ch0" path="res://Entities/Weapons/bow/arrow_resource.gd" id="1_equ8e"]
+[ext_resource type="Texture2D" uid="uid://d0xil6pqfpjlo" path="res://Entities/Weapons/bow/cursed_bow/sprites/cursed_arrow.png" id="2_ytgnr"]
+
+[resource]
+script = ExtResource("1_equ8e")
+sprite = ExtResource("2_ytgnr")
+scene = ExtResource("1_7a1nd")
+damage = 25
+crit_chance = 20
+crit_multiplyer = 1.6
+speed = 400
+knockback = 6.0

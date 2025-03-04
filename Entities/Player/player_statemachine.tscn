@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://owcts207bpbt"]
 
-[ext_resource type="Script" path="res://Entities/Player/player_statemachine.gd" id="1_53u0b"]
+[ext_resource type="Script" uid="uid://bsjukmkkfup7c" path="res://Entities/Player/player_statemachine.gd" id="1_53u0b"]
 [ext_resource type="Texture2D" uid="uid://c1i7sp6oova7f" path="res://assets/1_Heroes/Wizzard/Player/Death-player.png" id="2_q5ngv"]
 [ext_resource type="Texture2D" uid="uid://dibytxj0s4gdi" path="res://assets/1_Heroes/Wizzard/Player/Idle-Player.png" id="3_u31wq"]
 [ext_resource type="Texture2D" uid="uid://cw0p6tywwx5rv" path="res://assets/1_Heroes/Wizzard/Player/Run-player.png" id="4_f2n4s"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cicvwla72mg1e" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthComponent.tscn" id="6_fmbwp"]
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="7_npbuy"]
 [ext_resource type="PackedScene" uid="uid://cstl2k64c4g40" path="res://Common/StateMachine/Player State/State Nodes/Idle.tscn" id="7_ri4a0"]
-[ext_resource type="Script" path="res://Common/StateMachine/Player State/player_state_machine.gd" id="7_tl14x"]
+[ext_resource type="Script" uid="uid://2xsnup7h6ekh" path="res://Common/StateMachine/Player State/player_state_machine.gd" id="7_tl14x"]
 [ext_resource type="PackedScene" uid="uid://hwif508rb26f" path="res://Common/StateMachine/Player State/State Nodes/Attack.tscn" id="9_8arct"]
 [ext_resource type="PackedScene" uid="uid://cwuhhknf21qfo" path="res://Common/StateMachine/Player State/State Nodes/Interact.tscn" id="10_hpqor"]
 [ext_resource type="PackedScene" uid="uid://invb5wqoqvhd" path="res://Common/StateMachine/Player State/State Nodes/Run.tscn" id="11_6hjwe"]

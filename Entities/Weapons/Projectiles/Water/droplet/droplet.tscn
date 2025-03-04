@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://uooffwgf82mu"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/Water/droplet/droplet.gd" id="1_bks0x"]
+[ext_resource type="Script" uid="uid://duy1waji4n0px" path="res://Entities/Weapons/Projectiles/Water/droplet/droplet.gd" id="1_bks0x"]
 [ext_resource type="Resource" uid="uid://bgkgrrankh823" path="res://Entities/Weapons/Projectiles/Water/droplet/droplet.tres" id="2_ivcva"]
 [ext_resource type="Texture2D" uid="uid://gprwlcpb5lpt" path="res://assets/projectiles.png" id="3_esb14"]
 [ext_resource type="PackedScene" uid="uid://jnug7nlypilv" path="res://Entities/Knockback/knockback_component.tscn" id="4_8yj6p"]

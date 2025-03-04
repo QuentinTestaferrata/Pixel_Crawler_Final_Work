@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="WEAPON" load_steps=2 format=3 uid="uid://bgb2hhsjltha4"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://bgb2hhsjltha4"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/weapon_resource.gd" id="1_5isxs"]
+[ext_resource type="Script" uid="uid://do3p7f8wcmcpe" path="res://Entities/Weapons/weapon_resource.gd" id="1_5isxs"]
 
 [resource]
 script = ExtResource("1_5isxs")
 weapon_name = "Wooden Shield"
-WEAPON_TYPE = 2
+price = 0
+obtained = false
+equip_slot = 0
+weapon_type = 0
+weapon_rarity = 0
 damage = 5
+knockback_force = 0.0
 defense = 15
-quantity = 1
-hover_text = "Stupid Wooden Shield"
-float_speed = 1.0
+description = ""
+two_handed = false

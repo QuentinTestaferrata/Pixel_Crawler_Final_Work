@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygcho"]
 _data = {
-"RESET": SubResource("Animation_45d54"),
-"firelight": SubResource("Animation_nj58q")
+&"RESET": SubResource("Animation_45d54"),
+&"firelight": SubResource("Animation_nj58q")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_naxs1"]

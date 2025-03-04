@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EnemyWeaponDatax" load_steps=2 format=3 uid="uid://dlxqf2mgekdb"]
 
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_data.gd" id="1_0v6so"]
+[ext_resource type="Script" uid="uid://djhufq3rl7c6p" path="res://Entities/EnemyWeapon/enemy_weapon_data.gd" id="1_0v6so"]
 
 [resource]
 script = ExtResource("1_0v6so")
-damage = 0
+damage = 15
 knockback_force = 5.0
 defense = 0

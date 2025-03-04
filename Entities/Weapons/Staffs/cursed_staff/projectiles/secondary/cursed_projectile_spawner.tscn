@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqipbphdonfe4"]
+
+[ext_resource type="Script" uid="uid://di3478omxpyf7" path="res://Entities/Weapons/shoot_projectile.gd" id="1_gld7s"]
+[ext_resource type="Texture2D" uid="uid://cmyruncbwtu04" path="res://assets/projectile_sheets/purple_projectiles.png" id="2_5sssu"]
+[ext_resource type="Resource" uid="uid://dv84ero8143xd" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/CurseMissile.tres" id="2_xejj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrxfp"]
+size = Vector2(12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koytu"]
+atlas = ExtResource("2_5sssu")
+region = Rect2(0, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y18wc"]
+atlas = ExtResource("2_5sssu")
+region = Rect2(16, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8di5"]
+atlas = ExtResource("2_5sssu")
+region = Rect2(32, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxp66"]
+atlas = ExtResource("2_5sssu")
+region = Rect2(48, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cxm7"]
+atlas = ExtResource("2_5sssu")
+region = Rect2(64, 256, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulwre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koytu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y18wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8di5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxp66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cxm7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_ftelf"]
+resource_name = "despawn"
+length = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bj7gl"]
+resource_name = "spawn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vsg0"]
+_data = {
+&"despawn": SubResource("Animation_ftelf"),
+&"spawn": SubResource("Animation_bj7gl")
+}
+
+[node name="CurseMissile" type="Area2D"]
+script = ExtResource("1_gld7s")
+projectile_data = ExtResource("2_xejj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_jrxfp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ulwre")
+autoplay = "default"
+frame_progress = 0.307362
+
+[node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3vsg0")
+}

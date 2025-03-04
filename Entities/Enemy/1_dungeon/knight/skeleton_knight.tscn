@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://duoywsqggejq7"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_41c5o"]
+[ext_resource type="Script" uid="uid://d2qbbnq6ygeq8" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_41c5o"]
 [ext_resource type="PackedScene" uid="uid://etlud0he0obi" path="res://Entities/Enemy_Create_Scenes/Scenes/damage_number_position.tscn" id="2_jp0mm"]
 [ext_resource type="PackedScene" uid="uid://c46kqb4qaj0eo" path="res://Entities/Enemy_Create_Scenes/Scenes/enemy_sprite.tscn" id="3_d2hd5"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="4_fw5uq"]
@@ -14,17 +14,17 @@
 [ext_resource type="Texture2D" uid="uid://cfvkq2yjcxsas" path="res://assets/Dungeon/Hands/right_empty.png" id="8_o3sea"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="9_n8ynp"]
 [ext_resource type="PackedScene" uid="uid://d2q5ym4gjje6i" path="res://Entities/Enemy/1_dungeon/knight/weapon/bone_axe.tscn" id="10_qgves"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_ede5u"]
+[ext_resource type="Script" uid="uid://vlei0451k3ra" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="11_ede5u"]
 [ext_resource type="PackedScene" uid="uid://cvg64fbkjarlt" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/die.tscn" id="11_ls4l2"]
 [ext_resource type="Texture2D" uid="uid://df0g71hj5gcnn" path="res://assets/Dungeon/Enemies (Skeleton)/Skeleton - Warrior/warrior_spritesheet.png" id="11_sho06"]
 [ext_resource type="PackedScene" uid="uid://blb14wox51sf2" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/surround.tscn" id="12_7tc37"]
 [ext_resource type="Texture2D" uid="uid://b8ohka2uvjv7c" path="res://Entities/Enemy/1_dungeon/knight/weapon/bone_axe.png" id="12_dce75"]
-[ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="14_ruoen"]
+[ext_resource type="Script" uid="uid://b54w6dqbd08kn" path="res://Items and Drops/Drops/drop_data.gd" id="14_ruoen"]
 [ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="15_un1hb"]
 [ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="18_w67qp"]
 [ext_resource type="PackedScene" uid="uid://bjapmlee3rbwq" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase_no_pathfind.tscn" id="23_m0u2v"]
 [ext_resource type="PackedScene" uid="uid://tysy6rrrqpyi" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/attack_no_pathfind.tscn" id="23_qsda7"]
-[ext_resource type="Script" path="res://Entities/Enemy/label.gd" id="25_fv5bx"]
+[ext_resource type="Script" uid="uid://b6s1chn5tvpvm" path="res://Entities/Enemy/label.gd" id="25_fv5bx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5goyu"]
 radius = 2.0
@@ -75,7 +75,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5goyu")
 
 [node name="EXPComponent" parent="." instance=ExtResource("4_fw5uq")]
-exp_amount = 2
+exp_amount = 10
 
 [node name="HealthBar" parent="." instance=ExtResource("5_2qft0")]
 

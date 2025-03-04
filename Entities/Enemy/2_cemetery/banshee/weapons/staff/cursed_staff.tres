@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyWeaponData" load_steps=4 format=3 uid="uid://dsmxlfshd42e7"]
 
 [ext_resource type="PackedScene" uid="uid://dhj07lpf5v3mx" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/cursed_staff.tscn" id="1_6n7v1"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="2_rxbph"]
+[ext_resource type="Script" uid="uid://vlei0451k3ra" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="2_rxbph"]
 [ext_resource type="Texture2D" uid="uid://bnole6nux6j0p" path="res://Entities/Enemy/2_cemetery/banshee/weapons/staff/cursed_staff.png" id="3_kbb6t"]
 
 [resource]

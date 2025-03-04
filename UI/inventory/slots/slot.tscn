@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cpvekwovn0dr0" path="res://UI/inventory/slot.png" id="1_6o0og"]
 [ext_resource type="Texture2D" uid="uid://dr7cdf0ig1gqr" path="res://UI/inventory/slots/slot_pressed.png" id="2_02acc"]
 [ext_resource type="Texture2D" uid="uid://bmponemtqkhvs" path="res://UI/inventory/slots/slot_hover.png" id="3_ejpm5"]
-[ext_resource type="Script" path="res://UI/inventory/slots/slot.gd" id="4_1n5wh"]
+[ext_resource type="Script" uid="uid://bhtu0sk4h4ecw" path="res://UI/inventory/slots/slot.gd" id="4_1n5wh"]
 [ext_resource type="FontFile" uid="uid://qiul4lwd2ov5" path="res://Common/Poco.ttf" id="4_b75cd"]
 
 [sub_resource type="Theme" id="Theme_2r2sm"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://c67kpjdcm5m6h"]
 
-[ext_resource type="Script" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_2ushu"]
+[ext_resource type="Script" uid="uid://d2qbbnq6ygeq8" path="res://Entities/Enemy_Create_Scenes/Scripts/enemy_script.gd" id="1_2ushu"]
 [ext_resource type="PackedScene" uid="uid://b6fyj3w7nlryd" path="res://Entities/Enemy_Create_Scenes/Scenes/exp_component.tscn" id="2_ouhdj"]
 [ext_resource type="PackedScene" uid="uid://dbssskf1fgkqt" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthBar.tscn" id="3_23uvf"]
 [ext_resource type="PackedScene" uid="uid://cicvwla72mg1e" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthComponent.tscn" id="4_fbytd"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://clatyuqrgcyeq" path="res://Entities/Enemy/2_cemetery/banshee/sprites/banshee_spritesheet.png" id="12_p6k5q"]
 [ext_resource type="PackedScene" uid="uid://cs4nhipri0wii" path="res://Entities/Enemy_Create_Scenes/Scenes/HitboxComponent.tscn" id="12_uv5la"]
 [ext_resource type="PackedScene" uid="uid://dm1saeoa0cix5" path="res://Entities/Enemy_Create_Scenes/Scenes/loot_drops.tscn" id="13_d0bj0"]
-[ext_resource type="Script" path="res://Items and Drops/Drops/drop_data.gd" id="14_f3uri"]
+[ext_resource type="Script" uid="uid://b54w6dqbd08kn" path="res://Items and Drops/Drops/drop_data.gd" id="14_f3uri"]
 [ext_resource type="Resource" uid="uid://buhigwa7ovvbp" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.tres" id="16_ado46"]
 [ext_resource type="PackedScene" uid="uid://6ikhk0pdyduy" path="res://Entities/Enemy_Create_Scenes/Scenes/state_machine.tscn" id="17_prtbt"]
 [ext_resource type="PackedScene" uid="uid://8t27f0rdh08d" path="res://Entities/Enemy_Create_Scenes/Scenes/State Nodes/chase.tscn" id="18_wr55s"]
@@ -67,7 +67,8 @@ body = ExtResource("12_p6k5q")
 [node name="HealthBar" parent="." instance=ExtResource("3_23uvf")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_fbytd")]
-max_health = 100
+base_health = 185
+max_health = 185
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("12_uv5la")]
 health_component = NodePath("../HealthComponent")

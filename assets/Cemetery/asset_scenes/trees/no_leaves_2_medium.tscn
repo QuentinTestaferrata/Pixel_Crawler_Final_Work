@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ct6sqjkpumgsp" path="res://assets/Cemetery/Tiles/Trees.png" id="1_kb5wj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uyka2"]
-radius = 10.0
 height = 26.0
 
 [node name="StaticBody2D" type="StaticBody2D"]

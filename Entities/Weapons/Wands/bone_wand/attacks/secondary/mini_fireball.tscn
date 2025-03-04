@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://23fps8gl55b7"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_s1tor"]
+[ext_resource type="Script" uid="uid://di3478omxpyf7" path="res://Entities/Weapons/shoot_projectile.gd" id="1_s1tor"]
 [ext_resource type="Resource" uid="uid://bg0cxho6xwfde" path="res://Entities/Weapons/Wands/bone_wand/attacks/secondary/mini_fireball_data.tres" id="2_uibmx"]
 [ext_resource type="Texture2D" uid="uid://6bpiy66lgqir" path="res://assets/projectile_sheets/green_projectiles.png" id="3_vn6d7"]
 [ext_resource type="Texture2D" uid="uid://bbp05vsxbyly0" path="res://assets/masks for  particles/31.png" id="4_8efoy"]
@@ -78,8 +78,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ifbfs"]
 _data = {
-"RESET": SubResource("Animation_28vrl"),
-"rotation": SubResource("Animation_typih")
+&"RESET": SubResource("Animation_28vrl"),
+&"rotation": SubResource("Animation_typih")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_poxhx"]
@@ -153,9 +153,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_thi0e"]
 _data = {
-"RESET": SubResource("Animation_dkpwu"),
-"despawn": SubResource("Animation_x850y"),
-"spawn": SubResource("Animation_tuqmd")
+&"RESET": SubResource("Animation_dkpwu"),
+&"despawn": SubResource("Animation_x850y"),
+&"spawn": SubResource("Animation_tuqmd")
 }
 
 [node name="MiniFireball" type="Area2D"]

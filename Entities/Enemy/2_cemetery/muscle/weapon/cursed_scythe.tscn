@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b17cmks1rn6r8"]
 
 [ext_resource type="Texture2D" uid="uid://wblecdgswcoi" path="res://Entities/Enemy/2_cemetery/muscle/weapon/cursed_scythe.png" id="1_qgfb6"]
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_hyba8"]
+[ext_resource type="Script" uid="uid://bfqqmsbh27o5w" path="res://Entities/EnemyWeapon/enemy_weapon_script.gd" id="2_hyba8"]
 [ext_resource type="Resource" uid="uid://dn5sy2envsq3l" path="res://Entities/Enemy/2_cemetery/muscle/weapon/cursed_scythe.tres" id="3_lpevv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1rn4"]

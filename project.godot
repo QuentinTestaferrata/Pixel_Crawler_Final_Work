@@ -16,7 +16,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 
 config/name="Pixel-Crawler"
 run/main_scene="res://Entities/Zones/castle.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
@@ -169,3 +169,4 @@ speed={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+viewport/hdr_2d=true

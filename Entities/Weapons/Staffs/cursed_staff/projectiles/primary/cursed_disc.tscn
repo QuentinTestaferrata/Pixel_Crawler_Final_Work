@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c67jd7w4o46c7"]
+[gd_scene load_steps=17 format=3 uid="uid://c67jd7w4o46c7"]
 
-[ext_resource type="Script" path="res://Entities/Weapons/shoot_projectile.gd" id="1_m67bv"]
+[ext_resource type="Script" uid="uid://di3478omxpyf7" path="res://Entities/Weapons/shoot_projectile.gd" id="1_m67bv"]
 [ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="2_051lx"]
 [ext_resource type="Texture2D" uid="uid://cmyruncbwtu04" path="res://assets/projectile_sheets/purple_projectiles.png" id="3_wiqp3"]
 
@@ -103,22 +103,75 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qqjnu"]
 _data = {
-"RESET": SubResource("Animation_imct2"),
-"despawn": SubResource("Animation_l65e8"),
-"spawn": SubResource("Animation_g5dag")
+&"RESET": SubResource("Animation_imct2"),
+&"despawn": SubResource("Animation_l65e8"),
+&"spawn": SubResource("Animation_g5dag")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_42r85"]
 radius = 9.0
 
+[sub_resource type="Animation" id="Animation_d3mmq"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -4), Vector2(0, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_sit5p"]
+resource_name = "new_animation"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yoi4y"]
+_data = {
+&"RESET": SubResource("Animation_d3mmq"),
+&"new_animation": SubResource("Animation_sit5p")
+}
+
 [node name="CursedDisc" type="Area2D"]
 script = ExtResource("1_m67bv")
 projectile_data = ExtResource("2_051lx")
+destroy_on_hit = false
+max_hit_before_destroyed = 10
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_rg6i2")
 autoplay = "default"
-frame_progress = 0.227074
+frame_progress = 0.571107
 
 [node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
 libraries = {
@@ -127,4 +180,11 @@ libraries = {
 autoplay = "spawn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.71085)
 shape = SubResource("CircleShape2D_42r85")
+
+[node name="Rotate" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yoi4y")
+}
+autoplay = "new_animation"

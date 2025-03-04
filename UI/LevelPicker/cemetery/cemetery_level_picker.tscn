@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://dl24dxrinjlw0"]
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_on3hs"]
-[ext_resource type="Script" path="res://UI/LevelPicker/dungeon/level_picker.gd" id="2_irug7"]
+[ext_resource type="Script" uid="uid://devoi70ljtugw" path="res://UI/LevelPicker/dungeon/level_picker.gd" id="2_irug7"]
 [ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="3_bg2w7"]
 [ext_resource type="PackedScene" uid="uid://cle5f2ytjueb" path="res://Entities/Zones/FightZones/2_cemetery.tscn" id="3_rmsma"]
 [ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="5_bsai7"]
@@ -116,8 +116,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ibt6g"]
 _data = {
-"RESET": SubResource("Animation_onhu2"),
-"rarities": SubResource("Animation_tinvx")
+&"RESET": SubResource("Animation_onhu2"),
+&"rarities": SubResource("Animation_tinvx")
 }
 
 [sub_resource type="Animation" id="Animation_xbeon"]
@@ -183,9 +183,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ecwr0"]
 _data = {
-"RESET": SubResource("Animation_xbeon"),
-"despawn": SubResource("Animation_efb01"),
-"spawn": SubResource("Animation_xnb3s")
+&"RESET": SubResource("Animation_xbeon"),
+&"despawn": SubResource("Animation_efb01"),
+&"spawn": SubResource("Animation_xnb3s")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f53xv"]
@@ -340,8 +340,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.439216, 0.866667, 1)
 theme_override_colors/font_outline_color = Color(0.605577, 1, 0.56712, 1)
 theme_override_constants/outline_size = 3
-text = "Rare
-"
+text = "Rare"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Uncommon/VBoxContainer"]
 layout_mode = 2
@@ -359,8 +358,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.657281, 0.303031, 0.999997, 1)
 theme_override_colors/font_outline_color = Color(0.394242, 0.658231, 0.999992, 1)
 theme_override_constants/outline_size = 3
-text = "Epic
-"
+text = "Epic"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Loot/Epic/VBoxContainer"]
 layout_mode = 2
@@ -369,7 +367,7 @@ stretch_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
 libraries = {
-"": SubResource("AnimationLibrary_ibt6g")
+&"": SubResource("AnimationLibrary_ibt6g")
 }
 autoplay = "rarities"
 
@@ -421,7 +419,7 @@ layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ecwr0")
+&"": SubResource("AnimationLibrary_ecwr0")
 }
 autoplay = "spawn"
 

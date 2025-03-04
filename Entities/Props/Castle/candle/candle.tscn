@@ -87,8 +87,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sohmj"]
 _data = {
-"RESET": SubResource("Animation_k0sxw"),
-"fire_breathe": SubResource("Animation_ml184")
+&"RESET": SubResource("Animation_k0sxw"),
+&"fire_breathe": SubResource("Animation_ml184")
 }
 
 [node name="Candle" type="AnimatedSprite2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://b2aupoae03fyo"]
 
-[ext_resource type="Script" path="res://Entities/Enemy/enemy_projectile_movement.gd" id="1_obkhm"]
+[ext_resource type="Script" uid="uid://d172derdh8ygx" path="res://Entities/Enemy/enemy_projectile_movement.gd" id="1_obkhm"]
 [ext_resource type="Resource" uid="uid://clrqxqna7ol0u" path="res://Entities/Enemy/1_dungeon/mage/Weapon/projectiles/red_fireball.tres" id="2_83g5a"]
 [ext_resource type="Texture2D" uid="uid://6bpiy66lgqir" path="res://assets/projectile_sheets/green_projectiles.png" id="3_6clfm"]
 
@@ -65,8 +65,8 @@ resource_name = "spawn"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ocfty"]
 _data = {
-"despawn": SubResource("Animation_yedtl"),
-"spawn": SubResource("Animation_8xo27")
+&"despawn": SubResource("Animation_yedtl"),
+&"spawn": SubResource("Animation_8xo27")
 }
 
 [node name="RedFireball" type="Area2D"]

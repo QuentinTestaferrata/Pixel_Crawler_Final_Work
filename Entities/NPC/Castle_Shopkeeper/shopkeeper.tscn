@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dupy2el25jyvs"]
 
-[ext_resource type="Script" path="res://Entities/NPC/Castle_Shopkeeper/shopkeeper.gd" id="1_i7cgf"]
+[ext_resource type="Script" uid="uid://ial072mbbgmg" path="res://Entities/NPC/Castle_Shopkeeper/shopkeeper.gd" id="1_i7cgf"]
 [ext_resource type="Texture2D" uid="uid://cm7eygg2n47ce" path="res://assets/Castle/Enemies (Royal Crew)/Priest/Idle-Sheet.png" id="2_sgssi"]
 [ext_resource type="Texture2D" uid="uid://cxi7ls0qo3qnj" path="res://assets/Castle/Enemies (Royal Crew)/Priest/Run-Sheet.png" id="3_pcdkj"]
 [ext_resource type="PackedScene" uid="uid://b7by6qxgh7xex" path="res://Common/Interaction/interaction_area.tscn" id="4_x3ltq"]

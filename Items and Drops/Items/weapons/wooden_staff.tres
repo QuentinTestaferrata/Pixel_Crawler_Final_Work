@@ -1,9 +1,16 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cr6y8bl6mbee5"]
 
 [ext_resource type="PackedScene" uid="uid://ibo0osd8omxs" path="res://Entities/Weapons/Staffs/new Wooden Staff/wooden_staff.tscn" id="1_4r2l2"]
-[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="1_ho0s2"]
+[ext_resource type="Script" uid="uid://djcrp262gcohd" path="res://Items and Drops/Items/item.gd" id="1_ho0s2"]
 
 [resource]
 script = ExtResource("1_ho0s2")
 name = "Wooden Staff"
 scene = ExtResource("1_4r2l2")
+description = ""
+value = 0
+price = 0
+consumable = false
+rarity = 0
+stackable = true
+amount = 0

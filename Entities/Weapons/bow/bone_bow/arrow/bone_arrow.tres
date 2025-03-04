@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c2uaea40g786k" path="res://Entities/Weapons/bow/bone_bow/arrow/bone_arrow.tscn" id="1_u6kgx"]
 [ext_resource type="Texture2D" uid="uid://bv0k4myvt4d08" path="res://Entities/Weapons/bow/bone_bow/arrow/arrow.png" id="2_ges2l"]
-[ext_resource type="Script" path="res://Entities/Weapons/bow/arrow_resource.gd" id="2_rudsm"]
+[ext_resource type="Script" uid="uid://cvamorc8q5ch0" path="res://Entities/Weapons/bow/arrow_resource.gd" id="2_rudsm"]
 
 [resource]
 script = ExtResource("2_rudsm")
