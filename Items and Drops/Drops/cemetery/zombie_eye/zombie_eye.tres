@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dbxv8rkuxisy2"]
 
 [ext_resource type="PackedScene" uid="uid://3pxdbv7u1s2f" path="res://Items and Drops/Drops/cemetery/zombie_eye/zombie_eye.tscn" id="1_iogx8"]
-[ext_resource type="Script" path="res://Items and Drops/Items/item.gd" id="2_dumkn"]
+[ext_resource type="Script" uid="uid://djcrp262gcohd" path="res://Items and Drops/Items/item.gd" id="2_dumkn"]
 [ext_resource type="Texture2D" uid="uid://c4pnctkkh3hbe" path="res://Items and Drops/Drops/cemetery/zombie_eye/zombie_eye.png" id="3_ggc7j"]
 
 [resource]

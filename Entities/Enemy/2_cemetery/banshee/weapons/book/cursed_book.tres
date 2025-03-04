@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyWeaponData" load_steps=4 format=3 uid="uid://ccm1hx0yobxg"]
 
-[ext_resource type="Script" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="1_0rfux"]
+[ext_resource type="Script" uid="uid://vlei0451k3ra" path="res://Entities/EnemyWeapon/enemy_weapon.gd" id="1_0rfux"]
 [ext_resource type="PackedScene" uid="uid://c8evqn7sm37hq" path="res://Entities/Enemy/2_cemetery/banshee/weapons/book/cursed_book.tscn" id="1_8ahvi"]
 [ext_resource type="Texture2D" uid="uid://beyxoibldpdab" path="res://Entities/Enemy/2_cemetery/banshee/weapons/book/cursed_book.png" id="3_hch50"]
 

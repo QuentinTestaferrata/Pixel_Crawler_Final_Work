@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=4 uid="uid://bg707nxjtqttc"]
 
-[ext_resource type="Script" path="res://Entities/Zones/FightZones/zone.gd" id="1_7b7bi"]
+[ext_resource type="Script" uid="uid://bv2rtdxvv62v0" path="res://Entities/Zones/FightZones/zone.gd" id="1_7b7bi"]
 [ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="2_04jl3"]
 [ext_resource type="PackedScene" uid="uid://c5ah34slmey0s" path="res://Entities/Gameplay Managers/Wave Manager/wave_manager.tscn" id="3_u74fm"]
 [ext_resource type="Resource" uid="uid://bmf4q2kbcxp0g" path="res://Entities/WaveData/1_dungeon/dungeon_spawnrates.tres" id="4_bb3ig"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="12_bgllq"]
 [ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="13_7l2to"]
 [ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="14_5m6tu"]
-[ext_resource type="Script" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="15_8e67p"]
+[ext_resource type="Script" uid="uid://b2qjfxx5mnmhq" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="15_8e67p"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="16_e8vk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mexwe"]
@@ -2754,9 +2754,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d0es1"]
 _data = {
-"RESET": SubResource("Animation_p8mg1"),
-"change_scene": SubResource("Animation_thcql"),
-"load": SubResource("Animation_2ou7d")
+&"RESET": SubResource("Animation_p8mg1"),
+&"change_scene": SubResource("Animation_thcql"),
+&"load": SubResource("Animation_2ou7d")
 }
 
 [node name="Dungeon" type="Node2D" node_paths=PackedStringArray("player")]
@@ -2912,5 +2912,5 @@ y_sort_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_d0es1")
+&"": SubResource("AnimationLibrary_d0es1")
 }

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c67kpjdcm5m6h" path="res://Entities/Enemy/2_cemetery/banshee/zombie_banshee.tscn" id="2_cpia8"]
 [ext_resource type="PackedScene" uid="uid://tevagqmlefhq" path="res://Entities/Enemy/2_cemetery/muscle/zombie_muscle.tscn" id="3_ppct5"]
 [ext_resource type="PackedScene" uid="uid://cmyacaa62f8jf" path="res://Entities/Enemy/2_cemetery/overweight/zombie_overweight.tscn" id="4_ex2e2"]
-[ext_resource type="Script" path="res://Entities/Gameplay Managers/Wave Manager/enemy_spawnrates.gd" id="5_evhmx"]
+[ext_resource type="Script" uid="uid://cl5nut8y4b1bl" path="res://Entities/Gameplay Managers/Wave Manager/enemy_spawnrates.gd" id="5_evhmx"]
 
 [resource]
 script = ExtResource("5_evhmx")
