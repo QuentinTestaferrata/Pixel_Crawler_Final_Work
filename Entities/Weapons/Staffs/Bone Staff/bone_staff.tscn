@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dum6xe8iwt7ls"]
+[gd_scene load_steps=11 format=3 uid="uid://dum6xe8iwt7ls"]
 
 [ext_resource type="Texture2D" uid="uid://0xc76jde5tk8" path="res://Entities/Weapons/Staffs/Bone Staff/Sprites/bone_staff_sprite.png" id="1_43tmv"]
 [ext_resource type="Script" uid="uid://c34co2hfh6inf" path="res://Entities/Weapons/Staffs/Bone Staff/bone_staff.gd" id="1_y05u8"]
 [ext_resource type="Resource" uid="uid://0wswimdn2cna" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Primary/bone_shard.tres" id="2_da7tf"]
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="2_naveh"]
 [ext_resource type="Resource" uid="uid://c2r3v3rrk2630" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.tres" id="3_myx6a"]
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="6_t81vf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6hl43"]
 blend_mode = 1
@@ -12,6 +13,15 @@ blend_mode = 1
 [sub_resource type="Gradient" id="Gradient_be7yc"]
 offsets = PackedFloat32Array(0, 0.151631, 0.879079, 1)
 colors = PackedColorArray(1, 1, 1, 0, 6.37732e-07, 0.393071, 0.246579, 0.501961, 0.431073, 0.810743, 0.326029, 0.552941, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_t81vf"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rrfho"]
+gradient = SubResource("Gradient_t81vf")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.893162, 0.230769)
 
 [node name="BoneStaff" type="Node2D"]
 script = ExtResource("1_y05u8")
@@ -32,9 +42,9 @@ material = SubResource("CanvasItemMaterial_6hl43")
 position = Vector2(0, -23)
 rotation = 1.5708
 amount = 3
+texture = ExtResource("2_naveh")
 lifetime = 5.0
 local_coords = true
-texture = ExtResource("2_naveh")
 direction = Vector2(0, -1)
 spread = 33.61
 gravity = Vector2(0, 0)
@@ -51,5 +61,12 @@ wait_time = 0.1
 
 [node name="SecondaryCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -22)
+scale = Vector2(0.46875, 0.46875)
+texture = SubResource("GradientTexture2D_rrfho")
+script = ExtResource("6_t81vf")
+breathing_effect = true
 
 [connection signal="timeout" from="PrimaryAttackTimer" to="." method="_on_primary_attack_timer_timeout"]

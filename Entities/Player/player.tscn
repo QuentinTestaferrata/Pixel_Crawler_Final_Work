@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://uqj3ijcufn81"]
+[gd_scene load_steps=52 format=3 uid="uid://uqj3ijcufn81"]
 
 [ext_resource type="Script" uid="uid://cr28lerl10axl" path="res://Entities/Player/Player.gd" id="1_xgmka"]
 [ext_resource type="Script" uid="uid://ci0hhm8iavjls" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
@@ -228,6 +228,15 @@ colors = PackedColorArray(0, 0.837181, 0.826971, 0, 0.635294, 0.823529, 1, 1, 6.
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5c15"]
 radius = 27.0
 
+[sub_resource type="Gradient" id="Gradient_famnn"]
+colors = PackedColorArray(1, 0.694118, 0.596078, 0.945098, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0poeq"]
+gradient = SubResource("Gradient_famnn")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.965812, 0.269231)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 792
 collision_mask = 549
@@ -397,6 +406,15 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_p5c15")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(0, 2.98023e-07)
+scale = Vector2(5.59375, 5.03125)
+color = Color(1, 0.69871, 0.555169, 1)
+energy = 1.75
+texture = SubResource("GradientTexture2D_0poeq")
 
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_timer_timeout"]

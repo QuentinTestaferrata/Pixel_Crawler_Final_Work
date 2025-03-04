@@ -1080,3 +1080,6 @@ player = NodePath("../Player")
 libraries = {
 &"": SubResource("AnimationLibrary_d0es1")
 }
+
+[node name="Shadow" type="CanvasModulate" parent="."]
+color = Color(0.973535, 0.973535, 0.973535, 1)

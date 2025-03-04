@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bg707nxjtqttc"]
+[gd_scene load_steps=41 format=4 uid="uid://bg707nxjtqttc"]
 
 [ext_resource type="Script" uid="uid://bv2rtdxvv62v0" path="res://Entities/Zones/FightZones/zone.gd" id="1_7b7bi"]
 [ext_resource type="PackedScene" uid="uid://csjvivgfv7e36" path="res://UI/hud_fightzone.tscn" id="2_04jl3"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="14_5m6tu"]
 [ext_resource type="Script" uid="uid://b2qjfxx5mnmhq" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="15_8e67p"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="16_e8vk2"]
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="16_uswfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mexwe"]
 size = Vector2(366, 260)
@@ -2670,6 +2671,15 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_uyfs5")
 sources/1 = SubResource("TileSetAtlasSource_n1q2g")
 
+[sub_resource type="Gradient" id="Gradient_ltoc5"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_duegn"]
+gradient = SubResource("Gradient_ltoc5")
+fill = 1
+fill_from = Vector2(0.504274, 0.0555556)
+fill_to = Vector2(0.568376, 0.589744)
+
 [sub_resource type="Animation" id="Animation_p8mg1"]
 length = 0.001
 tracks/0/type = "value"
@@ -2910,7 +2920,36 @@ script = ExtResource("15_8e67p")
 [node name="Drops" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="Decoration" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Decoration"]
+position = Vector2(282, 61)
+scale = Vector2(0.8125, 0.96875)
+color = Color(0.418797, 0.8359, 1.15514e-06, 1)
+energy = 5.09
+texture = SubResource("GradientTexture2D_duegn")
+script = ExtResource("16_uswfo")
+glow_scale = 1.0
+breath_effect = 0.2
+_energy = 2.5
+breathing_effect = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="Decoration"]
+position = Vector2(889, 62)
+scale = Vector2(0.8125, 0.96875)
+color = Color(0.418797, 0.8359, 1.15514e-06, 1)
+energy = 5.09
+texture = SubResource("GradientTexture2D_duegn")
+script = ExtResource("16_uswfo")
+glow_scale = 1.0
+breath_effect = 0.2
+_energy = 2.5
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_d0es1")
 }
+
+[node name="Shadow" type="CanvasModulate" parent="."]
+position = Vector2(278, 43)
+color = Color(0.821787, 0.821789, 0.821789, 1)

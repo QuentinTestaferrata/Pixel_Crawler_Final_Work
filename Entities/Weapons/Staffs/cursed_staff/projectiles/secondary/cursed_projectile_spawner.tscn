@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqipbphdonfe4"]
+[gd_scene load_steps=16 format=3 uid="uid://cqipbphdonfe4"]
 
 [ext_resource type="Script" uid="uid://di3478omxpyf7" path="res://Entities/Weapons/shoot_projectile.gd" id="1_gld7s"]
 [ext_resource type="Texture2D" uid="uid://cmyruncbwtu04" path="res://assets/projectile_sheets/purple_projectiles.png" id="2_5sssu"]
@@ -77,6 +77,15 @@ _data = {
 &"spawn": SubResource("Animation_bj7gl")
 }
 
+[sub_resource type="Gradient" id="Gradient_famnn"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_famnn"]
+gradient = SubResource("Gradient_famnn")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.74359, 0.273504)
+
 [node name="CurseMissile" type="Area2D"]
 script = ExtResource("1_gld7s")
 projectile_data = ExtResource("2_xejj5")
@@ -92,5 +101,12 @@ frame_progress = 0.307362
 
 [node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3vsg0")
+&"": SubResource("AnimationLibrary_3vsg0")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.5625, 0.40625)
+color = Color(1, 0.835294, 1, 1)
+energy = 1.75
+texture = SubResource("GradientTexture2D_famnn")
