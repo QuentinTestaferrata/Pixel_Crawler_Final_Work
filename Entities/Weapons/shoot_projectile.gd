@@ -5,7 +5,7 @@ extends Area2D
 @export var destroy_on_hit: bool = true
 @export var max_hit_before_destroyed: int = 1
 
-var current_targets_hit
+var current_targets_hit: int = 0
 var direction: Vector2
 var timer: Timer
 

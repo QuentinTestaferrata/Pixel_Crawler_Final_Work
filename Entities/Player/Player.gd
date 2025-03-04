@@ -233,7 +233,6 @@ func _on_objective_updated(quest_id: String):
 		update_quest_tracker(selected_quest)
 	selected_quest = null
 
-
 func _show_game_over_screen():
 	var temp_game_over_screen: Control
 	var hud_scene: CanvasLayer = get_parent().get_child(0)
@@ -241,3 +240,6 @@ func _show_game_over_screen():
 	temp_game_over_screen = GAME_OVER_SCREEN.instantiate()
 	hud_scene.add_child(temp_game_over_screen)
 	
+
+func set_camera_zoom(amount: float) -> void:
+	camera.zoom = Vector2(amount, amount)

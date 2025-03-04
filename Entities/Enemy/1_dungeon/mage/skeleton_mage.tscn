@@ -58,12 +58,12 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5goyu")
 
 [node name="EXPComponent" parent="." instance=ExtResource("2_k5en3")]
-exp_amount = 2
+exp_amount = 6
 
 [node name="HealthBar" parent="." instance=ExtResource("3_r8pcp")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_vohpa")]
-max_health = 100
+max_health = 80
 
 [node name="Sprite" parent="." instance=ExtResource("5_jxgni")]
 left_hand = ExtResource("6_5u8ik")

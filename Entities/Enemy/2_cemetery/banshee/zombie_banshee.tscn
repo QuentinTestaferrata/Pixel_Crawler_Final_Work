@@ -67,7 +67,8 @@ body = ExtResource("12_p6k5q")
 [node name="HealthBar" parent="." instance=ExtResource("3_23uvf")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_fbytd")]
-max_health = 100
+base_health = 185
+max_health = 185
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("12_uv5la")]
 health_component = NodePath("../HealthComponent")

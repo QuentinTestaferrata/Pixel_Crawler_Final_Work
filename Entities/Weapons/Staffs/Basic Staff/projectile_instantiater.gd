@@ -42,14 +42,28 @@ func _instantiate_projectile(attack: PackedScene, pos: Marker2D) -> void:
 	
 	projectile_holder.add_child(temp_attack)
 
+func instantiate_projectiles_different_locations(attack: PackedScene) -> void:
+	var staff = get_parent()
+	var positions = staff.current_spawners
+	
+	for i in positions:
+		temp_attack = attack.instantiate()
+		temp_attack.global_position = i.global_position
+
+		dir = temp_attack.set_direction(get_global_mouse_position())
+		var angle = Vector2.RIGHT.angle_to(dir)
+		temp_attack.rotation = angle
+	
+		projectile_holder.add_child(temp_attack)
+		
+		await get_tree().create_timer(.5).timeout
+
 func instantiate_multiple_projectiles(attack: PackedScene, spread_array: Array[int], pos: Marker2D) -> void:
 	for spread in spread_array:
-		print(spread)
 		var _temp_attack = attack.instantiate()
 		_temp_attack.global_position = pos.global_position
 		
 		var _dir = _temp_attack.set_direction_with_spread(get_global_mouse_position(), spread)
-		print(_dir)
 		#var angle = Vector2.RIGHT.angle_to(_dir)
 		#_temp_attack.rotation = angle
 		
