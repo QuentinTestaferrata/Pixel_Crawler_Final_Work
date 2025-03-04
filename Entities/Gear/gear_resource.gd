@@ -23,6 +23,3 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 @export var regenaration: int
 @export var fire_rate_multiplier: int
 @export var critical_hit_multiplier: int
-
-@export_category("Other")
-@export_multiline var description: String

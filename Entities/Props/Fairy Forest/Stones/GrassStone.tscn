@@ -9,12 +9,12 @@ height = 45.41
 [node name="GrassStone" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 31.5)
 texture = ExtResource("1_5t70d")
 offset = Vector2(0, -40)
 region_enabled = true
 region_rect = Rect2(49, 273, 44, 47)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
 rotation = -1.57952
 shape = SubResource("CapsuleShape2D_0k7gi")

@@ -9,12 +9,13 @@ height = 10.0
 [node name="MiniTree" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 16)
 texture = ExtResource("1_lub2h")
 offset = Vector2(0, -40)
 region_enabled = true
 region_rect = Rect2(1154, 836, 42, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -12)
+position = Vector2(0, 3)
 rotation = -1.57952
 shape = SubResource("CapsuleShape2D_v4lub")

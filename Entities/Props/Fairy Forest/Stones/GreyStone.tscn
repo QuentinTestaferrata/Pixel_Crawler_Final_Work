@@ -9,18 +9,12 @@ height = 45.41
 [node name="GreyStone" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_016cd")
-offset = Vector2(0, -40)
-region_enabled = true
-region_rect = Rect2(211, 231, 44, 41)
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 30)
 texture = ExtResource("1_016cd")
 offset = Vector2(0, -40)
 region_enabled = true
 region_rect = Rect2(211, 231, 44, 41)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
 rotation = -1.57952
 shape = SubResource("CapsuleShape2D_llt77")

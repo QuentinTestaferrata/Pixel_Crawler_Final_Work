@@ -9,17 +9,27 @@ func save_game():
 	#Inventory
 	saved_game.items = player.inventory.content
 	saved_game.weapons = player.inventory.weapons
+	saved_game.gears = player.inventory.gears
 	
 	#Shop Items
 	saved_game.shop_items = StatsManager.shop_items
 	saved_game.shop_resources = StatsManager.shop_resources
 	saved_game.shop_weapons = StatsManager.shop_weapons
+	saved_game.shop_gears = StatsManager.shop_gears
 	
 	#Active Weapons
 	saved_game.equiped_weapon_1 = player.weapon_manager.equiped_weapon_1
 	saved_game.equiped_weapon_2 = player.weapon_manager.equiped_weapon_2
 	
+	#Active Weapons
+	saved_game.equiped_hat = StatsManager.equiped_hat
+	saved_game.equiped_coat = StatsManager.equiped_coat
+	saved_game.equiped_boots = StatsManager.equiped_boots
+	saved_game.equiped_ring = StatsManager.equiped_ring
+	saved_game.equiped_amulet = StatsManager.equiped_amulet
+	
 	#Stats
+	saved_game.speed = player.speed
 	saved_game.gold = StatsManager.gold
 	saved_game.current_exp = StatsManager.exp_current
 	saved_game.needed_exp = StatsManager.exp_needed
@@ -42,17 +52,27 @@ func load_game() -> void:
 	#Inventory
 	player.inventory.content = saved_game.items
 	player.inventory.weapons = saved_game.weapons
+	player.inventory.gears = saved_game.gears
 	
 	#Shop Items
 	StatsManager.shop_items = saved_game.shop_items
 	StatsManager.shop_resources = saved_game.shop_resources
 	StatsManager.shop_weapons = saved_game.shop_weapons 
+	StatsManager.shop_gears = saved_game.shop_gears 
 	
 	#Active Weapons
 	StatsManager.equiped_weapon_1 = saved_game.equiped_weapon_1
 	StatsManager.equiped_weapon_2 = saved_game.equiped_weapon_2
 	
+	#Active Weapons
+	StatsManager.equiped_hat = saved_game.equiped_hat  
+	StatsManager.equiped_coat = saved_game.equiped_coat
+	StatsManager.equiped_boots = saved_game.equiped_boots
+	StatsManager.equiped_ring = saved_game.equiped_ring
+	StatsManager.equiped_amulet = saved_game.equiped_amulet
+	
 	#Stats
+	player.speed = saved_game.speed
 	StatsManager.gold = saved_game.gold
 	StatsManager.exp_current = saved_game.current_exp
 	StatsManager.exp_needed = saved_game.needed_exp

@@ -3,18 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://c4kyb4vjai1d" path="res://assets/Fairy Forest/Assets/Tree.png" id="1_uc3ws"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtbbq"]
-radius = 16.0
+radius = 24.0
 height = 69.63
 
 [node name="BigBigTree" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-32, -50)
 texture = ExtResource("1_uc3ws")
 offset = Vector2(0, -40)
 region_enabled = true
 region_rect = Rect2(1, 9, 188, 215)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(32, 50)
+position = Vector2(2, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_qtbbq")
