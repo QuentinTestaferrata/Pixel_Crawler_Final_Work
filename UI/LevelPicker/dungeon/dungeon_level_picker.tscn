@@ -363,7 +363,7 @@ stretch_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/MarginContainer/VBoxContainer/Loot"]
 libraries = {
-"": SubResource("AnimationLibrary_ibt6g")
+&"": SubResource("AnimationLibrary_ibt6g")
 }
 autoplay = "rarities"
 
@@ -412,7 +412,7 @@ stretch_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ecwr0")
+&"": SubResource("AnimationLibrary_ecwr0")
 }
 autoplay = "spawn"
 

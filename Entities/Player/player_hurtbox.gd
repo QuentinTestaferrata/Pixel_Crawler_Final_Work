@@ -5,6 +5,7 @@ signal hit
 signal playerHit
 
 @export var player_health: PlayerHealthComponent
+@export var health_bar: ProgressBar
 
 var weapon: EnemyWeapon
 var projectile: EnemyProjectile
@@ -28,6 +29,7 @@ func _on_area_entered(area: Area2D) -> void:
 		knockback_direction = enemy_position.direction_to(player.global_position)
 		player_health.take_damage(weapon.weapon_data.damage)
 		DamageNumbers.display_number(weapon.weapon_data.damage, text_position.global_position)
+		health_bar._set_health(StatsManager.current_health)
 		hit.emit(weapon.weapon_data.knockback_force, knockback_direction)
 		
 	if area is EnemyProjectile and StatsManager.current_health > 0:
@@ -36,4 +38,5 @@ func _on_area_entered(area: Area2D) -> void:
 		knockback_direction = enemy_position.direction_to(player.global_position)
 		player_health.take_damage(projectile.projectile_data.DAMAGE)
 		DamageNumbers.display_number(projectile.projectile_data.DAMAGE, text_position.global_position)
+		health_bar._set_health(StatsManager.current_health)
 		hit.emit(projectile.projectile_data.KNOCKBACK_FORCE, knockback_direction)

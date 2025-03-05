@@ -59,7 +59,7 @@ font_size = 7
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_lay81")
-speed = 80
+speed = 95
 enemy_type = "melee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -72,8 +72,8 @@ exp_amount = 10
 [node name="HealthBar" parent="." instance=ExtResource("3_81wf7")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_musxa")]
-base_health = 220
-max_health = 220
+base_health = 650
+max_health = 650
 
 [node name="Sprite" parent="." instance=ExtResource("5_pytwy")]
 left_hand = ExtResource("6_g7sgy")
@@ -94,7 +94,6 @@ shape = SubResource("CapsuleShape2D_syp77")
 drops = Array[ExtResource("16_v4fe4")]([SubResource("Resource_4jkif")])
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range", "pathfind") instance=ExtResource("19_k6kf3")]
 initial_state = NodePath("Chase")

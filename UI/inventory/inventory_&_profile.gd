@@ -36,6 +36,7 @@ func update_inventory() -> void:
 			inventory_slots[i].item_name = inventory_items[i].name
 			inventory_slots[i].description = inventory_items[i].description
 			inventory_slots[i].value = inventory_items[i].value
+			inventory_slots[i].rarity = inventory_items[i].rarity_string
 
 func close_inventory() -> void:
 	animation_player.play("close")

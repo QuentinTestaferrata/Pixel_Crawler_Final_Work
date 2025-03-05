@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://uqj3ijcufn81"]
+[gd_scene load_steps=52 format=3 uid="uid://uqj3ijcufn81"]
 
 [ext_resource type="Script" uid="uid://cr28lerl10axl" path="res://Entities/Player/Player.gd" id="1_xgmka"]
 [ext_resource type="Script" uid="uid://ci0hhm8iavjls" path="res://Common/Camera/camera.gd" id="2_3hfeh"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="17_icsdk"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="18_k1fmk"]
 [ext_resource type="PackedScene" uid="uid://bu1oqu1abj5an" path="res://UI/Quests/Scene/QuestManager.tscn" id="19_lgj0m"]
+[ext_resource type="PackedScene" uid="uid://cnak36kvrrrx7" path="res://Entities/Player/PlayerHealthBar.tscn" id="20_ppdlg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tossq"]
 atlas = ExtResource("2_sw8de")
@@ -225,13 +226,20 @@ resource_local_to_scene = true
 offsets = PackedFloat32Array(0, 0.156352, 0.820847, 0.993485)
 colors = PackedColorArray(0, 0.837181, 0.826971, 0, 0.635294, 0.823529, 1, 1, 6.35326e-06, 0.681541, 0.938241, 1, 0, 0.542099, 0.872564, 0)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p5c15"]
-radius = 27.0
+[sub_resource type="Gradient" id="Gradient_famnn"]
+colors = PackedColorArray(1, 0.694118, 0.596078, 0.945098, 0, 0, 0, 1)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0poeq"]
+gradient = SubResource("Gradient_famnn")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.965812, 0.269231)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_bar") groups=["player"]]
 collision_layer = 792
 collision_mask = 549
 script = ExtResource("1_xgmka")
+health_bar = NodePath("PlayerHealthBar")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(0.8, 0.8)
@@ -264,9 +272,15 @@ position = Vector2(0, -11)
 position = Vector2(0, -41)
 script = ExtResource("8_ncmvf")
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="PlayerHealthBar" parent="." instance=ExtResource("20_ppdlg")]
+offset_left = -15.0
+offset_right = 7.0
+offset_bottom = -36.0
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("health_bar")]
 script = ExtResource("14_gnrcj")
 hittable = true
+health_bar = NodePath("../PlayerHealthBar")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "player")]
 script = ExtResource("8_ef4o5")
@@ -288,11 +302,12 @@ player = NodePath("../..")
 sprite = NodePath("../../CharacterSprite")
 player = NodePath("../..")
 
-[node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("player_health")]
+[node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("player_health", "health_bar")]
 collision_layer = 16
 collision_mask = 1088
 script = ExtResource("14_xq40c")
 player_health = NodePath("../HealthComponent")
+health_bar = NodePath("../PlayerHealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
 position = Vector2(0, -12)
@@ -391,12 +406,14 @@ texture = ExtResource("18_k1fmk")
 
 [node name="QuestManager" parent="." instance=ExtResource("19_lgj0m")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 0
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_p5c15")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(0, 2.98023e-07)
+scale = Vector2(5.59375, 5.03125)
+color = Color(1, 0.69871, 0.555169, 1)
+energy = 1.75
+texture = SubResource("GradientTexture2D_0poeq")
 
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_timer_timeout"]

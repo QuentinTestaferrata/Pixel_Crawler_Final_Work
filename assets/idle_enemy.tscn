@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://h3656ckl0v65"]
+
+[ext_resource type="Script" uid="uid://dfpqltxmdsowg" path="res://assets/idle_enemy.gd" id="1_a4llt"]
+[ext_resource type="Shader" uid="uid://dqdxcay1lpomt" path="res://Common/hit_flash.tres" id="2_5gljg"]
+[ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="2_vrqv6"]
+[ext_resource type="Texture2D" uid="uid://3ihfl11fqqfk" path="res://assets/Dungeon/Enemies (Skeleton)/Skeleton - Base/base_skeleton_spritesheet.png" id="3_pfj4t"]
+[ext_resource type="Texture2D" uid="uid://dwvq463nyduol" path="res://assets/Dungeon/Hands/left_empty.png" id="4_vrqv6"]
+[ext_resource type="Texture2D" uid="uid://cfvkq2yjcxsas" path="res://assets/Dungeon/Hands/right_empty.png" id="5_0kwhx"]
+
+[sub_resource type="Animation" id="Animation_llqop"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hands/LeftHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(13.5, 3), Vector2(13.5, 5), Vector2(13.5, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hands/RightHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-16.5, 5), Vector2(-16.5, 7), Vector2(-16.5, 6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2t0db"]
+_data = {
+&"idle": SubResource("Animation_llqop")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wax2"]
+resource_local_to_scene = true
+shader = ExtResource("2_5gljg")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g17ct"]
+resource_local_to_scene = true
+shader = ExtResource("2_5gljg")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dibyr"]
+resource_local_to_scene = true
+shader = ExtResource("2_5gljg")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_a4llt")
+
+[node name="BodyPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2t0db")
+}
+autoplay = "idle"
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-1.5, 0)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_vrqv6")
+
+[node name="Body" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2wax2")
+texture = ExtResource("3_pfj4t")
+offset = Vector2(0, -24)
+hframes = 6
+vframes = 4
+frame = 13
+
+[node name="Hands" type="Node2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="LeftHand" type="Sprite2D" parent="Hands"]
+material = SubResource("ShaderMaterial_g17ct")
+position = Vector2(13.5, 3)
+texture = ExtResource("4_vrqv6")
+region_rect = Rect2(21, 53, 7, 6)
+
+[node name="RightHand" type="Sprite2D" parent="Hands"]
+material = SubResource("ShaderMaterial_dibyr")
+position = Vector2(-16.5, 5)
+texture = ExtResource("5_0kwhx")
+region_rect = Rect2(4, 53, 7, 6)

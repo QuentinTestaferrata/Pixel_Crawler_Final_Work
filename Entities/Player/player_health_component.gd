@@ -5,6 +5,7 @@ signal health_changed
 signal died
 
 @export var hittable: bool = false
+@export var health_bar: ProgressBar
 
 var current_health: int = StatsManager.current_health
 var max_health: int = StatsManager.max_health
@@ -15,7 +16,7 @@ func _ready() -> void:
 	current_health = max_health
 	max_health = StatsManager.max_health
 	current_health = max_health
-	##print(max_health, "/", current_health)
+	health_bar.init_health(StatsManager.current_health, StatsManager.max_health)
 
 func heal(amount: int) -> void:
 	if StatsManager.current_health + amount > StatsManager.max_health:
@@ -28,6 +29,7 @@ func heal(amount: int) -> void:
 		StatsManager.health_changed.emit()
 
 func take_damage(amount: int) -> void:
+	current_health = StatsManager.current_health
 	if hittable: 
 		if current_health - amount <= 0:
 			current_health = 0

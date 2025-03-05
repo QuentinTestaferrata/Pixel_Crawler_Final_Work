@@ -67,8 +67,8 @@ body = ExtResource("12_p6k5q")
 [node name="HealthBar" parent="." instance=ExtResource("3_23uvf")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_fbytd")]
-base_health = 185
-max_health = 185
+base_health = 450
+max_health = 450
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("12_uv5la")]
 health_component = NodePath("../HealthComponent")
@@ -81,7 +81,6 @@ shape = SubResource("CapsuleShape2D_syp77")
 drops = Array[ExtResource("14_f3uri")]([SubResource("Resource_sxljv")])
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "enemy", "loot", "body", "attack_range", "pathfind") instance=ExtResource("17_prtbt")]
 initial_state = NodePath("Chase")
