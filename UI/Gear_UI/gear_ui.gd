@@ -156,21 +156,21 @@ func update_bonus_stats() -> void:
 	StatsManager.health_changed.emit()
 	player.speed = base_speed
 	
-	var total_damage_multiplier = 0
+	#var total_damage_multiplier = 0
 	var total_speed_multiplier = 0
 	var total_extra_health = 0
-	var total_regeneration = 0
-	var total_fire_rate_multiplier = 0
-	var total_critical_hit_multiplier = 0
+	#var total_regeneration = 0
+	#var total_fire_rate_multiplier = 0
+	#var total_critical_hit_multiplier = 0
 	
 	for gear in [StatsManager.equiped_hat, StatsManager.equiped_coat, StatsManager.equiped_boots, StatsManager.equiped_ring, StatsManager.equiped_amulet]:
 		if gear:
 			total_extra_health += gear.extra_health
-			total_regeneration += gear.regenaration
+			#total_regeneration += gear.regenaration
 			total_speed_multiplier += gear.speed_multiplier
-			total_damage_multiplier += gear.damage_multiplier
-			total_fire_rate_multiplier += gear.fire_rate_multiplier
-			total_critical_hit_multiplier += gear.critical_hit_multiplier
+			#total_damage_multiplier += gear.damage_multiplier
+			#total_fire_rate_multiplier += gear.fire_rate_multiplier
+			#total_critical_hit_multiplier += gear.critical_hit_multiplier
 	
 	StatsManager.max_health = StatsManager.max_health + total_extra_health  # Adding bonus hp TODO
 	StatsManager.health_changed.emit()
