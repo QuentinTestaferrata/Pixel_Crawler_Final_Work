@@ -13,6 +13,7 @@ func _ready() -> void:
 	StatsManager.exp_changed.connect(update_exp_label)
 	StatsManager.level_changed.connect(update_level_label)
 	StatsManager.health_changed.connect(update_health_label)
+	StatsManager.healed.connect(update_health_label)
 	StatsManager.gold_changed.connect(update_coins_label)
 	
 	update_health_label()

@@ -5,6 +5,7 @@ extends TextureProgressBar
 
 func _ready() -> void:
 	StatsManager.health_changed.connect(update)
+	StatsManager.healed.connect(update)
 	update()
 
 func update() -> void:

@@ -10,6 +10,7 @@ const QUEST_TRACKER_UI = preload("res://UI/Quests/QuestHUD/QuestTracker.tscn")
 const GAME_OVER_SCREEN = preload("res://UI/game_over_screen/GameOverScreen.tscn")
 
 @export var speed: int = 100
+@export var health_bar: ProgressBar
 
 @export_category("Potion Cooldowns")
 @export var HealthPotionCD: int = 30
@@ -56,11 +57,13 @@ func _ready() -> void:
 	quest_manager.objective_updated.connect(_on_objective_updated)
 	health_component.died.connect(_show_game_over_screen)
 
-
-
-
 func _input(event: InputEvent) -> void:
 	var hud_scene: CanvasLayer = get_parent().get_child(0)
+	
+	if event.is_action_pressed("Test"):
+		StatsManager.current_health -= 2
+		StatsManager.health_changed.emit()
+		health_bar._set_health(StatsManager.current_health)
 	
 	if event.is_action_pressed("open_inventory") and !inventory_open:
 		var _inventory = INVENTORY_HUD.instantiate()
@@ -90,7 +93,11 @@ func _input(event: InputEvent) -> void:
 			if potion.amount > 0:
 				play_heal_animation()
 				potion.amount -= 1
-				health_component.heal(20)
+				if StatsManager.current_health + 20 <= StatsManager.max_health:
+					StatsManager.current_health += 20
+				else:
+					StatsManager.current_health = StatsManager.max_health
+				StatsManager.healed.emit()
 	
 	
 	if event.is_action_pressed("heal") and StatsManager.current_potions > 0:
@@ -118,7 +125,11 @@ func _input(event: InputEvent) -> void:
 	
 
 
-
+func health_bar_visibility(visible_ : bool) -> void:
+	if visible_:
+		health_bar.visible = true
+	else:
+		health_bar.visible = false
 
 func play_heal_animation() -> void:
 	heal_particles.top_level = false

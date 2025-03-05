@@ -10,6 +10,7 @@ func _ready() -> void:
 	saver_loader.load_game()
 	AttackCooldowns.instantiate_cooldown_container()
 	player.set_camera_zoom(0.7)
+	player.health_bar_visibility(true)
 	animations.play("load")
 
 func play_unload_animation() -> void:

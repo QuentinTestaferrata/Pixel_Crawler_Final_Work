@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://vke31l6bbcag" path="res://assets/Castle/Flame.png" id="17_icsdk"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="18_k1fmk"]
 [ext_resource type="PackedScene" uid="uid://bu1oqu1abj5an" path="res://UI/Quests/Scene/QuestManager.tscn" id="19_lgj0m"]
-[ext_resource type="PackedScene" uid="uid://dbssskf1fgkqt" path="res://Entities/Enemy_Create_Scenes/Scenes/HealthBar.tscn" id="20_ppdlg"]
+[ext_resource type="PackedScene" uid="uid://cnak36kvrrrx7" path="res://Entities/Player/PlayerHealthBar.tscn" id="20_ppdlg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tossq"]
 atlas = ExtResource("2_sw8de")
@@ -235,10 +235,11 @@ fill = 1
 fill_from = Vector2(0.495726, 0.491453)
 fill_to = Vector2(0.965812, 0.269231)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_bar") groups=["player"]]
 collision_layer = 792
 collision_mask = 549
 script = ExtResource("1_xgmka")
+health_bar = NodePath("PlayerHealthBar")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(0.8, 0.8)
@@ -271,9 +272,16 @@ position = Vector2(0, -11)
 position = Vector2(0, -41)
 script = ExtResource("8_ncmvf")
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="PlayerHealthBar" parent="." instance=ExtResource("20_ppdlg")]
+offset_left = -25.2281
+offset_top = -53.406
+offset_right = 18.7719
+offset_bottom = -41.406
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("health_bar")]
 script = ExtResource("14_gnrcj")
 hittable = true
+health_bar = NodePath("../PlayerHealthBar")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "player")]
 script = ExtResource("8_ef4o5")
@@ -295,11 +303,12 @@ player = NodePath("../..")
 sprite = NodePath("../../CharacterSprite")
 player = NodePath("../..")
 
-[node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("player_health")]
+[node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("player_health", "health_bar")]
 collision_layer = 16
 collision_mask = 1088
 script = ExtResource("14_xq40c")
 player_health = NodePath("../HealthComponent")
+health_bar = NodePath("../PlayerHealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
 position = Vector2(0, -12)
@@ -406,8 +415,6 @@ scale = Vector2(5.59375, 5.03125)
 color = Color(1, 0.69871, 0.555169, 1)
 energy = 1.75
 texture = SubResource("GradientTexture2D_0poeq")
-
-[node name="HealthBar" parent="." instance=ExtResource("20_ppdlg")]
 
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_timer_timeout"]
