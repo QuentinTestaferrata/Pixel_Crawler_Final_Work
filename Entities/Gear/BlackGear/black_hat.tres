@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_woo67")
-gear_name = "Black"
+gear_name = "Black Hat"
 sprite = ExtResource("2_m3kij")
 shop_sprite = ExtResource("2_m3kij")
-item_name = ""
+item_name = "Bone"
 price = 100
 obtained = false
 equip_slot = 0
