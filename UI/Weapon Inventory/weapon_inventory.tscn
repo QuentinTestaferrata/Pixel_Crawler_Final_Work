@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_s8cfg"]
 [ext_resource type="Texture2D" uid="uid://buk47atn6m4q2" path="res://UI/zone_description/page.png" id="2_6pvdl"]
 [ext_resource type="Texture2D" uid="uid://qms4g37y4fkr" path="res://UI/Weapon Inventory/weapon_display_page.png" id="3_3p4ed"]
-[ext_resource type="Script" uid="uid://vkqfm41vo5t4" path="res://UI/Weapon Inventory/weapon_inventory.gd" id="3_74gli"]
+[ext_resource type="Script" uid="uid://dfucivx3f64u3" path="res://UI/Weapon Inventory/weapon_inventory.gd" id="3_74gli"]
 [ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="4_fqk0p"]
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="4_thwyg"]
 [ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="5_u8jnr"]
@@ -283,7 +283,7 @@ columns = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lrngx")
+&"": SubResource("AnimationLibrary_lrngx")
 }
 autoplay = "spawn"
 

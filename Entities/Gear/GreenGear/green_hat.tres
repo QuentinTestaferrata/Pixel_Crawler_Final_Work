@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://ecbkk1nqdiov"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_lcjse"]
+[ext_resource type="Texture2D" uid="uid://qa6qbd4hf1ss" path="res://assets/gear/Armor/2_green/hat.png" id="2_5sk6k"]
+
+[resource]
+script = ExtResource("1_lcjse")
+gear_name = "Green Hat"
+sprite = ExtResource("2_5sk6k")
+shop_sprite = ExtResource("2_5sk6k")
+item_name = ""
+price = 1000
+obtained = false
+equip_slot = 0
+gear_type = 0
+gear_rarity = 0
+speed_multiplier = 7
+extra_health = 8
+metadata/_custom_type_script = "uid://cqjwhso552n3k"

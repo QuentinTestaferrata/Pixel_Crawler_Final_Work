@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://dgc6xrqe7qadd"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_7ct0l"]
+[ext_resource type="Texture2D" uid="uid://c5tg704geblxu" path="res://assets/gear/Armor/1_black/robe.png" id="2_ofvgh"]
+
+[resource]
+script = ExtResource("1_7ct0l")
+gear_name = "Black Coat"
+sprite = ExtResource("2_ofvgh")
+shop_sprite = ExtResource("2_ofvgh")
+item_name = ""
+price = 150
+obtained = false
+equip_slot = 0
+gear_type = 1
+gear_rarity = 0
+speed_multiplier = 7
+extra_health = 7
+metadata/_custom_type_script = "uid://cqjwhso552n3k"

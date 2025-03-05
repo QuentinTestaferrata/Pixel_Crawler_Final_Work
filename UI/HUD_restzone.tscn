@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpr0j8g5xg1bp"]
 
-[ext_resource type="Script" uid="uid://f4bdpp3clehh" path="res://UI/hud_restzone.gd" id="1_vppwa"]
+[ext_resource type="Script" uid="uid://b17kqnpdk6ja1" path="res://UI/hud_restzone.gd" id="1_vppwa"]
 [ext_resource type="PackedScene" uid="uid://54psad5u02t5" path="res://UI/player_live_stats/playerstat_component.tscn" id="2_e6b8x"]
 [ext_resource type="PackedScene" uid="uid://dbj263dpvv2v5" path="res://UI/player_live_stats/fightzone_playerstat_component.tscn" id="2_hmaqe"]
 

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://bhqk62251uwug"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_jmv1l"]
+[ext_resource type="Texture2D" uid="uid://d1qbtc3h8hivx" path="res://assets/gear/Armor/4_orange/robe.png" id="2_jmv1l"]
+
+[resource]
+script = ExtResource("1_jmv1l")
+gear_name = "Orange Coat"
+sprite = ExtResource("2_jmv1l")
+shop_sprite = ExtResource("2_jmv1l")
+item_name = ""
+price = 2500
+obtained = false
+equip_slot = 0
+gear_type = 1
+gear_rarity = 0
+speed_multiplier = 17
+extra_health = 18
+metadata/_custom_type_script = "uid://cqjwhso552n3k"

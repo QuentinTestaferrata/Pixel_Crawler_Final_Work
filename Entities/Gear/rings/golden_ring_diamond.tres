@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://cmec2x2iftbls"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_fsbjv"]
+[ext_resource type="Texture2D" uid="uid://1gkhs6ursme" path="res://assets/gear/Rings/gold/gold_diamong_upgrade.png" id="2_fsbjv"]
+
+[resource]
+script = ExtResource("1_fsbjv")
+gear_name = "Gold Ring Diamond"
+sprite = ExtResource("2_fsbjv")
+shop_sprite = ExtResource("2_fsbjv")
+item_name = ""
+price = 200
+obtained = false
+equip_slot = 0
+gear_type = 3
+gear_rarity = 0
+speed_multiplier = 9
+extra_health = 9
+metadata/_custom_type_script = "uid://cqjwhso552n3k"
