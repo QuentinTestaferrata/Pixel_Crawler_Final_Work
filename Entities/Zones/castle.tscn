@@ -23,7 +23,7 @@
 [ext_resource type="Script" uid="uid://cyd22u4itlv7m" path="res://Common/Dialog/Quests/Quest.gd" id="16_o0br0"]
 [ext_resource type="PackedScene" uid="uid://bqwj3c4pycffx" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.tscn" id="16_sq1y7"]
 [ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="16_txvr4"]
-[ext_resource type="Script" uid="uid://bj2lvgie67pkr" path="res://Common/Dialog/Quests/Objectives.gd" id="17_4ksk0"]
+[ext_resource type="Script" uid="uid://vba3irrjikki" path="res://Common/Dialog/Quests/Objectives.gd" id="17_4ksk0"]
 [ext_resource type="PackedScene" uid="uid://dl24dxrinjlw0" path="res://UI/LevelPicker/cemetery/cemetery_level_picker.tscn" id="17_g4dqj"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="17_ll0mv"]
 [ext_resource type="Script" uid="uid://dolomeeyuepue" path="res://Common/Dialog/Quests/Rewards.gd" id="18_bdwwv"]

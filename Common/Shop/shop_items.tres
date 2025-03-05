@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwpcal1vtefkr" path="res://Common/Shop/shop_items.gd" id="1_03si4"]
 [ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="2_1hoxj"]
-[ext_resource type="Script" uid="uid://bqk6mixpkmd6s" path="res://Items and Drops/Items/item.gd" id="2_v0rmw"]
+[ext_resource type="Script" uid="uid://djcrp262gcohd" path="res://Items and Drops/Items/item.gd" id="2_v0rmw"]
 [ext_resource type="Resource" uid="uid://ddrp3yoakbhfl" path="res://Items and Drops/Items/potions/Health Potion/health_potion.tres" id="3_rquv6"]
 [ext_resource type="Resource" uid="uid://batcoigiqsdiw" path="res://Items and Drops/Items/potions/Speed Potion/speed_potion.tres" id="4_jqp5m"]
 [ext_resource type="Script" uid="uid://bwq5jpiicchh8" path="res://Entities/Weapons/weapon_resource.gd" id="5_7i7k4"]
