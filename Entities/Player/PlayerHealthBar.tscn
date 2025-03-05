@@ -1,11 +1,49 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnak36kvrrrx7"]
 
-[ext_resource type="Script" uid="uid://cav7kpy2k018" path="res://Entities/Player/player_health_bar.gd" id="1_lxin4"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vjx46"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egrdf"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ocwg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxin4"]
 bg_color = Color(0.811213, 0, 0.139261, 1)
+
+[sub_resource type="GDScript" id="GDScript_8v7ok"]
+script/source = "extends ProgressBar
+
+@onready var damage_bar: ProgressBar = $DamageBar
+@onready var timer: Timer = $Timer
+
+var health: int = 0
+
+func _ready() -> void:
+	position = Vector2(-12, -37)
+	StatsManager.healed.connect(signaled)
+
+func signaled() -> void:
+	_set_health(StatsManager.current_health)
+	damage_bar.value = StatsManager.current_health
+
+func _set_health(new_health):
+	var prev_health = health
+	health = min (max_value, new_health)
+	value = health
+	
+	if health <= 0:
+		pass
+	if health < prev_health:
+		timer.start()
+	else: 
+		damage_bar.value = health
+
+func init_health(_health, max_health):
+	health = _health
+	max_value = max_health
+	value = health
+	
+	damage_bar.value = health
+	damage_bar.max_value = max_health
+
+func _on_timer_timeout() -> void:
+	damage_bar.value = health
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq57c"]
 bg_color = Color(0, 0, 0, 1)
@@ -20,15 +58,15 @@ bg_color = Color(1, 1, 1, 1)
 
 [node name="PlayerHealthBar" type="ProgressBar"]
 z_index = 1
-offset_left = -22.0
-offset_top = -42.0
-offset_right = 22.0
-offset_bottom = -30.0
-theme_override_styles/background = SubResource("StyleBoxEmpty_egrdf")
-theme_override_styles/fill = SubResource("StyleBoxFlat_3ocwg")
+offset_left = -14.0
+offset_top = -39.0
+offset_right = 14.0
+offset_bottom = -36.2
+theme_override_styles/background = SubResource("StyleBoxEmpty_vjx46")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lxin4")
 value = 60.0
 show_percentage = false
-script = ExtResource("1_lxin4")
+script = SubResource("GDScript_8v7ok")
 
 [node name="DamageBar" type="ProgressBar" parent="."]
 z_index = -1

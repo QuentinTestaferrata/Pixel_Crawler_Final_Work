@@ -29,6 +29,7 @@ func heal(amount: int) -> void:
 		StatsManager.health_changed.emit()
 
 func take_damage(amount: int) -> void:
+	current_health = StatsManager.current_health
 	if hittable: 
 		if current_health - amount <= 0:
 			current_health = 0

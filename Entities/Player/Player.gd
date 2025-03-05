@@ -84,6 +84,7 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = false
 		var temp_menu = hud_scene.find_child("PauseMenu", true, false)
 		temp_menu.close_menu()
+	
 	## TODO : get rid of heal and speed inputs here and put the in potions_container.tscn
 	if event.is_action_pressed("heal") and heal_cooldown.is_stopped():
 		var potion: Item = inventory.get_item_by_name("Healing Potion")
@@ -97,12 +98,9 @@ func _input(event: InputEvent) -> void:
 					StatsManager.current_health += 20
 				else:
 					StatsManager.current_health = StatsManager.max_health
+				
 				StatsManager.healed.emit()
-	
-	
-	if event.is_action_pressed("heal") and StatsManager.current_potions > 0:
-		StatsManager.current_potions -= 1
-		play_heal_animation()
+				StatsManager.health_changed.emit()
 	
 	elif event.is_action_pressed("speed") and speed_cooldown.is_stopped():
 		var potion: Item = inventory.get_item_by_name("Speed Potion")

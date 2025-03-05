@@ -273,10 +273,9 @@ position = Vector2(0, -41)
 script = ExtResource("8_ncmvf")
 
 [node name="PlayerHealthBar" parent="." instance=ExtResource("20_ppdlg")]
-offset_left = -25.2281
-offset_top = -53.406
-offset_right = 18.7719
-offset_bottom = -41.406
+offset_left = -15.0
+offset_right = 7.0
+offset_bottom = -36.0
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("health_bar")]
 script = ExtResource("14_gnrcj")
