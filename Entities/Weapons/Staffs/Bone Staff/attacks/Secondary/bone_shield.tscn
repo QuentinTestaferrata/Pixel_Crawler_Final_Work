@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3sxpnx2u3qx1"]
+[gd_scene load_steps=18 format=3 uid="uid://c3sxpnx2u3qx1"]
 
 [ext_resource type="Texture2D" uid="uid://80wnsugbxsb1" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone.png" id="1_2jtht"]
 [ext_resource type="Script" uid="uid://dgnh77jwlq3sm" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.gd" id="1_a652p"]
 [ext_resource type="Resource" uid="uid://c2r3v3rrk2630" path="res://Entities/Weapons/Staffs/Bone Staff/attacks/Secondary/bone_shield.tres" id="2_2lxwf"]
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="4_gt6xy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47e35"]
 radius = 6.0
@@ -161,6 +162,15 @@ _data = {
 &"despawn": SubResource("Animation_ekbj8")
 }
 
+[sub_resource type="Gradient" id="Gradient_famnn"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w6hhf"]
+gradient = SubResource("Gradient_famnn")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.893162, 0.230769)
+
 [sub_resource type="Animation" id="Animation_6r6la"]
 length = 0.001
 tracks/0/type = "value"
@@ -223,19 +233,26 @@ autostart = true
 [node name="RotationAnimation" type="AnimationPlayer" parent="Offset"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_53056")
+&"": SubResource("AnimationLibrary_53056")
 }
 autoplay = "rotate"
 
 [node name="SpawnAnimation" type="AnimationPlayer" parent="Offset"]
 libraries = {
-"": SubResource("AnimationLibrary_0bno2")
+&"": SubResource("AnimationLibrary_0bno2")
 }
 autoplay = "Spawn"
 
+[node name="PointLight2D" type="PointLight2D" parent="Offset"]
+position = Vector2(0, -0.999998)
+scale = Vector2(0.46875, 0.46875)
+texture = SubResource("GradientTexture2D_w6hhf")
+script = ExtResource("4_gt6xy")
+breathing_effect = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_sto2t")
+&"": SubResource("AnimationLibrary_sto2t")
 }
 autoplay = "new_animation"
 

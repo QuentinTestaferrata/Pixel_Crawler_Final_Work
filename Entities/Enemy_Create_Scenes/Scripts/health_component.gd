@@ -28,7 +28,6 @@ func _ready() -> void:
 
 func multiply_health(multiplyer: float) -> void:
 	max_health *= multiplyer
-	print(max_health)
 
 func reset_health()-> void:
 	max_health = base_health

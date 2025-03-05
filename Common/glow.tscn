@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7lunxim4qher"]
+
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="1_4jmhu"]
+
+[sub_resource type="Gradient" id="Gradient_1vtga"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cfmav"]
+gradient = SubResource("Gradient_1vtga")
+fill = 1
+fill_from = Vector2(0.5, 0.517094)
+fill_to = Vector2(0.188034, 0.141026)
+
+[node name="PointLight2D" type="PointLight2D"]
+energy = 2.0
+texture = SubResource("GradientTexture2D_cfmav")
+script = ExtResource("1_4jmhu")

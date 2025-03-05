@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=7 format=3 uid="uid://bwo60lbbcbivp"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=8 format=3 uid="uid://bwo60lbbcbivp"]
 
 [ext_resource type="Script" uid="uid://do3p7f8wcmcpe" path="res://Entities/Weapons/weapon_resource.gd" id="1_ih1sx"]
 [ext_resource type="Resource" uid="uid://ch6txcx2tkb6i" path="res://Entities/Weapons/bow/cursed_bow/cursed_arrow/cursed_arrow_projectile.tres" id="1_moe4t"]
 [ext_resource type="Texture2D" uid="uid://d0xil6pqfpjlo" path="res://Entities/Weapons/bow/cursed_bow/sprites/cursed_arrow.png" id="2_xa2ym"]
 [ext_resource type="PackedScene" uid="uid://b1gtjhiev0mhc" path="res://Entities/Weapons/bow/cursed_bow/cursed_bow.tscn" id="3_pgk3s"]
+[ext_resource type="Texture2D" uid="uid://cjp1lklwdkio3" path="res://Entities/Weapons/bow/cursed_bow/cursed_arrow/multishot_cursed_arrow.png" id="5_dpv3n"]
 [ext_resource type="Texture2D" uid="uid://cwifc05lmwwoi" path="res://Entities/Weapons/bow/cursed_bow/sprites/cursed_bow_shop.png" id="5_pwvie"]
 [ext_resource type="Texture2D" uid="uid://dkv7di0aymqxb" path="res://Entities/Weapons/bow/cursed_bow/sprites/cursed_bow_showcase.png" id="6_uug8g"]
 
@@ -20,7 +21,7 @@ equip_slot = 0
 primary_attack = ExtResource("1_moe4t")
 primary_attack_sprite = ExtResource("2_xa2ym")
 secondary_attack = ExtResource("1_moe4t")
-secondary_attack_sprite = ExtResource("2_xa2ym")
+secondary_attack_sprite = ExtResource("5_dpv3n")
 weapon_type = 5
 weapon_rarity = 0
 damage = 0

@@ -13,6 +13,7 @@ func _ready() -> void:
 	StatsManager.exp_changed.connect(update_exp_label)
 	StatsManager.level_changed.connect(update_level_label)
 	StatsManager.health_changed.connect(update_health_label)
+	StatsManager.healed.connect(update_health_label)
 	StatsManager.gold_changed.connect(update_coins_label)
 	
 	update_health_label()
@@ -23,7 +24,7 @@ func _ready() -> void:
 func update_health_label() -> void:
 	health_label.text = str(StatsManager.current_health, "/", StatsManager.max_health)
 func update_exp_label() -> void:
-	exp_label.text = str((StatsManager.exp_current), "/", str(StatsManager.exp_needed))
+	exp_label.text = str(( int(StatsManager.exp_current)), "/", str( int(StatsManager.exp_needed) ))
 func update_coins_label() -> void:
 	coins_label.text = str(StatsManager.gold)
 func update_level_label() -> void:

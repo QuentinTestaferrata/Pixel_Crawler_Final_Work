@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bprkkys8eavdb"]
+[gd_scene load_steps=11 format=3 uid="uid://bprkkys8eavdb"]
 
 [ext_resource type="Script" uid="uid://bhfqbwhlorwe3" path="res://Entities/Weapons/Staffs/cursed_staff/cursed_staff.gd" id="1_4fj60"]
 [ext_resource type="Resource" uid="uid://dbcytbasqv38y" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/primary/cursed_disc.tres" id="2_wwfka"]
@@ -7,14 +7,23 @@
 [ext_resource type="Script" uid="uid://bsgolsh4woc4s" path="res://Entities/Weapons/Staffs/Basic Staff/projectile_instantiater.gd" id="5_5tw08"]
 [ext_resource type="PackedScene" uid="uid://cqipbphdonfe4" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/cursed_projectile_spawner.tscn" id="6_c5s65"]
 [ext_resource type="Resource" uid="uid://dv84ero8143xd" path="res://Entities/Weapons/Staffs/cursed_staff/projectiles/secondary/CurseMissile.tres" id="7_3ynn1"]
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="8_u02y7"]
+
+[sub_resource type="Gradient" id="Gradient_acugj"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u02y7"]
+gradient = SubResource("Gradient_acugj")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.893162, 0.230769)
 
 [node name="CursedStaff" type="Node2D" node_paths=PackedStringArray("projectile_instantiater")]
 script = ExtResource("1_4fj60")
 projectile_instantiater = NodePath("ProjectileInstantiater")
 attack_resource_1 = ExtResource("2_wwfka")
 primary_attack_scene = ExtResource("5_1t1vg")
-primary_projectile_amount = 3
-spread_array = Array[int]([16, 8, 0, -8, -16])
+spread_array = Array[int]([16, 12, 8, 4, 0, -4, -8, -12, -16])
 attack_resource_2 = ExtResource("7_3ynn1")
 secondary_attack_scene = ExtResource("6_c5s65")
 projectile_amount = 1
@@ -38,3 +47,14 @@ secondary_attack_scene = ExtResource("6_c5s65")
 secondary_attack_data = ExtResource("7_3ynn1")
 primary_spawn_position = NodePath("../Marker2D")
 secondary_spawn_position = NodePath("../Marker2D2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(2.75, 2.625)
+color = Color(0.999999, 0.327605, 0.827731, 1)
+energy = 2.02
+texture = SubResource("GradientTexture2D_u02y7")
+script = ExtResource("8_u02y7")
+glow_scale = 5.0
+breath_effect = 1.0
+breathing_effect = true

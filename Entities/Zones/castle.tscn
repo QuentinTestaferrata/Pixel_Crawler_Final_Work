@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bwbvt76sg135p"]
+[gd_scene load_steps=44 format=4 uid="uid://bwbvt76sg135p"]
 
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="1_57tk4"]
 [ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_cgcdv"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c0v3mfcb7httg" path="res://Entities/Props/Castle/level_picker_door/level_picker_door.tscn" id="16_15evs"]
 [ext_resource type="Script" uid="uid://c7mim5td8sdx2" path="res://Common/Dialog/Quests/Quest.gd" id="16_o0br0"]
 [ext_resource type="PackedScene" uid="uid://bqwj3c4pycffx" path="res://UI/LevelPicker/dungeon/dungeon_level_picker.tscn" id="16_sq1y7"]
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="16_txvr4"]
 [ext_resource type="Script" uid="uid://bj2lvgie67pkr" path="res://Common/Dialog/Quests/Objectives.gd" id="17_4ksk0"]
 [ext_resource type="PackedScene" uid="uid://dl24dxrinjlw0" path="res://UI/LevelPicker/cemetery/cemetery_level_picker.tscn" id="17_g4dqj"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="17_ll0mv"]
@@ -740,6 +741,15 @@ texture = ExtResource("1_cgcdv")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_erg28")
 
+[sub_resource type="Gradient" id="Gradient_7apy6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7uftr"]
+gradient = SubResource("Gradient_7apy6")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.893162, 0.230769)
+
 [sub_resource type="Resource" id="Resource_t4c8k"]
 script = ExtResource("17_4ksk0")
 id = "obj_collect_01"
@@ -908,7 +918,7 @@ scale = Vector2(11.9992, 6.75006)
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_57tk4")]
-position = Vector2(-165, 221)
+position = Vector2(178, 43)
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -1052,6 +1062,18 @@ position = Vector2(-16, 198)
 [node name="Door2" parent="Decor" instance=ExtResource("9_o44r5")]
 position = Vector2(-16, 309)
 
+[node name="PointLight2D" type="PointLight2D" parent="Decor"]
+position = Vector2(-224, 240)
+scale = Vector2(2.15625, 1.96875)
+color = Color(0.716608, 1, 0.959588, 1)
+energy = 1.25
+texture = SubResource("GradientTexture2D_7uftr")
+script = ExtResource("16_txvr4")
+glow_scale = 4.0
+breath_effect = 0.3
+_energy = 1.5
+breathing_effect = true
+
 [node name="LevelPickerDoor" parent="." instance=ExtResource("16_15evs")]
 position = Vector2(-176, 147)
 all_zones = Array[PackedScene]([ExtResource("16_sq1y7"), ExtResource("17_g4dqj")])
@@ -1080,3 +1102,6 @@ player = NodePath("../Player")
 libraries = {
 &"": SubResource("AnimationLibrary_d0es1")
 }
+
+[node name="Shadow" type="CanvasModulate" parent="."]
+color = Color(0.860368, 0.86037, 0.860369, 1)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2aupoae03fyo"]
+[gd_scene load_steps=16 format=3 uid="uid://b2aupoae03fyo"]
 
 [ext_resource type="Script" uid="uid://d172derdh8ygx" path="res://Entities/Enemy/enemy_projectile_movement.gd" id="1_obkhm"]
 [ext_resource type="Resource" uid="uid://clrqxqna7ol0u" path="res://Entities/Enemy/1_dungeon/mage/Weapon/projectiles/red_fireball.tres" id="2_83g5a"]
 [ext_resource type="Texture2D" uid="uid://6bpiy66lgqir" path="res://assets/projectile_sheets/green_projectiles.png" id="3_6clfm"]
+[ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="4_mmeor"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2nvcd"]
 radius = 4.0
@@ -69,6 +70,15 @@ _data = {
 &"spawn": SubResource("Animation_8xo27")
 }
 
+[sub_resource type="Gradient" id="Gradient_mmeor"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_61acn"]
+gradient = SubResource("Gradient_mmeor")
+fill = 1
+fill_from = Vector2(0.495726, 0.491453)
+fill_to = Vector2(0.893162, 0.230769)
+
 [node name="RedFireball" type="Area2D"]
 collision_layer = 1024
 collision_mask = 16
@@ -85,5 +95,16 @@ frame_progress = 0.86294
 
 [node name="SpawnerDespawner" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ocfty")
+&"": SubResource("AnimationLibrary_ocfty")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.46875, 0.46875)
+color = Color(0.786644, 0.9699, 0.557951, 1)
+energy = 1.75
+texture = SubResource("GradientTexture2D_61acn")
+script = ExtResource("4_mmeor")
+glow_scale = 0.4
+_energy = 1.5
+breathing_effect = true

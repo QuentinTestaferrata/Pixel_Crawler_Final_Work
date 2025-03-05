@@ -12,5 +12,6 @@ value = 200
 price = 0
 consumable = false
 rarity = 2
+rarity_string = "Rare"
 stackable = true
 amount = 0

@@ -5,6 +5,7 @@ const SHOP_ITEMS = preload("res://Common/Shop/shop_items.tres")
 #const GearItems = preload("res://UI/Gear_UI/gear_items.gd")
 
 signal health_changed
+signal healed
 signal exp_changed
 signal exp_needed_changed
 signal gold_changed
