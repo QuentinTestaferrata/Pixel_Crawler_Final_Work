@@ -16,6 +16,7 @@ scene = ExtResource("1_ralb5")
 sprite = ExtResource("4_aemdi")
 shop_sprite = ExtResource("3_1jbep")
 price = 500
+weapon_level = 0
 obtained = false
 equip_slot = 0
 primary_attack = ExtResource("1_1or5i")

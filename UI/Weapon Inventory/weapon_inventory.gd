@@ -66,7 +66,7 @@ func _on_equip_2_button_pressed() -> void:
 	AttackCooldowns.reset_cooldown_display()
 
 func _on_close_button_pressed() -> void:
-	#ability_cooldowns = get_tree().get_first_node_in_group("ability_cooldown_container")
-	#ability_cooldowns.visible = true
+	ability_cooldowns = get_tree().get_first_node_in_group("ability_cooldown_container")
+	ability_cooldowns.visible = true
 	animation_player.play("despawn")
 	queue_free()

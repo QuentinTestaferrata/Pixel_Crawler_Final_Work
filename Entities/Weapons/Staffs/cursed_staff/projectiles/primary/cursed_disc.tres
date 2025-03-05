@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://dbcytbasqv38y"]
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=3 format=3 uid="uid://dbcytbasqv38y"]
 
+[ext_resource type="Resource" uid="uid://buhigwa7ovvbp" path="res://Items and Drops/Drops/cemetery/cursed_crystal/cursed_crystal.tres" id="1_imrwq"]
 [ext_resource type="Script" uid="uid://cvnecarof554r" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_l5hrx"]
 
 [resource]
@@ -16,3 +17,7 @@ COOLDOWN = 10.0
 KNOCKBACK_FORCE = 15.0
 CRIT_CHANCE = 25
 CRIT_MULTIPLYER = 1.5
+item = ExtResource("1_imrwq")
+amount = 0
+damage_multiplyer = 0.0
+price_multiplyer = 0.0
