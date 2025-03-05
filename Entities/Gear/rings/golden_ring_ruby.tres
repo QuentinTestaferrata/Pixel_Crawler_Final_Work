@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://byp2wy2qeq0o"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_0mlmb"]
+[ext_resource type="Texture2D" uid="uid://ihtenlavcqi1" path="res://assets/gear/Rings/gold/gold_ruby_upgrade.png" id="2_0mlmb"]
+
+[resource]
+script = ExtResource("1_0mlmb")
+gear_name = "Gold Ring Ruby"
+sprite = ExtResource("2_0mlmb")
+shop_sprite = ExtResource("2_0mlmb")
+item_name = ""
+price = 200
+obtained = false
+equip_slot = 0
+gear_type = 3
+gear_rarity = 0
+speed_multiplier = 10
+extra_health = 10
+metadata/_custom_type_script = "uid://cqjwhso552n3k"

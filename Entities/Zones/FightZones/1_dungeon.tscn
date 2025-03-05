@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://uqj3ijcufn81" path="res://Entities/Player/player.tscn" id="12_bgllq"]
 [ext_resource type="PackedScene" uid="uid://daqbdpmnnebvh" path="res://Entities/Weapons/Projectiles/projectiles_holder.tscn" id="13_7l2to"]
 [ext_resource type="PackedScene" uid="uid://dimmrcp83j1wa" path="res://Entities/Gameplay Managers/EnemiesContainer/EnemiesContainer.tscn" id="14_5m6tu"]
-[ext_resource type="Script" uid="uid://b2qjfxx5mnmhq" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="15_8e67p"]
+[ext_resource type="Script" uid="uid://bc0nejuq6i5n" path="res://Entities/Gameplay Managers/EnemiesContainer/enemies_container.gd" id="15_8e67p"]
 [ext_resource type="PackedScene" uid="uid://dhj67qm0rjion" path="res://SaveFile/saver_loader.tscn" id="16_e8vk2"]
 [ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="16_uswfo"]
 [ext_resource type="PackedScene" uid="uid://h3656ckl0v65" path="res://assets/idle_enemy.tscn" id="17_duegn"]

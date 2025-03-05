@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://tekukgxwu8bf"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_4c84g"]
+[ext_resource type="Texture2D" uid="uid://dri12651xy31t" path="res://assets/gear/Armor/1_black/hat.png" id="2_4om3i"]
+
+[resource]
+script = ExtResource("1_4c84g")
+gear_name = "Black Boots"
+sprite = ExtResource("2_4om3i")
+shop_sprite = ExtResource("2_4om3i")
+item_name = ""
+price = 100
+obtained = false
+equip_slot = 0
+gear_type = 0
+gear_rarity = 0
+speed_multiplier = 5
+extra_health = 5
+metadata/_custom_type_script = "uid://cqjwhso552n3k"

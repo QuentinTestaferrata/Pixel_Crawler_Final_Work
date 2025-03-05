@@ -76,6 +76,9 @@ func _ready() -> void:
 	#base_critical_hit = StatsManager.equiped_weapon_1.critical_hit_multiplier if StatsManager.equiped_weapon_1 else 1.0 TODO
 
 func get_gear_items() -> void:
+	for child in grid_container.get_children():
+		child.queue_free()
+	
 	for i in player.inventory.gears:
 		var temp_gear_holder: TextureButton = GEAR_HOLDER.instantiate()
 		var sprite: TextureRect = TextureRect.new()
@@ -186,11 +189,11 @@ func update_bonus_stats() -> void:
 	
 	
 	stat_labels["Extra Health"].text = "Extra Health: " + str(total_extra_health)
-	stat_labels["Regeneration"].text = "Regeneration: " + str(total_regeneration) + " HP/s"
+	#stat_labels["Regeneration"].text = "Regeneration: " + str(total_regeneration) + " HP/s"
 	stat_labels["Speed Bonus"].text = "Speed Bonus: " + str(total_speed_multiplier) + "%"
-	stat_labels["Damage Bonus"].text = "Damage Bonus: " + str(total_damage_multiplier) + "%"
-	stat_labels["Fire Rate Bonus"].text = "Fire Rate Bonus: " + str(total_fire_rate_multiplier) + "%"
-	stat_labels["Critical Hit Bonus"].text = "Critical Hit Bonus: " + str(total_critical_hit_multiplier) + "%"
+	#stat_labels["Damage Bonus"].text = "Damage Bonus: " + str(total_damage_multiplier) + "%"
+	#stat_labels["Fire Rate Bonus"].text = "Fire Rate Bonus: " + str(total_fire_rate_multiplier) + "%"
+	#stat_labels["Critical Hit Bonus"].text = "Critical Hit Bonus: " + str(total_critical_hit_multiplier) + "%"
 	
 
 

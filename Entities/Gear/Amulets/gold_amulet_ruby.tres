@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://3gg0cmse1f6o"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_oo5u4"]
+[ext_resource type="Texture2D" uid="uid://dp4r6e46c0hxx" path="res://assets/gear/Amulets/Ruby_amulet.png" id="2_k1t48"]
+
+[resource]
+script = ExtResource("1_oo5u4")
+gear_name = "Gold Ruby Amulet"
+sprite = ExtResource("2_k1t48")
+shop_sprite = ExtResource("2_k1t48")
+item_name = ""
+price = 2000
+obtained = false
+equip_slot = 0
+gear_type = 4
+gear_rarity = 0
+speed_multiplier = 15
+extra_health = 15
+metadata/_custom_type_script = "uid://cqjwhso552n3k"

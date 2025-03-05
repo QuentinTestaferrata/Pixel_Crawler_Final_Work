@@ -6,9 +6,9 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 
 @export_category("Gear Data")
 @export var gear_name: String
-@export var scene: PackedScene
 @export var sprite: Texture
 @export var shop_sprite: Texture
+@export var item_name: String
 @export var price: int
 @export var obtained: bool = false
 @export var equip_slot: int = 0
