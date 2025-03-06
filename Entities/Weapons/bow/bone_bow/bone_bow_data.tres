@@ -17,6 +17,7 @@ sprite = ExtResource("4_ryl1m")
 shop_sprite = ExtResource("3_ej2ei")
 showcase_sprite = ExtResource("4_ryl1m")
 price = 350
+weapon_level = 1
 obtained = false
 equip_slot = 0
 primary_attack = ExtResource("1_r611q")

@@ -22,5 +22,5 @@ enum DAMAGE_TYPE {WATER, UNDEAD, FIRE, MAGIC, WIND, STONE}
 @export_category("Upgrades")
 @export var item: Item
 @export var amount: int
-@export_range(1, 10, .05) var damage_multiplyer: float
-@export_range(1, 10, .05) var price_multiplyer: float
+@export_range(1, 10, .01) var damage_multiplyer: float
+@export_range(1, 10, .01) var price_multiplyer: float

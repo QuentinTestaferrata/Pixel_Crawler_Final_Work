@@ -61,7 +61,6 @@ func get_weapon_info(i: WeaponData) -> void:
 	attack_buttons_container.visible = true
 	please_select_container.visible = false
 	selected_weapon = i
-	print(i.weapon_name)
 	weapon_image.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	
 	if i.showcase_sprite != null:
@@ -73,9 +72,21 @@ func get_weapon_info(i: WeaponData) -> void:
 	#for x in player.inventory.weapons:
 		#if x.weapon_name == i.weapon_name:
 			#weapon_to_upgrade = x
-	
-	primary_attack_sprite.texture = i.primary_attack_sprite
-	secondary_attack_sprite.texture = i.secondary_attack_sprite
+	price_container.visible = false
+	damage_stats.visible = false
+	level_stats.visible = false
+	if selected_weapon.primary_attack_sprite:
+		primary_attack_sprite.visible = true
+		primary_attack_sprite.texture = i.primary_attack_sprite
+	else: 
+		primary_attack_sprite.visible = false
+		
+	if selected_weapon.secondary_attack_sprite:
+		secondary_attack_sprite.texture = i.secondary_attack_sprite
+		secondary_attack_sprite.visible = true
+		#print(selected_weapon.secondary_attack_sprite)
+	else: 
+		secondary_attack_sprite.visible = false
 
 func _on_primary_attack_button_pressed() -> void:
 	selected_attack = 1
@@ -85,6 +96,12 @@ func _on_primary_attack_button_pressed() -> void:
 		get_projectile_damage(selected_weapon.primary_attack)
 		item_texture.texture = selected_weapon.primary_attack.item.sprite
 		amount_label.text = str(payement_item.amount, "/", selected_weapon.primary_attack.amount)
+		
+		if payement_item.amount >= selected_weapon.primary_attack.amount:
+			amount_label.add_theme_color_override("font_color", Color.FOREST_GREEN)
+		else:
+			amount_label.add_theme_color_override("font_color", Color.CRIMSON)
+			
 		current_damage_label.text = str("Damage: ", get_projectile_damage(selected_weapon.primary_attack))
 		upgraded_damage_label.text = str(get_upgraded_projectile_damage(selected_weapon.primary_attack))
 		current_level_label.text = str("Level: ", selected_weapon.weapon_level)
@@ -98,10 +115,17 @@ func _on_secondary_attack_button_pressed() -> void:
 		get_projectile_damage(selected_weapon.secondary_attack)
 		item_texture.texture = selected_weapon.secondary_attack.item.sprite
 		amount_label.text = str(payement_item.amount, "/", selected_weapon.secondary_attack.amount)
+		
+		if payement_item.amount >= selected_weapon.secondary_attack.amount:
+			amount_label.add_theme_color_override("font_color", Color.FOREST_GREEN)
+		else:
+			amount_label.add_theme_color_override("font_color", Color.CRIMSON)
+		
 		current_damage_label.text = str("Damage: ", get_projectile_damage(selected_weapon.secondary_attack))
 		upgraded_damage_label.text = str(get_upgraded_projectile_damage(selected_weapon.secondary_attack))
 		current_level_label.text = str("Level: ", selected_weapon.weapon_level)
 		upgraded_level_label.text = str(selected_weapon.weapon_level + 1)
+
 func _on_close_button_pressed() -> void:
 	$AnimationPlayer.play("close")
 
@@ -109,7 +133,7 @@ func get_inventory_item(item: Item) -> void:
 	for i in inventory_items:
 		if item and item.name == i.name:
 			payement_item = i
-			print(payement_item)
+			#print(payement_item)
 
 func get_projectile_damage(projectile: PROJECTILE) -> int:
 	return projectile.DAMAGE
@@ -133,20 +157,45 @@ func show_right_page(_show: bool) -> void:
 		margin_container_2.visible = false
 		please_select_container.visible = true
 
-
 func _on_upgrade_pressed() -> void:
 	match selected_attack:
 		1: 
-			selected_weapon.primary_attack.DAMAGE *= selected_weapon.primary_attack.damage_multiplyer
-			selected_weapon.primary_attack.DAMAGE = int(selected_weapon.primary_attack.DAMAGE)
-			selected_weapon.weapon_level += 1
-			selected_weapon.primary_attack.amount *= selected_weapon.primary_attack.price_multiplyer
-			
-			print(selected_weapon.primary_attack.DAMAGE)
-			
+			if pay():
+				selected_weapon.primary_attack.DAMAGE *= selected_weapon.primary_attack.damage_multiplyer
+				selected_weapon.primary_attack.DAMAGE = int(selected_weapon.primary_attack.DAMAGE)
+				selected_weapon.weapon_level += 1
+				selected_weapon.primary_attack.amount *= selected_weapon.primary_attack.price_multiplyer
+				
+				print(selected_weapon.primary_attack.DAMAGE)
+				_on_primary_attack_button_pressed()
 		2:
-			selected_weapon.secondary_attack.DAMAGE *= selected_weapon.secondary_attack.damage_multiplyer
-			selected_weapon.secondary_attack.DAMAGE = int(selected_weapon.secondary_attack.DAMAGE)
-			selected_weapon.weapon_level += 1
-			selected_weapon.secondary_attack.amount *= selected_weapon.secondary_attack.price_multiplyer
+			if pay(): 
+				selected_weapon.secondary_attack.DAMAGE *= selected_weapon.secondary_attack.damage_multiplyer
+				selected_weapon.secondary_attack.DAMAGE = int(selected_weapon.secondary_attack.DAMAGE)
+				selected_weapon.weapon_level += 1
+				selected_weapon.secondary_attack.amount *= selected_weapon.secondary_attack.price_multiplyer
+				
+				_on_secondary_attack_button_pressed()
+
+func pay() -> bool:
+	match selected_attack:
+		1: 
+			if payement_item.amount >= selected_weapon.primary_attack.amount:
+				payement_item.amount -= selected_weapon.primary_attack.amount
+				print(payement_item.amount)
+				print("Bought!")
+				return true
+			else: 
+				print("Can't buy")
+				return false
 			
+		2: 
+			if payement_item.amount >= selected_weapon.secondary_attack.amount:
+				payement_item.amount -= selected_weapon.secondary_attack.amount
+				print("Bought!")
+				print(payement_item.amount)
+				return true
+			else: 
+				print("Can't buy")
+				return false
+	return false
