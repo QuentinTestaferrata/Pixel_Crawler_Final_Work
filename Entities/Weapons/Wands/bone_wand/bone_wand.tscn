@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://diocly1nuyxyt"]
+[gd_scene load_steps=33 format=3 uid="uid://diocly1nuyxyt"]
 
 [ext_resource type="Script" uid="uid://b0lommb214jry" path="res://Entities/Weapons/Wands/bone_wand/bone_wand.gd" id="1_k4222"]
 [ext_resource type="Texture2D" uid="uid://bval6yocc2y5" path="res://Entities/Weapons/Wands/bone_wand/bone_wand_sprite.png" id="1_x8qs3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c7bpxrji5hsu3" path="res://assets/masks for  particles/20.png" id="5_b1qd0"]
 [ext_resource type="Texture2D" uid="uid://6bpiy66lgqir" path="res://assets/projectile_sheets/green_projectiles.png" id="6_v2val"]
 [ext_resource type="Script" uid="uid://5y1ldnnyqyho" path="res://Common/glow.gd" id="8_7apy6"]
+[ext_resource type="PackedScene" uid="uid://v6vdklray4vk" path="res://Entities/Weapons/WeaponUpgradeComponent/weapon_upgrade_component.tscn" id="9_acugj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vhsve"]
 blend_mode = 1
@@ -424,5 +425,7 @@ glow_scale = 4.0
 breath_effect = 0.3
 _energy = 0.45
 breathing_effect = true
+
+[node name="WeaponUpgradeComponent" parent="." instance=ExtResource("9_acugj")]
 
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]

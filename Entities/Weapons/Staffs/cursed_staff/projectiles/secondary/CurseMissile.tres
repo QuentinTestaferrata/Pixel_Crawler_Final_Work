@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://dv84ero8143xd"]
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=3 format=3 uid="uid://dv84ero8143xd"]
 
 [ext_resource type="Script" uid="uid://cvnecarof554r" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_1oh2v"]
+[ext_resource type="Resource" uid="uid://dbxv8rkuxisy2" path="res://Items and Drops/Drops/cemetery/zombie_eye/zombie_eye.tres" id="1_t622v"]
 
 [resource]
 script = ExtResource("1_1oh2v")
@@ -16,3 +17,7 @@ COOLDOWN = 25.0
 KNOCKBACK_FORCE = 0.0
 CRIT_CHANCE = 35
 CRIT_MULTIPLYER = 1.1
+item = ExtResource("1_t622v")
+amount = 350
+damage_multiplyer = 1.1
+price_multiplyer = 1.1

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://c2smecfjrtw4i"]
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=3 format=3 uid="uid://c2smecfjrtw4i"]
 
 [ext_resource type="Script" uid="uid://cvnecarof554r" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_bcv47"]
+[ext_resource type="Resource" uid="uid://bodi5ati3rq34" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/golden_bone.tres" id="1_nxtsb"]
 
 [resource]
 script = ExtResource("1_bcv47")
@@ -16,3 +17,7 @@ COOLDOWN = 3.0
 KNOCKBACK_FORCE = 4.0
 CRIT_CHANCE = 15
 CRIT_MULTIPLYER = 1.3
+item = ExtResource("1_nxtsb")
+amount = 5
+damage_multiplyer = 1.3
+price_multiplyer = 1.4

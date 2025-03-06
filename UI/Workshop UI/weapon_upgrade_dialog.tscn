@@ -1,0 +1,427 @@
+[gd_scene load_steps=28 format=3 uid="uid://cm0t6pkv5cb8m"]
+
+[ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_kd0jg"]
+[ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="2_tlyh2"]
+[ext_resource type="Script" uid="uid://cm86ua2xh15xq" path="res://UI/Workshop UI/weapon_upgrade_dialog.gd" id="3_tlyh2"]
+[ext_resource type="Texture2D" uid="uid://6kom7ev2h77y" path="res://UI/Buttons/3_normal/button.png" id="4_eyv04"]
+[ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="5_0s7c2"]
+[ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="6_ob0de"]
+[ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="7_f5jc1"]
+[ext_resource type="Texture2D" uid="uid://cupd782arpfu7" path="res://UI/Buttons/0_mini_buttons/button_hover.png" id="8_x0kpf"]
+[ext_resource type="Texture2D" uid="uid://cdlh6fh2hsrxp" path="res://UI/item_hover_info/line.png" id="10_pd6rs"]
+[ext_resource type="Texture2D" uid="uid://d278nse1jha5s" path="res://UI/Buttons/18px_button/normal.png" id="11_kd0jg"]
+[ext_resource type="Texture2D" uid="uid://bby6u2wl0f5kh" path="res://UI/Buttons/18px_button/pressed.png" id="12_tlyh2"]
+[ext_resource type="Texture2D" uid="uid://bo1cnfm1dfkhh" path="res://UI/Buttons/18px_button/hover.png" id="13_pd6rs"]
+[ext_resource type="Texture2D" uid="uid://baluwwbfn4sf7" path="res://UI/Buttons/4_long/button.png" id="16_f5jc1"]
+[ext_resource type="Texture2D" uid="uid://cs4m8p4hrxg7v" path="res://UI/Buttons/4_long/pressed_button.png" id="17_x0kpf"]
+[ext_resource type="Texture2D" uid="uid://ox6g8eumw3rb" path="res://UI/Buttons/4_long/hover_button.png" id="18_1uqnf"]
+[ext_resource type="Texture2D" uid="uid://dyl37wntkl7ru" path="res://UI/Buttons/4_long/disabled.png" id="19_2e68j"]
+
+[sub_resource type="Theme" id="Theme_kd0jg"]
+Label/colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+Label/font_sizes/font_size = 10
+Label/fonts/font = ExtResource("1_kd0jg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlyh2"]
+texture = ExtResource("2_tlyh2")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(240, 32, 81, 80)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eyv04"]
+font_size = 15
+font_color = Color(0.105882, 0.133333, 0.211765, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eq8i6"]
+texture = ExtResource("2_tlyh2")
+texture_margin_left = 7.0
+texture_margin_top = 6.0
+texture_margin_right = 7.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(368, 144, 81, 80)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1pcgs"]
+content_margin_left = 2.0
+color = Color(0, 0, 0, 0.807843)
+
+[sub_resource type="Theme" id="Theme_gjkkb"]
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_1pcgs")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvtml"]
+atlas = ExtResource("2_tlyh2")
+region = Rect2(324, 805, 9, 7)
+
+[sub_resource type="Animation" id="Animation_fujow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_toqst"]
+resource_name = "close"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_86ojw"]
+resource_name = "open"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufyef"]
+_data = {
+&"RESET": SubResource("Animation_fujow"),
+&"close": SubResource("Animation_toqst"),
+&"open": SubResource("Animation_86ojw")
+}
+
+[node name="WeaponUpgradeDialog" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 180)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -99.0
+offset_right = 150.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 99)
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_kd0jg")
+theme_override_styles/panel = SubResource("StyleBoxTexture_tlyh2")
+script = ExtResource("3_tlyh2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LeftPage" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="CenterContainer" type="VBoxContainer" parent="HBoxContainer/LeftPage"]
+layout_mode = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/LeftPage/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Your weapons"
+label_settings = SubResource("LabelSettings_eyv04")
+
+[node name="WeaponsPanel" type="PanelContainer" parent="HBoxContainer/LeftPage/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_eq8i6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = SubResource("Theme_gjkkb")
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 2
+
+[node name="Grid" type="GridContainer" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+color = Color(0.105882, 0.133333, 0.211765, 1)
+
+[node name="RightPage" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightPage"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/RightPage/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureHolder" type="TextureRect" parent="HBoxContainer/RightPage/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_eyv04")
+stretch_mode = 3
+
+[node name="ItemImage" type="TextureRect" parent="HBoxContainer/RightPage/VBoxContainer/HBoxContainer3/TextureHolder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -20.0
+offset_right = 14.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 3
+
+[node name="Shadow" type="Sprite2D" parent="HBoxContainer/RightPage/VBoxContainer/HBoxContainer3/TextureHolder/ItemImage"]
+visible = false
+show_behind_parent = true
+position = Vector2(14, 24)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("5_0s7c2")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/RightPage/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -48
+
+[node name="CloseButton" type="TextureButton" parent="HBoxContainer/RightPage/VBoxContainer/HBoxContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_ob0de")
+texture_pressed = ExtResource("7_f5jc1")
+texture_hover = ExtResource("8_x0kpf")
+
+[node name="Label" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/HBoxContainer3/MarginContainer/CloseButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 45.0
+offset_bottom = 18.0
+text = "X"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/RightPage/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -6
+
+[node name="WeaponNameLabel" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "Choose a weapon
+to upgrade"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/RightPage/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_pd6rs")
+stretch_mode = 3
+
+[node name="PleaseSelectContainer" type="MarginContainer" parent="HBoxContainer/RightPage/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightPage/VBoxContainer/PleaseSelectContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="PleaseSelectLabel" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/PleaseSelectContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Please select a weapon"
+
+[node name="PleaseSelectLabel2" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/PleaseSelectContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "to upgrade"
+
+[node name="AttackButtonsContainer" type="HBoxContainer" parent="HBoxContainer/RightPage/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+alignment = 1
+
+[node name="PrimaryAttackButton" type="TextureButton" parent="HBoxContainer/RightPage/VBoxContainer/AttackButtonsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_kd0jg")
+texture_pressed = ExtResource("12_tlyh2")
+texture_hover = ExtResource("13_pd6rs")
+
+[node name="PrimaryAttackSprite" type="TextureRect" parent="HBoxContainer/RightPage/VBoxContainer/AttackButtonsContainer/PrimaryAttackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 3
+
+[node name="SecondaryAttackButton" type="TextureButton" parent="HBoxContainer/RightPage/VBoxContainer/AttackButtonsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_kd0jg")
+texture_pressed = ExtResource("12_tlyh2")
+texture_hover = ExtResource("13_pd6rs")
+
+[node name="SecondaryAttackSprite" type="TextureRect" parent="HBoxContainer/RightPage/VBoxContainer/AttackButtonsContainer/SecondaryAttackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 3
+
+[node name="PriceContainer" type="HBoxContainer" parent="HBoxContainer/RightPage/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/PriceContainer"]
+layout_mode = 2
+text = "Needed:"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/RightPage/VBoxContainer/PriceContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 2
+
+[node name="ItemTexture" type="TextureRect" parent="HBoxContainer/RightPage/VBoxContainer/PriceContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="AmountLabel" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/PriceContainer"]
+layout_mode = 2
+
+[node name="DamageStats" type="HBoxContainer" parent="HBoxContainer/RightPage/VBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentDamageLabel" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/DamageStats"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/RightPage/VBoxContainer/DamageStats"]
+layout_mode = 2
+theme_override_constants/margin_bottom = -5
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/RightPage/VBoxContainer/DamageStats/MarginContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tvtml")
+stretch_mode = 3
+
+[node name="UpgradedDamageLabel" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/DamageStats"]
+layout_mode = 2
+
+[node name="LevelStats" type="HBoxContainer" parent="HBoxContainer/RightPage/VBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentLevelLabel" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/LevelStats"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/RightPage/VBoxContainer/LevelStats"]
+layout_mode = 2
+theme_override_constants/margin_bottom = -5
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/RightPage/VBoxContainer/LevelStats/MarginContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tvtml")
+stretch_mode = 3
+
+[node name="UpgradedLevelLabel" type="Label" parent="HBoxContainer/RightPage/VBoxContainer/LevelStats"]
+layout_mode = 2
+text = "test"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/RightPage"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Upgrade" type="TextureButton" parent="HBoxContainer/RightPage/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("16_f5jc1")
+texture_pressed = ExtResource("17_x0kpf")
+texture_hover = ExtResource("18_1uqnf")
+texture_disabled = ExtResource("19_2e68j")
+
+[node name="BuyLabel" type="Label" parent="HBoxContainer/RightPage/MarginContainer2/Upgrade"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -10.0
+offset_right = 26.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.105882, 0.133333, 0.211765, 1)
+text = "Upgrade"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ufyef")
+}
+autoplay = "open"
+
+[connection signal="pressed" from="HBoxContainer/RightPage/VBoxContainer/HBoxContainer3/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RightPage/VBoxContainer/AttackButtonsContainer/PrimaryAttackButton" to="." method="_on_primary_attack_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RightPage/VBoxContainer/AttackButtonsContainer/SecondaryAttackButton" to="." method="_on_secondary_attack_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RightPage/MarginContainer2/Upgrade" to="." method="_on_upgrade_pressed"]
