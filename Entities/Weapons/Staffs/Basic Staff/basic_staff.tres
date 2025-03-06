@@ -27,6 +27,7 @@ secondary_attack = ExtResource("5_er4m2")
 secondary_attack_sprite = ExtResource("6_op1s4")
 weapon_type = 0
 weapon_rarity = 0
+weapon_rarity_str = "Common"
 damage = 0
 knockback_force = 0.0
 defense = 0

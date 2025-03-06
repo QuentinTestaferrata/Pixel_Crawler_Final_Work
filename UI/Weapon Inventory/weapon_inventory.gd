@@ -1,5 +1,7 @@
 extends PanelContainer
 
+signal weapon_clicked
+
 const WEAPON_HOLDER = preload("res://UI/Shop/weapon_holder.tscn")
 
 @onready var weapon_image_holder: TextureRect = $MarginContainer/VBoxContainer/WeaponSpriteShowcase/HBoxContainer/WeaponImageHolder
@@ -44,12 +46,15 @@ func _show_weapons() -> void:
 		weapons_grid.add_child(temp_item_holder)
 
 func _showcase_weapon(weapon: WeaponData) -> void:
+	var parent_node: Control = get_parent()
 	equip_1_button.visible = true
 	equip_2_button.visible = true
+	parent_node.selected_weapon = weapon
 	selected_weapon = weapon
 	weapon_image_holder.texture = weapon.sprite
 	weapon_name.text = weapon.weapon_name
 	weapon_description.text = weapon.description
+	weapon_clicked.emit()
 
 func _on_equip_1_button_pressed() -> void:
 	if selected_weapon != null && weapon_manager.equiped_weapon_2 != selected_weapon:
@@ -66,7 +71,7 @@ func _on_equip_2_button_pressed() -> void:
 	AttackCooldowns.reset_cooldown_display()
 
 func _on_close_button_pressed() -> void:
+	var parent = get_parent()
 	ability_cooldowns = get_tree().get_first_node_in_group("ability_cooldown_container")
 	ability_cooldowns.visible = true
-	animation_player.play("despawn")
-	queue_free()
+	parent.close_window()

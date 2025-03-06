@@ -918,7 +918,7 @@ scale = Vector2(11.9992, 6.75006)
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_57tk4")]
-position = Vector2(329, 221)
+position = Vector2(-11, 147)
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 y_sort_enabled = true

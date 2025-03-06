@@ -27,6 +27,7 @@ secondary_attack = ExtResource("5_e2vuq")
 secondary_attack_sprite = ExtResource("6_5hpcw")
 weapon_type = 0
 weapon_rarity = 2
+weapon_rarity_str = "Epic"
 damage = 999
 knockback_force = 999.0
 defense = 999

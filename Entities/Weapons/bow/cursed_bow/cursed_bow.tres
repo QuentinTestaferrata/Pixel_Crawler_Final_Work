@@ -25,6 +25,7 @@ secondary_attack = ExtResource("1_moe4t")
 secondary_attack_sprite = ExtResource("5_dpv3n")
 weapon_type = 5
 weapon_rarity = 0
+weapon_rarity_str = "Rare"
 damage = 0
 knockback_force = 0.0
 defense = 0

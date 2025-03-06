@@ -2,7 +2,7 @@ extends Resource
 class_name WeaponData
 
 enum weapon_types {STAFF, WAND, SHIELD, SWORD, DAGGER, BOW}
-enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
+enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHIC}
 
 @export_category("Weapon Data")
 @export var weapon_name: String
@@ -26,6 +26,7 @@ enum rarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHICAL}
 @export_category("Weapon Stats")
 @export var weapon_type: weapon_types
 @export var weapon_rarity: rarity
+@export_enum("Common", "Uncommon", "Rare" , "Epic", "Legendary", "Mythic") var weapon_rarity_str: String
 @export var damage: int
 @export var knockback_force: float
 @export var defense: int
