@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dxwvp6h2hvfbq"]
+[gd_scene load_steps=35 format=3 uid="uid://dxwvp6h2hvfbq"]
 
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="1_1q46w"]
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_ab63m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://0mgj3jjqgqj3" path="res://assets/Dungeon/Tiles/Props.png" id="10_s3xwb"]
 [ext_resource type="Texture2D" uid="uid://blc53waw0hj1e" path="res://assets/Castle/Weapons.png" id="11_fh3g0"]
 [ext_resource type="Texture2D" uid="uid://6kom7ev2h77y" path="res://UI/Buttons/3_normal/button.png" id="12_6xtoy"]
+[ext_resource type="Texture2D" uid="uid://bw23w25vto30l" path="res://assets/gear/Rings/silver/silver_upgrade_1.png" id="12_efob0"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="13_beilx"]
 [ext_resource type="Texture2D" uid="uid://cb1et182q10qf" path="res://UI/Buttons/0_mini_buttons/button_normal.png" id="14_u8u5l"]
 [ext_resource type="Texture2D" uid="uid://dsks0th2p3y8n" path="res://UI/Buttons/0_mini_buttons/button_pressed.png" id="15_bbih6"]
@@ -285,12 +286,28 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_6qqxu")
 stretch_mode = 3
 
-[node name="Idk2" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
+[node name="Gear" type="TextureButton" parent="HBoxContainer/Items/VBoxContainer/Tabs"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 texture_normal = ExtResource("7_r351t")
 texture_pressed = ExtResource("8_w2m2w")
 texture_hover = ExtResource("9_s4v4f")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Items/VBoxContainer/Tabs/Gear"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_efob0")
 stretch_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Items/VBoxContainer"]
@@ -502,6 +519,7 @@ autoplay = "open"
 [connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Consumables" to="." method="_on_consumables_pressed"]
 [connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Weapons" to="." method="_on_weapons_pressed"]
 [connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Resources" to="." method="_on_resources_tab_pressed"]
+[connection signal="pressed" from="HBoxContainer/Items/VBoxContainer/Tabs/Gear" to="." method="_on_gear_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SubstractButton" to="." method="_on_substract_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]

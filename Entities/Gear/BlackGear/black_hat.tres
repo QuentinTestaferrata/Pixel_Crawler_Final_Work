@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://d2pd4m7frcovc"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_woo67"]
+[ext_resource type="Texture2D" uid="uid://dri12651xy31t" path="res://assets/gear/Armor/1_black/hat.png" id="2_m3kij"]
+
+[resource]
+script = ExtResource("1_woo67")
+gear_name = "Black Hat"
+sprite = ExtResource("2_m3kij")
+shop_sprite = ExtResource("2_m3kij")
+item_name = "Bone"
+price = 100
+obtained = false
+equip_slot = 0
+gear_type = 0
+gear_rarity = 0
+damage_multiplier = 0
+defense = 0
+speed_multiplier = 1
+extra_health = 1
+regenaration = 0
+fire_rate_multiplier = 0
+critical_hit_multiplier = 0
+metadata/_custom_type_script = "uid://cqjwhso552n3k"

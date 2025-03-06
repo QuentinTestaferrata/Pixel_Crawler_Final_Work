@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GearData" load_steps=3 format=3 uid="uid://dgc6xrqe7qadd"]
+
+[ext_resource type="Script" uid="uid://cqjwhso552n3k" path="res://Entities/Gear/gear_resource.gd" id="1_7ct0l"]
+[ext_resource type="Texture2D" uid="uid://df7x31km8n4em" path="res://assets/gear/Armor/2_green/robe.png" id="2_wf7vy"]
+
+[resource]
+script = ExtResource("1_7ct0l")
+gear_name = "Green Coat"
+sprite = ExtResource("2_wf7vy")
+shop_sprite = ExtResource("2_wf7vy")
+item_name = ""
+price = 1500
+obtained = false
+equip_slot = 0
+gear_type = 1
+gear_rarity = 0
+damage_multiplier = 0
+defense = 0
+speed_multiplier = 7
+extra_health = 7
+regenaration = 0
+fire_rate_multiplier = 0
+critical_hit_multiplier = 0
+metadata/_custom_type_script = "uid://cqjwhso552n3k"
