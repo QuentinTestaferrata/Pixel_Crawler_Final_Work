@@ -2,7 +2,6 @@
 
 [ext_resource type="FontFile" uid="uid://cpsua7jawk5h0" path="res://assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_kd0jg"]
 [ext_resource type="Texture2D" uid="uid://bs4cx7yep5fap" path="res://UI/SpriteSheet.png" id="2_tlyh2"]
-[ext_resource type="PackedScene" uid="uid://clgm5sm1ekkyj" path="res://UI/Shop/item_holder.tscn" id="3_pd6rs"]
 [ext_resource type="Script" uid="uid://cm86ua2xh15xq" path="res://UI/Workshop UI/weapon_upgrade_dialog.gd" id="3_tlyh2"]
 [ext_resource type="Texture2D" uid="uid://6kom7ev2h77y" path="res://UI/Buttons/3_normal/button.png" id="4_eyv04"]
 [ext_resource type="Texture2D" uid="uid://7p5tw6t2xo6n" path="res://assets/shadow.png" id="5_0s7c2"]
@@ -30,6 +29,10 @@ texture_margin_top = 6.0
 texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(240, 32, 81, 80)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eyv04"]
+font_size = 15
+font_color = Color(0.105882, 0.133333, 0.211765, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eq8i6"]
 texture = ExtResource("2_tlyh2")
@@ -157,6 +160,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Your weapons"
+label_settings = SubResource("LabelSettings_eyv04")
 
 [node name="WeaponsPanel" type="PanelContainer" parent="HBoxContainer/LeftPage/CenterContainer"]
 layout_mode = 2
@@ -177,42 +181,6 @@ layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 5
 columns = 4
-
-[node name="Consumables" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables2" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables3" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables4" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables5" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables6" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables7" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables8" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables9" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables10" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables11" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
-
-[node name="Consumables12" parent="HBoxContainer/LeftPage/CenterContainer/WeaponsPanel/ScrollContainer/MarginContainer/Grid" instance=ExtResource("3_pd6rs")]
-layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(1, 0)

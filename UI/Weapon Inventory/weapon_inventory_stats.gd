@@ -19,7 +19,6 @@ func _ready() -> void:
 	weapon_inventory.connect("weapon_clicked", update_stats)
 
 func update_stats() -> void:
-	print("Updating stats")
 	if !panel_container.visible:
 		$AnimationPlayer.play("show_stats")
 	weapon_level_label.text = str("Level: ", selected_weapon.weapon_level)

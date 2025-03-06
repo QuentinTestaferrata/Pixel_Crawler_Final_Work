@@ -182,20 +182,15 @@ func pay() -> bool:
 		1: 
 			if payement_item.amount >= selected_weapon.primary_attack.amount:
 				payement_item.amount -= selected_weapon.primary_attack.amount
-				print(payement_item.amount)
-				print("Bought!")
 				return true
 			else: 
-				print("Can't buy")
 				return false
 			
 		2: 
 			if payement_item.amount >= selected_weapon.secondary_attack.amount:
 				payement_item.amount -= selected_weapon.secondary_attack.amount
-				print("Bought!")
 				print(payement_item.amount)
 				return true
 			else: 
-				print("Can't buy")
 				return false
 	return false

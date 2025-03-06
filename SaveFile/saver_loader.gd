@@ -14,7 +14,7 @@ func save_game():
 	#Shop Items
 	saved_game.shop_items = StatsManager.shop_items
 	saved_game.shop_resources = StatsManager.shop_resources
-	#saved_game.shop_weapons = StatsManager.shop_weapons
+	saved_game.shop_weapons = StatsManager.shop_weapons
 	saved_game.shop_gears = StatsManager.shop_gears
 	
 	#Active Weapons
