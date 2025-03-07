@@ -242,7 +242,6 @@ script = ExtResource("1_xgmka")
 health_bar = NodePath("PlayerHealthBar")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 rotation_smoothing_enabled = true

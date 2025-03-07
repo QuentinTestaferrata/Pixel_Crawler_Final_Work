@@ -28,6 +28,10 @@ func add_weapon(weapon: WeaponData):
 	new_item_obtained.emit()
 	var new_weapon: WeaponData = weapon.duplicate()
 	new_weapon.obtained = true
+	
+	new_weapon.primary_attack = new_weapon.primary_attack.duplicate()
+	new_weapon.secondary_attack = new_weapon.secondary_attack.duplicate()
+	
 	weapons.append(new_weapon)
 
 func find_matching_weapon(weapon: WeaponData) -> WeaponData:

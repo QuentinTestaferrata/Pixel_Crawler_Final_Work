@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0447o744qikm"]
+
+[ext_resource type="Texture2D" uid="uid://dpc8q50lyr50k" path="res://assets/Castle/Tiles.png" id="1_o4mgp"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_o4mgp")
+region_enabled = true
+region_rect = Rect2(320, 172, 16, 30)

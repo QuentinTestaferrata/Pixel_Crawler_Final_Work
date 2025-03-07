@@ -27,7 +27,7 @@ region_rect = Rect2(271.934, 340, 48.0662, 60)
 [node name="InteractionArea" parent="." instance=ExtResource("3_2ktnx")]
 collision_layer = 512
 collision_mask = 514
-action_name = "Open Chest"
+action_name = "Open weaponrack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -3)

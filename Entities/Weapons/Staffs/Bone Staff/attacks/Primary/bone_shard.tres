@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://0wswimdn2cna"]
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=3 format=3 uid="uid://0wswimdn2cna"]
 
 [ext_resource type="Script" uid="uid://cvnecarof554r" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_gnla0"]
+[ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="1_u6bfl"]
 
 [resource]
 script = ExtResource("1_gnla0")
-NAME = "Bone Shard"
+NAME = "Bone Storm"
 TYPE = 1
 SPREAD = 30
 DAMAGE = 10
@@ -16,3 +17,7 @@ COOLDOWN = 0.0
 KNOCKBACK_FORCE = 0.5
 CRIT_CHANCE = 10
 CRIT_MULTIPLYER = 1.5
+item = ExtResource("1_u6bfl")
+amount = 250
+damage_multiplyer = 1.1
+price_multiplyer = 1.05

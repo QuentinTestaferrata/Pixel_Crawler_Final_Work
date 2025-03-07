@@ -1,6 +1,7 @@
 extends Node2D
 class_name Bow
 
+# TODO : make the bow primary attack spawn a PROJECTILE & not a fucking nothing scene 
 const BONE_ARROW = preload("res://Entities/Weapons/bow/bone_bow/secondary/bone_arrow_projectile.tscn")
 const CURSED_ARROW = preload("res://Entities/Weapons/bow/cursed_bow/cursed_arrow/cursed_arrow_projectile.tscn")
 

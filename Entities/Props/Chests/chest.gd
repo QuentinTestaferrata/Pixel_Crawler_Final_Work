@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const WEAPON_INVENTORY = preload("res://UI/Weapon Inventory/weapon_inventory.tscn")
+const WEAPON_INVENTORY = preload("uid://bysjiaycf68tt")
 
 @export var HUDLayer: CanvasLayer
 var temp_weapon_inventory

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="PROJECTILE" load_steps=2 format=3 uid="uid://c4qj5yf413nxr"]
+[gd_resource type="Resource" script_class="PROJECTILE" load_steps=3 format=3 uid="uid://c4qj5yf413nxr"]
 
+[ext_resource type="Resource" uid="uid://b8xnlhni3gxu2" path="res://Items and Drops/Items/resources/enemy_drops/Skeletons/bone.tres" id="1_vuy23"]
 [ext_resource type="Script" uid="uid://cvnecarof554r" path="res://Entities/Weapons/Projectiles/projectile.gd" id="1_yekku"]
 
 [resource]
@@ -7,7 +8,7 @@ script = ExtResource("1_yekku")
 NAME = "Fireball"
 TYPE = 0
 SPREAD = 0
-DAMAGE = 25
+DAMAGE = 50
 MANA_COST = 0
 SPEED = 300
 FIRERATE = 0.0
@@ -16,3 +17,8 @@ COOLDOWN = 15.0
 KNOCKBACK_FORCE = 5.0
 CRIT_CHANCE = 50
 CRIT_MULTIPLYER = 1.5
+item = ExtResource("1_vuy23")
+amount = 150
+damage_multiplyer = 1.15
+price_multiplyer = 1.1
+weapon_level = 1
